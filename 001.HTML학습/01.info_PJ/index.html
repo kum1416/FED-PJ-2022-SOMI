@@ -50,7 +50,7 @@
             요소명#아이디명.클래스명 
             예) div#my{} -> div요소인데 아이디가 my이다
             예) a.my{} -> a요소인데 클래스가 my이다
-            -> 기본적으로 종속선책자는 요소분석기에 사용
+            -> 기본적으로 종속선택자는 요소분석기에 사용
             -> 특정요소에 특정이름을 밝혀야 할 경우
             -> 클래스적용시 같은 이름으로 다른 디자인을줄때
             예) div.on{} header.on{} -> 같은 클래스인데 다른 디자인 적용가능!
@@ -60,8 +60,9 @@
 
             6. 자손 선택자 : 띄어쓰기
             예) div a {} -> div 하위의 모든 a요소들
-    
-
+            
+            7. 직계자식 선택자 : > (왼쪽꺾쇠)
+            예) header>a{} -> header 바로아래 a요소
         */
 
         /* 기본마진 패딩 없애기 */
@@ -137,6 +138,42 @@
             /* 글자중앙정렬 */
             text-align: center;
         }
+        /* 타이틀 */
+        .top>h1{
+            /* 1.글자 스타일 fs :
+            font-style
+            italic : 이탤릭
+            normal : 이탤릭해제(기본값) */
+            font-style: italic;
+            /* font-style: normal; */
+            
+            /* 2. 글자두께 fw :
+            font-weight
+            normal : 두께없음
+            bold : 두껍게 */
+            font-weight: normal;
+            /* font-weight: bold; */
+
+            /* 3. 글자크기 :
+            font-size
+            - 글자단위: pt, px, em, rem, vw, vh */
+            font-size: 50px;
+
+            /* 4. 글자줄간격 : 
+            line-height 
+            (글이 여러줄일때 사이간격용
+            또는 글자 박스에서 세로중앙정렬시)
+            - 단위없으면 배수*/
+            line-height: 1.7;
+
+            /* 5. 글자체 : ff
+            font-family 
+            - 콤마로 여러개를 쓰면 대체체를 설정함 */
+            font-family: "긍서","글림","맑은고딕","돋움";
+            
+        }
+
+
         /* 2.메인영역 */
         /* 메인영역 이미지 */
         .cont img{
