@@ -11,6 +11,18 @@
     <title>네이버 요약 뉴스</title>
     <!-- 인터널 스타일시트 요소 -->
     <style>
+        /* 웹폰트 CDN */
+        @import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Chakra+Petch&family=Gamja+Flower&family=Lobster&family=Pacifico&family=Rubik+Gemstones&family=Signika&display=swap');
+
+        /* 
+            1. 타이틀용
+            font-family: 'Black Han Sans', sans-serif;
+            2. 메뉴/하단영역용
+            font-family: 'Chakra Petch', sans-serif;
+            3. 일반내용용
+            font-family: 'Gamja Flower', cursive;
+        */
+
         /* 
             [스타일 시트 문법 영역!
             기본문법]
@@ -144,7 +156,7 @@
             font-style
             italic : 이탤릭
             normal : 이탤릭해제(기본값) */
-            font-style: italic;
+            /* font-style: italic; */
             /* font-style: normal; */
             
             /* 2. 글자두께 fw :
@@ -169,10 +181,28 @@
             /* 5. 글자체 : ff
             font-family 
             - 콤마로 여러개를 쓰면 대체체를 설정함 */
-            font-family: "긍서","글림","맑은고딕","돋움";
+            font-family: 'Black Han Sans', sans-serif;
+            /* font-family: "긍서","글림","맑은고딕","돋움"; */
+
+            /* 6. 글자색 : c
+            color - 해시코드/RGV/HSL/웹색상명 */
+            color: darkblue;
+            
             
         }
 
+            /* GNB 메뉴 a */
+            #gnb a{
+                /* 글자체 */
+                font-family: 'Chakra Petch', sans-serif;
+                font-weight: bold;
+                /* a요소는 기본적으로 밑줄과 글자색이 셋팅됨!
+                반드시 a에서 변경해야만 적용된다!(부모에서는 안됨) */
+                /* 글자색 */
+                color: darkcyan;
+                /* 밑줄없앰 - text-decoration:none*/
+                text-decoration: none;/* tdn */
+            }
 
         /* 2.메인영역 */
         /* 메인영역 이미지 */
