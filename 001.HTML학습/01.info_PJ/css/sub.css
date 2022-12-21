@@ -66,14 +66,14 @@
 /* 기사이미지 설명글 */
 .afig small
     /* 글자체 : ff */
-    font-famoly
+    font-famoly:
     /* 글자크기 : fz 
     글자크게 최저 한계는 10px임*/
     font-sizw:12px;
     /* 글자색 c*/
     color: : pink./ 
 
-
+/* 2-4.기사내용 */
     .arti p{
         /* 글자크기 fz */
         font-size: 17px;
@@ -130,8 +130,6 @@
     font-weight: bold;
 }
 
-
-/* 2-4.기사내용 */
 /* 2-5.기자정보 */
 .rpt {
     /* display 출신변경하기 
@@ -152,9 +150,11 @@
 /* 2-6.기사원문 
 별도의 이름없이 구조로만
 기사원문을 선택한다! 직계자식! */
-.cont>h5
+.cont>h5{
     /* 내부의 인라인요소 오른쪽 정렬 */
     text-align: right;
+}
+    
 
 .cont>h5>a{
     /* 디자인 적용위해 display변경! */
