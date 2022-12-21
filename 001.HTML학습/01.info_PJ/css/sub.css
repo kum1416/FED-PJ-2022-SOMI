@@ -64,14 +64,16 @@
     width: 100%;
 }
 /* 기사이미지 설명글 */
-.afig small
+.afig small{
+
     /* 글자체 : ff */
-    font-famoly:
+    font-family: 'Gamja Flower'
     /* 글자크기 : fz 
     글자크게 최저 한계는 10px임*/
-    font-sizw:12px;
-    /* 글자색 c*/
-    color: : pink./ 
+    font-size: 12px;
+    /* 글자색 c */
+    color: #333;
+}
 
 /* 2-4.기사내용 */
     .arti p{
@@ -82,7 +84,7 @@
         기준은 글자크기임! */
         line-height: 1.7;
         /* 양쪽패딩 : 위아래 양쪽 */
-        padding: 0 10px
+        padding: 0 10px;
         /* 자간 : ls */
         letter-spcaing: 1px;
         /* 글자 들여쓰기 ti
