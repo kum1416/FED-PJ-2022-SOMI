@@ -71,12 +71,50 @@
     글자크게 최저 한계는 10px임*/
     font-sizw:12px;
     /* 글자색 c*/
-color: : #333;
+    color: : pink./ 
 
 
+    .arti p{
+        /* 글자크기 fz */
+        font-size: 17px;
+        /* 줄간격 :1h
+        -> 주의: 단위가 없으면 배수임
+        기준은 글자크기임! */
+        line-height: 1.7;
+        /* 양쪽패딩 : 위아래 양쪽 */
+        padding: 0 10px
+        /* 자간 : ls */
+        letter-spcaing: 1px;
+        /* 글자 들여쓰기 ti
+        값: 양수는 들여쓰기, 음수는 내어쓰기 */
+        /* text-indent: 20px; */
+    
+    }
 
+    /* mark요소 변경하기 */
+    .arti mark{
+        /* 인라인을 블록으로 출신변경! */
+        display: block;
+        /* 글자크기변경 */
+        font-size: 20px;
+        /* 줄간격 주기 */
+        line-height: 4;
+        /* 위아래, 양쪽패딩 */
+        padding: 20px 50px;
+        /* 배경색 */
+        background-color: rgb(248, 247, 203);
+        /* 보더 위, 아래 
+        위(top),아래(bottom),
+        왼쪽(left),오른쪽(right)*/
+        border-top: 2px solid grey;
+        border-bottom: 2px solid grey;
 
+        /* 중앙정렬 */
+        text-align: center;
 
+        /* 위아래 마진 */
+        margin: 15px 0;
+    }
 
 /* 2-4.기사내용 */
 /* 2-5.기자정보 */
