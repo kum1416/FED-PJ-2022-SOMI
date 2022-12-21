@@ -87,6 +87,8 @@ body {
 body {
   /* 하단패딩 pb */
   padding-bottom: 50px;
+   /* 글자체 ff */
+   font-family: 'Gamja Flower';
 }
 /* 1.박스공통 클래스 */
 .bx {
