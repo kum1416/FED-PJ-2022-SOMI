@@ -98,11 +98,11 @@
         /* 글자크기변경 */
         font-size: 20px;
         /* 줄간격 주기 */
-        line-height: 4;
+        line-height: 2;
         /* 위아래, 양쪽패딩 */
         padding: 20px 50px;
         /* 배경색 */
-        background-color: rgb(248, 247, 203);
+        background-color: rgb(239, 244, 209);
         /* 보더 위, 아래 
         위(top),아래(bottom),
         왼쪽(left),오른쪽(right)*/
@@ -115,6 +115,21 @@
         /* 위아래 마진 */
         margin: 15px 0;
     }
+
+/* p요소 아래 em요소 디자인 변경 */
+.arti p em{
+    /* 글자그림자 : text-shadow
+    값: x축 y축 블러 색 
+    블러는 그림자 경계흐림정도 */
+    text-shadow: 2px 2px 2px rgba(172, 0, 191, 0.632);
+    /* 이탤릭해제 : fsn */
+    font-style: normal;
+    /* 글자색 */
+    color: darkviolet;
+    /* 글자두껍게 : fwb */
+    font-weight: bold;
+}
+
 
 /* 2-4.기사내용 */
 /* 2-5.기자정보 */
