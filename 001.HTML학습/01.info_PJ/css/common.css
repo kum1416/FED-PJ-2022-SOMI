@@ -87,8 +87,16 @@ body {
 body {
   /* 하단패딩 pb */
   padding-bottom: 50px;
-   /* 글자체 ff */
+   /* 글자체 ff : 웹폰트 */
    font-family: 'Gamja Flower';
+}
+
+/* 전체 a요소 공통 셋팅 */
+a{
+  /* 글자색 */
+  color: #222;
+  /* 밑줄없앰 tdn */
+  text-decoration: none;
 }
 /* 1.박스공통 클래스 */
 .bx {
