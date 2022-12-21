@@ -152,9 +152,15 @@
 /* 2-6.기사원문 
 별도의 이름없이 구조로만
 기사원문을 선택한다! 직계자식! */
-.cont>h5{
+.cont>h5
+    /* 내부의 인라인요소 오른쪽 정렬 */
+    text-align: right;
+
+.cont>h5>a{
+    /* 디자인 적용위해 display변경! */
+    display: inline-block;
     /* 기본없애기 */
-    margin: 0;
+    margin: 20;
     padding: 0;
     /* 가로,세로지정 */
     width: 70px;
@@ -169,10 +175,10 @@
     brad -> 50%는 원*/
     border-radius: 50%;
     /* 배경색 bgc */
-    background-color: rgb(230, 253, 218);
+    background-color: rgb(165, 248, 120);
 }
 /* 가상클래스로 오버시 박스그림자 넣기 */
-.cont>h5:hover{
+.cont>h5>a:hover{
     /* 박스그림자 
         box-shadow: x y blur 색;
         (내부그림자는 inset씀
