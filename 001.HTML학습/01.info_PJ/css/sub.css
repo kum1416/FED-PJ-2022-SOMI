@@ -107,7 +107,7 @@
         /* 위아래, 양쪽패딩 */
         padding: 20px 50px;
         /* 배경색 */
-        background-color: rgb(239, 244, 209);
+        background-color: rgb(246, 228, 253);
         /* 보더 위, 아래 
         위(top),아래(bottom),
         왼쪽(left),오른쪽(right)*/
@@ -180,7 +180,7 @@
     brad -> 50%는 원*/
     border-radius: 50%;
     /* 배경색 bgc */
-    background-color: rgb(165, 248, 120);
+    background-color: rgb(249, 240, 142);
 }
 /* 가상클래스로 오버시 박스그림자 넣기 */
 .cont>h5>a:hover{
@@ -450,7 +450,7 @@
     /* 가로중앙이동 : 마영오씨!
     -> 블록요소 또는 table 에 적용된다!  */
     margin: 0 auto;
-    border: 1px solid #ccc
+    border: 2px solid #ccc;
 
     /* 테이블 기본 사이간격 없애기 */
     border-collapse: collapse;
@@ -461,12 +461,12 @@
 더 쎄기 때문에 여기서 윗 부모를 같은
 레벨로 넣어서 선택하면 하위에 클래스가
 요소(타입)보다 더 높기때문에 우선적용된다!  */
-.cont .pnew.a[
-글자크기
-font-size 14px;
-/* 줄간격 */
-line-height: 1.5
-]
+.cont .pnew.a{
+    /* 글자크기 */
+    font-size: 14px;
+    /* 줄간격 */
+    line-height: 1.5;
+}
 
 /* 
 tr이나 td에 child 선택자를 사용가능
@@ -478,7 +478,7 @@ tr이나 td에 child 선택자를 사용가능
     /* 가로크기 w */
     width: 50px;
     /* 세로크기 h */
-    height: 84px;
+    height: 70px;
     
     /* 인라인 가로중앙 */
     text-align: center;
@@ -496,7 +496,8 @@ tr이나 td에 child 선택자를 사용가능
 
 /* 세번째 td */
 .pnews td:last-child{
-    background-color: #edebed(255, 0, 0);
+    background-color: #edebed;
+    /* 오른쪽 패딩 */
     padding-right: 7px;
 }
 
