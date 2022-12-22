@@ -446,6 +446,16 @@
     border-collapse: collapse;
     /* seperate(기본값) */
 }
+/* 테이블 a 요소 */
+/* 기존 .cont article 로 셋팅된것이
+더 쎄기 때문에 여기서 윗 부모를 같은
+레벨로  */
+.cont .pnew.a[
+글자크기
+font-size 14px;
+/* 줄간격 */
+line-height: 1.5
+]
 
 /* 
 tr이나 td에 child 선택자를 사용가능
@@ -486,6 +496,7 @@ tr이나 td에 child 선택자를 사용가능
     크기줄때 나머지는 자동비율유지 */
     /* 세로정렬 */
     vertical-align: middle;
+    
     /* td에서만 세로정렬이
     적용되고 일반적으로는 
     vertical-align은 인라인요소간
