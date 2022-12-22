@@ -54,7 +54,7 @@
 /* 2-3.기사사진(+사진설명) */
 .afig{
     /* 마진 m : 2개값 -> 위아래 양쪽 */
-    margin: 15px 0k
+    margin: 15px 0;
     /* 인라인 가로중앙 : tac(text-align) */
     text-align: center;
 
