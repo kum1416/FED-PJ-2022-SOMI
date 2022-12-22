@@ -205,7 +205,7 @@
 /* 각 파트별 공통 타이틀 */
 /* 기사관련 타이틀 h5 */
 /* .cont>h5와 구분하기 위해 중간경로 article씀 */
-.cont h5 {
+.cont article h5 {
     /* 내용만큼 자동크기 위해 inline-block */
     display: inline-block;
     /* 패딩 : 위아래 양쪽 */
