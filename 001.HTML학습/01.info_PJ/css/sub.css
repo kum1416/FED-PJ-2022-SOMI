@@ -302,5 +302,13 @@
         3. content-box -> 내용영역만적용(패딩,보더빠짐)
     */
     background-clip: content-box;
+}
 
+/* 작품명 */
+.work figcaption{
+    font-family: 'Gamja Flower', sans-serif;
+}
+.work figcaption{
+    /* 기본 이탤릭 해제 : fsn */
+    font-style: normal;
 }
