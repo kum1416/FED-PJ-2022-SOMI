@@ -459,7 +459,8 @@
 /* 테이블 a 요소 */
 /* 기존 .cont article 로 셋팅된것이
 더 쎄기 때문에 여기서 윗 부모를 같은
-레벨로  */
+레벨로 넣어서 선택하면 하위에 클래스가
+요소(타입)보다 더 높기때문에 우선적용된다!  */
 .cont .pnew.a[
 글자크기
 font-size 14px;
@@ -517,4 +518,21 @@ tr이나 td에 child 선택자를 사용가능
 .pnews tr+tr td{
     /* 보더탑 bdt */    
     border-top: 2px solid #ccc;
+}
+
+/******************
+말줄임 표시 셋팅하기!
+*******************/
+ul a, ol a, dl a{
+    /* 1.디자인 적용위해 biock */
+    display: block;
+    /* 2.가로크기 한계주기 */
+    width: 315px;
+    /* 3.줄바꿈방지(한줄짜리) */
+    white-space: nowrap;
+    /* 4.넘치는자식숨기기 */
+    overflow: hidden;
+    /* 5.넘치는테스트 말줄임표 설정 */
+    text-overflow: ellipsis;
+    /* border: 1px solid red; */
 }
