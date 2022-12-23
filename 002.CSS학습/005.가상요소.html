@@ -178,7 +178,13 @@
 
         /* 기타 가상요소 ::selection */
         /* 드래그 선택시 글자색 배경색 설정변경! */
-        
+        p::selection
+        b::selection
+        span::selection{
+            color: blue;
+            background color : pink;
+        }
+
         /* ::selection만쓰면 전체가 다 적용됨! 
         특정선택자::selection 으로 쓰면 자식태그로
         싸지 않은 글자만 적용됨!*/
@@ -186,7 +192,11 @@
 </head>
 
 <body>
-    <h1>CSS 가상요소</h1>
+    <h1>CSS 가상요소 ::selection</h1>
+        color: blue;
+        background-color: pink;
+    
+        
 
     <h2>[ 드라마 "도깨비" 제작발표회 ]</h2>
     <dl>
