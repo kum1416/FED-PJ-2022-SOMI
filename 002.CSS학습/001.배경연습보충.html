@@ -35,17 +35,17 @@
         -> :nth-of-type(n) n은 순번(1부터) */
 
         /* 1. 가로채움 : 뒤에 auto는 생략가능!
-        -> 비율유지 */
+        -> 비율유지(세로부분이 잘릴 수 있음) */
         .wrap>div:nth-of-type(1){
             background-size: 100% auto;
         }
         /* 2. 세로채움
-        -> 비율유지 */
+        -> 비율유지(가로부분이 잘릴 수 있음) */
         .wrap>div:nth-of-type(2){
             background-size: auto 100%;
         }
         /* 3. 가로,세로 모두 채움
-         -> 이미지변형됨 */
+         -> 이미지가 모두 보이지만 변형됨(안좋음!!!) */
         .wrap>div:nth-of-type(3){
             background-size: 100% 100%;
         }
