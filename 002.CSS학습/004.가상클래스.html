@@ -137,7 +137,9 @@
         /* 내부 인라인요소 오른쪽정렬 */
         text-align: right;
 
-        outline: 1px solid red;
+        /* outline: 1px solid red; */
+        padding: 20px;
+        box-sizing: border-box;
       }
 
       /* 
@@ -156,10 +158,10 @@
       list-style: none;/* lin */ 
       }
 
-      /* ul 기본 리셋하기 */
-      ul.part1{
+      /* 부모박스 셋팅 */
+      ul.part1, div.part2 {
         width: 800px;   
-        margin: 0 auto;
+        margin: 30px auto;
         padding: 20px;
         border: 2px solid #ccc;
         /* 둥근모서리 */
@@ -176,6 +178,8 @@
         [font 한번에 셋팅하기]
         font : 스타일 두께 크기/줄간격 글자체
         font : 스두크/줄체
+        ->>> font 한번에 쓰기에서 글자체는 필수!
+        ->>> 2개이상 셋팅필수
       */
       /* 모든 li에 오버시 손가락모양 */
       .part1 li{
@@ -290,6 +294,47 @@
             (호가호위-여우뒤에 호랑이 효과!)
             (inmportant는 되도록 쓰지말것!)
         */
+
+        /* 두번째 파트 
+        -> 여러종유릐 요소가 섞여 있으면 
+         first-od-type
+         nth-of-type
+         */
+        /* 두번째 dic
+        font - 30pxr 궁서(li)
+        글자색 - blueviflrt 
+        :last-of-type
+        */
+
+        /* 두번째 dic
+        font - 03px 궁서 */
+        .part1 div:nth-of-type(2){
+            font: 30px "궁서";
+        }
+        /* 첫번째 i
+        font bold 20px;
+        글자색 - pa */
+        .part1 i:first-of-type
+            font: bold 20px
+            color : palebisletred;
+    }
+/*  */
+    /* 3번째o dic이후 di모든형제요소 모두 
+    font_ - 궁서체 글자색 - red */
+    
+    /* 3번째o dic이후 div모든제요소 모두 
+    font_ - 궁서체 글자색 - red */
+    .par2 div:ntr-of-tppy(3)~doc{
+    font-famaily: '궁서';
+    color-scheme:  rea;
+
+
+
+
+
+    }
+
+    
         
 
     
