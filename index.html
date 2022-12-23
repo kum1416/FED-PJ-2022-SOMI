@@ -13,6 +13,15 @@
             설정할때 body가 기준이 된다! */
         }
         body{
+            /* 패딩탑 pt */
+            /* padding-top: 50px; */
+        }
+        
+        /* 페이지박스 : div 블록박스 */
+        .mybox{
+            width: 100%;
+            height: 100%;
+            
             /* 배경이미지 bgi */
             background-image: url(./imgs/worksbg.jpg);
             /* 배경반복여부 bgr 반복안함(no-repeat) */
@@ -23,14 +32,13 @@
             background-position: center;
             /* 배경 크기 : 채우기(cover) bgz */
             background-size: cover;
-            /* 패딩탑 pt */
-            padding-top: 50px;
         }
-
-        /* 전체박스 : div 블록박스 */
-        .mybox{
-            width: 1200px;
-            height: 800px;
+        /* 두번째 페이지 박스 */
+        .mbx2{
+            background-image: url(./imgs/bg_mainvisual.jpg);
+        }
+        /* 페이지별 컨텐츠 박스 */
+        .pwrap{
             background-color: rgba(255, 255, 255, 0.525);
             /* 둥근모서리 brad */
             border-radius: 20px;
@@ -53,6 +61,47 @@
 </head>
 <body>
     <div class="mybox mbx1">
+        <!-- 1.타이틀 -->
+        <h1 class="tit">
+            <img src="./imgs/mylogo_14.png" alt="나의로고">
+            <br>
+            SOMI의 아카이브 페이지
+        </h1>
+        <div class="pwrap">
+            <!-- 1. html학습 링크파트 -->
+            <section class="part pt1">
+                <ol>
+                    <li>
+                        <a href="./001.HTML학습/01.info_PJ/index.html" target="_blank">Info PJ</a>
+                    </li>
+                    <li>
+                        <a href="./001.HTML학습/01.info_PJ/index.html" target="_blank">IT/과학 페이지</a>
+                    </li>
+                    <li>
+                        <a href="./006.와이어프레이밍/도깨비PJ와이어프레임.pdf" target="_blank">도깨비PJ와이어프레임</a>
+                    </li>
+                </ol>
+                
+            </section>
+            <!-- 2 CSS학습 링크파트 -->
+            <section class="part pt2">
+                <ol>
+                    <li>
+                        <a href="./001.HTML학습/01.info_PJ/index.html" target="_blank">Info PJ</a>
+                    </li>
+                    <li>
+                        <a href="./001.HTML학습/01.info_PJ/index.html" target="_blank">IT/과학 페이지</a>
+                    </li>
+                    <li>
+                        <a href="./006.와이어프레이밍/도깨비PJ와이어프레임.pdf" target="_blank">도깨비PJ와이어프레임</a>
+                    </li>
+                </ol>
+                
+            </section>
+        </div>
+
+        
+    <div class="mybox mbx2">
         <!-- 1.타이틀 -->
         <h1 class="tit">
             <img src="./imgs/mylogo_14.png" alt="나의로고">
