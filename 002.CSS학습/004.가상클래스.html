@@ -296,61 +296,50 @@
         */
 
         /* 두번째 파트 
-        -> 여러종유릐 요소가 섞여 있으면 
+        -> 여러종류의 요소가 섞여 있으면 
          first-od-type
          nth-of-type
          */
-        /* 두번째 dic
-        font - 30pxr 궁서(li)
-        글자색 - blueviflrt 
+
+        /* 두번째 div
+        font - 30px 궁서(li)
+        글자색 - blueviolet 
         :last-of-type
         */
 
-        /* 두번째 dic
-        font - 03px 궁서 */
-        .part1 div:nth-of-type(2){
+        /* 두번째 div
+        font - 30px 궁서 */
+        .part2 div:nth-of-type(2){
             font: 30px "궁서";
+            color: blueviolet;
         }
         /* 첫번째 i
         font bold 20px;
-        글자색 - pa */
-        .part1 i:first-of-type
-            font: bold 20px
-            color : palebisletred;
-    }
-/*  */
-    /* 3번째o dic이후 di모든형제요소 모두 
-    font_ - 궁서체 글자색 - red */
-    
-    /* 3번째o dic이후 div모든제요소 모두 
-    font_ - 궁서체 글자색 - red */
-    .par2 div:ntr-of-tppy(3)~doc{
-    font-famaily: '궁서';
-    color-scheme:  rea;
-
-
-
-
-
+        글자색 - palevioletred */
+        .part2 i:first-of-type{
+          /* font 한번에 쓰기에서 글씨체는 필수! */
+            /* font: normal bold 20px; */
+            font-weight: bold;
+            font-size: 20px;
+            color: palevioletred;
     }
 
-    
-        
+    /* 3번째 div이후 div형제요소 모두
+      font - 궁서체, 글자색 - red */
+    /* .part2 div:nth-of-type(3)~div{ */
+
+    /* 3번째 div이후 i형제요소 모두
+       font - 궁서체, 글자색 - red */
+    /* .part2 div:nth-of-type(3)~i{ */
+
+     /* 3번째 div이후 모든형제요소(*)
+         font - 궁서체, 글자색 - red */
+        .part2 div:nth-of-type(3)~*{
+          font-family: "궁서";
+          color: red;
+    }
 
     
-    
-        
-
-        
-
-    
-        
-        
-
-        
-
-
-
         /* 
         [ CSS 선택자 우선순위 ]
 
