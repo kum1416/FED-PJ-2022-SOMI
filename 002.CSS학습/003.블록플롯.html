@@ -130,14 +130,13 @@
             /* 오른쪽float지워! */
         }
 
-        /* float해제용 가상소 */
-        .flclvb::after{
-content: ();
-display: block /* db */
-
-
+        /* float해제용 가상요소 */
+        .flclb::after{
+            content: '';/* ct */
+            display: block; /* db */
+            /* 마치 div태그를 쓴것과 같다! */
+            clear: both;/* clb */
         }
-
 
        
 
@@ -174,6 +173,10 @@ display: block /* db */
         }
 
         /* 경우5 - .flclb로 clear:both처리함! */
+        .case5 .bx{
+            float: right;
+        }
+        
     </style>
 </head>
 
@@ -187,8 +190,8 @@ display: block /* db */
     </h3>
     <div class="wrap">
         <div class="bx bx1 fll"></div>
-        <div class="bx bx2" fle></div>
-        <div class="bx bx3" clr></div>
+        <div class="bx bx2 flr"></div>
+        <div class="bx bx3 clr"></div>
         <div class="bx bx4"></div>
     </div>
 
@@ -200,8 +203,8 @@ display: block /* db */
     </h3>
     <div class="wrap">
         <div class="bx bx1 fll"></div>
-        <div class="bx bx2 clb fll"></div>
-        <div class="bx bx3 clr"></div>
+        <div class="bx bx2 flr"></div>
+        <div class="bx bx3 clb fll"></div>
         <div class="bx bx4 flr"></div>
 
         <!-- clear를 위한 block박스 -->
@@ -215,10 +218,10 @@ display: block /* db */
         부모요소에 가상요소 after를 사용하여 clear:both구현
     </h3>
     <div class="wrap flclb로">
-        <div class="bx fll"></div>
-        <div class="bx flr"></div>
-        <div class="bx fll"></div>
-        <div class="bx flr"></div>
+        <div class="bx bx1 fll"></div>
+        <div class="bx bx2 flr"></div>
+        <div class="bx bx3 fll"></div>
+        <div class="bx bx4 flr"></div>
     </div>
 
     <h2>경우4</h2>
@@ -238,7 +241,7 @@ display: block /* db */
         모든 .bx박스에 float:right 적용하기(순서역순!) <br>
         부모박스에 가상요소 after로 clear:both 적용하기
     </h3>
-    <div class="wrap">
+    <div class="wrap case5 flclb">
         <div class="bx bx1"></div>
         <div class="bx bx2"></div>
         <div class="bx bx3"></div>
