@@ -144,38 +144,40 @@
 
         /* 스토리의 dd는 가상요소 없애기 */
         dd.story::before{
-            display: none
+            display: none;
         }
 
         /* 스토리의 dd 아래 h3 이모지변경 */
-        dd.story::before[
+        dd.story::before{
             content: '🥗🥙';
-            .story 
-        ]
+        }
         
 
         /* .story의 첫번째 p태그의 첫번째 글자 디자인 변경하기 */
-        .story p:nth-of-type(2) b{
+        .story p:nth-of-type(1)::first-letter{
             font-size: 50px;
             color: hotpink;
             font-weight: bold;
         }
 
         /* .story의 첫번째 p태그의 첫번째줄 디자인 변경하기 */
-            .story{}
-            sory 50px;
-            canvasㅗ매
-
-            font-size: 50px;
-            color: hotpink;
-            font-weight: bold;
+            .story p:nth-of-type(1)::first-line{
+                color: blue;
     }
 
 
         /* 두번째 p태그는 태그로 
         첫번째 글자(b태그), 첫번째 줄(span)변경 */
-        
+        .story p:nth-of-type(2) b{
+            font-size: 50px;
+            color: hotpink;
+        }
+        .story p:nth-of-type(2) span{
+            color: blue;
+        }
 
+
+        
         /* 기타 가상요소 ::selection */
         /* 드래그 선택시 글자색 배경색 설정변경! */
         p::selection
