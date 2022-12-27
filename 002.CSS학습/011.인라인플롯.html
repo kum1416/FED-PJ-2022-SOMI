@@ -21,7 +21,7 @@
 
         /* 박스공통 */
         .bx {
-            max-width: 800px;
+            width: 800px;
             /* max-width: 100%; */
             /* 박스크기 보다 화면이 작아지면 100%로 전환 */
             margin: 0 auto;
@@ -84,30 +84,9 @@
         /* 원래 디자인을 별도로 변경하려면 태그로 싸야한다!
          그런데 첫번째 글자나 첫번째 줄은 가상요소로 처리할 수 있다! */
         /* 가상요소로 첫번째 줄 디자인변경하기 */
-        .bx::first-line{
-            font-size: 30px;
-            font-weight: bold;
-            font-family: "궁서";
-            letter-spacing: -1px;
-            line-height: 100px;
-            text-shadow: 2px 2px 2px;
-            text-shadow: rgb(108, 105, 105);
-        }
+        
 
         /* 개별글자색 넣기 */
-        .bx:first-of-type::first-line{
-            color: cyan
-        }
-        .bx:nth-of-type(2)::first-line{
-            color: orange
-        }
-        .bx:nth-of-type(3)::first-line{
-            color: hotpink
-        }
-        .bx:last-of-type::first-line{
-            color: orange
-            ;
-        }
         /* 
             .bx요소는 모두 div로 되어있다
             div앞에는 h1태그가 형제요소로 있다
@@ -124,10 +103,28 @@
 
          /* 가상요소 ::first-line 을 사용하여 
          첫라인 타이틀 만들기 */
-         
+        .bx::first-line{
+            font-size: 30px;
+            font-weight: bold;
+            font-family: "궁서";
+            letter-spacing: -1px;
+            line-height: 100px;
+            text-shadow: 2px 2px 2px rgb(108, 105, 105);
+        }
 
          /* 가상요소::first-line .bx별 글자색 변경 */
-         
+         .bx:first-of-type::first-line{
+            color: cyan;
+        }
+        .bx:nth-of-type(2)::first-line{
+            color: orange;
+        }
+        .bx:nth-of-type(3)::first-line{
+            color: hotpink;
+        }
+        .bx:last-of-type::first-line{
+            color: lightgreen;
+        }
 
         
     </style>
@@ -147,9 +144,11 @@
         백성들은 그를 신(神)이라고 불렀다. 시뻘건 피를 뒤집어쓴 채 푸르게... 
 
         <div class="clb">안광을 빛내며 적들을 베는 그는 문자 그대로의 무신(武神)이었으나, 자신이 지키던 주군의 칼날에 죽었다. </div>
-        <!-- 이미지에 경우 float설정은 div조차 끌어당긴가!
+        <!--
+            이미지에 float설정은 div조차 끌어당긴가!
             이런경우 div를 별도로 block화 하려면
-            clear:both 속성셋팅으로 float 해제재야한다! -->
+            clear:both 속성셋팅으로 float을 해제재야한다!
+            -->
 
 
         <br>
