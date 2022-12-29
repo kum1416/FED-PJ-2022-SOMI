@@ -115,6 +115,7 @@
             셋팅되어 넘치는 자식요소를 숨길때 부모자격이 아닌박스가
             overflow:hidden 이어도 숨겨지지 않고 부모자격박스만
             숨길 수 있다!
+
             예시)
             -> .s8박스에 overflow:hidden 셋팅하고
             하위 앱솔루트인 .a4박스의 top값을 위쪽으로 이동하면
@@ -183,6 +184,9 @@
         .s8{
             position: relative;
             background-color: lightsalmon;
+            overflow: hidden;
+            /* 앱솔루트 자식에 관하여 부모자격이 있는 경우에만
+            ovrflow:hidden이 적용되나! */
         }
         /* 부모찾는 앱솔루트박스 */
         .abs{
@@ -199,7 +203,9 @@
 
         /* 부모찾는 앱솔루트 .a4 */
         .a4{
-            top: 0;
+            top: -18px;
+            /* 부모자격이 있는 overflow:gidden
+            체크위해 약간 위로 이동 */
             left: 0;
             /* 나의 부모는? */
             width: 20%;
@@ -238,6 +244,32 @@
             right: 0;
             /* 부모는 .s8 */
             border: 4px dotted red;
+        }
+
+        /* 앱솔루트끼리는 서로 겹친다! */
+        .absimg{
+            width: 92px;
+            height: 115px;
+            border: 10px ridge goldenrod;
+        }
+        .absimg img{
+            position: absolute;
+            /* 젠틀앱솔루트
+            부모자격이 없는 일반 static
+            요소여도 그 자리에 가만히 있음!
+            -> 앱솔루트 이미지끼리는 서로 겹쳐짐
+            위,아래관계는 z-index로 변경가능 */
+        }
+        /* 두번째 이미지 닥스만 투명하게 */
+        .absimg img:last-child{
+            /* 투명도 : opacity (0-투명,1-불투명,0.몇-반투명) */
+            opacity: 0;/* op숫자 */
+        }
+        /* 부모박스 오버시 닥스 보이기 */
+        .absimg:hover img:last-child{
+            opacity: 1;
+            /* 트랜지션 : transition - trs */
+            /* transition: .5s; */
         }
 
     </style>
