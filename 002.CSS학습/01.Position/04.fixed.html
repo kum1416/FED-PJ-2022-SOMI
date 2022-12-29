@@ -221,6 +221,34 @@
             opacity: 1;
         }
 
+        /* 최하위 요소일지라도 fixed되면
+        보이는 화면으로 기준하여 변경됨!! */
+        .f3{
+            position: fixed;
+            top: 10%;
+            right: 0;
+        }
+        .f3 span{/* 글자박스 */
+            position: absolute;
+            top: 0;
+            right: 100%;
+            /* 부모는? .f3 */
+            width: 50px;
+            height: 100%;
+            /* 글자세로모드 */
+            writing-mode: vertical-lr;
+            background-color: lightblue;
+            padding-left: 20px;
+            /* 둥근모서리 : 왼쪽위, 왼쪽아래
+            boder-radiue: 왼위 오른위 오른아래 왼아래
+            왼쪽위부터 시계방향! */
+            border-radius: 20px 0 0 20px;
+        }
+        .f3 img{
+            height: 200px;
+            /* 하단간극없앰 */
+            vertical-align: middle;
+        }
 
     </style>
 </head>
