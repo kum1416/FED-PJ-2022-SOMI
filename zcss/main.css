@@ -18,7 +18,7 @@ html{
     z-index: 9999;
 }
 
-/* GNB메뉴 */
+/********* GNB메뉴 *********/
 /* GNB박스 width 크기를 주고 마영오! */
 .gnb{
     width: 600px;
@@ -46,12 +46,17 @@ html{
 /* GNB a요소 */
 .gnb a{
     /* 글자색 밑줄없앰 */
-    color: greenyellow;
+    color: lawngreen;
     text-decoration: none;
 
     font-size: 30px;
     /* 그림자로 글자 테두리주기
-    블러없는 그림자 */
+    블러없는 그림자 4개사용 */
+     text-shadow: 
+        1px 0 #000,
+        -1px 0 #000,
+        0 1px #000,
+        0 -1px #000;
 }
 
 html,body{
