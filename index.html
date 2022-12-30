@@ -14,11 +14,30 @@
                 <br>
                 SOMI의 아카이브 페이지
             </h1>
+            <!-- 네비게이션 -->
+            <nav class="gnb">
+                <ul>
+                    <li>
+                        <a href="#pg1">1페이지</a>
+                        <!-- a요소의 href 에 "#아이디명"은
+                        같은 페이지내의 아이디 요소 위치로 이동함! -->
+                    </li>
+                    <li>
+                        <a href="#pg2">2페이지</a>
+                    </li>
+                    <li>
+                        <a href="#pg3">3페이지</a>
+                    </li>
+                    <li>
+                        <a href="#pg4">4페이지</a>
+                    </li>
+                </ul>
+            </nav>
         </header>
     </div>
 
     <!-- 1번 페이지 -->
-    <div class="mybox mbx1">
+    <div id="pg1" class="mybox mbx1">
         <div class="pwrap">
             <!-- 1. html학습 링크파트 -->
             <section class="part pt1">
@@ -54,13 +73,7 @@
     </div>
         
     <!-- 2번 페이지 -->
-    <div class="mybox mbx2">
-        <!-- 1.타이틀 -->
-        <h1 class="tit">
-            <img src="./imgs/mylogo_14.png" alt="나의로고">
-            <br>
-            SOMI의 아카이브 페이지
-        </h1>
+    <div id="pg2" class="mybox mbx2">
         <div class="pwrap">
             <!-- 1. html학습 링크파트 -->
             <section class="part pt1">
@@ -93,6 +106,12 @@
                 
             </section>
         </div>
+    </div>
+        <!-- 3번 페이지 -->
+        <div id="pg3" class="mybox mbx3">
+    </div>
+        <!-- 4번 페이지 -->
+        <div id="pg4" class="mybox mbx4">
     </div>
     </body>
     </html>
