@@ -183,7 +183,9 @@
             background-color 3s linear 3s;
             /* 배경색은 3초간 등속도로 3초 기다림 */
         }
-        #tr4:hover span{
+        /* 체크박스가 체크되면 그 다음 형제요소를 변경하여
+        클릭시 변경된것처럼 작동시킨다! */
+        #chkbx:checked + span{
            /* 위치이동 */
            left: 70%;
             /* 크기변경 */
@@ -219,8 +221,10 @@
     <h2>4.원본에 트랜지션을 각 속성별로 다르게 준다</h2>
     <div id="tr4">  
        <label for="chkbx">체크하면 작동!</label>
-       <input type="checkbox name"chkbx id="chkbx"> 
+       <input type="checkbox" name="chkbx" id="chkbx"> 
         <span></span>
+        <!-- 체크박스 다음에 변경할 요소가 와야함!
+        형제선택자로 변경을 할 수 있음! -->
     </div>
 
     <!-- 
@@ -241,6 +245,13 @@
             + 형제요소 선택자를 사용!
 
             ->> 체크박스:checked + 변경할요소 { 변경내용 }
+
+            -> 라벨은 서로 붙여서 코딩하지 않아도 되므로
+            다른곳에 원하는 디자인요소를 구현후 이것을 클릭하면
+            체크박스가 체크되므로 기능이 작동함!
+
+            -> 체크박스는 display:none으로 처리하여 숨겨놓아도
+            동일한 작동을 할 수 있음!
 
      -->
 </body>
