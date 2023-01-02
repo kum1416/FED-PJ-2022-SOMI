@@ -229,7 +229,7 @@ padding과 border 때문에 숨겨지지 않음!
 
 /* .cbx에 오버시 글자박스 보이기 */
 .cbx:hover .cd{
-    top: 0;
+    top: 105%;
     opacity: 1;
     height: auto;
     /* 전체적으로 트랜지션 설정되어 있으나
