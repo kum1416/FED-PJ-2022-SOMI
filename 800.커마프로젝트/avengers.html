@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <title>어바웃타임 캐릭터 소개</title>
+    <!-- 파비콘 : 탭메뉴 표시 아이콘 이미지 -->
+    <link rel="shortcut icon" href="./ab_img/favicon.ico" />
+    <link rel="stylesheet" href="./css/avengers.css" />
+  </head>
+  <body>
+    <!-- 0. 전체 타이틀 -->
+    <h1 class="tit">Abouttime</h1>
+
+    <!-- 1-2. 캐릭터 소개 페이지 -->
+    <div class="page" id="pg1">
+        <!-- 2. 메인 캐릭터 박스 -->
+        <section class="abx">
+          <!-- 2-1.팀 -->
+          <div class="cbx">
+            <img src="./ab_img/ironman.png" alt="팀" />
+            <!-- 소개글박스 -->
+            <article class="cd ltxt">
+              <div>
+                <h2>팀</h2>
+                <p>
+                인생은 모두가 함께 하는 여행이다. 매일매일 사는동안...우리가 할수 있는건 최선을 다해 이 멋진 여행을 만끽하는것이다.
+                </p>
+              </div>
+            </article>
+          </div>
+          <!-- 2-2.팀의 아빠 -->
+          <div class="cbx">
+            <img src="./ab_img/tanos.png" alt="팀의 아빠" />
+            <!-- 소개글박스 -->
+            <article class="cd rtxt">
+              <div>
+                <h2>팀의 아빠</h2>
+                <p>인생은 누구나 비슷한 길을 걸어간다. 결국엔 늙어서 지난날을 추억하는 것일 뿐이다. 결혼은 따듯한 사람하고 하거라...</p>
+              </div>
+            </article>
+          </div>
+          <!-- 2-3.메리 -->
+          <div class="cbx">
+            <img src="./ab_img/thor.png" alt="메리" />
+            <!-- 소개글박스 -->
+            <article class="cd ltxt">
+              <div>
+                <h2>메리</h2>
+                <p>
+                  음.....내 대답은 '예스'야 물어봐줘서 고마워.
+                </p>
+              </div>
+            </article>
+          </div>
+          <!-- 2-4.팀의 엄마 -->
+          <div class="cbx">
+            <img src="./ab_img/docs.png" alt="팀의 엄마" />
+            <!-- 소개글박스 -->
+            <article class="cd rtxt">
+              <div>
+                <h2>팀의 엄마</h2>
+                <p>
+                  저 남자없는 내 인생은 살아갈 가치가 없어.
+                </p>
+              </div>
+            </article>
+          </div>
+          <!-- 2-5.킷캣 -->
+          <div class="cbx">
+            <img src="./ab_img/star.png" alt="킷캣" />
+            <!-- 소개글박스 -->
+            <article class="cd ctxt">
+              <div>
+                <h2>킷캣</h2>
+                <p>
+                  초콜릿 먹고싶다.
+                </p>
+              </div>
+            </article>
+          </div>
+
+        </section>
+        <!-- 예고편 보기 이동버튼 -->
+        <a href="#pg2" class="gobtn">예고편보기</a>
+
+    </div>
+    <!-- 1-2. 예고편 동영상 페이지 -->
+    <div class="page" id="pg2">
+        <h2 class="subtit">어바웃타임 메인 예고편</h2>
+        <div class="mvbx">
+          <iframe src="https://www.youtube.com/embed/8w8dCc1RGU8" title="어바웃 타임 메인 예고편" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <!-- 
+                [ 아이프레임 : iframe (inline frame) ]
+                -> 외부 시스템/페이지를 기존페이지에
+                불러와서 디스플레이해주는 프레임 요소
+                -> 동영상 페이지(유튜브 등), 다른 페이지를
+                한 페이지에서 모두 보여줄때 등 활용됨
+                -> 필수속성: src -> 페이지 경로값을 셋팅함
+                -> 유의사항: width, height, border 를 CSS에서 모두 셋팅할 것을 권고함!
+
+             -->
+        </div>
+                  <!-- 캐릭터 보기 이동버튼 -->
+                  <a href="#pg1" class="gobtn">캐릭터 보기</a>
+    </div>
+
+  </body>
+</html>
