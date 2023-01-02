@@ -91,8 +91,8 @@ html,body{
     box-shadow: x y blur spread 색
     inset은 내부그림자 */
     box-shadow:
-    0 0 50px 10px whitesmoke,
-    inset 0 0 20px green;
+    0 0 50px 10px darkorange,
+    inset 0 0 20px lawngreen;
 }
 
 /* 캐릭터박스 */
@@ -150,7 +150,7 @@ html,body{
         border-radius: 50%;
 
     /* 글러우 효과 bsh */
-    box-shadow: 0 0 30px 10px gold;
+    box-shadow: 0 0 30px 10px whitesmoke;
 }
 
 /* body에 오버시 전체 opacity 보이게하기 */
