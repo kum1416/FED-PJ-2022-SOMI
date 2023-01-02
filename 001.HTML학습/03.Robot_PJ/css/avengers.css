@@ -23,7 +23,7 @@ body{
     /* 배경이미지 채우기 */
     background: url(../ab_img/space.jpg) no-repeat fixed center/cover;
     /* 전체 body 스크롤바 숨기기 */
-    overflow: hidden;
+    /* overflow: hidden; */
 }
 
 /* body의 높이값을 보이는 화면에 맞추기 */
@@ -45,8 +45,13 @@ html,body{
     */
 }
 
-/* 1. 전체 타이틀 */
+/* 0. 전체 타이틀 */
 .tit{
+    /* 고정 포지션 */
+    position: fixed;
+    width: 100%;
+    z-index: 9999;/* 가장위 */
+
     font-family: 'Monoton', cursive;
     color: #fff;
     font-size: 70px;
@@ -57,9 +62,17 @@ html,body{
     padding: 50px 0;
 }
 
+/* 1. 페이지박스 공통  */
+.page{
+    height: 100%;
+    /* 한페이지당 html,body 보이는 화면 100%와 같이
+    보이는 화면만큼 크기 확장설정! */
+}
+
 /* 2. 메인 캐릭터 박스 */
 .abx{
     position: relative;
+    top: 210px;
     /* 부모자격 - .cbx의 부모 */
     width: 300px;
     height: 400px;
@@ -92,7 +105,7 @@ html,body{
         top : calc(50% - 자기height절반)
         left : calc(50% - 자기widtht절반)
         -> 원리 : 50%밀고 자신크기절반 빼서 정중앙으로 위치를 이동하는 것!
-                  계산은 clac() CSS함수를 사용(+,- 연산시 기호 앞뒤를 꼭 띄어쓴다!)
+                  계산은 clac() CSS함수를 사용!(+,- 연산시 기호 앞뒤를 꼭 띄어쓴다!)
 
     */
 
@@ -100,8 +113,7 @@ html,body{
     width: 150px;
     height: 150px;
 
-    
-    
+      
     /* 박스테두리 ol */
     /* outline: 3px dotted yellow; */
 
