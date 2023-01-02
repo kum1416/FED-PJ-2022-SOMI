@@ -60,4 +60,25 @@ body{
     위치값 주기선 상태: 모두겹침,싸고있는 박스에 그대로 있고(젠틀)
     크기는 내용만큼 자동, 나중것이 기본위 */
     position: absolute;
+
+    /* 박스크기 설정 */
+    width: 150px;
+    height: 250px;
+
+    /* 박스테두리 ol */
+    outline: 3px dotted yellow;
+}
+/* 캐릭터 이미지 */
+.cbx img{
+    /* 크기를 박스에 맞춤! -> 이미지가 왜곡된다! 어떡하지? */
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+
+
+
+    /* 이미지 둥글게 */
+    /* border-radius: 50%; */
+    /* 글러우 효과 bsh */
+    box-shadow: 0 0 30px lightgreen;
 }
