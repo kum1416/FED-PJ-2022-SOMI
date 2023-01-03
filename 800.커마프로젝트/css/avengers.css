@@ -26,7 +26,7 @@ a{
 }
 body{
     /* 배경이미지 채우기 */
-    background: url(../ab_img/space.jpg) no-repeat fixed center/cover;
+    background: url(../ab_img/main.png) no-repeat fixed center/cover;
     /* 전체 body 스크롤바 숨기기 */
     /* overflow: hidden; */
 }
@@ -82,7 +82,7 @@ html,body{
     width: 300px;
     height: 400px;
     /* 배경이미지 */
-    background: url(../ab_img/main.png) no-repeat center/cover;
+    background: url(../ab_img/space.jpg) no-repeat center/cover;
     /* 둥근모서리 -> 원형 50% */
     border-radius: 50%;
     /* 마영오! */
@@ -91,8 +91,8 @@ html,body{
     box-shadow: x y blur spread 색
     inset은 내부그림자 */
     box-shadow:
-    0 0 50px 10px darkorange,
-    inset 0 0 20px lawngreen;
+    0 0 50px 20px darkorange,
+    inset 0 0 40px lightpink;
 }
 
 /* 캐릭터박스 */
@@ -160,23 +160,23 @@ body:hover .cbx{
 
 /* 2-1. 팀 */
 body:hover .cbx:nth-child(1){
-    top: 60%;
-    left: -125%;
+    top: 10%;
+    left: -75%;
 }
 /* 2-2. 팀의 아빠 */
 body:hover .cbx:nth-child(2){
-    top: 60%;
-    left: 180%;
+    top: 35%;
+    left: 200%;
 }
 /* 2-3. 메리 */
 body:hover .cbx:nth-child(3){
-    top: 110%;
-    left: -60%;
+    top: 68%;
+    left: -137%;
 }
 /* 2-4. 팀의 엄마 */
 body:hover .cbx:nth-child(4){
-    top: 110%;
-    left: 120%;
+    top: 90%;
+    left: 150%;
 }
 /* 2-5. 킷캣 */
 body:hover .cbx:nth-child(5){
@@ -220,7 +220,7 @@ body:hover .cbx:nth-child(5){
 padding과 border 때문에 숨겨지지 않음!
 따라서 이것을 직계하위 div로 이전함 */
 .cd > div {
-    border: 2px solid #fff;
+    border: 2px solid tomato;
     padding: 15px;
     border-radius: 15px;
     background-color: hsla(0, 0%, 100%, 0.4);
@@ -229,7 +229,7 @@ padding과 border 때문에 숨겨지지 않음!
 
 /* .cbx에 오버시 글자박스 보이기 */
 .cbx:hover .cd{
-    top: 105%;
+    top: 13%;
     opacity: 1;
     height: auto;
     /* 전체적으로 트랜지션 설정되어 있으나
@@ -251,11 +251,6 @@ padding과 border 때문에 숨겨지지 않음!
 /* 오른쪽 진영 글자박스 클래스 */
 .rtxt{
     right: -230%;
-}
-/* 중앙 진영 글자박스 클래스 */
-.ctxt{
-    top: 350px;
-    left: -75px;
 }
 
 
