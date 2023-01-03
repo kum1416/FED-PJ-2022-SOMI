@@ -35,11 +35,12 @@
             border-radius: 20px;
             padding: 20px;
             margin: 100px auto;
+            box-sizing: border-box;
         }
 
         /* 가상요소로 clear셋팅 */
         .cont::after{
-            content: '';
+            content: "";
             display: block;
             clear: both;
         }
@@ -51,7 +52,7 @@
             /* 5등분 가로크기 */
             width: 20%;
             text-align: center;
-            margin-bottom: 20px;
+            margin-bottom: 50px;
         }
         /* 이미지를 원형으로! */
         .cont > div > img {
@@ -59,7 +60,7 @@
             height: 200px;
             border-radius: 50%;
             /* 트랜지션: 속시이지 */
-            transition: transform .6s;
+            transition: transform 0.6s;
         }
 
         /* 
@@ -169,8 +170,8 @@
             }
 
             /* 
-                7. skew - w,y축 기울임
-                - skew(각도deg), skewY(각도deg)
+                7. skew - x,y축 기울임
+                - skewX(각도deg), skewY(각도deg)
                 - skew(x축,y축)
                 - 각도가 양수/음수에 따라 기울임 방향이 달라짐
             */
@@ -233,15 +234,16 @@
             /* 1. 보검이 원본 */
             #trans10 img:last-child{
                 transform: rotateY(0deg);
-                  /* 트랜지션: 속시이지 - 기다림 */
-                  transition: .4s ease-out .4s;
+                /* 트랜지션: 속시이지 - 0.4초기다림 */
+                transition: .4s ease-out .4s;
+                /* ease-out 나중에 천천히 처음엔 등속도 */
 
             }
             /* 2. 보검이 오버시 */
             #trans10:hover img:last-child{
                 /* 90도 회전하기 */
                 transform: rotateY(90deg);
-                /* 트랜지션: 속시이지 */
+                /* 트랜지션: 속시이지 - 기다림없음 */
                 transition: .4s ease-in;
                 /* ease - in 처음에 천천히 나중엔 등속도 */
             }
@@ -250,17 +252,17 @@
                 /* 90도 회전하기(처음상태) */
                 transform: rotateY(90deg);
                 /* 트랜지션: 속시이지 - 기다림없음 */
-                transition: .4s; ease in
+                transition: .4s ease-in;
+                /* ease-in 처음에 천천히 나중에 등속도 */
                 
             }
             /* 4. 유정이 오버시 */
             #trans10:hover img:first-child{
-                  /* 0도 회전하기(처음상태) */
-                  transform: rotateY(0deg);
+                /* 0도 회전하기(처음상태) */
+                transform: rotateY(0deg);
                 /* 트랜지션: 속시이지 - 0.4초 기다림 */
                 transition: .4s ease-out .4s;
-                /* ease-=out 나중에 천천히 처음엔
-                등속도 */
+                /* ease-out 나중에 천천히 처음엔 등속도 */
                   
             }
 
