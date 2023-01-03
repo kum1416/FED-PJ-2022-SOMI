@@ -14,6 +14,50 @@
             border-radius: 50px;
             background-color: rgba(0, 0, 0, 0.451);
             text-align: center;
+
+            /* 글자셋팅 */
+            color: #fff;
+            font-size: 50px;
+            line-height: 100px;
+            /* 글자그림자로 테두리주기 */
+            text-shadow:
+            2px 0 #000,
+            -2px 0 #000,
+            0 2px #000,
+            0 -2px #000;
+        }
+
+        /* 전체부모박스 */
+        .cont{
+            /* 박스셋팅 */
+            max-width: 1500px;
+            border: 10px solid lime;
+            border-radius: 20px;
+            padding: 20px;
+            margin: 100px auto;
+        }
+
+        /* 가상요소로 clear셋팅 */
+        .cont::after{
+            content: '';
+            display: block;
+            clear: both;
+        }
+
+        /* 캐릭터 공통 div */
+        .cont > div {
+            /* 옆으로 흐르게 */
+            float: left;
+            /* 5등분 가로크기 */
+            width: 20%;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        /* 이미지를 박스에 맞추기 */
+        .cont > div > img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
         }
     </style>
 </head>
