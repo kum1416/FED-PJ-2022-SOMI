@@ -125,6 +125,7 @@ html,body{
     /* 처음에 투명 */
     opacity: 0;
 
+
     /* 트랜지션: 속시이지 */
     transition: .8s ease-in-out;
 }
@@ -151,6 +152,17 @@ html,body{
 
     /* 글러우 효과 bsh */
     box-shadow: 0 0 30px 10px lightgreen;
+
+
+    /* 트랜지션 : 속시이지 trs */
+    transition: transform .8s ease-in-out;
+}
+
+/* 오버시 이미지 변경 */
+body:hover .cbx>img{
+    /* 트랜스폼 회전하기 tfry */
+    transform: rotateY(720deg);
+
 }
 
 /* body에 오버시 전체 opacity 보이게하기 */
