@@ -100,7 +100,24 @@
             3) flex-basis: 설정값(px,%,em,rem,vw등)
             -> width 가로크기를 설정하는 속성
             -> 만약 0을 쓰면 속성값 없음!
-        */
+
+            ________________________________________________________
+
+            [ 자식요소 속성 중 order란? ]
+            - 원하는 순서로 정해서 박스가 나열되게함!
+            단, 부모 플렉스 박스에 flex-direction을 주지말것!(order쓰기 때문!)
+
+            속성명-> order: 순번
+            순서를 정할 요소에 준다
+            예)
+            <li style="order:3"></li>
+            <li style="order:1"></li>
+            <li style="order:2"></li>
+            <li style="order:5"></li>
+
+            소스참고:
+            https://www.w3schools.com/css/tryit.asp?filename=trycss3_flexbox_order_2
+            */
 
 
 
@@ -331,6 +348,44 @@
             margin: 0 22px;
         }
 
+        /* 타이틀박스 7 */
+        .t7{
+            top: 50px;
+            right: 50px;
+            /* 기존에 left는 해제 */
+            left: auto;
+            /* 트랜스폼 해제 */
+            transform: none;
+            width: 450px;
+            height: 200px;
+
+            /* 플렉스박스 */
+            display: flex;
+            /* 랩핑박스 */
+            flex-wrap: wrap;
+            /* 수평정렬 : 등분할공간 */
+            justify-content: space-evenly;
+            /* 수직정렬(여러줄) : 중앙 acc */
+            align-content: center;
+        }
+
+        /* 자체응용 줄바꿈을 위한 li */
+        /* 원리는 줄바꿈을 할 부분에서 가로크기 100%를
+        차지하게 해서 줄바꿈효과를 준다 */
+        .t7 li.brk{
+            /* width: 100%; */
+            flex-basis: 100%;
+            /* flex-basis는 width와 동일하지만 flex에서만 사용가능! */
+
+            /* 기존의 디자인 없애기 */
+            height: 0;
+            border: none;
+
+            /* 윗쪽 마진으로 간격주기 */
+            margin-top: 20px;
+        }
+       
+
 
     </style>
 </head>
@@ -339,11 +394,11 @@
     <div id="wrap">
         <!-- 파티션 박스 -->
         <ul>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
+            <li style="order: 3"></li>
+            <li style="order: 5"></li>
+            <li style="order: 2"></li>
+            <li style="order: 1"></li>
+            <li style="order: 4"></li>
         </ul>
 
         <!-- 타이틀박스 1 -->
@@ -420,6 +475,9 @@
             <li>T</li>
             <li>T</li>
             <li>E</li>
+
+            <!-- 줄바꿈li (내가응용한것) -->
+            <li class="brk"></li>
 
             <li>W</li>
             <li>O</li>
