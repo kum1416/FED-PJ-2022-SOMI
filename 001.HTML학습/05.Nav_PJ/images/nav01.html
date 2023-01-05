@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>1. 가로네비 서브별 드롭다운 세로형</title>
     <style>
-        html,body,{
+        html,body{
             margin: 0;
             padding: 0;
             height: 100%;
@@ -28,6 +28,7 @@
             padding: 0;
             list-style: none;
         }
+
         /* 네이게이션 전체박스 */
         .gnb ul{
             /* 플렉스박스 */
@@ -39,12 +40,11 @@
         /* 상위메뉴 li만 적용 */
         .gnb ul > li{
             position: relative;
-            /* 서브메뉴 .menu의 부모자격 */
+            /* 서브메뉴 .smenu의 부모자격 */
             padding: 0 32px;
             /* 아래쪽 패딩으로 앱솔루트 .smenu와
             연결되어 있게 한다! 떨어지면 내려다가 닫힘! */
-            padding-bottom: 20px;
-
+            padding-bottom: 15px;
         }
 
         .gnb a{
@@ -60,7 +60,7 @@
         .smenu {
             position: absolute;
             /* 서브메뉴는 아래쪽 컨텐츠 위로
-            떠다녀야 하므로 앱솔루트 */
+            떠다녀야 하므로 앱솔루트씀 */
             left: 50%;
             /* 부모는? 싸고있는 li
             -> top값은 주지 않았으므로 젠틀하다!
