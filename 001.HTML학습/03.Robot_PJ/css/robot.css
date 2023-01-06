@@ -45,6 +45,8 @@ body * {
     height: 250px;
     /* 마.영.오! */
     margin: 0 auto;
+    /* 턱깍기 */
+    border-radius: 35px 35px 40% 40%;
 }
 
 /* 로봇머리 직계하위 div는 모두 앱솔루트! */
@@ -77,7 +79,6 @@ body * {
 .e2{
     top: 50px;
     right: 50px;
-
     background-image: url(../images/e2.jpg);
 }
 /* 코 */
