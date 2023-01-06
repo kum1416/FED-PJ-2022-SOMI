@@ -210,7 +210,10 @@ body * {
     left: -50px;
     width: 300px;
     height: 200px;
-    background-color: #fff;
+    /* 그라데이션 */
+    background-image: linear-gradient(10deg,rgb(1, 190, 190),rgb(204, 241, 240), #2ebab5, #fefffe, rgb(5, 171, 222));
+    /* 몸깍기 */
+    clip-path: polygon(0 0,15% 100%,85% 100%,100% 0);
 }
 /* 몸통 가상요소로 하단만들기 */
 .body::after{
@@ -222,9 +225,21 @@ body * {
     width: 300px;
     height: 150px;
     background-color: #fff;
+     /* 그라데이션 */
+     background-image: linear-gradient(10deg,rgb(247, 199, 7), #f6f641, #b9ad03, rgb(246, 246, 169), rgb(216, 216, 22), rgb(254, 237, 4));
+    /* 몸깍기 */
+    clip-path: polygon(10% 0,0 20%,0 50%,10% 100%,90% 100%,100% 50%,100% 20%,90% 0);
 }
 
 /* 목 */
+.neck{
+    top: -50px;
+    left: 68px;
+    width: 60px;
+    height: 68px;
+    border-radius: 0 0 25px 25px;
+    z-index: -1;
+}
 /* 왼팔 */
 /* 오른팔 */
 /* 왼다리 */
