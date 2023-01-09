@@ -133,14 +133,34 @@
             /* 2em * 100 = 200% */
         }
         /* 24px */
-        .pf1{
+        .pf2{
             font-size: 75%;
             /* 0.75em * 100 = 75% */
         }
         /* 16px */
-        .pf1{
+        .pf3{
             font-size: 58%;
             /* 0.58em * 100 = 58% */
+        }
+
+        /* 미디어쿼리 */
+        @media screen and (max-width:1000px) {
+            /* root인 html만 글자크기를 변경하면
+            하위의 모든 상대단위 글자는 한번에 변경된다! */
+            html{
+                font-size: 40px;
+                
+            }
+        }
+
+        /* 미디어쿼리 */
+        @media screen and (max-width:800px) {
+            /* 부모를 기준한 상대단위는 부모요소만 변경하면
+            별도로 그 부분만 상대적으로 변경된다! */
+            .f1{
+                font-size: 30px;
+
+            }
         }
 
     </style>
