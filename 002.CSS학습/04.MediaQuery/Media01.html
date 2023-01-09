@@ -31,6 +31,17 @@
             color: #fff;
         }
 
+        /* 타이틀에 가상요소로 서브제목 넣기 */
+        .tit::after{
+            content: '나야나!';
+            display: block;
+            /* div와 유사함 - 안쓰면 span과 유사 */
+            font-size: 30px;
+            line-height: 3;
+            color: cyan;
+            text-shadow: 0 0 5px #000;
+        }
+
         /* 스크린 */
         .screen{
             position: absolute;
