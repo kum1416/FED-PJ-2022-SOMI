@@ -362,7 +362,6 @@ body * {
 }
 /* 다리 연결부분 내부박스 */
 .leg::after{
-    background-color: red;
     transform: scale(.65,.8) rotate(45deg);
     /* 선형 그라데이션 */
     background-image: linear-gradient(-90deg,#222 15%,#ccc 60%,#eee);
@@ -390,8 +389,9 @@ body * {
     width: 80px;
     height: 60px;
     background-color: #000;
-    border: 4px solid #222;
     border-radius: 30px 30px 0 0;
+    border: 4px solid #222;
+    border-bottom: 20px solid #222;
      /* 선형 그라데이션 */
      background-image: linear-gradient(-45deg,#222 15%,#ccc 60%,#eee);
 }
@@ -401,10 +401,12 @@ body * {
     display: block;
     position: absolute;
     top: 80px;
+    left: -6px;
     height: -40px;
     width: 70px;
     height: 150px;
     border: 4px solid #222;
+    border-top: 20px solid #222;
 
     /* 선형 그라데이션 */
     background-image: linear-gradient(-45deg,#222 15%,#ccc 60%,#eee);
