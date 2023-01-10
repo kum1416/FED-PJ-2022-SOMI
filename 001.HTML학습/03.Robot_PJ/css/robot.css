@@ -228,7 +228,7 @@ body * {
     height: 150px;
     background-color: #fff;
      /* 그라데이션 */
-     background-image: linear-gradient(77deg,rgb(7, 227, 247), #69effb, #2dd7ed, rgb(142, 235, 247), rgb(22, 197, 216), rgb(4, 204, 254));
+     background-image: linear-gradient(77deg,rgb(7, 227, 247), #8af5fe, #43dcf0, rgb(166, 240, 250), rgb(22, 197, 216), rgb(4, 204, 254));
     /* 몸깍기 */
     clip-path: polygon(10% 0,0 20%,0 50%,5% 100%,90% 100%,95% 100%,100% 50%,100% 20%,90% 0);
 }
