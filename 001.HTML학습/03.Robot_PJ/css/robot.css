@@ -245,14 +245,28 @@ body * {
 }
 /* 팔공통 */
 .arm{
-    top: 10px;
+    top: 13px;
     width: 60px;
     height: 200px;
     z-index: -1;
     border-radius: 25px;
-    /* 회전축변경 : 가로중앙 세로10%지점 */
-    transform-origin: center 10%;
+    /* 회전축변경 : 가로중앙 세로15%지점 */
+    transform-origin: center 15%;
 }
+/* 팔공통 가상요소로 연결부분 만들기 */
+.arm::before{
+    content: '';
+    display: block;
+    position: absolute;
+    bottom: -29px;
+    left: -3px;
+    z-index: 1;
+    width: 58px;
+    height: 58px;
+    border-radius: 50%;
+    background-color: #ccc;
+}
+
 /* 팔하단 */
 .arm span{
     position: absolute;
@@ -268,21 +282,21 @@ body * {
 }
 /* 왼팔 */
 .a1{
-    left: -80px;
+    left: -75px;
     transform: rotate(30deg);
 }
 /* 왼팔하단 */
 .a1 span{
-    transform: rotate(40deg);
+    transform: rotate(35deg);
 }
 /* 오른팔 */
 .a2{
-    right: -80px;
+    right: -75px;
     transform: rotate(-30deg);
 }
 /* 오른팔하단 */
 .a2 span{
-    transform: rotate(-40deg);
+    transform: rotate(-35deg);
 }
 /* 왼다리 */
 /* 오른다리 */
@@ -302,8 +316,8 @@ body * {
 /* 오른어깨 */
 .s2{
     right: -90px;
-    border-radius: 50% 0 0 50%;
-    transform: rotate(-15deg);
+    border-radius: 0 50% 50% 0;
+    transform: rotate(15deg);
 }
 /* TV */
 
