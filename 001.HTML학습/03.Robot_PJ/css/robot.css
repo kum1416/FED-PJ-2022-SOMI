@@ -324,8 +324,36 @@ body * {
 .a2 span{
     transform: rotate(-35deg);
 }
+
+/* 다리공통 */
+.leg{
+    top: 95%;
+    /* 부모박스 높이만큼 아래로 밀어냄 */
+    width: 85px;
+    height: 250px;
+    z-index: -1;
+    border-radius: 25px;
+}
+/* 다리하단 공통 */
+.leg span{
+    position: absolute;
+    top: 100%;
+    left: 10px;
+    /* 부모는? .arm */
+    display: block;
+    width: 65px;
+    height: 200px;
+    border-radius: 25px;
+}
+
 /* 왼다리 */
+.l1{
+    left: -10px;
+}
 /* 오른다리 */
+.l2{
+    right: -15px;
+}
 
 /* 어깨공통 */
 .shd{
