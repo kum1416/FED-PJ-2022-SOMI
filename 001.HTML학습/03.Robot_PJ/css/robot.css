@@ -41,6 +41,8 @@ body * {
 .head{
     position: relative;
     /* 부모자격 - 하위 div들 */
+    z-index: 1;
+    /* .body보다 위 */
     width: 250px;
     height: 150px;
     /* 마.영.오! */
@@ -236,16 +238,73 @@ body * {
     top: -50px;
     left: 68px;
     width: 60px;
-    height: 68px;
+    height: 58px;
     border-radius: 0 0 25px 25px;
-    z-index: -2;
+    /* 하단보더 */
+    border-bottom: 20px ridge lightskyblue;
+}
+/* 팔공통 */
+.arm{
+    top: 10px;
+    width: 60px;
+    height: 200px;
+    z-index: -1;
+    border-radius: 25px;
+    /* 회전축변경 : 가로중앙 세로10%지점 */
+    transform-origin: center 10%;
+}
+/* 팔하단 */
+.arm span{
+    position: absolute;
+    top: 100%;
+    left: 4px;
+    /* 부모는? .arm */
+    display: block;
+    width: 53px;
+    height: 185px;
+    border-radius: 35px;
+    /* 회전축변경 : 세로방향 top */
+    transform-origin: top;
 }
 /* 왼팔 */
+.a1{
+    left: -80px;
+    transform: rotate(30deg);
+}
+/* 왼팔하단 */
+.a1 span{
+    transform: rotate(40deg);
+}
 /* 오른팔 */
+.a2{
+    right: -80px;
+    transform: rotate(-30deg);
+}
+/* 오른팔하단 */
+.a2 span{
+    transform: rotate(-40deg);
+}
 /* 왼다리 */
 /* 오른다리 */
+
+/* 어깨공통 */
+.shd{
+    width: 70px;
+    height: 80px;
+    top: 8px;
+}
 /* 왼어깨 */
+.s1{
+    left: -90px;
+    border-radius: 50% 0 0 50%;
+    transform: rotate(-15deg);
+}
 /* 오른어깨 */
+.s2{
+    right: -90px;
+    border-radius: 50% 0 0 50%;
+    transform: rotate(-15deg);
+}
 /* TV */
 
 /************************ 3. 하단영역 ************************/
