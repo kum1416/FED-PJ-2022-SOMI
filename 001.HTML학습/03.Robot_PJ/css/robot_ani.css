@@ -48,7 +48,7 @@ animation: 이시이지반방마
     */
     to{
         transform: 
-        translateX(0,0)
+        translate(0,0)
         scale(0.6);
         /* rotate(720deg); */
     }
@@ -99,7 +99,7 @@ animation: 이시이지반방마
 .robx{
     /* 초기상태 지정하기 */
     transform: 
-    translateX(20%,10%)
+    translate(20%,10%)
     scale(0);
     /* rotate(0); */
     /* 트랜스폼 기준값 변경 */
