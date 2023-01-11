@@ -749,7 +749,7 @@ body {
     width: 30px;
     height: 30px;
     border-radius: 50%;
-    background-color: #ccc;
+    border: 2px solid #ccc;
     /* 배경넣기 */
     background: pink url(../images/robot_03.png)
     no-repeat;
