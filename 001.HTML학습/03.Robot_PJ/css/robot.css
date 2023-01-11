@@ -174,7 +174,7 @@ body {
 
 /* 로봇 머리에 가상요소로 머리털박스 만들기 */
 .head::before {
-  content: "";
+  content: '';
   display: block;
   position: absolute;
   /* 부모는? .head */
@@ -321,7 +321,7 @@ body {
 
 /* 몸통 가상요소로 상단만들기 */
 .body::before {
-  content: "";
+  content: '';
   display: block;
   position: absolute;
   left: -50px;
@@ -334,7 +334,7 @@ body {
 }
 /* 몸통 가상요소로 하단만들기 */
 .body::after {
-  content: "";
+  content: '';
   display: block;
   position: absolute;
   bottom: 0;
