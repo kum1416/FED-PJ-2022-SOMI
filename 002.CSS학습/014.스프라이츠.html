@@ -6,6 +6,8 @@
     <title>CSS심화 - Sprites, IR</title>
     <style>
         .icons {
+            display: flex;
+            
             /* 3無 */
             margin: 0;
             padding: 0;
@@ -20,10 +22,22 @@
         .icons li {
             width: 128px;
             height: 128px;
+            background: url(./imges/icons.png);
 
             outline: 1px dotted blue;
         }
-
+        /* 트위터 */
+        .icons li:nth-child(1){
+            background-position: 0 0;
+        }
+        /* 인스타 */
+        .icons li:nth-child(2){
+            background-position: 0 0;
+        }
+        /* 페북 */
+        .icons li:nth-child(3){
+            background-position: 0 0;
+        }
 
 
         /*************************************************
@@ -116,17 +130,17 @@
     <ul class="icons">
         <li>
             <a href="#">
-                <span class="ir">트위터바로가기</span>
+                <!-- <span class="ir">트위터바로가기</span> -->
             </a>
         </li>
         <li>
             <a href="#">
-                <span class="ir">인스타그램바로가기</span>
+                <!-- <span class="ir">인스타그램바로가기</span> -->
             </a>
         </li>
         <li>
             <a href="#">
-                <span class="ir">페이스북바로가기</span>
+                <!-- <span class="ir">페이스북바로가기</span> -->
             </a>
 
         </li>
