@@ -53,6 +53,14 @@ aside.tmenu{
     /* 플렉스 박스 : 하위 li요소 옆으로 흐름! */
     display: flex;
 }
+/* 탑메뉴 a */
+.tmenu>ul>li>a{
+    color: #222;
+    font-size: 1.5rem;
+    text-decoration: none;
+}
+
+
 /* sns 메뉴 박스 */
 .tmenu ol{
     /* 플렉스 박스 : 하위 li요소 옆으로 흐름! */
