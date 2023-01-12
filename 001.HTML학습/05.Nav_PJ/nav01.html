@@ -40,12 +40,22 @@
             /* space-between 은 맨앞,맨뒤 요소가 끝에 붙는 정렬방식임 */
         }
 
+        /* 로고박스 */
+        h1.logo{
+            margin: 0;
+            padding: 0;
+            margin-left: 50px;
+            margin-top: -20px;
+        }
+
         /* 네이게이션 전체박스 */
         .gnb ul{
             /* 플렉스박스 */
             display: flex;
             /* 진행방향 정렬 : 중앙 jcc */
             justify-content: center;
+            /* 줄바꿈방지 */
+            white-space: nowrap;
         }
 
         /* 상위메뉴 li만 적용 */
@@ -65,6 +75,25 @@
 
             font-size: 18px;
             font-weight: bold;
+        }
+
+        /* 가상요소로 밑줄 애니만들기
+        대상선택:
+        1. GNB메뉴의 상위메뉴 a요소
+        2. 사이드메뉴의 1,2번 li하위 a요소 */
+        .gnb>ul>li>a::after{
+            content: '';
+            display: block;
+            width: 0%;/* 변경속성 */
+            height: 2px;
+            margin-top: 5px;
+            background-color: #fff;
+            /* 트랜지션 : 속시이지 trs */
+            transition: width .3s;
+        }
+        /* 오버시 바 보이기 */
+        .gnb>ul>li:hover>a::after{
+            width: 100%;
         }
 
         /* 서브메뉴 박스 */
