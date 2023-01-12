@@ -203,7 +203,7 @@ aside.tmenu{
     border-radius: 50%;
     background: url(../images/icons.png) no-repeat;
     /* 트랜지션 */
-    transition: .3s;
+    transition: .2s;
 }
 
 /* 스프라이츠(Sprites)로 배경이미지 넣기! */
