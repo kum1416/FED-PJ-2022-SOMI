@@ -13,6 +13,13 @@
     /* 부모자격 - .tmenu */
     height: 128px;
 }
+
+/* 속박스 안에 로고와 탑메뉴를 감싼 박스 */
+.tarea{
+    position: relative;
+    /* 부모자격 - .tmenu */
+}
+
 /* 1-1.로고 */
 h1.logo{
     width: 100px;
