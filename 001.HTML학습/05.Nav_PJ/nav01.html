@@ -81,7 +81,8 @@
         대상선택:
         1. GNB메뉴의 상위메뉴 a요소
         2. 사이드메뉴의 1,2번 li하위 a요소 */
-        .gnb>ul>li>a::after{
+        .gnb>ul>li>a::after,
+        .tmenu>ul>li>a::after{
             content: '';
             display: block;
             width: 0%;/* 변경속성 */
@@ -92,10 +93,16 @@
             transition: width .3s;
         }
         /* 오버시 바 보이기 */
-        .gnb>ul>li:hover>a::after{
+        .gnb>ul>li:hover>a::after,
+        .tmenu>ul>li>a::after{
             width: 100%;
         }
 
+        /* 마지막 사이드메뉴 li 바 제외하기 */
+        .tmenu>ul>li:last-child>a::after{
+            display: none;
+        }
+        
         /* 서브메뉴 박스 */
         .smenu {
             position: absolute;
