@@ -63,7 +63,10 @@ aside.tmenu{
 .sns li{
     width: 30px;
     height: 30px;
+    border-radius: 50%;
     background: url(../images/icons.png) no-repeat;
+    /* 트랜지션 */
+    transition: .3s;
 }
 
 /* 스프라이츠(Sprites)로 배경이미지 넣기! */
