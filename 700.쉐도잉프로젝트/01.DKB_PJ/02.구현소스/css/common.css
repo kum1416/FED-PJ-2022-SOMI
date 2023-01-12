@@ -45,7 +45,7 @@ nav.gnb ul{
 
 /* GNB 서브메뉴 배경
 상위메뉴 li에 가상요소로 만들기
-서브메뉴가 있는 li에 sm이름을  */
+서브메뉴가 있는 li에 sm이름의 클래스를 준다!  */
 .gnb>ul>li.sm::before{
     content: '';
     position: absolute;
