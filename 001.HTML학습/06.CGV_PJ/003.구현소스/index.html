@@ -1,34 +1,41 @@
 <!DOCTYPE html>
 <html lang="ko">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>CGV에 오신것을 환영합니다!</title>
     <link rel="shortcut icon" type="image/x-icon" href="./images/logo_cgv.png" />
     <!-- 메인페이지 외부CSS -->
-    <link rel="stylesheet" href="./css/main.css">
-</head>
-<body>
+    <link rel="stylesheet" href="./css/main.css" />
+  </head>
+  <body>
     <!-- 1.상단영역 -->
     <div id="top">
-        <header class="top ibx">
-            <!-- 1-1.로고 -->
-            <h1 class="tit">
-                CGV 예고편 상영관
-            </h1>
-        </header>
+      <header class="top ibx">
+        <!-- 1-1.로고 -->
+        <h1 class="tit">CGV 예고편 상영관</h1>
+      </header>
     </div>
     <!-- 2.메인영역 -->
     <div id="cont">
-        <main class="cont ibx">
-            <!-- 2-1. 스크린 -->
-            <div class="screen">
-                <!-- 유튜브 아이프레임 -->
-                <iframe src="https://www.youtube.com/embed/i1sqO5r3i3w?autoplay=1" allow="autoplay" ></iframe>
-                <!-- allow="autoplay"는 유튜브
-                동영상 요청시 자동재생의 필수다! -->
+      <main class="cont ibx">
+        <!-- 2-1. 스크린 -->
+        <div class="screen">
+          <!-- 유튜브 아이프레임 -->
+          <iframe
+            src="https://www.youtube.com/embed/i1sqO5r3i3w?autoplay=1&mute=1&loop=1&playlist=i1sqO5r3i3w"
+            allow="autoplay"></iframe>
+          <!-- allow="autoplay"는 유튜브
+                동영상 요청시 자동재생의 필수다!
+            
+                [ 유튜브 동영상 고유 아이디는? ]
+                URL주소의 embed/ 뒤의 코드값
 
-                <!-- [iframe 요소 : inline frame]
+                일반 웹 주소일때 
+                https://www.youtube.com/watch?v=유튜브고유ID
+            -->
+
+          <!-- [iframe 요소 : inline frame]
                     - 다른 페이지를 삽입하는 요소
                     - src속성 : 필수속성으로 경로를 지정
                     - 프레임보더가 있음
@@ -54,15 +61,12 @@
                     3. 반복설정 : loop=1
                     4. 반복재생리스트 : playlist=동영상ID
                     -> 반복설정시 반복재생리스트도 같이씀! -->
-            </div>
-        </main>
+        </div>
+      </main>
     </div>
     <!-- 3.하단영역 -->
     <div id="info">
-        <footer class="info ibx">
-
-        </footer>
+      <footer class="info ibx"></footer>
     </div>
-    
-</body>
+  </body>
 </html>
