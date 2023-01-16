@@ -53,6 +53,7 @@ body{
     width: 100%;
     height: 100%;
 }
+
 /*
     [ CSS에서 변수사용하기 ]
 
@@ -152,7 +153,7 @@ body{
     background: url(../images/pluto.png) no-repeat 0/100% 100%;
 
     /* 애니메이션 : 이시이지반방마 */
-    animation: pluto 20s linear infinite;
+    animation: pluto 40s linear infinite;
 }
 
 /* 명왕성회전 키프레임 */
