@@ -1,0 +1,24 @@
+@charset "utf-8";
+
+/* 태양계 2D 애니 - solra2d.css */
+
+html,body{
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    height: 100vh;
+}
+
+body{
+    background: url(../images/space.jpg) no-repeat center/cover;
+    overflow: hidden;
+}
+/* 공통클래스 */
+
+/* 배경이미지설명숨기기 */
+.ir{
+    display: block;
+    width: 0;
+    height: 0;
+    overflow: hidden;
+}
