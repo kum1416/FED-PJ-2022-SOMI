@@ -14,6 +14,15 @@
             display: none;
             /* input요소를 숨겨도 작동은 된다! */
         }
+
+        /* 라벨요소 */
+        label{
+            display: inline-block;
+            line-height: 1.5;
+            font-size: 25px;
+            margin: 10px;
+        }
+
         /* 라디오 버튼 체크시 라벨변경
         체크된 라디오버튼의 다음 형제 라벨요소선택 */
         input:checked + label{
@@ -42,13 +51,6 @@
             margin: 5px;
         }
 
-        label{
-            display: inline-block;
-            line-height: 1.5;
-            font-size: 25px;
-            margin: 10px;
-        }
-
         /* 라디오버튼 체크시
         하단 형제요소인 ul>li 변경하기! */
         /* 체크박스/라디오버튼 체크시
@@ -66,7 +68,7 @@
             background-color: lightcoral;
         }
 
-        /* 3. 홀수번째
+        /* 3. 3의배수번째
         nth-child(3n) -> 3의배수번째
         n에 0부터 대입된 결과임! */
         #rdo3:checked ~ ul > li:nth-child(3n) {
