@@ -12,6 +12,7 @@ html,body{
 body{
     background: url(../images/space.jpg) no-repeat center/cover;
     overflow: hidden;
+    /* 스크롤바 없앰 */
 }
 /* 공통클래스 */
 
@@ -54,11 +55,13 @@ body *{
 }
 /*
     [ CSS에서 변수사용하기 ]
+
     [ 변수설정하기 ]
     :root{
         --변수명1: 값1;
         --변수명2: 값2;   
     }
+
     [ 변수호출사용 ]
     var(--변수명)
 
@@ -83,4 +86,28 @@ body *{
     width: var(--esz);
     height: var(--esz);
     background: url(../images/earth.png) no-repeat 0/100% 100%;
+
+    /* 애니메이션 : 이시이지반방마 */
+    animation: earth 5s linear infinite;
 }
+
+/* 지구회전 키프레임 */
+@keyframes earth {
+    from{
+        transform: rotate(0deg) translateX(-250px) rotate(0deg);
+        /* 
+            [주변회전만들기]
+            1.첫번째 rotate : 0deg->360deg
+                -> 중앙회전
+            2.위치이동 translateX
+                -> 주변을 도는 효과생김
+            3.두번째 rotate : 0deg->-360deg
+                -> 반대회전은 옆으로 이동한
+                박스에 적용되어 세워져서
+                주변을 도는 효과가 생김!
+        */
+    }
+    to{
+        transform: rotate(360deg) translateX(-250px) rotate(-360deg);
+    }
+}/* 지구회전 키프레임 */
