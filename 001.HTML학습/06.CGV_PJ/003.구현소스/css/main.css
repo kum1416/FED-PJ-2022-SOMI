@@ -265,11 +265,17 @@ body{
 
 /* 3-1.로고 */
 .logo{
+    margin-right: 20px;
 
 }
 /* 3-2.회사정보 */
+
 .corp address{
+    font-family: 'Cute Font', cursive;
     color: #fff;
+    font-style: normal;
+    font-size: 1.8rem;
+    line-height: 2rem;
 }
 /* 3-3.SNS */
 .sns{
@@ -283,7 +289,7 @@ body{
 .sns li{
     width: 34px;
     height: 34px;
-    outline: 1px dashed yellow;
+    /* outline: 1px dashed yellow; */
 }
 /* li사이간격 */
 .sns li+li{
@@ -323,5 +329,9 @@ body{
     - 별은 하늘에 있고 모두가 볼 수 있다 *= 모든일치내용
     - 시작할때는 웃으면서 시작 ^= 시작하는내용
     - 끝날때는 돈받고 끝나라! $= 끝나는내용
+
+    - 사용하는 문자열에 문제가 없다면
+    따옴표를 쓰지 않아도 된다!
+    (띄어쓰기, 특수문자 등 있다면 따옴표사용)
 
 *******************************************/
