@@ -6,9 +6,9 @@
 @import url(./core.css);
 
 /* 공사중 표시 */
-body * {
+/* body * {
     outline: 2px dashed ghostwhite;
-}
+} */
 
 /* 전체배경색 */
 body{
@@ -134,6 +134,21 @@ body{
     content: '🍨';
     /* 오른쪽 끝으로 보내기 */
     float: right;
+}
+/* 예매 */
+.gnb ul>li:nth-child(2) 
+.smenu a:hover::after{
+    content: 🍰;
+}
+/* 극장 */
+.gnb ul>li:nth-child(3) 
+.smenu a:hover::after{
+    content: 🍭;
+}
+/* 이벤트&컬쳐 */
+.gnb ul>li:nth-child(4) 
+.smenu a:hover::after{
+    content: 🥞;
 }
 
 
