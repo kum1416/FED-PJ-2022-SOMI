@@ -6,9 +6,9 @@
 @import url(./core.css);
 
 /* 공사중 표시 */
-/* body * {
+body * {
     outline: 2px dashed ghostwhite;
-} */
+}
 
 /* 전체배경색 */
 body{
@@ -49,7 +49,7 @@ body{
 /* 1-2.GNB메뉴 */
 .gnb{
     position: absolute;
-    bottom: 15px;
+    bottom: 10px;
     right: 10px;
 }
 /* ul박스 */
@@ -61,6 +61,8 @@ body{
 .gnb ul>li{
     position: relative;
     /* 부모자격 : .smenu */
+    padding-bottom: 5px;
+    /* 서브메뉴와 공간열결을 위해 하단패딩줌 */
 }
 /* 상위li 두번째부터 */
 .gnb>ul>li+li{
