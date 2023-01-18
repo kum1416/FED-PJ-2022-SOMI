@@ -8,41 +8,44 @@
         h1{
             text-align: center;
         }
-        .gnb ul{
-            /* 플렉스박스 */
-            display: flex;
-            /* 진행방향정렬 : 중앙 */
-            justify-content: center;
-
-            /* 3無 */
-            margin: 0;
-            padding: 0;
-            list-style: none;
-        }
         .gnb{
             border-top: 1px solid #ccc;
             border-bottom: 1px solid #ccc;
         }
-        .gnb ul>li{
+        ul{
+            /* 3無 */
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        }
+
+        .gnb>ul{
+            /* 플렉스박스 */
+            display: flex;
+            /* 진행방향정렬 : 중앙 */
+            justify-content: center;
+        }
+
+        .gnb>ul>li{
             /* 투명하단보더 */
             border-bottom: 3px solid transparent;
         }
         /* 두번째 li부터 */
-        .gnb ul.li+li{
+        .gnb>ul.li+li{
             margin-left: 10px;
         }
         /* li오버시 */
-        .gnb ul>li:hover{
+        .gnb>ul>li:hover{
             /* 하단보더색넣기 */
             border-bottom-color: darkblue;
             /* border-bottom: 3px solid #000; */
         }
         /* li오버시 a */
-        .gnb ul>li:hover>a{
+        .gnb>ul>li:hover>a{
             /* 글자색 */
             color: darkblue;
         }
-        .gnb ul>li>a{
+        .gnb>ul>li>a{
             /* a확장! */
             display: block;
             /* a요소에서 글자색, 밑줄없앰 */
@@ -51,7 +54,41 @@
             font-size: 16px;
             font-weight: bold;
             line-height: 56px;
-            padding: 0 15px;
+            padding: 0 25px;
+        }
+
+        /* 서브메뉴 */
+        .smenu{
+            position: absolute;
+            padding: 25px 20px;
+            outline: 1px dashed gray;
+            /* 처음에 안보임 */
+            display: none;
+        }
+        /* 상위li오버시 서브메뉴 보이기 */
+        .gnb>ul>li:hover .smenu{
+            display: block;
+        }
+        .smenu ul{
+            display: flex;
+        }
+        .smenu li+li{
+            margin-left: 20px;
+        }
+        .smenu a{
+            display: inline-block;
+            color: #555;
+            font-size: 14px;
+            text-decoration: none;
+            padding: 6px 8px;
+
+            /* background-color: lightgreen; */
+        }
+        /* 서브메뉴 a오버시 */
+        .smenu a:hover{
+            background-color: darkblue;
+            color: #eee;
+            font-weight: bold;
         }
     </style>
 </head>
@@ -61,6 +98,26 @@
         <ul>
             <li>
                 <a href="#">홈페이지</a>
+                <!-- 서브메뉴 -->
+                <div class="smenu">
+                    <ul>
+                        <li>
+                            <a href="#">제작안내</a>
+                        </li>
+                        <li>
+                            <a href="#">제작유형</a>
+                        </li>
+                        <li>
+                            <a href="#">부가서비스</a>
+                        </li>
+                        <li>
+                            <a href="#">포트폴리오</a>
+                        </li>
+                        <li>
+                            <a href="#">문의하기</a>
+                        </li>
+                    </ul>
+                </div>
             </li>
             <li>
                 <a href="#">쇼핑몰</a>
