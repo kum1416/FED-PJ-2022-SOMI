@@ -24,7 +24,7 @@
     animation: none;
     top: 30px;
     left: 30px;
-    transform: scale(0.6);
+    transform: scale(1);
     width: 150px;
     height: 150px;
     font-size: 25px;
@@ -39,45 +39,46 @@
 
 /* 900px이하 */
 @media screen and (max-width: 900px) {
-   .link{
-    position: relative;
-    text-align: center;
-    padding: 20px 0;
-}
-    
-    
-    /* 로고박스 */
-  .logo{
-    animation: none;
-    top: 30px;
-    left: 30px;
-    transform: scale(0.6);
-    width: 150px;
-    height: 150px;
-    font-size: 25px;
-  }
-  /* 로고애니메이션 재설정 */
-  .logo{
-    animation: 
-    logoAni2 .5s ease-in-out 3s infinite alternate;
-  }
-}
-/* 1024px이하 */
-  /* 로봇설명박스 */
-  .dcbx {
-    margin: 0 30px;
-  }
-  /* 2-2-3.내용단락 */
-  .dcbx p {
-    /* 다중열개수 */
-    column-count: 2;
-  }
-}
+    /* 로봇설명박스 */
+    .dcbx {
+      margin: 0 30px;
+    }
+    /* 2-2-3.내용단락 */
+    .dcbx p {
+      /* 다중열개수 */
+      column-count: 2; 
+    }
+    }
 /* 900px이하 */
 
 /* 500px이하 */
 @media screen and (max-width: 500px) {
-
+    html,body{
+        width: 100vw;
+        overflow-x: hidden;
+        /* x축 스크롤 없애기! */
+    }
+   .link{
+    position: static;
+    text-align: center;
+    padding: 20px 0;
+    }
+    
+    /* 로고박스 */
+  .logo{
+    animation: none;
+    top: 90px;
+    left: 30px;
+    transform: scale(1);
+    width: 100px;
+    height: 100px;
+    font-size: 20px;
+  }
+  /* 로고애니메이션 재설정 */
+  .logo{
+    animation: 
+    logoAni2 0.5s ease-in-out 3s infinite alternate;
+  }
     /* 2-2-3.내용단락 */
   .dcbx p {
     /* 다중열개수 */
