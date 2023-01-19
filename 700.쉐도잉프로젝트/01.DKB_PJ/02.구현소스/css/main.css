@@ -199,3 +199,12 @@ p:first-child::first-letter{
 p:first-child::first-letter{
     color: lightpink;
 }
+
+
+/* 등장글자 이미지 */
+#mvtxt{
+    position: absolute;
+    top: 30vh;
+    right: 5vw;
+    width: min(25vw,327px);
+}

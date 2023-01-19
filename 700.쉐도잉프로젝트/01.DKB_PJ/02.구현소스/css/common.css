@@ -27,7 +27,7 @@ h1.logo{
     width: 100px;
     margin: 0 auto;
     padding-top: 20px;
-    outline: 1px solid red;
+    /* outline: 1px solid red; */
 }
 /* 1-2.GNB메뉴 */
 nav.gnb ul{
