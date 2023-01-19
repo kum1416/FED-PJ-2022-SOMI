@@ -22,9 +22,12 @@
   /* 로고박스 */
   .logo{
     animation: none;
+    top: 30px;
+    left: 30px;
     transform: scale(0.6);
-    top: 0;
-    left: 0;
+    width: 150px;
+    height: 150px;
+    font-size: 25px;
   }
   /* 로고애니메이션 재설정 */
   .logo{
@@ -36,6 +39,30 @@
 
 /* 900px이하 */
 @media screen and (max-width: 900px) {
+   .link{
+    position: relative;
+    text-align: center;
+    padding: 20px 0;
+}
+    
+    
+    /* 로고박스 */
+  .logo{
+    animation: none;
+    top: 30px;
+    left: 30px;
+    transform: scale(0.6);
+    width: 150px;
+    height: 150px;
+    font-size: 25px;
+  }
+  /* 로고애니메이션 재설정 */
+  .logo{
+    animation: 
+    logoAni2 .5s ease-in-out 3s infinite alternate;
+  }
+}
+/* 1024px이하 */
   /* 로봇설명박스 */
   .dcbx {
     margin: 0 30px;
