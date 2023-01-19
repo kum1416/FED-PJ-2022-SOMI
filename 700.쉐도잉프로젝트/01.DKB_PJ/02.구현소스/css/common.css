@@ -255,19 +255,19 @@ aside.tmenu{
     height: 100%;
 }
 
-/******************** 1. 메인영역 ********************/
+/******************** 2. 메인영역 ********************/
 .cont{
     min-height: 800px;
     /* 자식 요소가 많아지면 자동으로 늘어남! */
 }
-/******************** 1. 하단영역 ********************/
+/******************** 3. 하단영역 ********************/
 /* 겉박스 */
 #info{
     background-color: rgba(255, 255, 255, 0.70);
 }
 /* 속박스 */
 .info{
-    position: absolute;
+    position: relative;
     /* 부모자격 .brand */
     height: 241px;
 }
@@ -292,6 +292,7 @@ aside.tmenu{
 .blink li+li{
     margin-left: 15px;
 }
+/* 오버시 */
 .blink li a:hover{
     color: red;
     text-decoration: underline;
