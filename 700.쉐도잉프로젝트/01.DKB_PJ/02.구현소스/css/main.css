@@ -206,5 +206,5 @@ p:first-child::first-letter{
     position: absolute;
     top: 30vh;
     right: 5vw;
-    width: min(25vw,327px);
+    width: min(20vw,327px);
 }
