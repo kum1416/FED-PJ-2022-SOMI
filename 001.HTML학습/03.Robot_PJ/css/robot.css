@@ -443,6 +443,7 @@ body {
   border-radius: 35px;
   /* 회전축변경 : 세로방향 top */
   transform-origin: top;
+  box-shadow: 0 0 10px 5px cyan;
 }
 /* 팔하단 가상요소로 손박스 만들기 */
 .arm span::after {
