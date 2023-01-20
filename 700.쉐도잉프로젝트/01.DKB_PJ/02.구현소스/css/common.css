@@ -121,8 +121,8 @@ nav.gnb ul{
             width: 0%;
             margin-left: 50%;
 
-            height: 2px;
-            margin-top: 5px;
+            height: 3px;
+            margin-top: 15px;
             background-color: red;
             /* 트랜지션 : 속시이지 trs */
             transition: all .3s;
