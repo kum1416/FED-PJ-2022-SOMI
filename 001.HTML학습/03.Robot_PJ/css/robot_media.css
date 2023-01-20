@@ -54,6 +54,7 @@
 /* 500px이하 */
 @media screen and (max-width: 500px) {
     html,body{
+        position: relative;
         width: 100vw;
         overflow-x: hidden;
         /* x축 스크롤 없애기! */
