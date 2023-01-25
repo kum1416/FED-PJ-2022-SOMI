@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>017.비율유지박스(Ratio Box)</title>
+    <style>
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+      }
+      h1,
+      h2 {
+        margin: 0;
+        padding: 20px;
+        text-align: center;
+      }
+      /* 박스공통 */
+      .bx {
+        /* 부모가로크기에 대한 비율 50% */
+        width: 50%;
+        margin: 0 auto;
+        border: 10px ridge goldenrod;
+        background: url(./images/mobum.jpg) no-repeat center/cover;
+      }
+      /* 1. 크기유지박스 */
+      .bx1 {
+        height: 400px;
+      }
+
+      /* 2. 화면에 대한 비율박스 */
+      .bx2 {
+
+        /* 뷰포트 단위가 나온후엔 아래의 셋팅이 없어도
+        보이는 화면에 대한 % 셋팅이 가능하다! */
+        height: 40vh;
+
+        /* height: 40%; */
+        /* %단위를 사용하면 싸고 있는 html,body에 기준값인
+        보이는 화면 100%채우기 설정이 필요하다!
+        -> 근본적으로는 싸고있는 박스에 구체적인 height크기가
+        셋팅되어야함! */
+      }
+
+      /* 3. 비율유지박스 */
+      .bx3 {
+      }
+    </style>
+  </head>
+  <body>
+    <h1>017.비율유지박스(Ratio Box)</h1>
+    <h2>1. 크기유지박스</h2>
+    <div class="bx bx1"></div>
+
+    <h2>2. 화면에 대한 비율박스</h2>
+    <div class="bx bx2"></div>
+
+    <h2>3. 비율유지박스</h2>
+    <div class="bx bx3"></div>
+  </body>
+</html>
