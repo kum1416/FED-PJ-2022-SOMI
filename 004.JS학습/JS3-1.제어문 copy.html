@@ -144,7 +144,7 @@
             // 이 나오는데 이것도 기본값 중 하나임!
 
             // 5. 화면출력 : #jexp -> jexp변수
-            jexp.innerText = "평가결과는 "+msg;
+            jexp.innerText = "평가결과는 "+ msg;
 
             // 6. 글자색변경 : #jexp의 style 중 color 를 변경
             jexp.style.color = fc;
@@ -239,7 +239,7 @@
     <h2>if문 연습</h2>
     <h3 id="jexp">평가출력</h3>
     <label for="jumsu">점수입력:</label>
-    <input type="text" id="jumsu" placeholder="점수를 입력하세요!" maxlength="3" onkeypress="if(event.keyCode===13){jumsu()}">
+    <input type="text" id="jumsu" placeholder="점수를 입력하세요!" maxlength="3" onkeypress="if(event.keyCode===13){jumsu()}"/>
     <!--    
         [ onkeypress 이벤트 속성 ]
         -> 키보드를 치면 발생하는 이벤트 속성
