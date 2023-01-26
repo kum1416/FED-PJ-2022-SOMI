@@ -33,7 +33,7 @@
             // querySelector(CSS선택자)
 
             // 2-3. 칭찬스티커 : #jshow
-            var jshow = document.querySelector("#jshow")
+            var jshow = document.querySelector("#jshow");
 
             // 3. 입력값 읽어오기 ///////////////////
             var score = jumsu.value;
@@ -59,7 +59,7 @@
             ***************************************************/
 
             // 입력된 값(score) 숫자여부판별
-            console.log("숫자가 아니니?",isNaN(score))
+            console.log("숫자가 아니니?",isNaN(score));
 
             if(isNaN(score)){
                 // alert("숫자가 아니니 돌아가!");
@@ -106,7 +106,8 @@
             }
             else{
                 msg = "재시험";
-                fc = "-644px -644px";
+                fc = "red";
+                bgp = "-644px -644px";
             }
 
             // console.log("글자색:",fc,"\n배경위치:",bgp);
@@ -144,7 +145,7 @@
             // 이 나오는데 이것도 기본값 중 하나임!
 
             // 5. 화면출력 : #jexp -> jexp변수
-            jexp.innerText = "평가결과는 "+ msg;
+            jexp.innerText = "평가결과는 " + msg;
 
             // 6. 글자색변경 : #jexp의 style 중 color 를 변경
             jexp.style.color = fc;
@@ -218,7 +219,7 @@
             background: url(./images/ifshow.jpg) no-repeat;
             /* 배경이미지 포지션으로 이미지변경하기
             -> 처음에 안보이게함! */
-            background-position: 322px 0px;
+            background-position: 322px 0;
             transform: scale(.3);
             /* 트랜지션: 속시이지 */
             transition: all .4s ease-out;
