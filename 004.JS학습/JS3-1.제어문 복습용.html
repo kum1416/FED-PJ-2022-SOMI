@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JS3-1. 제어문 - if문, switch case문, for문, while문</title>
+    <!-- JS코드구역 -->
+    <script>
+      /****************************************** 
+            함수명: jumsu
+            기능: 점수에 따른 평가출력하기
+                1. 점수에 따른 메시지 출력
+                2. 점수에 따른 메시지 글자색 변경
+                3. 점수에 따른 칭찬스티커 보이기
+        ******************************************/
+      function jumsu() {
+        
+        var jumsu = document.getElementById("jumsu");
+        var jexp = document.querySelector("#jexp");
+        var jshow = document.querySelector("#jshow");
+        var score = jumsu.value;
+        console.log("입력된값:", score);
+       
+        var initFn = function (txt) {
+
+          console.log("초기화해야징~!!!");
+
+          jexp.innerText = txt;
+
+          jexp.style.color = "#000";
+
+          jshow.style.backgroundPosition = "322px 0";
+
+          jumsu.value = "";
+
+          jumsu.focus();
+
+        }; 
+
+        console.log("숫자가 아니니? ", isNaN(score));
+
+        if (score == "") {
+          initFn("내용을 입력해주세요!");
+
+          return;
+        } 
+
+        else if (isNaN(score)) {
+
+          initFn("숫자만 입력해주세요!");
+
+          return;
+        }
+
+        else if (score < 0 || score > 100) {
+          initFn("0이상 100이하의 숫자만 입력하세요!");
+          return;
+        }
+
+        var msg;
+        var fc;
+        var bgp;
+
+
+        if (score >= 90) {
+          msg = "매우잘함";
+          fc = "blue";
+          bgp = "0 0";
+        } else if (score >= 80) {
+          msg = "잘함";
+          fc = "green";
+          bgp = "-322px 0";
+        } else if (score >= 70) {
+          msg = "보통";
+          fc = "purple";
+          bgp = "-322px -322px";
+        } else if (score >= 60) {
+          msg = "노력요함";
+          fc = "orange";
+          bgp = "0 -644px";
+        } else {
+          msg = "재시험";
+          fc = "red";
+          bgp = "-644px -644px";
+        }
+
+        jexp.innerText = "평가결과는 " + msg;
+
+        jexp.style.color = fc;
+
+        jshow.style.backgroundPosition = bgp;
+      } 
+      function local() {
+        console.log("지역국번이 뭐야?");
+
+        var tg = document.querySelector("#local");
+
+        var info = document.querySelector("#info");
+
+
+        var txt = tg.value;
+
+        console.log("지역명:", txt);
+
+        var msg;
+
+        switch (txt) {
+          case "서울":
+            msg = "02";
+            break;
+          case "경기":
+            msg = "031";
+            break;
+          case "인천":
+            msg = "032";
+            break;
+          case "부산":
+            msg = "051";
+            break;
+
+          case "대구":
+            msg = "053";
+            break;
+          case "광주":
+            msg = "062";
+            break;
+          case "전북":
+            msg = "063";
+            break;
+          case "전남":
+            msg = "061";
+            break;
+          case "경북":
+            msg = "054";
+            break;
+          case "경남":
+            msg = "055";
+            break;
+          case "세종":
+            msg = "044";
+            break;
+          case "울산":
+            msg = "052";
+            break;
+          case "대전":
+            msg = "042";
+            break;
+          case "충북":
+            msg = "043";
+            break;
+          case "충남":
+            msg = "041";
+            break;
+          case "제주":
+            msg = "064";
+            break;
+          case "나성":
+            msg = "나성에 가면 편지를 전해줘요♬";
+            break;
+          default:
+            msg = "esc";
+        }
+
+        console.log("메시지:", msg);
+
+        if (msg === "esc") {
+          msg = "등록되지 않은 지역입니다!";
+        }
+        else {
+          msg = `${txt}의 지역번호는 ${msg}입니다!`;
+        } 
+
+        info.innerText = msg;
+      } 
+    </script>
+    <style>
+      #jshow {
+        position: absolute;
+        top: -12px;
+        left: 131px;
+        width: 322px;
+        height: 322px;
+        background: url(./images/ifshow.jpg) no-repeat;
+        background-position: 322px 0;
+        transform: scale(0.3);
+        transition: all 0.4s ease-out;
+      }
+      .ir {
+        display: block;
+        width: 0;
+        height: 0;
+        overflow: hidden;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>JS 제어문</h1>
+    <hr />
+    <h2>if문 연습</h2>
+    <h3 id="jexp">평가출력</h3>
+    <label for="jumsu">점수입력:</label>
+    <input
+      type="text"
+      id="jumsu"
+      placeholder="점수를 입력하세요!"
+      maxlength="3"
+      onkeypress="if(event.keyCode===13){jumsu()}"
+    />
+    <button class="sbtn" onclick="jumsu()">평가하기</button>
+
+    <div id="jshow">
+      <span class="ir">칭찬스티커</span>
+    </div>
+
+    <br /><br />
+    <hr />
+    <h2>switch case문 연습</h2>
+    <h3 id="info">국번안내</h3>
+    <label for="local">지역명 입력:</label>
+    <input
+      type="text"
+      id="local"
+      placeholder="지역명을 '도' 를
+빼고 쓰세요!"
+      maxlength="10"
+      onkeypress="if(event.keyCode===13)local()"
+    />
+    <button class="sbtn" onclick="local()">국번문의</button>
+  </body>
+</html>
