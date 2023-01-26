@@ -217,7 +217,7 @@ body{
 }
 /* 상위li 두번째 부터 끝까지 왼쪽마진 */
 .mlist ul>li+li{
-    margin-left: 1%;
+    margin-left: 1.5%;
 }
 
 /* 선택메뉴 상위li */
