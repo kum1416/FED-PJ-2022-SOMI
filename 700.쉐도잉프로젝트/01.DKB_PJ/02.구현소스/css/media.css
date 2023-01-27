@@ -70,10 +70,11 @@
     .tmenu, .smbx, .gnb>ul>li>a::after, .gnb{
         display: none;
     }
-    /* GNC메뉴 변경하기
+    /* GNB메뉴 변경하기
     -> .top에 .on을 준 경우 적용됨!
     -> 메뉴를 fixed로 고정 */
     .top.on .gnb{
+      display: block;
       position: fixed;
       top: 0;
       width: 100vw;
