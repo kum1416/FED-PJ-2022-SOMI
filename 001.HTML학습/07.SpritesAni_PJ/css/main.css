@@ -219,12 +219,12 @@ body {
 /* 웃는여자 */
 .spani4{
     position: absolute;
-    top: 17vh;
+    top: 7vh;
     right: 0;
     width: 256px;
     /* 전체 width 1280px / 5장면 */
     height: 407px;
-    /* 전체  height 1222px / 3장면 */
+    /* 전체  height 1222px / 3줄 */
     background: url(../images/girl_frames.png);
     
     border: 15px ridge gold;
