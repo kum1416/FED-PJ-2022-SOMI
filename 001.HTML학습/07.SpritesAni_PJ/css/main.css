@@ -97,7 +97,7 @@ body {
 /* 스크린배경이동 키프레임 */
 @keyframes street {
     to{
-        background-position: -387px 0;
+        background-position: -388px 0;
     }
 }
 /* 키프레임 */
@@ -152,6 +152,9 @@ body {
 
                 [ 여러줄 애니메이션 처리법 ]
                 배경이미지 이동을 x,y축으로 분리하여 셋팅함
+                -> 시간설정은 x축은 적당히 설정후
+                y축은 x축애니시간*줄수 로 설정한다!
+                예) x축 애니를 2초로 설정후 y축은 5줄이면 -> 2초*5줄=10초
 
                 1. x축이동 : steps(장면수)
                     background-position-x : 값;
@@ -216,16 +219,22 @@ body {
 /* 웃는여자 */
 .spani4{
     position: absolute;
-    top: 100px;
-    right: -100px;
+    top: 17vh;
+    right: 0;
     width: 256px;
+    /* 전체 width 1280px / 5장면 */
     height: 407px;
+    /* 전체  height 1222px / 3장면 */
     background: url(../images/girl_frames.png);
+    
+    border: 15px ridge gold;
+    transform: scale(.5);
 
     /* 애니메이션: 이시이지반방마 */
     animation:
-    spani4X 1s steps(5) infinite,
-    spani4Y 4s steps(3) infinite;
+    spani4X .8s steps(5) infinite,
+    spani4Y 2.4s steps(3) infinite;
+    /* y축시간은 x축시간*줄수 */
 
 
 }
