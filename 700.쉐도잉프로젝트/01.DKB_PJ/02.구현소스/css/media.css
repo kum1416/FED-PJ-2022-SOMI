@@ -79,6 +79,10 @@
       background-color: #f00;
       z-index: 9999;
     }
+    nav.gnb ul{
+     flex-direction: column; 
+     text-align: center;
+    }
     
     /* 햄버거 버튼 보이기 */
     .ham{
