@@ -251,6 +251,18 @@ body {
     }
 }
 /* 확대애니메이션 class */
+.big{
+    transition: .8s;
+}
+.big:hover{
+    transform: scale(3);
+    animation-play-state: paused;
+    z-index: 1;
+}
+/* 웃는여자용 */
+.big2:hover{
+    transform: scale(.7);
+}
 
 /* 
             [ z-index 사용의 일반용법 ]
