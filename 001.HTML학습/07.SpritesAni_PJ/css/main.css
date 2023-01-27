@@ -227,7 +227,7 @@ body {
     /* 전체  height 1222px / 3줄 */
     background: url(../images/girl_frames.png);
     
-    border: 15px ridge gold;
+    border: 15px ridge lightpink;
     transform: scale(.5);
 
     /* 애니메이션: 이시이지반방마 */
@@ -266,25 +266,35 @@ body {
 /* 3-4. 흐르는 자막 */
 .fcap{
     position: absolute;
+    /* 가로크기는 스크린만큼 */
+    width: 100%;
+    /* 넘치는 자식요소 숨기기 */
+    overflow: hidden;
     
-    /* 두배크기 */
-    width: 200%;
 }
+
+/* 이동애니메이션은 ol */
 .fcap ol{
+    position: relative;
+    left: 0;
     /* 플렉스박스 */
     display: flex;
+    /* 두배크기 */
+    width: 200%;
     
-
     /* 줄바꿈방지 */
     white-space: nowrap;
-
 
     margin: 0;
     padding: 0;
     list-style: none;
+
+    /* 애니메이션: 이시이지반방마 */
+    animation: fcap 5s linear infinite;
     
-    outline: 4px dashed red;
+    /* outline: 4px dashed red; */
 }
+
 .fcap li{
     flex: 1;
     /* 플렉스자식요소 등분할 */
@@ -295,8 +305,13 @@ body {
     text-shadow: 1px 1px 1px #000;
 
 
-    outline: 4px dotted lime;
+    /* outline: 4px dotted lime; */
 }
 
 /* 흐르는 글자 키프레임 */
+@keyframes fcap {
+    to{
+        left: -100%;
+    }
+}
 /* 키프레임 */
