@@ -428,9 +428,9 @@
         // for(시;한;증){코드}
         for (var i = 1; i < 10; i++) {
           // console.log("ㅎㅎㅎ", i);
+          hcode += `${opt} × ${i} ＝ ${opt * i} <br>`;
         } //// for문 ///////
 
-        hcode += `${opt} × ${i} ＝ ${opt * i} <br>`;
 
         // 5. 화면출력하기
         tg.innerHTML = hcode;
@@ -449,6 +449,20 @@
     - 시 -> 시작값(변수선언과 함께 숫자할당)
     - 한 -> 한계값(숫자를 조건문으로 사용)
     - 증 -> 증감(1씩증가 ++ / 1씩감소 --)
+
+    ____________________________________________
+
+    ((구문해석))
+    1. 먼저 시작값을 변수에 선언 후 할당함
+    2. 중앙에 있는 한계값 조건에 맞는지 검사함
+    3. 맞으면(true) for문의 중괄호{}안의 코드를 실행함
+    4. 중괄호 안의 코드를 실행후 세번째 증감으로 감
+        ++ / -- 로 1씩 증감함
+    5. 중앙에 있는 한계값 조건에 맞는지 검사함
+    6. 조건에 맞는 동안 중괄호 안의 코드를 실행함
+    7. 중앙의 한계값 조건에 맞지 않으면(false)
+        for문을 빠져나온다!
+
 
    ***************************************************/
     </script>
@@ -582,5 +596,37 @@
     </select>
     <!-- 구구단 출력박스 -->
     <div class="gugu g1"></div>
+
+    <br /><br />
+    <hr />
+    
+    <!-- while문 연습 -->
+    <h2>while문 연습</h2>
+    <h3>구구단 출력하기</h3>
+    <select name="sel2" id="sel2" onchange="gugu2(this)">
+      <!-- 함수에 this라고 보내면 요소자신을 함수에 전송한다! -->
+      <option value="1">구구단을 선택하세요!</option>
+      <option value="2">2단</option>
+      <option value="3">3단</option>
+      <option value="4">4단</option>
+      <option value="5">5단</option>
+      <option value="6">6단</option>
+      <option value="7">7단</option>
+      <option value="8">8단</option>
+      <option value="9">9단</option>
+      <option value="10">10단</option>
+      <option value="11">11단</option>
+      <option value="12">12단</option>
+      <option value="13">13단</option>
+      <option value="14">14단</option>
+      <option value="15">15단</option>
+      <option value="16">16단</option>
+      <option value="17">17단</option>
+      <option value="18">18단</option>
+      <option value="19">19단</option>
+      <option value="20">20단</option>
+    </select>
+    <!-- 구구단 출력박스 -->
+    <div class="gugu g2"></div>
   </body>
 </html>
