@@ -72,7 +72,11 @@
   .smbx,
   .gnb > ul > li > a::after,
   .gnb {
-    /* display: none; */
+    display: none;
+  }
+  /* 탑메뉴도 .top.on일때 나타남! */
+  .top.on .tmenu{
+    display: block;
   }
   /* GNB메뉴 변경하기
     -> .top에 .on을 준 경우 적용됨!
