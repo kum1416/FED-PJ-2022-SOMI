@@ -54,6 +54,9 @@
         // 2-3. 리셋버튼: .rbtn
         var rbtn = document.querySelector(".rbtn");
 
+        // 2-4. 전체개수표시: .stxt span
+        var stxt = document.querySelector(".stxt span");
+
         // console.log(mini,Bcase);
 
         // 3. 이벤트 셋팅하기 //////////////////
@@ -87,6 +90,13 @@
               Bcase.innerHTML += `<img src="./images/Minions.png" alt="미니언즈">`;
 
             } ///// for문 ///////
+
+            // 3. for문으로 미니언즈를 모두 추가후
+            // 현재개수 표시 함수 호출!!!!
+            showCnt();
+
+
+
           }; //// click 이벤트함수 //////
 
           // mini.item(순번)
@@ -102,6 +112,8 @@
             console.log("다지워~!");
             // 2. 파란상자내용 지우기
             Bcase.innerHTML = "";
+            // 3. 개수표시 초기화
+            stxt.innerText = 0;
 
         }; /////////////////////// click 이벤트함수
 
@@ -109,6 +121,21 @@
         rbtn.style.fontSize = "40px";
         rbtn.style.margin = "10px";
 
+
+        // 5. 현재 미니언즈 개수 표시하기
+        // 대상: .stxt span
+        // 할당형 함수를 만들어서 미니언즈를 추가할때마다
+        // 이 함수를 호출하게 한다!
+        var showCnt = function(){
+            // 1. 호출확인
+            console.log("지금 몇개?");
+            // 2. 파란상자안의 미니언즈 이미지개수 읽어오기
+            var cnt = Bcase.querySelectorAll("img").length;
+            // 3. 표시요소에 개수 출력하기 : .stxt span -> stxt
+            stxt.innerText = cnt;
+
+        }; //////////////////////// showCnt 함수
+        
 
       } ///////////////////////////// loadFn 함수
       //////////////////////////////////////////
