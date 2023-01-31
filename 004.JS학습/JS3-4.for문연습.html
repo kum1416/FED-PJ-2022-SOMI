@@ -71,8 +71,13 @@
             alert("나는 몇개?" + cnt);
 
             // 2. 파란상자에 미니언즈 넣기
-            Bcase.innerHTML = `<img src="./images/Minions.png" alt="미니언즈">`;
-            
+            // += 대입연산자로 기존데이터에 더함!
+            // for문으로 반복개수만큼 미니언즈 넣기!
+            // for(시;한;증;){코드}
+            for (var j = 0; j < cnt; j++) {
+              Bcase.innerHTML += `<img src="./images/Minions.png" alt="미니언즈">`;
+              
+            } ///// for문 ///////
           }; //// click 이벤트함수 //////
 
           // mini.item(순번)
