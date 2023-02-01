@@ -254,6 +254,21 @@
         color: #f00 !important;
       }
     </style>
+    <!-- JS코드구역 -->
+    <script>
+      /////////////////////////////// 로드구역
+      window.addEventListener("load",function(){
+        // 호출확인
+        console.log("로딩완료!");
+
+        // 구현1 : 메뉴 이미지 오버시 이미지 변경하기
+        // 대상 : .simg img
+        var tg = document.querySelectorAll(".simg img:last-child");
+
+        console.log(tg);
+
+      }); /////////////////////////// 로드구역
+    </script>
   </head>
   <body>
     <h1 class="tit">
