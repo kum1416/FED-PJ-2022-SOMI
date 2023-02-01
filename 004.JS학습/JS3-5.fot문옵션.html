@@ -93,10 +93,17 @@
                     if(두번째버튼임==="for문옵션1"&&
                     (j===4 || j===7)) continue;
                     // continue 키워드
+                    // -> 안내려가고 for문 계속진행
                     // -> 중간 코드 건너뛰기를 함!
 
+                    // 2. 세번째버튼일때 6번째에 나감!
+                    // break 키워드 -> 제어문을 나감!
+                    if(btxt==="for문옵션2"&&j===6) break;
 
 
+                    // 3. 2~4,9 빼고 돌리기
+                    if(btxt==="for문연습"&&
+                    (j>=2&&j<=4)||j===9) continue;
 
 
                     // 이미지 넣을 대상은?
@@ -140,6 +147,15 @@
     <div>
         <h2>5번까지만 돌리기</h2>
         <button>for문옵션2</button>
+        <br /><br />
+        <div class="forCls"></div>
+    </div>
+
+    <hr />
+
+    <div>
+        <h2>2~4,9빼고 돌리기</h2>
+        <button>for문옵션연습</button>
         <br /><br />
         <div class="forCls"></div>
     </div>
