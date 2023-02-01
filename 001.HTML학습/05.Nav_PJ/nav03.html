@@ -153,6 +153,11 @@
         height: 400px;
       }
 
+      /* GNB 전체 a요소 오버시 공통 */
+      .gnb a:hover{
+        color: #f00 !important;
+      }
+
       .gnb dl {
         text-align: center;
       }
@@ -227,6 +232,12 @@
       #top:hover .lang::after,
       #top:hover .store::after{
         color: #222;
+      }
+
+      /* 자체오버시 */
+      .lang:hover::after,
+      .store:hover::after{
+        color: #f00 !important;
       }
 
     </style>
