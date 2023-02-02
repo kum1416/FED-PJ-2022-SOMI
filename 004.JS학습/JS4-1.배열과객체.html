@@ -447,14 +447,14 @@
             mvbx.innerHTML = `
                 <div id="mv">
                     <!-- 유튜브 아이프레임 -->
-                    <iframe width="100%" height="100%" src="https://www.youtube.com/embed/${mvcode}?autoplay=1" allow="autoplay"></iframe>
+                    <iframe width="100%" height="100%" src="https://www.youtube.com/embed/${mvcode}?autoplay=1" style="border:none">allow="autoplay"></iframe>
                     <!-- 닫기버튼 -->
                     <button class="cbtn">×</button>
                 </div>
             `;
 
             // 삽입된 동영상박스 (#mv) CSSS설정하기
-            var mv = document.querySelector("mx");
+            var mv = document.querySelector("#mv");
             var mvy = mv.style;
 
             msy.position = "fixed";
@@ -464,8 +464,29 @@
             msy.width = "700px";
             msy.height = "450px";
             msy.backgroundColor = "#000";
+            
+            // 닫기버튼 CSS 셋팅하기
+            var cbtn = document.querySelector(".cbtn");
+            var csy = cbtn.style;
 
-
+            csy.position = "absolute";
+            csy.top = "0";
+            csy.right = "-70px";
+            csy.width = "50px";
+            csy.height = "50px";
+            csy.border = "none";
+            csy.Color = "#fff";
+            csy.backgroundColor = "blue";
+            csy.fontSize = "40px";
+            csy.fontWeight = "bold";
+            csy.borderRadius = "50%";
+            csy.cursor = "pointer";
+            csy.lineHeight = "50px";
+            
+            // 닫기버튼 클릭시 #mv 제거하기
+            cbtn.onclick = function(){mv.remove();};
+            // remove() 메서드 -> DOM에서 요소를 삭제함
+            
         }; //////////////////////////// playMv 함수
         ///////////////////////////////////////////
 
