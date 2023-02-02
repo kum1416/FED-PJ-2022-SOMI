@@ -491,7 +491,26 @@
         ///////////////////////////////////////////
 
 
+        /////////////////////////////////////////////////
+        // 영화초이스 버튼 클릭시
+        // 영화정보와 동영상을 변경한다!
+        ////////////////////////////////////////////////
+        // 대상: .choice button
+        var cho = document.querySelectorAll(".choice button");
+        console.log(cho);
 
+        // for문으로 버튼들을 click이벤트 설정한다!
+        for(var i=0;i<cho.length;i++){
+            
+            cho[i].onclick = function(){
+                // 1. 버튼텍스트
+                var btxt = this.innerText;
+                console.log(btxt);
+
+        } //////////////////////// for문
+
+        }; //////////////////////// click 이벤트함수
+        
 
 
       }); /////////////////////////////////////// 로드구역
@@ -507,6 +526,14 @@
     <div class="cont"></div>
     <div class="cont"></div>
     <div class="cont"></div>
+    <!-- 영화초이스 버튼박스 -->
+    <div class="cont choice">
+        <button>수희초이스</button>
+        <button>유정초이스</button>
+        <button>성해초이스</button>
+        <button>수진초이스</button>
+        <button>민경초이스</button>
+    </div>
 
     <!-- 예고편 동영상용 박스 -->
     <aside id="mvbx"></aside>
