@@ -13,7 +13,7 @@ body{
 /* 변수셋팅 */
 :root{
     /* 큐브 공통크기 */
-    --csz:"300px";
+    --csz: 300px;
 }
 
 /* 큐브 */
@@ -24,7 +24,7 @@ body{
     /* 정중앙계산: 50% - 크기절반 */
     width: var(--csz);
     height: var(--csz);
-    
+
     outline: 2px solid red;
     
 }
