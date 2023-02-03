@@ -36,6 +36,13 @@
         }
         .mover{
             position: fixed;
+            z-index: 1;
+            /* 
+                [ z-index 무버에 주는 기준 ]
+                -> 오버시 위에 와야 하므로 가장 높게준
+                z-index보다 크게 준다!(맨 아래 코딩했으므로
+                같아도 위에 올 수 있다) - 일반요소0보다 크게함!
+            */
             width: var(--msz);
             height: var(--msz);
             border-radius: 50%;
@@ -57,6 +64,11 @@
         }
         /* 컨텐츠박스 */
         .cont{
+            position: relative;
+            /* z-index: 99999;
+            -> 무버와 z-index로 위치관계 비교를 내부의 a요소와
+            하려면 부모박스에 z-index를 주지 않아야 비교할 수 있다!
+            */
             display: flex;
         }
         .cont>div{
@@ -72,6 +84,13 @@
         /* 컨텐츠 a링크 */
         .cont>div>a{
             position: absolute;
+            /* 무버보다 위에 오도록 z-index추기
+                a요소는 포지션이 없으면 z-index가 적용안됨
+                만약 포지션이 없다면 relative라도 주도록한다!
+                무버가 z-index:1 이므로 이것보다 크게함!
+                */
+            z-index: 2;
+
             bottom: 10%;
             left: 0;
             width: 100%;
