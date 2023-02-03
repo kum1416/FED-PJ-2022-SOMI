@@ -46,7 +46,7 @@
             width: var(--msz);
             height: var(--msz);
             border-radius: 50%;
-            background-color: red;
+            background-color: aqua;
 
             /* 겹치는 색상처리 블랜딩 모드 속성
                 [ mix-blend-mode 속성 ]
@@ -66,6 +66,7 @@
         .cont{
             position: relative;
             /* z-index: 99999;
+            ((중요!!!))
             -> 무버와 z-index로 위치관계 비교를 내부의 a요소와
             하려면 부모박스에 z-index를 주지 않아야 비교할 수 있다!
             */
@@ -92,8 +93,9 @@
             z-index: 2;
 
             bottom: 10%;
-            left: 0;
-            width: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            /* 가로중앙이동 */
 
             color: #fff;
             text-decoration: none;
@@ -149,6 +151,44 @@
                 mover.style.left = posx+"px";
 
             }; /////////////////////////// mousemove 이벤트함수
+
+
+            ////////////////////////////
+            // a요소 오버시 원 크게하기!
+            ////////////////////////////
+            // 대상: .cont a -> .pt
+            var pt = document.querySelectorAll(".pt");
+            // console.log(pt);
+
+            // for문으로 모든 a요소에 이벤트 설정하기!
+            // for(시;한;증){코드}
+            for(var i=0;i<pt.length;i++){
+                // 마우스 오버시 -> mouseenter
+                pt[i].onmouseenter = function(){
+                    // 무버가 커지게함
+                    mover.style.transform = "scale(2)"
+                }; //////////////// mouseenter 이벤트함수
+
+                // 마우스 아웃시 -> mouseleaver\\
+                pt[i].onmouseleave = function(){
+                    // 무버가 원래크기로 변경
+                    mover.style.transform = "scale(1)"
+                }; //////////////// onmouseleave 이벤트ㅅ함거
+            } /////////////////////////// for문
+
+            /**********************************
+                [ 마우스 오버/아웃 이벤트 ] 
+                1. 오버시 이벤트
+                1) mouseover -> 요소위에 올라갈때 발생
+                2) mouseernter -> 요소 경계선 안으로 들어갈때 발생
+
+                2. 아웃시 이벤트
+                1) mouseout -> 요소를 벗어갈때 발생
+                2) mouseleave -> 요소 경계선 밖으로 나갈때 발생
+
+            **********************************/
+
+
 
         }); ////////////////////////////// 로드구역
     </script>
