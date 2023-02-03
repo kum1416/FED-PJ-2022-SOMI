@@ -159,8 +159,7 @@ body{
             음의 방향 -360도+30도=-330도
         */
 
-        /* z축회전도 적용할 수 있음 */
-        /* rotateX(370deg) rotateY(-330deg); */
+        /* rotateX(370deg) rotateY(-330deg) rotateZ(360deg); */
         /* z축회전도 적용할 수 있음 */
     }
 }
