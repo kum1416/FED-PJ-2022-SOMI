@@ -173,7 +173,10 @@
       ////////////////////////////////////////////
 
       var seoul = "서울";
-      var jeju = "제주도";
+
+      // var jeju = "제주도";
+      let jeju = "제주도"; //전역
+
       let toktok = "카톡";
       let sport = "축구";
 
@@ -188,15 +191,21 @@
         var seoul = "강남구";
         // 하단에서 변수를 전역으로 다시 선언할당한 결과임!
 
-        // console.log("jeju:",jeju);
+        console.log("jeju:",jeju); 
+        // 호이스팅으로 인해서 선언을 되었으나 , 선언문까지 가지 않아서 생긴 사각지대 이므로 
+        // 에러가 났다고 볼 수 있다. 사각지대 (TDZ)
+        // let 호이스팅, 사각지대 
+        // 변수선언-> 메모리 
+
+        // 변수 선언-> 초기화 -> 할당  
         // let으로 선언변수는 선언전 사용불가
         // 에러메시지 : Uncaught ReferenceError: Cannot access 'jeju' before initialization
 
         // let으로 지역변수 jeju 선언
-        let jeju = "마라도";
+        let jeju = "마라도"; //지역변수 ,선언문
         // 중괄호안의 let은 지역변수를 생성함!
 
-        console.log("jeju:", jeju);
+        console.log("jeju:", jeju); 
 
         // 전역변수 let으로 선언된 같은 이름의 변수만들기
         let toktok = "라인";
