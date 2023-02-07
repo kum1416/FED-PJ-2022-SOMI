@@ -145,7 +145,7 @@
             /* 트랜지션: 속시이지 */
             transition: .3s;
         }
-        /* 오버시 이미지 확대 */
+        /* 오버시 이미지확대 */
         .grid> div:hover img{
             /* transform: scale(1.1); */
             animation: magAni 10s linear infinite alternate;
@@ -153,7 +153,7 @@
 
         /* 계속 확대/축소 애니 키프레임 */
         @keyframes magAni {
-            too{
+            to{
                 transform: scale(1.5);
             }
         } /* 키프레임 */
@@ -184,28 +184,50 @@
 
         /* 1100px이하 미디어쿼리 시작 */
         @media screen and (max-width:1100px) {
-            
+            .grid{
+                /* 가로방향 4개 */
+                grid-template-columns: repeat(4, 1fr);
+            }
         }
 
         /* 1100px이하 미디어쿼리 끝 */
 
         /* 1000px이하 미디어쿼리 시작 */
         @media screen and (max-width:1000px) {
-            
+            .grid{
+                /* 가로방향 3개 */
+                grid-template-columns: repeat(3, 1fr);
+            }
         }
 
         /* 1000px이하 미디어쿼리 끝 */
 
         /* 800px이하 미디어쿼리 시작 */
         @media screen and (max-width:800px) {
-            
+            .grid{
+                /* 가로방향 2개 */
+                grid-template-columns: repeat(2, 1fr);
+            }
+            /* 상품명 글자박스 */
+            .grid aside h2{
+                font-size: 3vw;
+                margin: 2vw 0 0;
+            }
+            /* 상품가격 글자박스 */
+            .grid aside h3{
+                font-size: 2vw;
+                margin: 2vw 0;
+            }
         }
 
         /* 800px이하 미디어쿼리 끝 */
 
         /* 600px이하 미디어쿼리 시작 */
         @media screen and (max-width:600px) {
-            
+            .grid{
+                /* 가로방향 1개 */
+                grid-template-columns: repeat(1, 1fr);
+            }
         }
 
         /* 600px이하 미디어쿼리 끝 */
