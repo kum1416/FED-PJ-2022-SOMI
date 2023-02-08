@@ -238,9 +238,22 @@
                   <!-- 8.서브밋 버튼 -->
                   <li>
                     <input id="btnj" type="submit" value="가입하기">
-                    <!-- submit버튼은 클릭시 form요소의 모든 입력내용을 action지정 페이지로 전송한다! -->ㅋ
-                  </li>
+                    <!-- submit버튼은 클릭시 form요소의 모든 입력내용을 action지정 페이지로 전송한다! -->
 
+                    <!-- 
+                      [ 참고: submit기능 ]
+                      1. 일반button 요소가 form요소안에
+                      위치하면 클릭시 서브밋된다!
+                      2. 어떤 요소라도 JS코드로 form요소의 
+                      submit() 내장함수를 호출하면 서브밋된다!
+
+                      (실제예코드)
+                      <button>버튼전송</button>
+                      <a href="#" onclick="document.querySelector('form').submit()">a요소전송</a>
+                     -->
+
+                  </li>
+                  
                 </li>
               </ul>
             </form>
