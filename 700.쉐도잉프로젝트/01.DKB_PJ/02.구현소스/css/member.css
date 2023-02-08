@@ -72,6 +72,12 @@
     color: red;
     white-space: nowrap;
 }
+/* 메시지 글자색 변경 클래스 */
+.msg.on{
+    color: green;
+}
+
+
 
 /* 입력박스 공통 */
 .scont input[type=text],
@@ -112,5 +118,8 @@
     width: 136px;
     float: right;
     margin-top: 5px;
-    margin-right: 25px;
+    margin-right: 44px;
+    display: none;
+    /* 처음에 숨기기
+    -> 직접입력 상태일때만 보임 */
 }
