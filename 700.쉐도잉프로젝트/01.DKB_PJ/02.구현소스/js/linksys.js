@@ -88,7 +88,7 @@ window.addEventListener("DOMContentLoaded", () => {
         window.open().location.href = url;
 
       } //// else if ////////
-      // 기타 내부시스템 페이지 이동하기 ////
+      // 기타 내부시스템 페이지 이동하기
       else {
         /* 
                 [ 페이지 이동하는 방법 ]
