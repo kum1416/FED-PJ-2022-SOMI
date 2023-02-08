@@ -56,3 +56,45 @@
     display: inline-block;
     width: 200px;
 }
+
+/* 입력박스 공통 */
+.scont input[type=text],
+.scont input[type=password]{
+    width: 340px;
+    height: 36px;
+    font-size: 2rem;
+    border: 1px solid #777;
+    border-radius: 5px;
+    padding-left: 5px;
+}
+/* 라디오버튼 */
+.scont input[type=radio]{
+    width: 20px;
+    height: 20px;
+    /* 인라인요소간 세로정렬 */
+    vertical-align: -4px;
+}
+
+/* 이메일 앞주소 */
+#email1{
+    width: 170px;
+}
+/* 이메일 선택박스
+드롭다운박스==콤보박스 */
+#seleml{
+    width: 146px;
+    height: 40px;
+    border-radius: 5px;
+    font-size: 2rem;
+}
+/* 이메일 뒷주소 */
+/* 라벨숨기기 */
+.ee{
+    display: none;
+}
+#email2{
+    width: 136px;
+    float: right;
+    margin-top: 5px;
+    margin-right: 25px;
+}
