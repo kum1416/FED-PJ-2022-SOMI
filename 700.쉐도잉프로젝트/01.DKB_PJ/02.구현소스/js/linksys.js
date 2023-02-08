@@ -78,6 +78,7 @@ window.addEventListener("DOMContentLoaded", () => {
                     공사중입니다😄
                 `);
       } /////////// if ///////////
+      // sns일경우 처리분기문
       else if(
         atxt === "트위터 바로가기" ||
         atxt === "인스타그램 바로가기" ||
@@ -87,7 +88,7 @@ window.addEventListener("DOMContentLoaded", () => {
         window.open().location.href = url;
 
       } //// else if ////////
-
+      // 기타 내부시스템 페이지 이동하기 ////
       else {
         /* 
                 [ 페이지 이동하는 방법 ]
