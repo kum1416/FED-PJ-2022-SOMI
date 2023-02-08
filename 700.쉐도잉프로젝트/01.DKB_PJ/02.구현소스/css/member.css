@@ -52,7 +52,7 @@
     /* 부모자격 - .msg */
     height: 50px;
     line-height: 50px;
-    outline: 2px dotted red;
+    /* outline: 2px dotted red; */
 }
 /* 라벨공통 타이틀(.itit) */
 .itit{
