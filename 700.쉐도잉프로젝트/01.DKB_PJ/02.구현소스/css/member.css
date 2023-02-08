@@ -47,6 +47,8 @@
 }
 /* 리스트 li */
 .scont li{
+    position: relative;
+    /* 부모자격 - .msg */
     height: 50px;
     line-height: 50px;
     outline: 2px dotted red;
@@ -55,6 +57,20 @@
 .itit{
     display: inline-block;
     width: 200px;
+}
+
+/* 메시지박스 */
+.msg{
+    position: absolute;
+    top: 35px;
+    left: 0;
+    /* 부모는? .scont li */
+    height: 15px;
+    line-height: 15px;
+
+    font-size: 10px;
+    color: red;
+    white-space: nowrap;
 }
 
 /* 입력박스 공통 */
