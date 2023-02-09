@@ -105,19 +105,24 @@
 
             // 1. 대상변수 할당하기
 
-            // 이벤트 대상 : .btns button 📢특정 파트의 버튼 세부 선택!
+            // 이벤트 대상 : .btns button **📢특정 파트의 버튼 세부 선택!
             const btns = qsa(".btns button");
             // console.log(btns);
 
             // 2. 이벤트 대상에 click 이벤트 설정하기
             // for of문 사용!
-            for(let x of btns){// 📢btns 안에서 돌아라 ~
+            for(let x of btns){// x는 각각의 버튼     **📢btns 안에서 돌아라 ~
                 // 2-1. 클릭이벤트 설정하기
                 x.onclick = () => {
 
                     // 1. 클릭된 버튼의 글자읽기
                     let btxt = x.innerText;
-                    console.log(btxt);
+                    // console.log(btxt);
+
+                    // 2. 버튼 텍스트와 같은
+                    // 객체속성명의 값을 변수에 할당함! **📢위에보면 영화정보객체: mvi
+                    let data = mvi[btxt];
+                    console.log("할당객체:",data);
 
 
                 }; ////////// click이벤트 함수 ////
