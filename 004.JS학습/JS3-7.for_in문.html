@@ -85,10 +85,16 @@
             console.log("로딩완료");
 
             /* DOM선택 함수 */
-            // const qs = (x) => {document.querySelector(x)}; **📢원형  / 아래는 생략상태 / x는 지역변수
-            // 함수원형 : () => {}
+            // const qs = (x) => {document.querySelector(x)}; **📢화살표원형  / 아래는 생략상태 / x는 지역변수
             const qs = x => document.querySelector(x);
             const qsa = x => document.querySelectorAll(x);
+            // 화살표함수원형 : () => {}
+            /* 
+                선언적 함수로 만들면?
+                function qs(x) {
+                    return document.querySelector(x)
+                }
+            */
 
 
             /******************************************************** 
