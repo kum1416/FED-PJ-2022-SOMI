@@ -17,14 +17,90 @@
     --csz: 300px;
 }
 
-html,body{
+/* 초기화 */
+html,body,h1,ul{
     margin: 0;
     padding: 0;
 }
 
+body{
+    height: 100vh; /* **📢보이는 높이만큼 잡아주기 */
+    background-image: linear-gradient(to bottom,#777 30%,#ccc 70%);
+}
+
 /*************** 1. 전체제목 ***************/
+.tit{
+    text-align: center;
+    font-family: 'Black And White Picture', sans-serif;
+    color: #fff;
+    font-size: 60px;
+    font-weight: normal;
+    padding-top: 50px;
+    background: url(../images/citybg.png) no-repeat center 20px/auto 85%; /* **📢가로 오토 세를 박스100퍼센트 채움!에서 위20px만큼 떨어트리고 세로 퍼센트조정 */
+}
 
 /*************** 2. 메뉴버튼 ***************/
+.city{
+    position: fixed;
+    top: 50px;
+    right: 50px;
+}
+.city ul{
+    width: 200px;
+    list-style: none;
+    perspective: 50vw;
+}
+.city li{
+    height: 10vh;
+    /* 보이는 화면의 10% -> 메뉴6개=60% */
+    background-image: linear-gradient(to right,transparent,blue);
+    /* 축변경 */
+    transform-origin: right;
+    /* 트랜지션: 속시이지 */
+    transition: .3s;
+}
+
+/* li에 오버시 y축회전하기 */
+.city li:nth-child(1):hover{
+    transform: rotateY(45deg);
+    background-image: linear-gradient(to right,transparent,lightgreen);
+}
+/* li에 오버시 y축회전하기 */
+.city li:nth-child(2):hover{
+    transform: rotateY(25deg);
+    background-image: linear-gradient(to right,transparent,lightgoldenrodyellow);
+}
+/* li에 오버시 y축회전하기 */
+.city li:nth-child(3):hover{
+    transform: rotateY(-35deg);
+    background-image: linear-gradient(to right,transparent,lightpink);
+}
+/* li에 오버시 y축회전하기 */
+.city li:nth-child(4):hover{
+    transform: rotateY(55deg);
+    background-image: linear-gradient(to right,transparent,tomato);
+}
+/* li에 오버시 y축회전하기 */
+.city li:nth-child(5):hover{
+    transform: rotateY(20deg);
+    background-image: linear-gradient(to right,transparent,whitesmoke);
+}
+/* li에 오버시 y축회전하기 */
+.city li:nth-child(6):hover{
+    transform: rotateY(-25deg);
+    background-image: linear-gradient(to right,transparent,aquamarine);
+}
+
+.city a{
+    display: block;
+    width: 100%;
+    height: 100%;
+    font: 52px/10vh 'East Sea Dokdo', cursive;;
+    text-decoration: none;
+    text-align: center;
+    color: #fff;
+}
+
 
 /*************** 3. 큐브박스 ***************/
 /* 큐브 */
