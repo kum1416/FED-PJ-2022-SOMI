@@ -14,11 +14,11 @@
     /* 큐브 공통크기
     --변수명
     변수명은 내맘대로! */
-    --csz: 300px;
+    --csz: 25vw;
 }
 
 /* 초기화 */
-html,body,h1,ul{
+html,body,h1,h2,ul,p{
     margin: 0;
     padding: 0;
 }
@@ -42,8 +42,8 @@ body{
 /*************** 2. 메뉴버튼 ***************/
 .city{
     position: fixed;
-    top: 50px;
-    right: 50px;
+    top: 3vw;
+    right: 3vw; /* **📢똑같이 설정해야 좁아진 만큼 간격이 동일 ~ */
 }
 .city ul{
     width: min(15vw,200px); /* **📢200px보다는 안커지게 유동적이게! */
@@ -129,8 +129,8 @@ body{
 
 
     /* 입체를 잘보이게 하기위해 약간회전함 */
-    transform: 
-    rotateX(10deg) rotateY(30deg);
+    /* transform: 
+    rotateX(10deg) rotateY(30deg); */
 
     /* outline: 2px solid red; */
     
@@ -254,4 +254,51 @@ body{
         /* rotateX(370deg) rotateY(-330deg) rotateZ(360deg); */
         /* z축회전도 적용할 수 있음 */
     }
+}
+
+/* 4. 도시정보박스 */
+.cbx{
+    position: absolute;
+    top: calc(50% - var(--csz)/2);
+    left: calc(50% - var(--csz)/2);
+    /* 정중앙계산: 50% - 크기절반
+    calc() 연산시 주의사항 
+    -> +,-는 기호앞뒤 띄어쓰기
+    -> *,/는 붙여써도 됨
+    */
+    width: var(--csz);
+    height: var(--csz);
+
+    /* 글자설정 */
+    font-family: 'Jua', sans-serif;
+    color: #fff;
+    text-shadow: 0 0 2px #000;
+
+    outline: 2px dashed red;
+}
+/* 도시정보 속박스 */
+.ctxt{
+    position: absolute; /* **📢달라붙게 */
+    width: 100%;
+    height: 100%;
+    border: 3px solid #fff;
+    /* 크기유지 */
+    box-sizing: border-box;
+}
+/* 도시명 */
+h2.cname{
+    line-height: min(7vh,100px);
+    text-align: center;
+    font-size: min(50px,2.5vw); /* **📢40px보다는 더 커지지 않게 */
+}
+/* 도시설명 */
+p.cinfo{ /* 종속선택자 */
+    /* 타이틀을 제외한 영역채우기 */
+    height: calc(100% - min(7vh,100px));
+    box-sizing: border-box;
+
+    padding: min(10px,2vw);
+    font-size: min(16px,1vw); /* **📢최대 16px유지, 글씨가 같이 작아드는 지점을 찾아야함 */
+    line-height: min(28px,1.5vw);
+    background-color: rgba(0, 0, 0, 0.3);
 }
