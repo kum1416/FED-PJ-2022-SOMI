@@ -151,9 +151,9 @@ body{
 
 }
 
-/* 1. 앞면 */
+/* 1. 앞면 : 시티메인 */
 .cube span:nth-child(1){
-    background: url(../images/newyorkCity.jpg) no-repeat right/auto 105%;
+    background: url(../images/cityMain.jpg) no-repeat center/cover;
 
     /* 화면방향(z축) */
     transform: 
@@ -161,9 +161,9 @@ body{
     /* 큐브 사이즈 절반을 앞쪽으로 이동 */
 }
 
-/* 2. 오른쪽면 */
+/* 2. 오른쪽면 : 런던 */
 .cube span:nth-child(2){
-    background: url(../images/seoulCity.jpg) no-repeat center/cover;
+    background: url(../images/London_city.jpg) no-repeat center/cover;
 
     /* 화면방향(z축) */
     transform: 
@@ -173,7 +173,7 @@ body{
     큐브 사이즈 절반을 앞쪽으로 이동 */
 }
 
-/* 3. 뒷면 */
+/* 3. 뒷면 : 파리 */
 .cube span:nth-child(3){
     background: url(../images/parisCity.jpg) no-repeat center/cover;
 
@@ -185,9 +185,9 @@ body{
     큐브 사이즈 절반을 앞쪽으로 이동 */
 }
 
-/* 4. 왼쪽면 */
+/* 4. 왼쪽면 : 베를린 */
 .cube span:nth-child(4){
-    background: url(../images/cityMain.jpg) no-repeat center/cover;
+    background: url(../images/berlin_city.jpg) no-repeat center/cover;
 
     /* 화면방향(z축) */
     transform: 
@@ -197,9 +197,9 @@ body{
     큐브 사이즈 절반을 앞쪽으로 이동 */
 }
 
-/* 5. 왼쪽면 */
+/* 5. 윗면 : 서울 */
 .cube span:nth-child(5){
-    background: url(../images/citys.jpg) no-repeat center/100% 120%;
+    background: url(../images/seoulCity.jpg) no-repeat center/cover;
 
     /* 화면방향(z축) */
     transform: 
@@ -209,9 +209,9 @@ body{
     큐브 사이즈 절반을 앞쪽으로 이동 */
 }
 
-/* 6. 아랫면 */
+/* 6. 아랫쪽면 : 뉴욕 */
 .cube span:nth-child(6){
-    background: url(../images/London_city.jpg) no-repeat center/cover;
+    background: url(../images/newyorkCity.jpg) no-repeat right/auto 105%;
 
     /* 화면방향(z축) */
     transform: 
@@ -274,7 +274,10 @@ body{
     color: #fff;
     text-shadow: 0 0 2px #000;
 
-    outline: 2px dashed red;
+    /* 처음에 투명하게 */
+    opacity: 0;
+
+    /* outline: 2px dashed red; */
 }
 /* 도시정보 속박스 */
 .ctxt{
