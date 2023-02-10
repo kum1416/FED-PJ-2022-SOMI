@@ -269,4 +269,8 @@ p.cinfo{ /* 종속선택자 */
     font-size: min(16px,1vw); /* **📢최대 16px유지, 글씨가 같이 작아드는 지점을 찾아야함 */
     line-height: min(28px,1.5vw);
     background-color: rgba(0, 0, 0, 0.3);
+
+    /* 내용 넘칠때만 세로스크롤바 자동생성 */
+    overflow: auto;
 }
+
