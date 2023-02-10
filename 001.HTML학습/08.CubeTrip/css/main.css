@@ -34,17 +34,17 @@ body{
 /* 클래스명 scbar */
 .scbar::-webkit-scrollbar{
     /* 전체 스크롤바 크기변경 */
-    width: 7px;
+    width: 5px;
 }
 .scbar::-webkit-scrollbar-thumb{
     /* 스크롤바 */
     background-color: #555;
-    border-radius: 5px;
+    border-radius: 3px;
 }
 .scbar::-webkit-scrollbar-track{
     /* 스크롤바 트랙 */
     background-color: #ddd;
-    border-radius: 5px;
+    border-radius: 3px;
 }
 
 /*************** 1. 전체제목 ***************/
@@ -276,7 +276,7 @@ body{
 h2.cname{
     line-height: min(7vh,100px);
     text-align: center;
-    font-size: min(50px,2.5vw); /* **📢40px보다는 더 커지지 않게 */
+    font-size: min(40px,2.5vw); /* **📢40px보다는 더 커지지 않게 */
 }
 /* 도시설명 */
 p.cinfo{ /* 종속선택자 */
