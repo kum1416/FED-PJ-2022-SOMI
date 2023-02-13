@@ -350,8 +350,8 @@ body{
     position: absolute;
     bottom: 0;
     left: 0;
-    width: 50px;
-    height: 72px;
+    width: 20px;
+    height: 29px;
     background: url(../images/spAni01.png) no-repeat;
     /* 배경사이즈 변경 */
     background-size: 200px;
