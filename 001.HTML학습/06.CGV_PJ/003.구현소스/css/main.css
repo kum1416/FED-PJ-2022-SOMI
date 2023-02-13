@@ -232,9 +232,12 @@ body{
     /* 부모는? .top */
     width: 144px;
     height: 80px;
+    /* 나간글자 숨기기 */
+    overflow: hidden;
 }
 /* 극장가는 길 타이틀박스 */
 .anibx span{
+    /* 커튼 대문 역할 */
     display: block;
     text-align: center;
     line-height: 80px;
@@ -242,6 +245,10 @@ body{
     font-family: 'Cute Font', cursive;
     color: #fff;
     font-size: 20px;
+    /* 줄바꿈방비 */
+    white-space: nowrap;
+    /* 애니메이션: 이시이(지)반(방마) */
+    animation: anibxAni 2.8s cubic-bezier(0.68, -0.55, 0.27, 4.5) infinite;
 }
 /* 타이틀 애니 키프레임 */
 @keyframes anibxAni {
