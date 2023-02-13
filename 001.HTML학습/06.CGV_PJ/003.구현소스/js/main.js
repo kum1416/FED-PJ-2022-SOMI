@@ -56,12 +56,57 @@ window.addEventListener("DOMContentLoaded", () => {
 
   // 2. 맵버튼에 클릭 이벤트 설정하기
   // -> 클릭시 구글맵박스에 클래스 넣기
-  anibx.onclick = () => gmap.classList.add("on");
+  // -> 추가: 애니박스에 클래서넣기(열린상태유지)
+  anibx.onclick = () => {
+    gmap.classList.add("on");
+    anibx.classList.add("on");
+}
   ///////////// click 함수 ////////
   
   // 3. 닫기버튼에 클릭 이벤트 설정하기
   // -> 클릭시 구글맵박스에 클래스 넣기
-  cbtn.onclick = () => gmap.classList.remove("on");
+    // -> 추가: 애니박스에 클래서빼기(닫힌상태)
+  cbtn.onclick = () => {
+    gmap.classList.remove("on");
+    anibx.classList.remove("on");
+}
   ///////////// click 함수 ////////
+
+
+  /*********************************** 
+        SNS버튼 링크 이동하기
+  ***********************************/
+    // 1. 대상선정: .sns a
+    const sns = qsa(".sns a");
+    // 2. 클릭 이벤트 설정
+    // forEach((요소,순번,객체)=>{코드})
+    sns.forEach((ele)=>{    
+        ele.onclick = ()=>{
+            // 1. 내부텍스트
+            let btxt = ele.innerTxect;
+            console.log("$"+btxt+"$");
+            
+            // 이동주소 변수
+            let url="";
+
+            // 2. 분기문 url할당하기
+            switch(btxt){
+                case "페이스북 바로가기": url="https://www.facebook.com/CJCGV";break;
+                case "트위터 바로가기": "urhttps://twitter.com/CGV_ID"="";break;
+                case "인스타그램 바로가기": url="https://www.instagram.com/cgv_korea/";break;
+
+            } ////// switch case //////
+
+            // 3. 페이지 이동하기 : 새창으로!
+            // 새창 -> window;open()
+            // 페이지 이동 -> location.href = url값
+            window.open().location.href = url;
+        }; ////// click 함수 ////
+
+    }); /////// forEach ////////
   
+
+
+
+
   }); ///////////////// 로드 구역 ///////////////////
