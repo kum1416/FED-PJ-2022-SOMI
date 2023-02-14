@@ -110,6 +110,10 @@
     background-color: #fafafa;
     color: #333;
 }
+/* 사이드 메뉴 상위 첫번째 a요소 커서 */
+.smbx > li:first-child > a {
+    cursor: text;
+}
 
 /* 1-2.로고박스 */
 .logo{
