@@ -81,6 +81,35 @@
 .smbx > li:first-child{
     border-right: 1px solid #e5e5e5;
 }
+/* 사이드 메뉴 서브박스 */
+.smsub{
+    position: absolute;
+    border: 1px solid #e5e5e5;
+    /* 박스숨기기 */
+    height: 0;
+    overflow: hidden;
+    /* display: none; */
+    opacity: 0;
+    /* 트랜지션 */
+    transition: .5s;
+}
+/* 상위메뉴 오버시 서브박스 나타나기 */
+.smbx>li:hover .smsub{
+    /* display: block; */
+    opacity: 1;
+    height: auto; /* **📢 auto는 트랜지션 안먹힘 */
+}
+.smsub a{
+    display: block;
+    padding: 7px 10px;
+    padding-right: 19px;
+    color: #747474;
+}
+/* 서브메뉴 마우스 오버시 */
+.smsub a:hover{
+    background-color: #fafafa;
+    color: #333;
+}
 
 /* 1-2.로고박스 */
 .logo{
