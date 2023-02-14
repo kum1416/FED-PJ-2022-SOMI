@@ -74,7 +74,7 @@
 .smbx>li>a{
     display: block;
     padding: 0 13px;
-    list-style: 44px;
+    line-height: 44px;
     color: #747474;
 }
 /* 사이드메뉴 상위메뉴 첫번째li 사이구분선 */
