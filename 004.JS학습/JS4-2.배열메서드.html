@@ -72,6 +72,8 @@
         /// 요소선택함수 //////
         const qs = x => document.querySelector(x); /* **📢중괄호, 리턴 키워드 생략되어있음 */
         const qsa = x => document.querySelectorAll(x);
+        /// 콘솔찍기함수 /////
+        const cg = x => console.log(x); /* **📢지역변수라 x 계속 써도됌~ */
 
 
         /////////// 로드구역 ///////////////////////////
@@ -117,7 +119,52 @@
             // console.log(showit,cont,mbtn,sel); **📢브라우저 확인후 주석
 
             // 4. 처음 배열 출력하기 ///////
-            // 배열출력함수만들기
+            // 배열출력함수만들기 ///////
+            const showArr = () => {
+                showit.innerText = fruit.join("*");
+            }; ////////////// showArr함수 ///////
+
+            // [ 배열메서드1 : join() ]
+            // join(구분자) -> 배열사이에 구분자를 넣고 문자로 변환한다!
+
+            // 처음 배열정보 호출하여 찍기! **📢메모리에 할당된 함수기 때문에 만들고 호출!
+            showArr();
+
+            // 5. 과일 주세요~! 버튼 클릭시
+            // 배열정도로 과일박스 만들고 이미지 출력하기
+            mbtn[0].onclick = ()=>{ /* **📢화살표함수 할당 */
+                // 1. 호출확인
+                cg("과일주세요");
+
+                // 2. 변경내용 : 배열의 과일만큼 ul>li를
+                // 만들어서 html로 .cont에 출력하기!
+                let hcode = "<ul>"; /* **📢내가 지은 이름 html을 넣는 코드 hcode^_^ */
+
+                    // forEach() 메서드로 배열만큼 돌아서 li만들기
+                    // forEach((값,순번,객체)=>{코드})
+                    // frObj[val] -> 배열값과 같은 이름의 객체값 가져오기
+                    // -> 과일 이미지명 정보!!!
+                    fruit.forEach((val)=>{ /* **📢value라서 val */
+                        hcode += `
+                            <li 
+                                style=
+                                    "background:url(addimg/${frObj[val]}.png) no-repeat center/cover">
+                                ${val}
+                            </li>
+                        `;
+
+                    }); /////// forEach ///////
+
+                    hcode += "</ul>"; /* **📢forEach안에 넣으면 ul도 같이 반복돼서 따로 뺌 */
+
+                    // 화면출력
+                    cont.innerHTML = hcode;
+
+
+
+
+
+            }; /////////// click함수 /////
 
         }); ////////// 로드구역 ////////////////////////
     </script>
