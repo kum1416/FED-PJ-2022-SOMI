@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>배열의 메서드 활용</title>
+    <style>
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        h1,
+        h2 {
+            text-align: center;
+        }
+
+        .controler {
+            padding: 15px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .cont ul {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            overflow: hidden;
+        }
+
+        .cont li {
+            width: 100px;
+            height: 100px;
+            border: 2px solid red;
+            border-radius: 50%;
+            margin: 10px;
+            text-align: center;
+            line-height: 100px;
+            font-size: 25px;
+            white-space: nowrap;
+        }
+
+        /* 배열정보 보이기 */
+        .showit {
+            padding: 15px;
+            border: 4px dotted blue;
+            text-align: center;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        /* 버튼 */
+        .mbtn,
+        #sel {
+            font-size: 20px;
+            padding: 10px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+        /* 입력양식 */
+        label,input,select {
+            font-size: 20px;
+        }
+    </style>
+    <script>
+        /////////// 로드구역 ///////////////////////////
+        window.addEventListener("DOMContentLoaded",()=>{
+
+            console.log("로딩완료!");
+
+            // 1. 배열변수 선언과 할당
+            const fruit = ["배","사과","용과","딸기"]; /* **📢처음부터 상수로 결정해버릴거야! 데이터형을 못바꾸게하는 const  */
+
+            // 2. 과일명과 배경이미지명을 매칭함 -> 객체 **📢 객체는 그 이름의 어떤것.
+            const frOvj = { /* **📢 const 는 처음에 할당해야함 안에 들어가는 내용은 바뀔 수 있다 */
+                "배":"fruits_01",
+                "사과":"fruits_02",
+                "용과":"fruits_14",
+                "딸기":"fruits_09",
+                "두리안":"fruits_17",
+                "바나나":"fruits_15",
+                "수박":"fruits_12",
+                "파인애플":"fruits_13",
+                "망고":"fruits_24",
+                "오렌지":"fruits_03",
+                "체리":"fruits_05",
+                "멜론":"fruits_11",
+                "블루베리":"fruits_20",
+                "레몬":"fruits_04", /* **📢 뒤에 콤마 있어도 에러안남 */
+            }; //////////// frOvj 객체 //////////////
+
+        }); ////////// 로드구역 ////////////////////////
+    </script>
+</head>
+
+<body>
+    <h1>배열의 메서드 활용</h1>
+    <!-- 배열정보보기 -->
+    <h2>배열정보보기</h2>
+    <div class="showit"></div>
+    <!-- 컨트롤 버튼 -->
+    <div class="controler">
+        <!-- 과일기능버튼 -->
+        <button class="mbtn">과일주세요~!</button> <br>
+        <button class="mbtn">뒷배열추가요~!</button>
+        <button class="mbtn">앞배열추가요~!</button>
+        <button class="mbtn">뒷배열삭제요~!</button>
+        <button class="mbtn">앞배열삭제요~!</button> <br>
+
+        <button class="mbtn">중간배열삭제</button>
+        <label for="anum">선택과일:</label>
+        <select name="anum" id="anum">
+            <option>0</option>
+        </select>
+        <label for="delnum">지울개수:</label>
+        <input type="text" id="delnum" value="1" maxlength="1">
+        <br>
+
+        <button class="mbtn">중간배열삽입</button>
+        위의 선택번호사용+과일은 리스트에서 선택!
+        <!-- 과일선택박스 -->
+        <select name="sel" id="sel">
+            <option>과일</option>
+        </select>
+    </div>
+    <!-- 출력박스 -->
+    <div class="cont"></div>
+</body>
+
+</html>
