@@ -69,6 +69,11 @@
         }
     </style>
     <script>
+        /// 요소선택함수 //////
+        const qs = x => document.querySelector(x); /* **📢중괄호, 리턴 키워드 생략되어있음 */
+        const qsa = x => document.querySelectorAll(x);
+
+
         /////////// 로드구역 ///////////////////////////
         window.addEventListener("DOMContentLoaded",()=>{
 
@@ -94,6 +99,25 @@
                 "블루베리":"fruits_20",
                 "레몬":"fruits_04", /* **📢 뒤에 콤마 있어도 에러안남 */
             }; //////////// frObj 객체 //////////////
+
+            // 3. 대상요소 ////////////////////////
+            // (1) 배열정보출력 : .showit
+            const showit = qs(".showit");
+
+            // (2) 배열로 이미지 출력 : .cont
+            const cont = qs(".cont");
+
+            // (3) 조작버튼 요소들 : .mbtn
+            const mbtn = qsa(".mbtn");
+
+            // (4) 선택박스 : #sel
+            const sel = qs("#sel");
+
+            // 확인
+            // console.log(showit,cont,mbtn,sel); **📢브라우저 확인후 주석
+
+            // 4. 처음 배열 출력하기 ///////
+            // 배열출력함수만들기
 
         }); ////////// 로드구역 ////////////////////////
     </script>
