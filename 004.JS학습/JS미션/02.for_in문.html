@@ -49,18 +49,18 @@
       .show span {
         display: inline-block;
         /* 가로,세로 등 디자인 적용+한줄에 나옴 */
-        width: 50px;
-        height: 50px;
+        width: 30px;
+        height: 30px;
         border-radius: 50%;
         /* 원 */
-        border: 5px solid #d30000;
+        border: 2px solid #d30000;
         background-color: #00f;
-        font-size: 30px;
+        font-size: 20px;
         color: #fff;
 
         /* 동그라미 박스 정중앙 */
         text-align: center;
-        line-height: 50px;
+        line-height: 30px;
         text-align: center;
       }
     </style>
@@ -249,13 +249,17 @@
                         </div>
                         <div class="cont">
                             <!-- 2. 제목 -->
-                            <h2 class="tit">${data["제목"]}</h2>
+                            <h2 class="tit">
+                                ${data["제목"]}</h2>
                             <!-- 3. 개요 -->
-                            <h3 class="sum">${data["개요"]}</h3>
+                            <h3 class="sum">
+                                ★장르 : ${data["개요"]}</h3>
                             <!-- 4. 감독 -->
-                            <h3 class="dir">${data["감독"]}</h3>
+                            <h3 class="dir">
+                                ★감독 : ${data["감독"]}</h3>
                             <!-- 5. 출연 -->
-                            <h3 class="act">${data["출연"]}</h3>
+                            <h3 class="act">
+                                ★출연 : ${data["출연"]}</h3>
                         </div>
                     </div>
         
@@ -264,8 +268,7 @@
                     <!-- 6. 문구 -->
                     <div class="show">${newtxt}</div>
                 </section>
-                `;  ////////////// hcode변수 /////////////////
-
+                `; ////////////// hcode변수 /////////////////
 
           // 각 속성명에 해당하는 데이터 셋팅하기!
           // switch case문으로 분기!(나눈다)
@@ -291,7 +294,6 @@
           //       qs(".act").innerText = "★배우:" + data[z];
           //       break;
           //   } //////// switch case ///////
-
 
           //     // 문구 데이터를 대상에 출력!
           //     // 대상: .show
