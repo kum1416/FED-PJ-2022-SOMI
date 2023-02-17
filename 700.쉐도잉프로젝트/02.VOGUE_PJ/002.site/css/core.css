@@ -142,3 +142,8 @@ body * {
     height: 0;
     overflow: hidden;
 }
+
+/* 공통배경색 클래스 */
+.bgc{
+    background-color: #f9f9f9;
+}
