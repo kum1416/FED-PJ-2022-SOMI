@@ -253,7 +253,37 @@ body{
 }
 
 
-
-
-
 /*************** 명왕성행성 셋팅 ***************/
+#pluto.orbit{
+    width: 1600px;
+    height: 1600px;
+}
+/* 명왕성행성 포지션 - 중앙 중심 회전 */
+#pluto .pos{
+    position: absolute;
+
+    /* calc()계산으로 정중앙 이동시키기 */
+    top: calc(50% - var(--psz)/2);
+    left: calc(50% - var(--psz)/2);
+
+    width: var(--psz);
+    height: var(--psz);
+
+    /* 애니메이션 : 이시이지반방마 */
+    animation: pluto 50s linear infinite;
+}
+/* 명왕성회전 키프레임 */
+@keyframes pluto {
+    from{
+        transform: rotate(0deg) translateY(-800px) rotate(0deg);
+    }
+    to{
+        transform: rotate(360deg) translateY(-800px) rotate(-360deg);
+    }
+} /* pluto 키프레임 끝 */
+
+
+/* 명왕성행성 세팅 */
+#pluto .planet{
+    background-image: url(../images/pluto.png);
+}
