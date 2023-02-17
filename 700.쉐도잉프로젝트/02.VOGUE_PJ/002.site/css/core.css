@@ -96,6 +96,25 @@ body * {
     background-image: 
     linear-gradient(to top, #000, rgba(0, 0, 0, 0));
 }
+/* 가상요소로 컨텐츠 박스 오버시 보더 테두리 애니 만들기 */
+.cbx::after{
+    content: '';
+    position: absolute; /* **📢display: block; 앱솔루트하면 자동블록화라 안줘도됌 */
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    border: 0px solid #f00;
+    cursor: pointer;
+
+    /* 트랜지션: 속시이지 */
+    transition: border .2s ease-in-out;
+}
+/* .cbx에 오버시 */
+.cbx:hover::after{
+    border-width: 20px;
+}
+
 
 /* 3. 컨텐츠 타이틀 박스(h2) */
 .cbx h2{
