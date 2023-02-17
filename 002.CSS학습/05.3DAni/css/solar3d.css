@@ -212,22 +212,21 @@ body{
 
 
 /*************** 토성행성 셋팅 ***************/
-#jupiter.orbit{
+#saturn.orbit{
     width: 1400px;
     height: 1400px;
 }
 
 /* 토성행성 포지션 - 중앙중심회전 */
 #saturn .pos{
-    position: absolute;
+    position: absolute;    
     /* calc() 계산으로 정중앙이동 */
     top: calc(50% - var(--ssz)/2);
     left: calc(50% - var(--ssz)/2);
     width: var(--ssz);
     height: var(--ssz);
-
-    /* 애니메이션 : 이시이지반방마 */
-    animation: saturn 40s linear infinite;
+/* 애니메이션 : 이시이지반방마 */
+animation: saturn 40s linear infinite;
 }
 
 /* 토성회전 키프레임 */
@@ -275,12 +274,12 @@ body{
 /* 명왕성회전 키프레임 */
 @keyframes pluto {
     from{
-        transform: rotate(0deg) translateY(-800px) rotate(0deg);
+        transform: rotate(0deg) translateY(800px) rotate(0deg);
     }
     to{
-        transform: rotate(360deg) translateY(-800px) rotate(-360deg);
+        transform: rotate(360deg) translateY(800px) rotate(-360deg);
     }
-} /* pluto 키프레임 끝 */
+} /* 명왕성 키프레임 끝 */
 
 
 /* 명왕성행성 세팅 */
