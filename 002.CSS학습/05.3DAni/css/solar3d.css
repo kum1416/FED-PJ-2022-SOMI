@@ -138,6 +138,7 @@ body{
     border: 5px solid rgba(255, 255, 255, 0.5);
     border-radius: 50%;
     
+    
 }
 /* 행성 클래스 */
 .planet{
@@ -155,7 +156,7 @@ body{
     background-size: 100% 100%;
 
     /* 행성의 부모가 기울었으므로 반대로 세워줌 */
-    transform: rotateY(-75deg) scale(3);
+    transform: rotateY(-65deg) scale(2);
     /* 이미 행성이 회전하고 있는데 회전으로
     축반전(x/y축이 뒤바뀐효과)이 생겨서 x축이
     아니라 y축을 세워야함! */
@@ -193,6 +194,8 @@ body{
 /* 지구행성 셋팅 */
 #earth .planet{
     background-image: url(../images/earth.png);
+    /* 애니메이션: 이시이지반방마 */
+    animation: shadowAni 20s linear infinite;
 }
 
 
@@ -260,6 +263,9 @@ animation: saturn 40s linear infinite;
     }
 } /* 토성회전 키프레임 */
 
+
+
+
 /* 토성행성 셋팅 */
 /* 가상요소로 토성이미지 배경으로 넣기 */
 #saturn .planet::before{
@@ -270,6 +276,18 @@ animation: saturn 40s linear infinite;
     width: 160%;
     height: 100%;
     background: url(../images/saturn.png) no-repeat 0/100% 100%;
+}
+/* 토성 그림자 애니는 가상요소 after에줌! */
+#saturn .planet::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -30%;
+    width: 160%;
+    height: 100%;
+    background: url(../images/saturn.png) no-repeat 0/100% 100%;
+    /* 애니메이션: 이시이지반방마 */
+    animation: shadowdAni 40S linear;
 }
 
 
@@ -307,3 +325,23 @@ animation: saturn 40s linear infinite;
 #pluto .planet{
     background-image: url(../images/pluto.png);
 }
+
+
+/* 그림자애니 키프레임 */
+@keyframes shadowAni {
+    0%{
+        box-shadow: inset 18px 2px 5px rgba(0, 0, 0, 0.75);
+    } 
+    25%{
+        box-shadow: inset 3px 19px 5px rgba(0, 0, 0, 0.75);
+    } 
+    50%{
+        box-shadow: inset -20px 4px 5px rgba(0, 0, 0, 0.75);
+    } 
+    75%{
+        box-shadow: inset -7px -58px 10px rgba(0, 0, 0, 0.75);
+    } 
+    100%{
+        box-shadow: inset 18px 2px 5px rgba(0, 0, 0, 0.75);
+    } 
+} /* 키프레임 */
