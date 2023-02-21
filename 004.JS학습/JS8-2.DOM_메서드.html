@@ -14,15 +14,37 @@
                 ////////////////////////////////////////////////////////
                 // 1. 대상선정 : .smenu
                 const smenu = document.querySelectorAll(".smenu");
-
-                console.log(smenu);
-
-                // 2. 이벤트 설정하기
+                // console.log(smenu); 
+                
+                // 2. 이벤트 설정하기 : mouseover / mouseout
+                // for(let i=0;i<smenu.length;i++){}
                 // for of 문
-                // for(let i=0;i<smenu.length;i++)
-                // for of 문
-                for(let x of smenu){
+                for(let x of smenu){ // x는 각 요소
 
+                    // 1. 마우스 오버시 ////////////
+                    x.onmouseover = () => {
+                        // 1. 대상: 하위 직계 div요소
+                        let tg = x.querySelector("div");
+
+                        // 2. 대상의 높이값 알아오기
+                        let hv = tg.querySelector("ol").offsetHeight;
+                        // console.log("ol높이값:",hv); /* **📢 ,(콤마)는 영역구분-형이 살아있다 */
+
+                        // 3. 서브메뉴 열리기 : 높이값+보정값
+                        tg.style.height = (hv+10)+"px";
+                        tg.style.transition = "height .4s ease-out";
+                    }; //////////////// mouseover //////////////
+                    
+                    // 2. 마우스 아웃시 ////////////
+                    x.onmouseout = () => {
+                        // 1. 대상: 하위 직계 div요소
+                        let tg = x.querySelector("div");
+
+                        // 2. 서브메뉴 닫기
+                        tg.style.height = "0px";
+
+                    }; //////////////// mouseout //////////////
+                    
 
 
                 } //////////// for of ///////////////
