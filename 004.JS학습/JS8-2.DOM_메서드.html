@@ -198,6 +198,9 @@
         // **📢 onclick 구간 바깥에 있는 이유는 onclick안에 있으면 계속 실행되어 1밖에 안들어감 현재는 1번만 실행
         let inum = 1;
 
+        // 순번에 따른이름 배열변수
+        const cname = ["아이언맨","딱딱이","토르","닥스","스타로드"];
+
         /////////////////////////////////////////////
         // 새리스트 생성 버튼 클릭시 리스트 만들기 ////
         // 이벤트 종류: click
@@ -217,13 +220,17 @@
             // createElement() 는 메모리상에 생성
 
             // 3. 메모리상에 생성된 li에 이미지 넣기
-            ne.innerHTML = `<img src="images/ab${inum}.jpg"`;
+            ne.innerHTML = 
+            `<img src="images/ab${inum}.jpg" alt="${cname[inum-1]}"`;
 
-            // 다음번호를 업데이트하기
+            // 4. 새로운 li요소에 title속성 셋팅하기
+            ne.querySelector("img").title = 
+            `${cname[inum-1]+(inum===1?"을":"를")} 클릭하시면 삭제됩니다!`;
+
+
+            // 다음번호를 업데이트하기 ///
             inum++;
             if(inum===6) inum=1; //한계수체크
-
-            // 4. 새로운 li요소에 title속성, alt설명글 넣기
 
             // 5. 새로운 li클릭시 지우기 셋팅
 
