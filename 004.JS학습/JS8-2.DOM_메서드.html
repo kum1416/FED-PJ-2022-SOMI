@@ -72,7 +72,7 @@
 
             // 1. 클릭된요소 텍스트 읽어오기
             let atxt = ele.innerText;
-            console.log(atxt);
+            // console.log(atxt);
 
             // 이동할 주소 변수
             let url;
@@ -146,7 +146,12 @@
                 break;
             } //////// switch case ///////
 
-            console.log("URL:",url);
+            // console.log("URL:",url);
+
+            // 3. 페이지 이동하기
+            // 새창: window.open()
+            // 페이지이동: location.href = 이동주소
+            window.open().location.href = url;
 
 
           }; /////// click 함수 ////////////
