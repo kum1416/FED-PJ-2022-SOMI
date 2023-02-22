@@ -56,11 +56,11 @@ ol {
 /* 배너전체박스 */
 .banbx {
     /*슬라이드부모*/
-    position: relative;
-    width: 913px;
-    height: 564px;
-    float: left;
-    overflow: hidden;
+    position: absolute;
+    /* 부모는? .page */
+    top: 20vh;
+    width: 50vw;
+    aspect-ratio: 1/0.55; /* **📢가로를 1로봤을때 세로는 0.55다 */
     /*넘치는 자식요소 숨기기*/
     /*    border: 2px solid red;*/
     box-sizing: border-box;
