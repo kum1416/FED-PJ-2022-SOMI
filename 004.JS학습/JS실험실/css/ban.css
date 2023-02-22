@@ -9,8 +9,9 @@ html,body,h1{
 .page{
     position: relative;
     /* 부모자격 */
-    width: 100vw;
+    width: 100%; /* vw는 스크롤바트랙 무시하는 설정임 그래서 %로 바꿈 */
     height: 100vh;
+    overflow: hidden; /* 가로스크롤없앰용 */
 }
 
 
