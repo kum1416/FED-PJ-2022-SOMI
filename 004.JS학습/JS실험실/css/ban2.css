@@ -1,0 +1,183 @@
+@charset "utf-8";
+
+/* JS실험실 : 03.배너스타일 CSS - ban.css */
+html,body,h1{
+    margin: 0;
+    padding: 0;
+}
+/* 페이지 클래스 */
+.page{
+    position: relative;
+    /* 부모자격 */
+    width: 100%; /* vw는 스크롤바트랙 무시하는 설정임 그래서 %로 바꿈 */
+    /* width: 100vw로 셋팅하면
+    DT에서 가로스크롤바가 스크롤바 트랙만큼
+    생기는데 이것은 vw가 보이는 화면을 기준하기 때문이다
+    이때는 auto상태로 두거나 100%단위로 셋팅해야 한다! */
+    height: 100vh;
+    overflow: hidden; /* 가로스크롤없앰용 */
+}
+
+
+img {
+    border: none;
+}
+
+/*링크걸린 이미지 테두리 없앰*/
+
+
+ul,
+ol {
+    /*3무*/
+    margin: 0px;
+    padding: 0px;
+    list-style: none;
+}
+
+
+
+/**************************************/
+
+
+#container {
+    /*최상위부모*/
+    position: relative;
+    width: 1381px;
+    margin: 0px auto;
+}
+
+#container>header {
+    position: relative;
+    width: 100%;
+    height: 222px;
+}
+
+/* 타이틀 */
+.tit{
+    text-align: center;
+    padding: 20px;
+}
+
+/* 배너전체박스 */
+.banbx {
+    /*슬라이드부모*/
+    position: absolute;
+    /* 부모는? .page */
+    top: 50%;
+    transform: translateY(-50%);
+    /* 세로중앙! */
+    left: 25vw;
+    width: 50vw;
+    aspect-ratio: 1/0.55; /* **📢가로를 1로봤을때 세로는 0.55다 */
+    /* border: 2px solid red; */
+    box-sizing: border-box;
+
+    outline: 5px dotted blue;
+}
+
+#slide {
+    display: flex;
+    /* 플렉스박스!!! */
+    gap: 0 5vw; /* **📢사이떨어트리기 - 위아래0 양쪽5vw */
+    /* 양쪽간격 5vw */
+
+    /*사진을 싸고 있는 슬라이드*/
+    position: absolute;
+    top: 0;
+    left: -220%;
+    /* 2장의 앞쪽에 나가있음!
+    원래는 -200%지만 가로폭 5%가
+    양쪽에 셋팅되어서 10%를 두번 더해서
+    220%임 -> 하나당 110%  */
+    width: 100%;
+    height: 100%;
+}
+
+#slide li {
+    flex-shrink: 0;
+    /* 부모박스크기만큼 줄어들지 않음 -> 0 */
+    flex-basis: 100%;
+    /* 가로크기를 부모박스 크기에 맞춤! */
+    /* height 값은 flex박스 자식요소에서
+    등분할시 자동 100%임! */
+    outline: 2px dashed red;
+}
+
+#slide li img {
+    /*이미지는 박스에 맞춤!*/
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* 이미지 비율유지 채우기! */
+}
+
+/*이동버튼*/
+.abtn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    /*Y축 중앙이동*/
+}
+
+/*왼쪽버튼*/
+.ab1 {
+    left: 50px;
+}
+
+/*오른쪽버튼*/
+.ab2 {
+    right: 50px;
+}
+
+/*블릿버튼*/
+.indic {
+    display: flex;
+    /* 플렉스박스 */
+    position: absolute;
+    bottom: 50px;
+    left: 80px;
+}
+
+.indic li {
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+}
+
+.indic li img {
+    position: absolute;
+    /*이미지 겹치게*/
+}
+
+.indic li img:last-child {
+    /*회색이미지만 투명하게*/
+    opacity: 0;
+}
+
+/*회색블릿이미지가 보이게하는 class*/
+.indic li.on img:last-child {
+    /*회색이미지만 투명하게*/
+    opacity: 1;
+    /*우선적용!*/
+}
+
+#container>aside {
+    position: relative;
+    width: 467px;
+    height: 564px;
+    float: left;
+}
+
+#container>footer {
+    position: relative;
+    width: 100%;
+    height: 80px;
+    background-color: #ccc;
+    clear: both;
+    /*float해제*/
+    font-size: 9px;
+    color: #fff;
+    text-align: center;
+    box-sizing: border-box;
+    padding-top: 10px;
+}
