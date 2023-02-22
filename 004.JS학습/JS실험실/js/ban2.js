@@ -141,7 +141,9 @@ function loadFn() {
             setTimeout(() => {
                 slide.style.left = "-220%";
                 slide.style.transition = "left .4s ease-in-out";                
-            }, 0); //// 타임아웃 //////
+            }, 1); //// 타임아웃 //////
+            // 시간에 0을쓰면 인터발호출시 트랜지션이 안먹히는 에러가 있음
+            // 1만써도 괜찮음~
 
             // -> 타이밍함수는 기존 함수인 스택(Stack)메모리 공간이 아닌
             // 대기실행 공간인 큐(Queue)메모리공간에서 실행하므로
