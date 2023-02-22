@@ -10,6 +10,10 @@ html,body,h1{
     position: relative;
     /* 부모자격 */
     width: 100%; /* vw는 스크롤바트랙 무시하는 설정임 그래서 %로 바꿈 */
+    /* width: 100vw로 셋팅하면
+    DT에서 가로스크롤바가 스크롤바 트랙만큼
+    생기는데 이것은 vw가 보이는 화면을 기준하기 때문이다
+    이때는 auto상태로 두거나 100%단위로 셋팅해야 한다! */
     height: 100vh;
     overflow: hidden; /* 가로스크롤없앰용 */
 }
