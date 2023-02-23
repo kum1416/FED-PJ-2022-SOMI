@@ -36,29 +36,39 @@ window.addEventListener("DOMContentLoaded", () => {
   const scAct = q(".scAct");
 
   // 화면높이값의 2/3구하기
-  const hv = window.innerHeight/3*2;
+  const hv = (window.innerHeight / 3) * 2;
   // console.log("2/3높이:",hv);
 
   ////////////////////////////////
   // 클래스 넣기 함수 만들기 ///////
   ////////////////////////////////
-  const showIt = (x) => {
-    // x - 등장요소
+  const showIt = (ele) => {
+    // ele - 등장요소
     // 대상요소의 현재스크롤 위치
-    let xval = retVal(x);
+    let xval = retVal(ele);
 
     // 구간적용여부 검사하기
     // 0보다 크고 화면의 2/3보다 작은 구간!
     if (xval < hv && xval > 0) {
       // console.log("작동!~~~~");
       // 해당요소에 클래스 넣기!
-      x.classList.add("on");
+      ele.classList.add("on");
     }
+    // 되돌리기(on제거)는 else문에 구현가능함!
+    // else{
+    //     ele.classList.remove("on");
+    // }
   }; //////////// showIt //////////
 
   // 스크롤 이벤트 셋팅하기 //////////
   window.addEventListener("scroll", () => {
     // 값확인하기
-    cg("박스1:" + retVal(scAct[0]));
+    // cg("박스1:" + retVal(scAct[0]));
+
+    // 스크롤등장 요소 개수만큼 for문으로 돌리기
+    for (let x of scAct) showIt(x);
+
+
+
   }); //////////// scroll ////////////////
 }); //////////////// 로딩구역 //////////////////
