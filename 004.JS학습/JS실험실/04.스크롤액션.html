@@ -29,6 +29,18 @@
                 // 윈도우 높이값
                 const winH = window.innerHeight;
 
+                // 전체문서 높이값
+                const docH = document.body.clientHeight; /* **📢document.body바디요소를 직접 가리킴 */
+                console.log("문서전체높이:",docH);
+
+                // 스크롤한계값
+                const scLimit = docH - winH;
+                console.log("스크롤한계값:",scLimit);
+                // 스크롤한계값은 전체문서길이 - 윈도우높이
+                // 단, body에 기본마진 8px을 초기화해야 정확히 일치함!
+
+                
+
                 // 등장액션 대상 위치값 리턴함수/////
                 const retVal = 
                 ele => ele.getBoundingClientRect().top;
@@ -67,6 +79,9 @@
                 const tit = document.querySelector(".tit");
                 // 트랜지션설정
                 tit.style.transition = ".8s ease-in-out";
+
+                // 떨어지는 여자 대상선정 //////////////////////
+                const woman = document.querySelector("#woman");
 
                 /////////////////////////////////////////////
                 // 스크롤 이동시 윈도우에 세로스크롤 위치값 찍기
@@ -121,10 +136,13 @@
                     let obj1 = retVal(setit[0]);
                     // 두번째 포스터요소 위치
                     let obj2 = retVal(setit[1]);
-                    console.log(obj1,"/",obj2);
+                    // 세번째 포스터요소 위치
+                    let obj3 = retVal(setit[2]);
+                    // console.log(obj1,"/",obj2,"/",obj3);
 
-                    // 1. 첫번째 포스터구간일때
-                    if(obj1 < winH/2 && obj1 > 0){
+                    // 1. 첫번째/세번째 포스터구간일때
+                    if((obj1 < winH/2 && obj1 > 0)||
+                    (obj3 < winH/2 && obj3 > 0)){
                         tit.style.left = "5%";
                         tit.style.transform = "translateX(0)";
                     }
@@ -137,6 +155,35 @@
                         tit.style.left = "50%";
                         tit.style.transform = "translateX(-50%)";
                     }
+
+                    /************************************************ 
+                        떨어지는 여자 스크롤 시작부터 끝까지 애니
+                    ************************************************/
+                   // 구현내용: 여자이미지가 맨위에서부터 보이는 화면에서
+                   // 스크롤 맨 아래까지 동일한 비율로 떨어지게 한다!
+
+                   // 비례식으로 비율을 계산한다!
+                   // 페이지전체길이 : 윈도우높이 = 스크롤이동값 : 이미지이동값
+                   // 이미지이동값 = 윈도우높이 * 스크롤이동값 / 페이지전체길이
+
+                   // x = winH * scTop / docH
+                   // x = winH * scTop / scLimit
+                   // docH(페이지전체길이) 대신 scLimit(스크롤한계값) 사용!
+
+                   // -> 페이지전체길이는 사실 스크롤 한계값으로 해야함!
+
+                   // 떨어지는 여자 top위치값 계산하기 : wtop
+                   let wtop = winH * scTop / scLimit;
+                   console.log("w위치:",wtop);
+
+                   // 떨어지는 여자의 top값에 적용하기
+                   woman.style.top = wtop + "px";
+
+                   // 맨위일때 위쪽으로 숨기기
+                   if(scTop === 0) woman.style.top = wtop + "-20%";
+
+
+
 
 
 
@@ -235,6 +282,7 @@
                 height: 350vh;
                 background-image: linear-gradient(to bottom, lightcoral, lightgreen, lightblue);
             }
+            /* 타이틀 */
             .tit {
                 position: fixed;
                 top: 0;
@@ -249,6 +297,14 @@
                 font-size: 10vh;
                 z-index: 1;
                 text-shadow: 0 0 20px #ff0;
+            }
+            /* 떨어지는 여자 */
+            #woman{
+                position: fixed;
+                top: -20%;
+                left: 50%;
+                transform: translateX(-50%);
+                width: 10vw;
             }
             /* 스크롤액션박스 */
             .scact {
@@ -320,9 +376,13 @@
         </style>
     </head>
     <body>
+        <!-- 타이틀 -->
         <h1 class="tit stage"></h1>
+        <!-- 포스터박스들 -->
         <div class="scact sa1 setit"></div>
         <div class="scact sa2 setit"></div>
         <div class="scact sa3 setit"></div>
+        <!-- 떨어지는 여자 -->
+        <img src="./images/woman.png" alt="떨녀" id="woman">
     </body>
 </html>
