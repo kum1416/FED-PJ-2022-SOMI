@@ -172,15 +172,17 @@
 
                    // -> 페이지전체길이는 사실 스크롤 한계값으로 해야함!
 
-                   // 떨어지는 여자 top위치값 계산하기 : wtop
-                   let wtop = winH * scTop / scLimit;
-                   console.log("w위치:",wtop);
+                    // 🤦‍♀떨어지는 여자 top위치값 계산하기
+                    let wtop = winH * scTop / scLimit;
+                    // 확인
+                    console.log("w위치: ", wtop);
 
-                   // 떨어지는 여자의 top값에 적용하기
-                   woman.style.top = wtop + "px";
+                    // 🤦떨어지는 여자의 top값에 적용하기
+                    woman.style.top = wtop + "px";
 
-                   // 맨위일때 위쪽으로 숨기기
-                   if(scTop === 0) woman.style.top = wtop + "-20%";
+                    // 🤦‍♀맨 위일 때 위쪽으로 숨기기
+                    if(scTop === 0) woman.style.top = "-20%";
+                   
 
 
 
