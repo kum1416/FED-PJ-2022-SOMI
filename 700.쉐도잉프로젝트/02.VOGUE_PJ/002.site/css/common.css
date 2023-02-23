@@ -177,6 +177,42 @@ https://www.w3schools.com/cssref/tryit.php?filename=trycss_cursor */
     color: red;
 }
 
+/************************************************* 
+    .top.on 인 경우 슬림디자인 상단영역적용!
+*************************************************/
+/* 1. 상단영역 최소높이 해제 */
+.top.on{
+    min-height: auto;
+}
+/* 2. 상단메뉴 없애기 */
+.top.on .tmenu{
+    display: none;
+}
+/* 3. 로고 이미지 */
+.top.on .logo img{
+    width: 100px;
+}
+/* 4. 로고 박스 */
+.top.on .logo{
+    position: absolute; /* **📢위치값을 주기 전엔 부모박스 위치에 있음! */
+    left: 0;
+    /* 부모는? #top */
+    padding: 10px;
+    height: auto;
+    margin-bottom: 0;
+}
+/* 5. GNB메뉴 */
+.top.on .gnb a{
+    color: #333;
+    font-size: 14px;
+}
+.top.on .gnb{
+    gap: 0 35px;
+}
+.top.on{
+    
+}
+
 /************************* 2. 메인영역 *************************/
 .cont{
     /* 최소높이 */
