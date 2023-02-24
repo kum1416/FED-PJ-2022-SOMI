@@ -295,6 +295,13 @@
         }; ///////////// click //////////
       } //////// for of ///////////////////
 
+      // .smenu 클릭시 상위 li로 이벤트 버블링 막기!
+      const smenu = document.querySelectorAll(".smenu");
+      for(let x of smenu) {
+        x.addEventListener("click",e=>e.stopPropagation());
+        // stopPropagation() 
+        // -> 이벤트 버블링을 막는 event객채의 메서드
+      } ///////// for of ///////////
 
 
     }); //////////// 로드구역 ///////////////////////
