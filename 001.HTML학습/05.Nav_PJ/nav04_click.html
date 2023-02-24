@@ -172,14 +172,14 @@
 
     /* 상위메뉴 li오버시 서브메뉴 보이기
     - 두번째 메뉴 */
-    .gnb>ul>li:nth-child(2):hover .smenu{
+    /* .gnb>ul>li:nth-child(2):hover .smenu{
       height: 170px;
-    }
+    } */
     /* 상위메뉴 li오버시 서브메뉴 보이기
     - 세번째 메뉴 */
-    .gnb>ul>li:nth-child(3):hover .smenu{
+    /* .gnb>ul>li:nth-child(3):hover .smenu{
       height: 100px;
-    }
+    } */
 
     /* 서브메뉴 ol */
     .smenu ol{
@@ -236,6 +236,30 @@
       */
     }
   </style>
+  <script>
+    /////// 로드구역 ///////////////////
+    window.addEventListener("DOMContentLoaded",()=>{
+      console.log("로딩완료!"); // 📢구역이 읽혀지는지 확인!
+
+      // 구현내용: 메뉴 li클릭시 하위메뉴(.smenu) 열기/닫기
+      // 1. 클릭이벤트 대상: .gnb>ul>li
+      const gnb = document.querySelectorAll(".gnb>ul>li");
+      console.log(gnb);
+
+      // 2. 이벤트 셋팅하기
+      for(let x of gnb){ // x는 li요소
+        x.onclick = () => { // 📢실행하지않고 할당!
+          // 하위 .smenu ol의 높이값
+          let hv = x.querySelector(".smenu ol").clientHeight;
+          console.log("높이값:",hv);
+
+        }; ///////////// click //////////
+      } //////// for of ///////////////////
+
+
+
+    }); //////////// 로드구역 ///////////////////////
+  </script>
 </head>
 
 <body>
