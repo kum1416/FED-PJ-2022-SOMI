@@ -1,67 +1,145 @@
 <!DOCTYPE html>
 <html lang="ko">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>JS6-1.Date객체와 Math객체</title>
     <style>
-        .time {
-            width: 500px;
-            padding: 10px;
-            text-align: center;
-            font-size: 42px;
-            color: aqua;
-            background-color: #000;
-            margin: 0 auto;
-        }
+      .time {
+        width: 500px;
+        padding: 10px;
+        text-align: center;
+        font-size: 42px;
+        color: aqua;
+        background-color: #000;
+        margin: 0 auto;
+      }
 
-        /* 이미지박스 */
-        .imbx {
-            width: 500px;
-            margin: 0 auto;
-            margin-top: 100px;
-        }
+      /* 이미지박스 */
+      .imbx {
+        width: 500px;
+        margin: 0 auto;
+        margin-top: 100px;
+      }
 
-        .imbx img {
-            width: 100%;
-        }
+      .imbx img {
+        width: 100%;
+      }
     </style>
     <script>
-        //////////// 로딩구역 //////////////// 📢html이 다읽어진 후에 실행해라!
-        window.addEventListener("DOMContentLoaded",()=>{
+      //////////// 로딩구역 ////////////////
+      // 로딩구역 왜만들어? 📢html이 다읽어진 후에 실행해라!
+      window.addEventListener("DOMContentLoaded", () => {
+        console.log("로딩완료!");
 
-            console.log("로딩완료!");
+        // 시간찍을 대상: .tt - 각 시간출력 요소들
+        const tt = document.querySelectorAll(".tt");
+        // console.log(tt);
 
-        }); /////////////// 로딩구역 ///////////////////////
-</script>
-    
-</head>
+        //📢 함수만들기!
+        /*********************************************** 
+                함수명: showTime
+                기능: 오늘날짜, 현재시간 찍기
+            ***********************************************/
+        //📢지역선언적함수 ->지역변수화 한 function만들기 가능! tt사용 가능!
+        function showTime() {
+          // 1. 호출확인
+          console.log("왕빛나!");
 
-<body>
+          // 날짜 객체로 시간찍기
+          // Date객체 : 날짜, 시간을 표현하는 객체
+          // -> 객체 생성법 : new 키워드로 객체생성! 📢스태틱한 객체...?^_^...?
+          // new 키워드로 생성하는 순간
+          // 실제객체가 메모리에 생성됨!(인스턴스화!)
+
+          //📢변수선언
+          let today = new Date();
+          // Date객체가 today 변수주소지에 생성됨!
+
+          // 2. 출력하기
+          // (1) 년도출력 : tt[0]
+          tt[0].innerText = today.getFullYear();
+          // getFullYear() 전체년도
+          // 참고) getYear() 는 1900을 뺀 년도
+
+          // (2) 월출력 : tt[1]
+          tt[1].innerText = today.getMonth() + 1; // 📢배열데이타순번으로 다뤄짐
+          // getMonth() -> 0부터 시작하는 월의 순번
+          // 왜 순번을 리턴하나?
+          // 각 나라별로 부르는 월의 이름이 다르기 때문
+          // 이 이름을 배열에 넣고 출력하게함!
+          // 0부터 시작하는 순번으로 리턴
+          // 예) ["Jan","Feb",...] 해당순번의 달이름 출력
+          // 월을 숫자로 찍고 싶으면 +1한다!
+
+          // (3) 일출력 : tt[2]
+          tt[2].innerText = today.getDate();
+          // getDate() 는 날짜를 리터함!
+
+          // (4) 요일출력 : tt[3]
+          //📢변수만들기 📢왜 나오는지 설명 다시 듣기...
+          let week = ["일", "월", "수", "목", "금", "토"];
+          tt[3].innerText = week[today.getDay()];
+          // getDay() 는 요일의 순번을 리턴함
+          // 7개의 정해진 나라별 이름을 배열로 셋팅함
+          // 0부터 시작하고 일요일이 0번임!
+
+          // (5) 오전/오후 : tt[4]
+          //📢변수만들기
+          let noon = "오전";
+          // 시간에서 오후일 경우 덮어쓰고 아래에서 출력!
+
+          // (6) 시간출력 : tt[5]
+          let H = today.getHours();
+          // 시간은 24시간제로 표현됨!
+
+          // 시간테스트 조작!
+          H = 17; //📢덮어쓰기
+
+          // 12보다 크면 12를 빼고 "오후"로 noon값 변경!
+          if (H > 12) {
+            H -= 12;
+            // H = H - 12; 📢기존값에서 12를 빼라
+            noon = "오후";
+          } //////////// if //////////
+
+          // 오전/오후 출력
+          tt[4].innerText = noon;
+          // 시간출력
+          tt[5].innerText = H < 10 ? "0" + H : H; //📢삼항연산자
+
+
+          
+        } //////////// showTime 함수 /////////
+
+        // 임시함수호출
+        window.onclick = () => showTime(); //📢보이는 화면 아무데나 클릭시 왕빛나가 나와야됌(확인용)
+      }); /////////////// 로딩구역 ///////////////////////
+    </script>
+  </head>
+
+  <body>
     <!-- 시간표시박스 -->
     <div class="time">
-        <!-- 년도 -->
-        <span class="year tt"></span>.
-        <!-- 월 -->
-        <span class="month tt"></span>.
-        <!-- 일 -->
-        <span class="date tt"></span>.
-        <!-- 요일 -->
-        (<span class="day tt"></span>) <br>
-        <!-- 오전/오후 -->
-        <span class="noon tt"></span>
-        <!-- 시간 -->
-        <span class="hour tt"></span> :
-        <!-- 분 -->
-        <span class="minute tt"></span> :
-        <!-- 초 -->
-        <span class="second tt"></span>
+      <!-- 년도 -->
+      <span class="year tt"></span>.
+      <!-- 월 -->
+      <span class="month tt"></span>.
+      <!-- 일 -->
+      <span class="date tt"></span>.
+      <!-- 요일 -->
+      (<span class="day tt"></span>) <br />
+      <!-- 오전/오후 -->
+      <span class="noon tt"></span>
+      <!-- 시간 -->
+      <span class="hour tt"></span> :
+      <!-- 분 -->
+      <span class="minute tt"></span> :
+      <!-- 초 -->
+      <span class="second tt"></span>
     </div>
 
     <!-- 이미지박스 -->
     <div class="imbx"></div>
-
-</body>
-
+  </body>
 </html>
