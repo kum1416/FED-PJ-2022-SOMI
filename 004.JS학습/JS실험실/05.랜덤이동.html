@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JS실험실 : 랜덤이동하기</title>
+    <style>
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        height: 100vh;
+      }
+      body {
+        background-image: linear-gradient(to bottom, lightblue, darkblue);
+      }
+      /* 수족관박스 */
+      .aqua {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 600px;
+        height: 400px;
+        box-sizing: border-box;
+        border: 10px solid aquamarine;
+        border-radius: 20%;
+        background: url(https://www.lottehotel.com/content/dam/lotte-hotel/lotte/world/promotion/package/180706-32-2000-off-world-hotel.JPG.thumb.768.768.jpg)
+          no-repeat center/cover;
+      }
+      .ytang {
+        position: absolute;
+        /* ﻿📢가운데오게 하기 */
+        top: calc(50% - 52px);
+        left: calc(50% - 100px);
+        width: 200px;
+        height: 104px;
+
+        /* 선택영역불가 */
+        user-select: none;
+      }
+    </style>
+    <script>
+      window.addEventListener("DOMContentLoaded", () => {
+        // 움직일 대상: .ytang
+        const ytang = document.querySelector(".ytang");
+        console.log("탱아!", ytang);
+
+        //📢함수만들기
+        /*************************************** 
+            함수명: moveTang
+            기능: 탱이를 랜덤수로 위치이동함
+        ***************************************/
+       function moveTang(){
+            // 호출확인
+            console.log("고우~!");
+
+            // 1. 랜덤수 만들기
+            // top값범위 = 세로크기 - 탱높이
+            // top값범위 = 400 - 104
+            // 난수 1부터 최대값
+            // Math.ceil(Math.random()*최대수)
+
+            // (1) top값 랜덤
+            let rdTop = 
+            Math.ceil(Math.random()*(400-104)); //📢변수에 담기
+            
+            // left값범위 = 가로크기 - 탱폭
+            // left값범위 = 600 - 200
+            // 난수 1부터 최대값
+            // Math.ceil(Math.random()*최대수)
+
+            // (2) left값 랜덤
+            let rdLeft = 
+            Math.ceil(Math.random()*(600-200)); //📢변수에 담기
+
+            // (3) 트랜지션 애니시간 랜덤 : 1초~6초
+            let rdTime = 
+            Math.ceil(Math.random()*6); //📢변수에 담기
+
+            console.log(
+                "top:",rdTop,
+                "\nleft:",rdLeft,
+                "\ntime:",rdTime
+                );
+            
+            
+
+            // 2. 대상위치이동
+            ytang.style.top = rdTop + "px";
+            ytang.style.left = rdLeft + "px";
+            ytang.style.transition = rdTime+"s ease-in-out";
+            // 애니메이션 시간도 랜덤
+
+            // 3. 함수자신을 다시 호출함 -> 재귀호출!
+            setTimeout(moveTang,rdTime*1000);
+            // 재귀호출시간도 랜덤 -> 애니시간과 일치!
+
+       } /////////////// moveTang /////////
+
+       // 최초호출
+       moveTang();
+
+       // 임시호출
+    //    window.onclick = () => moveTang();
+
+
+
+
+      }); /////////////////// 로드구역 ///////////////
+    </script>
+  </head>
+  <body>
+    <div class="aqua">
+      <img src="./images/ytang.png" alt="옐로우탱" class="ytang" />
+    </div>
+  </body>
+</html>
