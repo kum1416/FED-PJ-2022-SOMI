@@ -29,36 +29,57 @@
         background: url(https://www.lottehotel.com/content/dam/lotte-hotel/lotte/world/promotion/package/180706-32-2000-off-world-hotel.JPG.thumb.768.768.jpg)
           no-repeat center/cover;
       }
+      /* 탱공통설정 */
       .ytang {
         position: absolute;
-        /* ﻿📢가운데오게 하기 */
-        top: calc(50% - 52px);
-        left: calc(50% - 100px);
-        width: 200px;
-        height: 104px;
 
         /* 선택영역불가 */
         user-select: none;
       }
-
+      /* 첫탱 */
+      .t1{
+        /*📢가운데오게 하기 */
+        top: calc(50% - 52px);
+        left: calc(50% - 100px);
+        width: 200px;
+        height: 104px;
+        z-index: 3;
+      }
+      /* 추가탱 */
       .t2{
         top: 20px;
         left: 20px;
         transform: rotateY(180deg) rotate(25deg);
         width: 150px;
         filter: hue-rotate(270deg);
+        z-index: 2;
+      }
+      /* 추가탱 */
+      .t3{
+        top: 200px;
+        left: 200px;
+        transform: rotateY(180deg) rotate(30deg);
+        width: 120px;
+        filter: hue-rotate(170deg);
+        z-index: 1;
       }
     </style>
     <script>
       window.addEventListener("DOMContentLoaded", () => {
         // 움직일 대상: .ytang
-        const ytang = document.querySelector(".ytang");
-        console.log("탱아!", ytang);
+        // const ytang = document.querySelector(".ytang");
+        // console.log("탱아!", ytang);
 
         //📢함수만들기
         /*************************************** 
             함수명: moveTang
             기능: 탱이를 랜덤수로 위치이동함
+            __________________________________
+
+            -> 공통 기능 함수를 만들때의 핵심은
+            각각의 요소를 함수에 전달하라!!!
+            -> 내부코드도 요소별로 적용되도록
+            구현코드를 구성해 준다!
         ***************************************/
        function moveTang(ele){ // 📢ele 만들기 ele - 요소전달
             // 호출확인
@@ -116,6 +137,7 @@
        // 최초호출
        moveTang(qs(".t1"));
        moveTang(qs(".t2"));
+       moveTang(qs(".t3"));
 
        // 임시호출
     //    window.onclick = () => moveTang();
@@ -130,6 +152,7 @@
     <div class="aqua">
       <img src="./images/ytang.png" alt="옐로우탱" class="ytang t1" />
       <img src="./images/ytang.png" alt="옐로우탱" class="ytang t2" />
+      <img src="./images/ytang.png" alt="옐로우탱" class="ytang t3" />
     </div>
   </body>
 </html>
