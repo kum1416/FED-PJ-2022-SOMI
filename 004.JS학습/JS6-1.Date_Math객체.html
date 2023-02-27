@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS6-1.Date객체와 Math객체</title>
+    <style>
+        .time {
+            width: 500px;
+            padding: 10px;
+            text-align: center;
+            font-size: 42px;
+            color: aqua;
+            background-color: #000;
+            margin: 0 auto;
+        }
+
+        /* 이미지박스 */
+        .imbx {
+            width: 500px;
+            margin: 0 auto;
+            margin-top: 100px;
+        }
+
+        .imbx img {
+            width: 100%;
+        }
+    </style>
+    <script>
+        //////////// 로딩구역 //////////////// 📢html이 다읽어진 후에 실행해라!
+        window.addEventListener("DOMContentLoaded",()=>{
+
+            console.log("로딩완료!");
+
+        }); /////////////// 로딩구역 ///////////////////////
+</script>
+    
+</head>
+
+<body>
+    <!-- 시간표시박스 -->
+    <div class="time">
+        <!-- 년도 -->
+        <span class="year tt"></span>.
+        <!-- 월 -->
+        <span class="month tt"></span>.
+        <!-- 일 -->
+        <span class="date tt"></span>.
+        <!-- 요일 -->
+        (<span class="day tt"></span>) <br>
+        <!-- 오전/오후 -->
+        <span class="noon tt"></span>
+        <!-- 시간 -->
+        <span class="hour tt"></span> :
+        <!-- 분 -->
+        <span class="minute tt"></span> :
+        <!-- 초 -->
+        <span class="second tt"></span>
+    </div>
+
+    <!-- 이미지박스 -->
+    <div class="imbx"></div>
+
+</body>
+
+</html>
