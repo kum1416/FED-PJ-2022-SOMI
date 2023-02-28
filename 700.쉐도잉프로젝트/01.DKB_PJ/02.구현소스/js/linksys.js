@@ -90,6 +90,13 @@ window.addEventListener("DOMContentLoaded", () => {
       } //// else if ////////
       // 기타 내부시스템 페이지 이동하기
       else {
+
+        // 메인 페이지 이동일 경우
+        // html?code=m 을 보내주자!
+
+        location.href = 
+        url + ".html"+
+        (atxt==="tvN로고"?"?code=m":"");
         /* 
         [ 페이지 이동하는 방법 ]
         1.현재창으로 열기
@@ -103,7 +110,6 @@ window.addEventListener("DOMContentLoaded", () => {
         -이 기능을 활용해서 새창으로 띄우는 것임
         */
 
-        location.href = url + ".html";
       } ////////////// else ////////////////
 
       // a요소의 기본기능인 이동 기능을 막는다!
