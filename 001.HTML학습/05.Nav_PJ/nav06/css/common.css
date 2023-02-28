@@ -73,7 +73,6 @@ body *{
 /* 전체보기 */
 .smenu h2 a{
     font-size: 14px;
-    
 }
 
 /* 서브메뉴(최하위 메뉴) */
@@ -82,6 +81,7 @@ body *{
     width: 100%;
     padding: 20px;
 }
+
 /* 서브 각 박스 (dl) */
 .swrap dl{
     width: 200px;
