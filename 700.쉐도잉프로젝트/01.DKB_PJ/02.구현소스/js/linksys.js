@@ -91,17 +91,17 @@ window.addEventListener("DOMContentLoaded", () => {
       // 기타 내부시스템 페이지 이동하기
       else {
         /* 
-                [ 페이지 이동하는 방법 ]
-                1.현재창으로 열기
-                window.location.href = 이동할주소
-                -> window는 주로 생략함
-                location.href = 이동할주소
+        [ 페이지 이동하는 방법 ]
+        1.현재창으로 열기
+        window.location.href = 이동할주소
+        -> window는 주로 생략함
+        location.href = 이동할주소
 
-                2.새창으로 열기
-                window.open().location.href = 이동할주소
-                -원래 window.open()은 팝업창 띄울 때 사용하는 것임
-                -이 기능을 활용해서 새창으로 띄우는 것임
-                */
+        2.새창으로 열기
+        window.open().location.href = 이동할주소
+        -원래 window.open()은 팝업창 띄울 때 사용하는 것임
+        -이 기능을 활용해서 새창으로 띄우는 것임
+        */
 
         location.href = url + ".html";
       } ////////////// else ////////////////
