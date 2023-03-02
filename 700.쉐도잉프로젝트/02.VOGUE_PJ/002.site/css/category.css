@@ -6,3 +6,82 @@
 @import url(./reset.css);
 @import url(./core.css);
 @import url(./common.css);
+
+/* 2-1. 카테고리 페이지 상단영역 */
+/* 2-1-1.서브타이틀 */
+.stit{
+    font-family: pist;
+    font-weight: normal;
+    font-size: 50px;
+    text-align: center;
+    padding: 40px 0 20px; /* 📢위 양쪽 아래 */
+}
+
+/* 2-1-2.서브메뉴(LNB:Local Navigation Bar) */
+.lnb{
+    padding: 5px 0 50px; /* 📢패딩으로 공간 떨어트리기 - 위 양쪽 아래 */
+}
+.lnb ul{
+    /* 플렉스박스 */
+    display: flex;
+    /* 플렉스중앙정렬 */
+    justify-content: center;
+    /* 사이간격 */
+    gap: 0 20px;
+}
+.lnb a{
+    font-family: nbg;
+    font-size: 18px;
+    color: #333;
+    /* 트랜지션 */
+    transition: color .5s;
+}
+/* 첫번째 메뉴 + 오버시 빨간색 글자 */
+.lnb li:first-child a,
+.lnb a:hover{
+    color: red;
+}
+
+/* 2-2. 카테고리 페이지 컨텐츠영역 */
+
+/************************ fashion ************************/
+.fashion .bg1-1{
+    background-image: url(../images/fashion/cont1-1a.jpg);
+}
+.fashion .bg1-2{
+    background-image: url(../images/fashion/cont1-2a.jpg);
+}
+.fashion .bg1-3{
+    background-image: url(../images/fashion/cont1-3a.jpg);
+}
+
+.fashion .bg2-1{
+    background-image: url(../images/fashion/cont2-1a.jpg);
+}
+.fashion .bg2-2{
+    background-image: url(../images/fashion/cont2-2a.jpg);
+}
+.fashion .bg2-3{
+    background-image: url(../images/fashion/cont2-3a.jpg);
+}
+
+/************************ beauty ************************/
+.beauty .bg1-1{
+    background-image: url(../images/beauty/cont1-1a.jpg);
+}
+.beauty .bg1-2{
+    background-image: url(../images/beauty/cont1-2a.jpg);
+}
+.beauty .bg1-3{
+    background-image: url(../images/beauty/cont1-3a.jpg);
+}
+
+.beauty .bg2-1{
+    background-image: url(../images/beauty/cont2-1a.jpg);
+}
+.beauty .bg2-2{
+    background-image: url(../images/beauty/cont2-2a.jpg);
+}
+.beauty .bg2-3{
+    background-image: url(../images/beauty/cont2-3a.jpg);
+}
