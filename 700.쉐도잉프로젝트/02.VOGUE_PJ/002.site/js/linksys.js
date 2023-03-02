@@ -1,5 +1,18 @@
 // 보그 PJ 링크시스템 JS - linksys.js
 
+// 넘어온 url 받기! pm -> parameter(전달값변수)
+let pm = location.href;
+// location.href 이 이퀄 오른쪽에 있으면 url주소 읽어옴!
+
+// 문자열 잘라서 값 읽어오기
+// -> 물음표로 잘라서 두번째값, 이퀄로 잘라서 두번째값
+pm = pm.split("?")[1].split("=")[1]; // 📢0 1중에 1(두번째값)
+
+// pm값 특수문자 복원하기
+pm = decodeURIComponent(pm);
+
+console.log(pm);
+
 /////// 로딩구역 ////////////////////
 window.addEventListener("DOMContentLoaded",linkFn);
 
@@ -32,8 +45,9 @@ function linkFn(){
             console.log(atxt);
 
             // (2) 서브 페이지 이동하기
+            if(atxt !== "search") // 검색이 아니면 서브이동!
             location.href = "category.html?cat=" //📢받는데서 다시 변환한다(?)
-            +encodeURIComponent(atxt); //📢특수문자처리
+            +encodeURIComponent(atxt); //📢특수문자처리 / 일정하게 변환시켜준다
 
         } /////// click //////
     } ///////// for of ////////////
