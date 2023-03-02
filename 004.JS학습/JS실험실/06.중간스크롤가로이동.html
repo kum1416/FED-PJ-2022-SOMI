@@ -18,10 +18,16 @@
         height: 100vh;
         outline: 1px solid blue;
       }
+      /* 타겟박스 */
       .tpg {
-        height: calc(100vh + 3000px);
-        background-color: orange;
+        height: calc(100vh + 3000px); /* 📢보이는화면만큼의 높이+3000px */
+        /* 타겟 박스는 보이는 화면 맨윗줄부터
+        시작해서 아래로 마지막 박스 끝라인까지
+        총 이동거리는 3000px이다!!! */
+        /* background-color: lightblue; */
+        outline: 2px dashed blue;
       }
+      /* 가로이동박스 */
       .slidePg {
         position: sticky;
         top: 0;
@@ -30,11 +36,16 @@
 
         background-color: orange;
       }
+      /* 실제로 가로이동할 ul박스 */
       .slidePg ul {
         position: relative;
         left: 0;
         display: flex;
         width: calc(100vw + 3000px);
+        /* 가로크기는 타겟박스가 이동하는 크기인
+        3000px에 맞도록 100vw에 더하여 잡아준다!
+        이유는 JS의 getBoundingClientRect().top
+        값의 수치와 정확히 일치 시키기 위함! */
         height: 100%;
         margin: 0;
         padding: 0;
@@ -69,11 +80,20 @@
 
         // html 코드변수
         let hcode = "<ul>";
-            
+
         // 2. 가로이동박스에 디자인 요소 넣기
         for(let x = 1; x < 8; x++){
-
+            hcode += `
+                <li>
+                    <img src="images/dance/${x}.jpg" alt="댄스">
+                </li>
+            `;
         } ///////////// for //////////////
+        hcode += "</ul>";
+
+        // 가로이동박스에 코드넣기
+        spg.innerHTML = hcode;
+
 
 
       }); ////////// load /////////////////
