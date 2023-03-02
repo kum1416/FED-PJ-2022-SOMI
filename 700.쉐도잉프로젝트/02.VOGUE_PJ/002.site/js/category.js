@@ -65,7 +65,7 @@ function loadFn(){
         temp +="</ul>";
 
         //LNB qkrtm에 html넣기!
-        length.innerHTML = temp;
+        lnb.innerHTML = temp;
 
     } ////////// else ///////////
     
@@ -80,7 +80,7 @@ function loadFn(){
     }); ////////// forEach //////////////
 
 
-    // (3) 컨텐츠 박스에 pm과 같은 이름의 class넣기
+    // (4) 컨텐츠 박스에 pm과 같은 이름의 class넣기
     cont.classList.add(pm.replace(" & ","-"));
     // replace(바뀔값,바꿀값)
 
