@@ -27,8 +27,7 @@
         border-radius: 35px;
       }
       /* 가상요소로 움직이는 배경박스 만들기 */
-      .gnb::before{
-        content: '';
+      .mbg{
         position: absolute; /* 📢앱솔루트-자동 디스플레이 블록 */
         /* 변경내용: left,width -> li의 수치를 기준함! */
         left: 0;
@@ -37,6 +36,8 @@
         height: 78px;
         background-color: #ffc04b;
         border-radius: 35px;
+        /* 트랜지션 */
+        transition: .4s ease-in-out;
       }
       .gnb ul{
         position: relative; /* 📢위에 올라오게하기 위한 포지션 */
@@ -147,19 +148,30 @@
         /************************************ 
             GNB 메뉴 오버시 움직이는 배경
         ************************************/
-       // 1. 대상선정: .gnb li
+       // 1. 대상선정: 
+       // (1) 이벤트 대상: .gnb li
        const gnb = document.querySelectorAll(".gnb li");
+       // (2) 변경대상: .mbg
+       const mbg = document.querySelector(".mbg");
+      //  console.log(mbg);
       //  console.log(gnb);
       // 2. 이벤트 설정하기 : mouseenter 이벤트
       gnb.forEach(ele=>{
         ele.onmouseenter = e => {
           // 1. 요소정보 알아내기
           // (1) left위치값
-          let eleft = e.offsetLeft;
+          let eLeft = ele.offsetLeft;
           // (2) width값
-          let eWidth = e.offsetWidth;
+          let eWidth = ele.offsetWidth;
+          // 대상요소의 위치값은 nav.gnb요소가 기준임!
+          // relative를 가진 요소를 기준한 offset정보임!
+
           // 확인
-          console.log("left:",eleft,"\nwidth:",eWidth);
+          // console.log("left:",eLeft,"\nwidth:",eWidth);
+
+          // 2. 움직이는 배경박스 변경하기
+          mbg.style.left = eLeft;
+          mbg.style.width = eWidth;
 
         }; ///// mouseenter //////
       }); ////////// forEach //////////
@@ -172,6 +184,9 @@
   <body>
     <!-- 네비게이션 -->
     <nav class="gnb">
+      <!-- 움직이는 메뉴배경박스 -->
+      <div class="mbg"></div>
+      <!-- 메뉴 리스트 -->
       <ul>
         <li>
           <a href="#">Let's explore</a>
