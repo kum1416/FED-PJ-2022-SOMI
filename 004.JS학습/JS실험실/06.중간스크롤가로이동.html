@@ -23,6 +23,32 @@
         left: 50%;
         transform: translateX(-50%);
         /* 가로중앙이동 */
+        background-color: #fff;
+        border-radius: 35px;
+      }
+      /* 가상요소로 움직이는 배경박스 만들기 */
+      .gnb::before{
+        content: '';
+        position: absolute; /* 📢앱솔루트-자동 디스플레이 블록 */
+        width: 206px;
+        height: 78px;
+        background-color: red;
+        border-radius: 35px;
+      }
+      .gnb ul{
+        position: relative; /* 📢위에 올라오게하기 위한 포지션 */
+        /* 가상요소보다 위! */
+        display: flex;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+      .gnb a{
+        text-decoration: none;
+        color: #000;
+        font-size: 24px;
+        display: block;
+        padding: 23px 35px; /* 📢위아래23 양쪽35 */
       }
 
       .pg {
