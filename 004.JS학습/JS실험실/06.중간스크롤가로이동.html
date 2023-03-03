@@ -52,6 +52,9 @@
         color: #000;
         font-size: 24px;
         display: block;
+
+        /* 줄바꿈 방지 */
+        white-space: nowrap;
         padding: 23px 35px; /* 📢위아래23 양쪽35 */
         /* 트랜지션: 속시이지 */
         transition: color 0.2s;
@@ -146,6 +149,19 @@
         // 스크롤 이벤트 설정 /////////////////
         window.addEventListener("scroll",movePage);
 
+        
+        // 📢함수만들기
+        /****************************************** 
+            함수명: retVal
+            기능: getBoundingClientRect()값 리턴
+        ******************************************/
+       const retVal = x => x.getBoundingClientRect().top;
+       // 📢x라는 값을 가지고 들어오면
+
+
+
+
+
         // 📢함수만들기
         /************************************ 
             함수명: movePage
@@ -153,7 +169,25 @@
         ************************************/
        function movePage(){
 
-          console.log(window.scrollY);
+          // 스크롤 위치값 확인
+          // console.log(window.scrollY);
+
+          // 1. 타겟박스의 바운딩위치값 찍기
+          // 타겟박스 -> 스티키박스의 부모박스(멈추는 구간)
+          let tgpos = retVal(tpg);
+          console.log("바운딩값:",tgpos);
+
+          // 2. 가로이동박스(mvbx)의 left값 변경하기
+          // 타겟박스의 바운딩값을 left값으로 넣어준다!
+          // 이유: 바운딩수치 === left값수치 === -3000px
+          // -> 최대이동값이 마이너스로 한계값이 일치함!
+          // 대상: mvbx
+          // 적용구간설정: 0 이하 -3000px 이상
+          if(tgpos <= 0 && tgpos >= -3000)
+            mvbx.style.left = tgpos + "px";
+
+
+
 
        } /////////////// movePage 함수 //////
     
