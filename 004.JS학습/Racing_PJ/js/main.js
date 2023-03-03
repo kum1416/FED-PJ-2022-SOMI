@@ -62,20 +62,36 @@ window.addEventListener("DOMContentLoaded", ()=>{
             if(btxt==="토끼출발"){
                 // 토끼 자동이동함수 호출!
                 goR1();
+                
+            } ///// if문 : 토끼출발 //////
 
                 // 위치이동하기
-                r1.style.left = (++r1pos) + "px"; //📢레프트값을 픽셀로 변경시켜주고 r1pos만큼 증가
+                // r1.style.left = (++r1pos) + "px"; //📢레프트값을 픽셀로 변경시켜주고 r1pos만큼 증가
 
-            } ///// if문 : 토끼출발 //////
 
             // (2-2) 거북이동
             else if(btxt==="거북출발"){
+                // 거북멈춤 상태값(t1Stop)이 1이면 돌아가!
+                if(t1Stop) return;
+                
                 // 위치이동값 셋팅
                 t1pos += 16;
                 // 위치이동하기
                 t1.style.left = t1pos + "px"; 
 
+                // 토끼 자동이동함수 호출!
+                goR1();
+
             } ///// if문 : 거북출발 //////
+
+            // (2-3) 처음으로 버튼 클릭시
+            else if(btxt==="처음으로"){
+                // 브라우저 캐싱을 지우고 다시부르기
+                // location.replace("index.html");
+
+                // 현재 페이지 리로딩
+                location.reload();
+            } ///////// else if문 : 처음으로 ////
 
         }; /////// click ////
     }); ////////// forEach /////// 📢forEach는 메서드
@@ -95,11 +111,16 @@ window.addEventListener("DOMContentLoaded", ()=>{
         // 하기 위해 !(NOT연산자)를 사용하면 된다!
 
         // cg(autoI);
-        cg(level.value);
+        // cg(level.value);
 
         if(!autoI){ /// 할당전에 1번만 허용!
             autoI = setInterval(() => {
+                // 토끼 위치이동
                 r1.style.left = (++r1pos) + "px";
+
+                // 토끼&거북 위치값체크 후 승자판별 함수호출
+                whoWinner();
+
             }, level.value);
             // 인터발 시간은 선택박스의
             // 옵션값을 읽어서 사용한다! -> level.value
@@ -107,6 +128,34 @@ window.addEventListener("DOMContentLoaded", ()=>{
     } //////////////// if ////////////
 
     } ////////////// goR1 함수 ///////////////
+
+    //📢함수만들기
+    /********************************************* 
+        함수명: whoWinner
+        기능: 기준값 보다 레이서위치값이 큰 경우
+            승자를 판별하여 메시지를 보여준다!
+    *********************************************/
+   let t1Stop = 0; // 거북멈춤값(1멈춤,0허용)
+   function whoWinner(){
+    // cg("토끼:"+r1pos);
+    // cg("거북:"+t1pos);
+
+    // 1. 토끼 / 거북의 위치값이 기준값 이상일때
+    // 기준값: 650px
+    if(r1pos >= 650 || t1pos >= 650){
+
+        // (1) 토끼야 멈춰라! -> 인터발함수지우기!
+        clearInterval(autoI);
+        // (2) 거북아 멈춰라! -> 거북멈춤상태값 1로 변경!
+        t1Stop = 1;
+
+    } //////////////// if ///////////////
+
+   } //////////// whoWinner 함수 //////////
+
+
+
+
 
 
 }); /////////// 로드구역 ///////////////////////////
