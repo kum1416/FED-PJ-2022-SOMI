@@ -12,12 +12,11 @@
       }
       body {
         overflow-x: hidden;
-        background-image: linear-gradient(to bottom,
-        orange, lightpink, lightgreen);
+        background-image: linear-gradient(to bottom, orange, lightpink, lightgreen);
       }
 
       /* GNB박스 */
-      .gnb{
+      .gnb {
         position: fixed; /* 📢화면에 고정! */
         top: 5vh;
         left: 50%;
@@ -27,7 +26,7 @@
         border-radius: 40px;
       }
       /* 가상요소로 움직이는 배경박스 만들기 */
-      .mbg{
+      .mbg {
         position: absolute; /* 📢앱솔루트-자동 디스플레이 블록 */
         /* 변경내용: left,width -> li의 수치를 기준함! */
         left: 0;
@@ -37,10 +36,10 @@
         background-color: #ffc04b;
         border-radius: 40px;
         /* 트랜지션 */
-        transition: .4s ease-in-out;
+        transition: 0.4s ease-in-out;
         opacity: 0; /* 처음에 투명 */
       }
-      .gnb ul{
+      .gnb ul {
         position: relative; /* 📢위에 올라오게하기 위한 포지션 */
         /* 가상요소보다 위! */
         display: flex;
@@ -48,19 +47,19 @@
         padding: 0;
         list-style: none;
       }
-      .gnb a{
+      .gnb a {
         text-decoration: none;
         color: #000;
         font-size: 24px;
         display: block;
         padding: 23px 35px; /* 📢위아래23 양쪽35 */
         /* 트랜지션: 속시이지 */
-        transition: color .2s;
+        transition: color 0.2s;
       }
       /* 마우스 오버시 글자색 변경 */
-      .gnb a:hover{
+      .gnb a:hover {
         color: #fff;
-        transition-delay: .2s; /* 📢빠질때는 바로 빠지고 오버시에만 조금 후에 바뀜 */
+        transition-delay: 0.2s; /* 📢빠질때는 바로 빠지고 오버시에만 조금 후에 바뀜 */
         /* 오버시 지연시간 설정 */
       }
 
@@ -132,8 +131,8 @@
         let hcode = "<ul>";
 
         // 2. 가로이동박스에 디자인 요소 넣기
-        for(let x = 1; x < 8; x++){
-            hcode += `
+        for (let x = 1; x < 8; x++) {
+          hcode += `
                 <li>
                     <img src="images/dance/${x}.jpg" alt="댄스">
                 </li>
@@ -144,50 +143,43 @@
         // 가로이동박스에 코드넣기
         spg.innerHTML = hcode;
 
-
-
         /************************************ 
             GNB 메뉴 오버시 움직이는 배경
         ************************************/
-       // 1. 대상선정: 
-       // (1) 이벤트 대상: .gnb li
-       const gnb = document.querySelectorAll(".gnb li");
-       // (2) 변경대상: .mbg
-       const mbg = document.querySelector(".mbg");
-      //  console.log(mbg);
-      //  console.log(gnb);
-      // 2. 이벤트 설정하기 : mouseenter 이벤트
-      gnb.forEach(ele=>{
-        ele.onmouseenter = e => {
-          // 1. 요소정보 알아내기
-          // (1) left위치값
-          let eLeft = ele.offsetLeft;
-          // (2) width값
-          let eWidth = ele.offsetWidth;
-          // 대상요소의 위치값은 nav.gnb요소가 기준임!
-          // relative를 가진 요소를 기준한 offset정보임!
+        // 1. 대상선정:
+        // (1) 이벤트 대상: .gnb li
+        const gnb = document.querySelectorAll(".gnb li");
+        // (2) 변경대상: .mbg
+        const mbg = document.querySelector(".mbg");
+        //  console.log(mbg);
+        //  console.log(gnb);
+        // 2. 이벤트 설정하기 : mouseenter 이벤트
+        gnb.forEach((ele) => {
+          ele.onmouseenter = (e) => {
+            // 1. 요소정보 알아내기
+            // (1) left위치값
+            let eLeft = ele.offsetLeft;
+            // (2) width값
+            let eWidth = ele.offsetWidth;
+            // 대상요소의 위치값은 nav.gnb요소가 기준임!
+            // relative를 가진 요소를 기준한 offset정보임!
 
-          // 확인
-          // console.log("left:",eLeft,"\nwidth:",eWidth);
+            // 확인
+            // console.log("left:",eLeft,"\nwidth:",eWidth);
 
-          // 2. 움직이는 배경박스 변경하기
-          mbg.style.left = eLeft+"px";
-          mbg.style.width = eWidth+"px";
+            // 2. 움직이는 배경박스 변경하기
+            mbg.style.left = eLeft + "px";
+            mbg.style.width = eWidth + "px";
+            mbg.style.opacity = 1;
+          }; ///// mouseenter //////
 
-
-        }; ///// mouseenter //////
-
-        // 마우스가 나갈때 투명도 0으로 사라짐
-        ele.onmouseleave = e => {
+          // 마우스가 나갈때 투명도 0으로 사라짐
+          ele.onmouseleave = (e) => {
             // 변경대상: .mbg -> mbg변수
             // 변경내용: opacity -> 0
             mbg.style.opacity = 0;
-        }
-        
-      }); ////////// forEach //////////
-
-
-
+          }; ///////// mouseleave //////
+        }); ////////// forEach //////////
       }); ////////// load /////////////////
     </script>
   </head>
@@ -217,8 +209,7 @@
     <!-- 타겟 페이지(스크롤시 가로이동) -->
     <div class="pg tpg">
       <!-- 옆으로 흘러갈 박스 -->
-      <div class="slidePg">
-      </div>
+      <div class="slidePg"></div>
     </div>
     <div class="pg"></div>
     <div class="pg"></div>
