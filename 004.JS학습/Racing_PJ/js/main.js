@@ -95,11 +95,15 @@ window.addEventListener("DOMContentLoaded", ()=>{
         // 하기 위해 !(NOT연산자)를 사용하면 된다!
 
         // cg(autoI);
+        cg(level.value);
 
         if(!autoI){ /// 할당전에 1번만 허용!
             autoI = setInterval(() => {
                 r1.style.left = (++r1pos) + "px";
-            }, 10);
+            }, level.value);
+            // 인터발 시간은 선택박스의
+            // 옵션값을 읽어서 사용한다! -> level.value
+            // 옵션값들 : 10,9,8,7,6,5,4
     } //////////////// if ////////////
 
     } ////////////// goR1 함수 ///////////////
