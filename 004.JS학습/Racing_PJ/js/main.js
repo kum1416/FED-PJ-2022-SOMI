@@ -175,6 +175,12 @@ window.addEventListener("DOMContentLoaded", ()=>{
         // (5) 전체 반투명 암전주기
         qs(".cover").innerHTML += 
         "<div style='position:fixed;top:0;left:0;width:100vw;height:100vh;background-color:#000;opacity:0.5;z-index:100'></div>";
+        // 주의사항: body하위에 새로운 요소를
+        // 추가하면 전체 body 직계하위에 있는
+        // 요소들에 셋팅된 이벤트가 소실된다!
+        // 왜? DOM이 재구조화 되기 때문이다! 📢같은 레벨 루트가 변경된것임
+        // 처음부터 편성된 박스에 넣어주면
+        // 이런 문제가 해결된다!
 
         // (6) 버튼 위로 올리기
         qs("#btns").style.zIndex = "200";
