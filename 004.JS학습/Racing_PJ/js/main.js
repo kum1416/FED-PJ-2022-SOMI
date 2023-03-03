@@ -155,6 +155,9 @@ window.addEventListener("DOMContentLoaded", ()=>{
         if(r1pos < t1pos) msg.innerText = "거북승!"
         else msg.innerText = "비김!재승부!"
 
+        // (4) 메시지 박스 보이기
+        msg.style.display = "block";
+
 
 
     } //////////////// if ///////////////
