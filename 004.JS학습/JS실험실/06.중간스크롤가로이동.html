@@ -12,6 +12,17 @@
       }
       body {
         overflow-x: hidden;
+        background-image: linear-gradient(to bottom,
+        orange, lightpink, lightgreen);
+      }
+
+      /* GNB박스 */
+      .gnb{
+        position: fixed; /* 📢화면에 고정! */
+        top: 5vh;
+        left: 50%;
+        transform: translateX(-50%);
+        /* 가로중앙이동 */
       }
 
       .pg {
@@ -100,6 +111,23 @@
     </script>
   </head>
   <body>
+    <!-- 네비게이션 -->
+    <nav class="gnb">
+      <ul>
+        <li>
+          <a href="#">Let's explore</a>
+        </li>
+        <li>
+          <a href="#">Let's meet</a>
+        </li>
+        <li>
+          <a href="#">Let's attend</a>
+        </li>
+        <li>
+          <a href="#">Let's dance</a>
+        </li>
+      </ul>
+    </nav>
     <div class="pg"></div>
     <div class="pg"></div>
     <!-- 타겟 페이지(스크롤시 가로이동) -->
@@ -112,3 +140,6 @@
     <div class="pg"></div>
   </body>
 </html>
+
+<!-- 📢2023.03.03(금)
+  *자식 요소가 옆으로 이동하는것! -->
