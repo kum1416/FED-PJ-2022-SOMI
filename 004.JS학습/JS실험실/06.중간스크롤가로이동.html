@@ -33,7 +33,7 @@
         /* 변경내용: left,width -> li의 수치를 기준함! */
         left: 0;
         width: 206px;
-        
+
         height: 78px;
         background-color: #ffc04b;
         border-radius: 35px;
@@ -141,6 +141,28 @@
 
         // 가로이동박스에 코드넣기
         spg.innerHTML = hcode;
+
+
+
+        /************************************ 
+            GNB 메뉴 오버시 움직이는 배경
+        ************************************/
+       // 1. 대상선정: .gnb li
+       const gnb = document.querySelectorAll(".gnb li");
+      //  console.log(gnb);
+      // 2. 이벤트 설정하기 : mouseenter 이벤트
+      gnb.forEach(ele=>{
+        ele.onmouseenter = e => {
+          // 1. 요소정보 알아내기
+          // (1) left위치값
+          let eleft = e.offsetLeft;
+          // (2) width값
+          let eWidth = e.offsetWidth;
+          // 확인
+          console.log("left:",eleft,"\nwidth:",eWidth);
+
+        }; ///// mouseenter //////
+      }); ////////// forEach //////////
 
 
 
