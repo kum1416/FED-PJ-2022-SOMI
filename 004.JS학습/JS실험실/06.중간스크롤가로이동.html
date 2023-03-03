@@ -38,6 +38,7 @@
         border-radius: 35px;
         /* 트랜지션 */
         transition: .4s ease-in-out;
+        opacity: 0; /* 처음에 투명 */
       }
       .gnb ul{
         position: relative; /* 📢위에 올라오게하기 위한 포지션 */
@@ -54,12 +55,12 @@
         display: block;
         padding: 23px 35px; /* 📢위아래23 양쪽35 */
         /* 트랜지션: 속시이지 */
-        transition: color .4s;
+        transition: color .2s;
       }
       /* 마우스 오버시 글자색 변경 */
       .gnb a:hover{
         color: #fff;
-        transition-delay: .4s; /* 📢빠질때는 바로 빠지고 오버시에만 조금 후에 바뀜 */
+        transition-delay: .2s; /* 📢빠질때는 바로 빠지고 오버시에만 조금 후에 바뀜 */
         /* 오버시 지연시간 설정 */
       }
 
@@ -170,10 +171,18 @@
           // console.log("left:",eLeft,"\nwidth:",eWidth);
 
           // 2. 움직이는 배경박스 변경하기
-          mbg.style.left = eLeft;
-          mbg.style.width = eWidth;
+          mbg.style.left = eLeft+"px";
+          mbg.style.width = eWidth+"px";
 
         }; ///// mouseenter //////
+
+        // 마우스가 나갈때 투명도 0으로 사라짐
+        ele.onmouseleave = e => {
+            // 변경대상: .mbg -> mbg변수
+            // 변경내용: opacity -> 0
+            mbg.style.opacity = 0;
+        }
+        
       }); ////////// forEach //////////
 
 
