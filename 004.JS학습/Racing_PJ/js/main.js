@@ -80,6 +80,13 @@ window.addEventListener("DOMContentLoaded", ()=>{
                 // 위치이동하기
                 t1.style.left = t1pos + "px"; 
 
+                // 거북버튼 클릭시 포커스가 들어감으로
+                // 엔터키보드 작동으로 클릭이 가능해짐!
+                // 이것을 방지하기 위해 매번 포커스 빼기!
+                ele.blur();
+                // blur() 메서드 - 포커스가 사라짐
+                // focus() 메서드 - 포커스가 들어감
+
                 // 토끼 자동이동함수 호출!
                 goR1();
 
