@@ -163,13 +163,22 @@ window.addEventListener("DOMContentLoaded", ()=>{
         // (3) 승자판별 후 메시지 보여주기!
         if(r1pos > t1pos) 
             msg.innerText = msgtxt["토끼"][rnum];
-        if(r1pos < t1pos) 
+        else if(r1pos < t1pos) 
             msg.innerText = msgtxt["거북"][rnum];
-        else
-             msg.innerText = "비김!재승부!"
+        else 
+            msg.innerText = "비김!재승부!"
 
         // (4) 메시지 박스 보이기
         msg.style.display = "block";
+        msg.style.zIndex = "101";
+
+        // (5) 전체 반투명 암전주기
+        document.body.innerHTML += 
+        "<div style='position:fixed;top:0;left:0;width:100vw;height:100vh;background-color:#000;opacity:0.5;z-index:100></div>"
+
+        // (6) 버튼 위로 올리기
+        btns.style.zIndex = "200";
+
 
 
 
