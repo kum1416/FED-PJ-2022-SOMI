@@ -58,6 +58,7 @@ window.addEventListener("DOMContentLoaded", ()=>{
             cg(btxt);
 
             // (2) 버튼별 기능분기
+            
             // (2-1) 토끼이동
             if(btxt==="토끼출발"){
                 // 토끼 자동이동함수 호출!
