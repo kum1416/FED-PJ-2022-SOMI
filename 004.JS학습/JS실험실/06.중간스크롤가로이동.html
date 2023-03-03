@@ -30,9 +30,12 @@
       .gnb::before{
         content: '';
         position: absolute; /* 📢앱솔루트-자동 디스플레이 블록 */
+        /* 변경내용: left,width -> li의 수치를 기준함! */
+        left: 0;
         width: 206px;
+        
         height: 78px;
-        background-color: red;
+        background-color: #ffc04b;
         border-radius: 35px;
       }
       .gnb ul{
@@ -49,6 +52,14 @@
         font-size: 24px;
         display: block;
         padding: 23px 35px; /* 📢위아래23 양쪽35 */
+        /* 트랜지션: 속시이지 */
+        transition: color .4s;
+      }
+      /* 마우스 오버시 글자색 변경 */
+      .gnb a:hover{
+        color: #fff;
+        transition-delay: .4s; /* 📢빠질때는 바로 빠지고 오버시에만 조금 후에 바뀜 */
+        /* 오버시 지연시간 설정 */
       }
 
       .pg {
