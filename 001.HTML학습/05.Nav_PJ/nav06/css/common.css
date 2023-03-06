@@ -33,8 +33,14 @@ body *{
 }
 /* 1-2.GNB 영역 */
 .gnb{
+    position: relative;
+    /* 부모자격 - .smenu */
+
     max-width: 1300px;
     margin: 0 auto;
+
+    /* 줄바꿈방지 */
+    white-space: nowrap;
 }
 .gnb>ul{
     /* 플렉스 박스 */
@@ -47,16 +53,19 @@ body *{
 
 /* 하위메뉴 */
 .smenu{
-    display: flex;
+    /* display: flex; */
     position: absolute;
+    left: 0; /* 📢위치값을 줘서 레프트에 대해서 부모를 찾음! */
+
     width: 1300px;
     background-color: #fff;
     display: none;
 }
 
 /* 📢임시로 첫번째 메뉴만 보이게 함!! */
-.gnb>ul>li:first-child .smenu{
+.gnb>ul>li:nth-child(5) .smenu{
     display: flex;
+    /* 📢직계자식에대한 플렉스 */
 }
 
 /* 서브메뉴 타이틀 */
@@ -77,7 +86,11 @@ body *{
 
 /* 서브메뉴(최하위 메뉴) */
 .swrap{
+    /* 플렉스박스 */
     display: flex;
+    /* 플렉스 줄바꿈설정 */
+    flex-wrap: wrap;
+
     width: 100%;
     padding: 20px;
 }
