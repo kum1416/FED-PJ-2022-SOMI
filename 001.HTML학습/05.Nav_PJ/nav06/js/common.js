@@ -99,31 +99,29 @@ function loadFn() {
   //  console.log(list);
 
   // 2. 상위메뉴 li에 이벤트 설정하기
-  for(let x of list){
+  for (let x of list) {
     // (1) 마우스 오버시 /////
     x.onmouseenter = () => {
-        // (1) 하위메뉴 박스 .smenu 선택하여 변경하기
-        let tg = x.querySelector(".smenu"); /* 📢변수에 담기! smenu를 한번에 찾아줘~ */
+      // (1) 하위메뉴 박스 .smenu 선택하여 변경하기
+      let tg = x.querySelector(".smenu"); /* 📢변수에 담기! smenu를 한번에 찾아줘~ */
 
-        // (2) 하위메뉴 박스 내부박스 높이값 구하기
-        let hv = tg.querySelector(".smbx").clientHeight;
-        console.log("내부높이:",hv);
+      // (2) 하위메뉴 박스 내부박스 높이값 구하기
+      let hv = tg.querySelector(".smbx").clientHeight;
+      // console.log("내부높이:",hv);
 
-        // (3) 하위메뉴 style변경하기
-        tg.style.height = hv+"px";
-        tg.style.opacity = 1; /* 📢숫자라 따옴표 안씀 */
+      // (3) 하위메뉴 style변경하기
+      tg.style.height = hv + "px";
+      tg.style.opacity = 1; /* 📢숫자라 따옴표 안씀 */
     }; /////// mouseenter /////////
 
     // (2) 마우스 아웃시 /////
     x.onmouseleave = () => {
-        // (1) 하위메뉴 박스 .smenu 선택하여 변경하기
-        let tg = x.querySelector(".smenu"); /* 📢변수에 담기! smenu를 한번에 찾아줘~ */
+      // (1) 하위메뉴 박스 .smenu 선택하여 변경하기
+      let tg = x.querySelector(".smenu"); /* 📢변수에 담기! smenu를 한번에 찾아줘~ */
 
-        // (2) 하위메뉴 style변경하기
-        tg.style.height = "0"; /* 📢px이 들어가는거기때문에 따옴표씀 */
-        tg.style.opacity = 0;
-
-
+      // (2) 하위메뉴 style변경하기
+      tg.style.height = "0"; /* 📢px이 들어가는거기때문에 따옴표씀 */
+      tg.style.opacity = 0;
     }; /////// mouseleave /////////
   }
 } ///////////// loadFn 함수 ////////////////
