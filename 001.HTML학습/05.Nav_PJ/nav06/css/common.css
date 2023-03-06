@@ -1,180 +1,197 @@
 @charset "utf-8";
 /* 내비게이션 유형 06 : 공통 CSS - common.css */
 
-
 @import url(./reset.css);
 /* 웹폰트 CDN */
-@import url('https://fonts.googleapis.com/css2?family=Nanum+Brush+Script&family=Noto+Sans+KR&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Nanum+Brush+Script&family=Noto+Sans+KR&display=swap");
 /* font-family: 'Noto Sans KR', sans-serif; */
 
-
 /* 공사중 표시 */
-body *{
-    /* outline: 1px dashed red; */
+body * {
+  /* outline: 1px dashed red; */
 }
 
 /* 중앙 속박스 */
-.ibx{
-    max-width: 1920px;
-    margin: 0 auto;
+.ibx {
+  max-width: 1920px;
+  margin: 0 auto;
 }
 
 /* 1.상단영역 */
-#top{
-    font-family: 'Noto Sans KR', sans-serif;
-    background-color: #222;
+#top {
+  font-family: "Noto Sans KR", sans-serif;
+  background-color: #222;
 }
-.top{
-    min-height: 350px;
+.top {
+  min-height: 350px;
 }
 /* 1-1.탑메뉴 영역 */
-.tmenu{
-    height: 80px;
+.tmenu {
+  height: 80px;
 }
 /* 1-2.GNB 영역 */
-.gnb{
-    position: relative;
-    /* 부모자격 - .smenu */
+.gnb {
+  position: relative;
+  /* 부모자격 - .smenu */
 
-    max-width: 1300px;
-    margin: 0 auto;
+  max-width: 1300px;
+  margin: 0 auto;
 
-    /* 줄바꿈방지 */
-    white-space: nowrap;
+  /* 줄바꿈방지 */
+  white-space: nowrap;
+  /* GNB배경박스(.bgbx)보다위 */
+  z-index: 1;
 }
-.gnb>ul{
-    /* 플렉스 박스 */
-    display: flex;
-    /* gap: 0 40px; */ 
+.gnb > ul {
+  /* 플렉스 박스 */
+  display: flex;
+  /* gap: 0 40px; */
 }
 
 /* 상위메뉴 a요소 */
-.gnb>ul>li>a{
-    /* a요소 확장! */
-    display: block; /* 📢패딩으로 밀기 위한 블록 */
-    padding: 0 20px;
-    /* width: 100%;
+.gnb > ul > li > a {
+  /* a요소 확장! */
+  display: block; /* 📢패딩으로 밀기 위한 블록 */
+  padding: 0 20px;
+  /* width: 100%;
     height: 100%; */
-    
-    line-height: 60px;
-    color: #ccc;
+
+  line-height: 60px;
+  color: #ccc;
 }
 
 /* 하위메뉴 */
-.smenu{
-    position: absolute;
-    left: 0; /* 📢위치값을 줘서 레프트에 대해서 부모를 찾음! */
+.smenu {
+  position: absolute;
+  left: 0; /* 📢위치값을 줘서 레프트에 대해서 부모를 찾음! */
 
-    background-color: #fff;
-    width: 1300px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.211); /* 🥝바뀐부분 */
+  /* background-color: #fff; */
+  width: 1300px;
+  /* 아래로 옮김 box-shadow: 0 2px 5px rgba(0, 0, 0, 0.211);  🥝바뀐부분 */
 
-    /* 숨기기장치 : overflow,height,opacity(투명효과때문에) */
-    overflow: hidden;
-    /* 넘치는 자식요소 숨기기 */
-    height: 0; /* 📢🍅숨기는 기능을 만들때는 걔를 싸고 있는 박스를 하나 만들면 된다! */
-    /* 높이값 : 0 -> 각각의 서브높이만큼 오버시 변경! */
-    opacity: 0;
-    /* 투명도 : 0 -> 오버시 1로 보이게함 */
+  /* 숨기기장치 : overflow,height,opacity(투명효과때문에) */
+  overflow: hidden;
+  /* 넘치는 자식요소 숨기기 */
+  height: 0; /* 📢🍅숨기는 기능을 만들때는 걔를 싸고 있는 박스를 하나 만들면 된다! */
+  /* 높이값 : 0 -> 각각의 서브높이만큼 오버시 변경! */
+  opacity: 0;
+  /* 투명도 : 0 -> 오버시 1로 보이게함 */
 
-    /* 트랜지션 : 속시이지 */
-    transition: .4s ease-in-out;
-
+  /* 트랜지션 : 속시이지 */
+  transition: 0.4s ease-in-out;
 }
 
 /* 하위메뉴 구조랩핑박스 .smbx */
-.smbx{
-    /* h2,div의 플렉스박스 */
-    display: flex;
+.smbx {
+  /* h2,div의 플렉스박스 */
+  display: flex;
 }
 /* 📢임시로 첫번째 메뉴만 보이게 함!! */
 /* .gnb>ul>li:nth-child(5) .smenu{ */
-    /* display: block; */ /* 📢보이게하기위한 블록 */
-    /* 📢직계자식에대한 플렉스 */
+/* display: block; */ /* 📢보이게하기위한 블록 */
+/* 📢직계자식에대한 플렉스 */
 /* } */
 
 /* 서브메뉴 타이틀 */
-.smenu h2{
-    width: 166px;
-    padding: 20px;
-    font-weight: normal;
-    border-right: 1px solid #e3e3e3;/* 🥝바뀐부분 */
+.smenu h2 {
+  width: 166px;
+  padding: 20px;
+  font-weight: normal;
+  border-right: 1px solid #e3e3e3; /* 🥝바뀐부분 */
 }
 /* 타이틀 */
-.smenu h2 div{
-    font-size: 25px;
-    margin-bottom: 15px;
+.smenu h2 div {
+  font-size: 25px;
+  margin-bottom: 15px;
 }
 /* 전체보기 */
-.smenu h2 a{
-    font-size: 13px;
+.smenu h2 a {
+  font-size: 13px;
 }
 
-
 /* 서브메뉴(최하위 메뉴) */
-.swrap{
-    /* 플렉스박스 */
-    display: flex;
-    /* 플렉스 줄바꿈설정 */
-    flex-wrap: wrap;
+.swrap {
+  /* 플렉스박스 */
+  display: flex;
+  /* 플렉스 줄바꿈설정 */
+  flex-wrap: wrap;
 
-    width: 100%;
-    padding: 5px 60px;/* 🥝바뀐부분 */
+  width: 100%;
+  padding: 5px 60px; /* 🥝바뀐부분 */
 }
 
 /* 서브 각 박스 (dl) */
-.swrap dl{
-    width: 200px;
+.swrap dl {
+  width: 200px;
 }
 
 /* 🥝바뀐부분 */
 /* 하위메뉴(dt) */
-.swrap dt{
-    position: relative;
-    /* 가로크기 일정함! */
-    width: 120px;
-    font-size: 16px;
-    padding-bottom: 5px;
-    margin-bottom: 10px;
-    /* 하단보더 */
-    border-bottom: 1px solid #e3e3e3;
+.swrap dt {
+  position: relative;
+  /* 가로크기 일정함! */
+  width: 120px;
+  font-size: 16px;
+  padding-bottom: 5px;
+  margin-bottom: 10px;
+  /* 하단보더 */
+  border-bottom: 1px solid #e3e3e3;
 }
 /* dt 하단선 가상요소 */
-.swrap dt::after{
-    content: '';
-    display: block;
-    width: 0;
-    height: 1px;
-    transform: translateY(6px);
-    background-color: #555;
-    transition: width .2s;
+.swrap dt::after {
+  content: "";
+  display: block;
+  width: 0;
+  height: 1px;
+  transform: translateY(6px);
+  background-color: #555;
+  transition: width 0.2s;
 }
-.swrap dd a{
-    /* a요소 글자있는 부분까지만 선이 생기게함! */
-    display: inline-block;
-    color: #777;
+.swrap dd a {
+  /* a요소 글자있는 부분까지만 선이 생기게함! */
+  display: inline-block;
+  color: #777;
 }
 /* dd 하단선 가상요소 */
-.swrap dd a::after{
-    content: '';
-    display: block;
-    width: 0;
-    height: 1px;
-    transform: translateY(-9px);
-    background-color: #555;
-    transition: width .2s;
+.swrap dd a::after {
+  content: "";
+  display: block;
+  width: 0;
+  height: 1px;
+  transform: translateY(-9px);
+  background-color: #555;
+  transition: width 0.2s;
 }
 /* dt오버시 하단선 */
 .swrap dt:hover::after,
-.swrap dd a:hover::after{
-    width: 100%;
+.swrap dd a:hover::after {
+  width: 100%;
 }
 /* 서브메뉴(dd) */
-.swrap dd{
-    font-size: 13px;
-    line-height: 2.5;
+.swrap dd {
+  font-size: 13px;
+  line-height: 2.5;
 }
 /* dd a오버시 글자 */
-.swrap dd a:hover{
-    color: #000;
+.swrap dd a:hover {
+  color: #000;
+}
+
+/* 서브메뉴 배경박스 */
+.bgbx {
+  position: absolute;
+  /* 🥕위치옮기기 */
+  top: 140px;
+
+  width: 100%;
+  /* 변경요소 : height, opacity */
+  height: 0; /* 🥕처음엔 400px로 설정해서 보다가 0으로 바꿈 */
+  opacity: 0;
+
+  background-color: #fff;
+  /* 박스그림자 */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.211); /* 🥝smenu에서 아래로 옮겨옴 배경박스가 끝까지 가기때문에 */
+
+  /* 트랜지션 : 속시이지 -> .smenu와 동일 */
+  transition: 0.4s ease-in-out;
 }

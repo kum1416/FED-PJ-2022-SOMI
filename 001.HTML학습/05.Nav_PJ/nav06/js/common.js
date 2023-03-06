@@ -93,12 +93,23 @@ function loadFn() {
   // 이벤트 대상: .gnb>ul>li
   const list = document.querySelectorAll(".gnb>ul>li");
   // 이벤트 종류: mouseenter / mouseleave
-  // 변경 대상: .smenu
-  // 변경 내용: height값, opacity값
+  // 변경 대상1: .smenu
+  // 변경 내용1: height값, opacity값
 
-  //  console.log(list);
+  // 변경 대상2: .bgbx
+  const bgbx = document.querySelector(".bgbx");
+  // 변경 내용2: height값, opacity값
 
-  // 2. 상위메뉴 li에 이벤트 설정하기
+//    console.log(bgbx);
+
+      // 2. 하위메뉴 + 메뉴배경 style변경함수 만들기
+      // ele - 변경요소, hv - 높이값, opa - 투명도값
+      const stFn = (ele,hv,opa) => { /* 📢아래내용을 엘러먼트,높이값,오파에 담아서 처리 */
+          ele.style.height = hv + "px";
+          ele.style.opacity = opa;
+      }; //// stFn /////
+
+  // 3. 상위메뉴 li에 이벤트 설정하기 ////////////////
   for (let x of list) {
     // (1) 마우스 오버시 /////
     x.onmouseenter = () => {
@@ -109,9 +120,19 @@ function loadFn() {
       let hv = tg.querySelector(".smbx").clientHeight;
       // console.log("내부높이:",hv);
 
-      // (3) 하위메뉴 style변경하기
-      tg.style.height = hv + "px";
-      tg.style.opacity = 1; /* 📢숫자라 따옴표 안씀 */
+      /// 밖으로 가지고 나가서 지워버림 ////
+      // (3) 하위메뉴 + 메뉴배경 style변경함수 만들기
+      /* 🍅아래css 설정을 2개적용시키고싶어! 변수에함수담기(?) 아래에서 호출 */
+      // const stFn = ele => { /* 📢아래내용을 엘러먼트에 담아서 처리 */
+          // ele.style.height = hv + "px";
+          // ele.style.opacity = 1; /* 📢숫자라 따옴표 안씀 */
+      // }; //// stFn /////
+      ////////////////////////////
+
+      // (3) 스타일 변경요소 함수호출
+      // stFn(요소,높이값,투명도)
+      stFn(tg,hv,1);
+      stFn(bgbx,hv,1);
     }; /////// mouseenter /////////
 
     // (2) 마우스 아웃시 /////
@@ -119,9 +140,10 @@ function loadFn() {
       // (1) 하위메뉴 박스 .smenu 선택하여 변경하기
       let tg = x.querySelector(".smenu"); /* 📢변수에 담기! smenu를 한번에 찾아줘~ */
 
-      // (2) 하위메뉴 style변경하기
-      tg.style.height = "0"; /* 📢px이 들어가는거기때문에 따옴표씀 */
-      tg.style.opacity = 0;
+      // (2) 스타일 변경요소 함수호출
+      // stFn(요소,높이값,투명도)
+      stFn(tg,"0",1); /* 🍅px(단위) 들어가기 때문에 따옴표 */
+      stFn(bgbx,"0",1);
     }; /////// mouseleave /////////
   }
 } ///////////// loadFn 함수 ////////////////
