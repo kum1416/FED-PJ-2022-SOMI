@@ -100,7 +100,7 @@ function loadFn() {
   const bgbx = document.querySelector(".bgbx");
   // 변경 내용2: height값, opacity값
 
-//    console.log(bgbx);
+//    console.log(bgcbx);
 
       // 2. 하위메뉴 + 메뉴배경 style변경함수 만들기
       // ele - 변경요소, hv - 높이값, opa - 투명도값
