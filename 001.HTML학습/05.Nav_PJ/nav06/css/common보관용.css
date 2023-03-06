@@ -62,7 +62,6 @@ body *{
     display: none;
     overflow: hidden;
     /* 넘치는 자식요소 숨기기 */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.211); /* 🥝바뀐부분 */
 }
 
 /* 📢임시로 첫번째 메뉴만 보이게 함!! */
@@ -76,7 +75,6 @@ body *{
     width: 166px;
     padding: 20px;
     font-weight: normal;
-    border-right: 1px solid #e3e3e3;/* 🥝바뀐부분 */
 }
 /* 타이틀 */
 .smenu h2 div{
@@ -85,9 +83,8 @@ body *{
 }
 /* 전체보기 */
 .smenu h2 a{
-    font-size: 13px;
+    font-size: 14px;
 }
-
 
 /* 서브메뉴(최하위 메뉴) */
 .swrap{
@@ -97,62 +94,10 @@ body *{
     flex-wrap: wrap;
 
     width: 100%;
-    padding: 5px 60px;/* 🥝바뀐부분 */
+    padding: 20px;
 }
 
 /* 서브 각 박스 (dl) */
 .swrap dl{
     width: 200px;
-}
-
-/* 🥝바뀐부분 */
-/* 하위메뉴(dt) */
-.swrap dt{
-    position: relative;
-    /* 가로크기 일정함! */
-    width: 120px;
-    font-size: 16px;
-    padding-bottom: 5px;
-    margin-bottom: 10px;
-    /* 하단보더 */
-    border-bottom: 1px solid #e3e3e3;
-}
-/* dt 하단선 가상요소 */
-.swrap dt::after{
-    content: '';
-    display: block;
-    width: 0;
-    height: 1px;
-    transform: translateY(6px);
-    background-color: #555;
-    transition: width .2s;
-}
-.swrap dd a{
-    /* a요소 글자있는 부분까지만 선이 생기게함! */
-    display: inline-block;
-    color: #777;
-}
-/* dd 하단선 가상요소 */
-.swrap dd a::after{
-    content: '';
-    display: block;
-    width: 0;
-    height: 1px;
-    transform: translateY(-9px);
-    background-color: #555;
-    transition: width .2s;
-}
-/* dt오버시 하단선 */
-.swrap dt:hover::after,
-.swrap dd a:hover::after{
-    width: 100%;
-}
-/* 서브메뉴(dd) */
-.swrap dd{
-    font-size: 13px;
-    line-height: 2.5;
-}
-/* dd a오버시 글자 */
-.swrap dd a:hover{
-    color: #000;
 }
