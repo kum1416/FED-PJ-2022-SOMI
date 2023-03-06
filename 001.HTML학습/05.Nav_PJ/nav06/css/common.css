@@ -30,7 +30,17 @@ body * {
 /* 1-1.탑메뉴 영역 */
 .tmenu {
   height: 80px;
+  overflow: hidden; /* 🍆바뀐부분2 */
 }
+/* 로고 */
+#logo{
+  display: block;
+  width: 125px;
+  margin: 0 auto;
+  margin-top: 30px;
+}
+
+
 /* 1-2.GNB 영역 */
 .gnb {
   /* position: relative; */
@@ -42,7 +52,6 @@ body * {
   /* 줄바꿈방지 */
   white-space: nowrap;
   /* GNB배경박스(.bgbx)보다위 */
-  z-index: 1;
 }
 .gnb > ul {
   /* 플렉스 박스 */
@@ -62,10 +71,11 @@ body * {
   color: #ccc;
 }
 /* 상위메뉴 a요소 오버시 */
-.gnb>ul>li:hover>a {
+.gnb>ul>li:hover>a{
   background-image: linear-gradient(to right, red, yellow);
   /* 그라데이션 배경색을 글자영역에만 보이게 하기
-  - webkit-접두어는 아직 공식속성에 포함되지 않음! */
+  -webkit-접두어를 사용한다!
+  이는 아직 공식속성에 포함되지 않음! */
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -78,9 +88,8 @@ body * {
   /* 부모는? #top
   -> 최상위 부모박스에 부모자격줌! */
 
-  /* background-color: #fff; */
-  width: 1300px;
-  /* bgbx로 옮김 box-shadow: 0 2px 5px rgba(0, 0, 0, 0.211);  🥝바뀐부분 */
+  background-color: #fff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.211);
 
   /* 숨기기장치 : overflow,height,opacity(투명효과때문에) */
   overflow: hidden;
@@ -94,6 +103,7 @@ body * {
   transition: 0.4s ease-in-out;
 }
 
+/* 🧇여기부터 다시 확인하기 */
 /* 하위메뉴 구조랩핑박스 .smbx */
 .smbx {
   /* h2,div의 플렉스박스 */
