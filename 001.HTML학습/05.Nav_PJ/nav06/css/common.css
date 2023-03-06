@@ -45,9 +45,18 @@ body *{
 .gnb>ul{
     /* 플렉스 박스 */
     display: flex;
-    gap: 0 40px;
+    /* gap: 0 40px; */ 
 }
+
+/* 상위메뉴 a요소 */
 .gnb>ul>li>a{
+    /* a요소 확장! */
+    display: block; /* 📢패딩으로 밀기 위한 블록 */
+    padding: 0 20px;
+    /* width: 100%;
+    height: 100%; */
+    
+    line-height: 60px;
     color: #ccc;
 }
 
