@@ -59,6 +59,14 @@ body * {
   line-height: 60px;
   color: #ccc;
 }
+/* 상위메뉴 a요소 오버시 */
+.gnb>ul>li:hover>a {
+  background-image: linear-gradient(to right, red, yellow);
+  /* 그라데이션 배경색을 글자영역에만 보이게 하기
+  - webkit-접두어는 아직 공식속성에 포함되지 않음! */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
 
 /* 하위메뉴 */
 .smenu {
@@ -67,7 +75,7 @@ body * {
 
   /* background-color: #fff; */
   width: 1300px;
-  /* 아래로 옮김 box-shadow: 0 2px 5px rgba(0, 0, 0, 0.211);  🥝바뀐부분 */
+  /* bgbx로 옮김 box-shadow: 0 2px 5px rgba(0, 0, 0, 0.211);  🥝바뀐부분 */
 
   /* 숨기기장치 : overflow,height,opacity(투명효과때문에) */
   overflow: hidden;
