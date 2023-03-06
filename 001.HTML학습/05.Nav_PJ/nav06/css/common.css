@@ -57,9 +57,11 @@ body *{
     position: absolute;
     left: 0; /* 📢위치값을 줘서 레프트에 대해서 부모를 찾음! */
 
-    width: 1300px;
     background-color: #fff;
+    width: 1300px;
     display: none;
+    overflow: hidden;
+    /* 넘치는 자식요소 숨기기 */
 }
 
 /* 📢임시로 첫번째 메뉴만 보이게 함!! */
