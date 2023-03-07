@@ -211,10 +211,7 @@ function loadFn() {
 
     // 🥝5. 페이지 이동후 해당 페이지 액션주기
     // pageAction함수 호출!!! (페이지이동 시차를 1초설정!)
-    setTimeout(()=>pageAction(pgnum),1000); //📢뭔가를 보낼때 (소괄호) 써주기
-    
-
-
+    setTimeout(() => pageAction(pgnum), 1000); //📢뭔가를 보낼때 (소괄호) 써주기
   } ///////////// updatePg 함수 ////////
 
   /*************************************** 
@@ -225,11 +222,14 @@ function loadFn() {
   const minfo = document.querySelectorAll(".minfo");
   console.log(minfo);
   // 2. 이벤트설정
-  minfo.forEach((ele,idx)=>{initCSS(ele,idx)});
+  minfo.forEach((ele, idx) => {
+    initCSS(ele, idx);
+  });
   // 3. 함수만들기
-  function initCSS(ele,seq){ // ele-요소, seq-순번 📢해당되는 애들마다 순번이 달라지기 때문에
+  function initCSS(ele, seq) {
+    // ele-요소, seq-순번 📢해당되는 애들마다 순번이 달라지기 때문에
     // 1. 함수호출확인
-    console.log("초기화!",seq);
+    // console.log("초기화!", seq);
 
     // 2. 해당요소 스타일속성 선택
     let sty = ele.style;
@@ -240,81 +240,137 @@ function loadFn() {
     sty.transition = "none";
 
     // 페이지별 초기화
-    if(seq===0){ // 1번페이지
-        // 오른쪽에 나가있음!
-        sty.left = "150%";
+    if (seq === 0) {
+      // 1번페이지
+      // 오른쪽에 나가있음!
+      sty.left = "150%";
     } ///// if /////////////
-    else if(seq===1){ // 2번페이지
-        // 투명하게!
-        sty.opacity = 0;
+    else if (seq === 1) {
+      // 2번페이지
+      // 투명하게!
+      sty.opacity = 0;
     } ///// else if //////////
-    else if(seq===2){ // 3번페이지
-        // 위로 올라가있음!
-        sty.top = "-20%";
-    } ///// else if //////////
-    else if(seq===3){ // 4번페이지
-        // 중앙 스케일0
-        sty.transform = "translate(-50%, -50%) scale(0)";
-    } ///// else if //////////
-    else if(seq===4){ // 5번페이지
-        // 중앙 스케일0
-        sty.top = "-20%";
-        sty.transform = "scale(0)";
+    else if (seq === 2) {
+      // 3번페이지🥭이거 갖다쓰기^_^!
+      // 위로 올라가있음!
+      sty.top = "30%";
+      sty.opacity = 0;
+      sty.transition = "1.5s ease-in";
+      //  else if(seq===2){ // 3번페이지
+      // 위로 올라가있음!
+      //  sty.top = "-20%";
+      // } ///// else if //////////
     } ///// else if //////////
 
+    else if (seq === 3) {
+      // 4번페이지
+      // 중앙 스케일0
+      sty.transform = "translate(-50%, -50%) scale(0)";
+    } ///// else if //////////
+    else if (seq === 4) {
+      // 5번페이지
+      // y축회전
+      sty.transform = "translate(-50%, -50%) rotateY(180deg)";
+      // 투명하게
+      sty.opacity = 0;
+    } ///// else if //////////
+    else if (seq === 5) {
+      // 6번페이지
+      // 스케일0, 평면회전
+      sty.transform = "translate(-50%, -50%) scale(0) rotate(720deg)";
+    } ///// else if //////////
+    else if (seq === 6) {
+      // 7번페이지
+      // x축확대
+      sty.transform = "translate(-50%, -50%) scaleX(10)";
+      // 투명하게
+      sty.opacity = 0;
+    } ///// else if //////////
   } /////////// initCSS 함수 //////
-
 
   /*************************************** 
     🥝함수명 : pageAction
     기능 : 페이지별 액션주기
   ***************************************/
- function pageAction(seq){ // seq-변경순번
+  function pageAction(seq) {
+    // seq-변경순번
     // 1. 호출확인
-    console.log("액숀~!!!",seq);
+    console.log("액숀~!!!", seq);
 
     // 2. 변경대상 스타일 속성선택
     let sty = minfo[seq].style;
 
     // 3. 전체초기화!
-    minfo.forEach((ele,idx)=>{initCSS(ele,idx)});
+    minfo.forEach((ele, idx) => {
+      initCSS(ele, idx);
+    });
 
     // 4. 해당 페이지 액션주기
-    if(seq===0){ // 1번페이지              
-
+    if (seq === 0) {
+      // 1번페이지
     } ///// if //////
-    if(seq===0){ // 1번페이지
-        // 중앙으로 들어옴!
-        sty.left = "50%";
-        // 트랜지션주기
-        sty.transition = "all 0.4s cubic-bezier(0.21, 0.78, 0.96, 1.39) 0s";
+    if (seq === 0) {
+      // 1번페이지
+      // 중앙으로 들어옴!
+      sty.left = "50%";
+      // 트랜지션주기
+      sty.transition = "all 0.4s cubic-bezier(0.21, 0.78, 0.96, 1.39) 0s";
     } ///// if /////////////
-    else if(seq===1){ // 2번페이지
-        // 투명도 복원하기!
-        sty.opacity = 1;
-        // 트랜지션주기
-        sty.transition = "1.5s ease-in";
+    else if (seq === 1) {
+      // 2번페이지
+      // 투명도 복원하기!
+      sty.opacity = 1;
+      // 트랜지션주기
+      sty.transition = "1.5s ease-in";
     } ///// else if //////////
-    else if(seq===2){ // 3번페이지
-        // 위에서 중앙으로 이동!
-        sty.top = "50%";
-        // 트랜지션주기
-        sty.transition = "all 0.8s cubic-bezier(0.68, -0.55, 0.27, 1.55) 0s";
-    } ///// else if //////////
-    else if(seq===3){ // 4번페이지
-        // 중앙 스케일 복원
-        sty.transform = "translate(-50%, -50%) scale(1)";
-        // 트랜지션주기
-        sty.transition = "2s ease-in-out";
-    } ///// else if //////////
-    else if(seq===4){ // 5번페이지
-        // 중앙 스케일0
-        sty.top = "50%";
-        sty.transform = "translate(-50%, -50%) scale(1.5)";
-        sty.transition = "2s ease-in";
+    else if (seq === 2) {
+      // 3번페이지 🥭이거 갖다쓰기^_^!
+      // 위에서 중앙으로 이동!
+      sty.top = "15%";
+      sty.opacity = 1;
+      // 트랜지션주기
+      sty.transition = "all 0.8s cubic-bezier(0.68, -0.55, 0.27, 1.55) 0s";
+      //else if(seq===2){ // 3번페이지
+      // 위에서 중앙으로 이동!
+      //sty.top = "50%";
+      // 트랜지션주기
+      //sty.transition = "all 0.8s cubic-bezier(0.68, -0.55, 0.27, 1.55) 0s";
     } ///// else if //////////
 
+    else if (seq === 3) {
+      // 4번페이지
+      // 중앙 스케일 복원
+      sty.transform = "translate(-50%, -50%) scale(1)";
+      // 트랜지션주기
+      sty.transition = "2s ease-in-out";
+    } ///// else if //////////
+    else if (seq === 4) {
+      // 5번페이지
+      // y축회전 원상복귀
+      sty.transform = "translate(-50%, -50%) rotateY(0deg)";
+      // 나타나게함
+      sty.opacity = 1;
+      // 트랜지션주기
+      sty.transition = "1s ease-in-out";
+    } ///// else if //////////
+    else if (seq === 5) {
+      // 6번페이지
+      // 스케일0, 평면회전
+      sty.transform = "translate(-50%, -50%) scale(1) rotate(0deg)";
+      // 트랜지션주기
+      sty.transition = "1s ease-in-out";
+    } ///// else if //////////
+    else if (seq === 6) {
+      // 7번페이지
+      // x축확대
+      sty.transform = "translate(-50%, -50%) scaleX(1)";
+      // 투명하게
+      sty.opacity = 1;
+      // 트랜지션주기
+      sty.transition = "1s ease-in-out";
+    } ///// else if //////////
+  } //////////// pageAction 함수 /////
 
- } //////////// pageAction 함수 /////
-
+  // 첫페이지 페이지액션 적용위해 최초호출하기 📢새로고침시 등장액션
+  setTimeout(() => pageAction(0), 1000);
 } //////////// loadFn 함수 ///////////////
