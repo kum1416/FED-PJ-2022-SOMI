@@ -24,9 +24,12 @@ function loadFn() {
   console.log(gnb);
   
   // 이벤트 연결 함수등록하기 //////
-  // 🐣🥟GNB메뉴 이벤트연결
-  gnb.forEach((ele,idx)=>{ // ele-요소, idx-순번 📢gnb가 여러개라서 forEach를 써줌
-    ele.addEventListener("click",()=>movePg(idx));  //📢위에있는 idx를 가져와서 (?)
+  // 🐣🥟🍊GNB메뉴 이벤트연결
+  gnb.forEach((ele,idx,obj)=>{ // ele-요소, idx-순번, obj-전체객체 📢gnb가 여러개라서 forEach를 써줌
+    ele.addEventListener("click",()=>movePg(idx,obj));  //📢위에있는 idx를 가져와서 (?)
+    // 전체 객체(obj)를 함수에 전달하는 이유는?
+    // -> 인디케이터도 GNB와 같은 기능을 수행하기 때문에
+    // 호출시 자기자신 전체를 보내야 각각에 맞게 기능을 수행할 수 있음!
 
   }); ////// forEach /////////
 
@@ -98,7 +101,7 @@ function loadFn() {
     *************************************************************/
 
   // 0. 변수 설정하기
-  // (1) 전체 페이지변수
+  // 🥨(1) 전체 페이지변수
   let pgnum = 0; // 현재 페이지번호(첫페이지 0)
   // 🍆(2) 전체 페이지수
   const pgcnt = document.querySelectorAll(".page").length;
@@ -138,7 +141,7 @@ function loadFn() {
     if (dir < 0) {
       // 페이지번호 1씩증가
       pgnum++;
-      // 🍆한계수 : 페이지 끝번호(페이지수-1)
+      // 🍆🥨한계수 : 페이지 끝번호(페이지수-1)
       if (pgnum > pgcnt - 1) pgnum = pgcnt - 1;
     } //////// if //////
 
@@ -163,14 +166,27 @@ function loadFn() {
       🥟함수명 : movePg
       기능: 메뉴 클릭시 해당위치로 이동하기
   *****************************************/
- function movePg (seq){ // seq - 순번 📢전달변수
-    // 기본기능막기 📢를하고 내가 원하는 기능 구현
+ function movePg (seq,obj){ // seq-순번, 🍊obj-요소전체 📢전달변수
+    // 1. 기본기능막기 📢를하고 내가 원하는 기능 구현
     event.preventDefault(); //📢중요객체가 아닌경우 막기허용
-    // 호출확인
+
+    // 2. 호출확인
     console.log("이동",seq);
+
+    // 🥨3. 페이지번호(pgnum)업데이트 하기!
+    pgnum = seq;
+    console.log("메뉴클릭 페이지번호:",pgnum);
+
+    // 🥨4. 페이지 이동하기
+    window.scrollTo(0, window.innerHeight * pgnum);
+
+    // 5. 메뉴 초기화하기(클래스 on 제거하기)
+    for(let x of obj) x.parentElement.classList.remove("on"); //📢obj-넘어온 요소돌기
+
+    // 6. 해당메뉴에 클래스 넣기
+    obj[seq].parentElement.classList.add("on");
+
  } //////////// movePg 함수 ///////
-
-
 
 
 } //////////// loadFn 함수 ///////////////
