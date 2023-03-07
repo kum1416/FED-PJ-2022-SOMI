@@ -22,19 +22,16 @@ function loadFn() {
   // 🐣GNB메뉴
   const gnb = document.querySelectorAll(".gnb a");
   console.log(gnb);
-  
+
   // 이벤트 연결 함수등록하기 //////
   // 🐣🥟🍊GNB메뉴 이벤트연결
-  gnb.forEach((ele,idx,obj)=>{ // ele-요소, idx-순번, obj-전체객체 📢gnb가 여러개라서 forEach를 써줌
-    ele.addEventListener("click",()=>movePg(idx,obj));  //📢위에있는 idx를 가져와서 (?)
+  gnb.forEach((ele, idx, obj) => {
+    // ele-요소, idx-순번, obj-전체객체 📢gnb가 여러개라서 forEach를 써줌
+    ele.addEventListener("click", () => movePg(idx, obj)); //📢위에있는 idx를 가져와서 (?)
     // 전체 객체(obj)를 함수에 전달하는 이유는?
     // -> 인디케이터도 GNB와 같은 기능을 수행하기 때문에
     // 호출시 자기자신 전체를 보내야 각각에 맞게 기능을 수행할 수 있음!
-
   }); ////// forEach /////////
-
-
-
 
   /************************************************************* 
         [ 휠 이벤트를 이용한 페이지 이동 컨트롤하기! ]
@@ -108,7 +105,6 @@ function loadFn() {
   console.log("전체페이지수:", pgcnt);
   // 🌽(3) 광스크롤 금지변수(0-허용,1-불허용)
   let prot_sc = 0;
-  
 
   // 1. 전체 휠 이벤트 설정하기 ///////
   window.addEventListener("wheel", wheelFn, { passive: false });
@@ -121,9 +117,9 @@ function loadFn() {
     e.preventDefault();
 
     // 🌽광스크롤막기! ////
-    if(prot_sc) return;
+    if (prot_sc) return;
     prot_sc = 1; // 신호 1개만 허용 📢연속된 신호중 1개만 받아들임
-    setTimeout(()=>prot_sc=0,800)
+    setTimeout(() => (prot_sc = 0), 800);
     // 0.8초의 시간후 다시 허용상태전환 //
 
     // (1) 호출확인
@@ -155,38 +151,52 @@ function loadFn() {
 
     console.log("페이지번호:", pgnum);
 
-    // (4) 페이지 이동하기
-    // scrllTo(가로,세로)
-    window.scrollTo(0, window.innerHeight * pgnum);
-    // 세로 이동위치: 윈도우높이값*페이지번호
-  } ////////////// wheelFn 함수 /////////
+    // (4) 페이지 이동하기 + 메뉴변경 -> updatePg함수호출!
+    updatePg(gnb);
 
+  } ////////////// wheelFn 함수 /////////
 
   /***************************************** 
       🥟함수명 : movePg
       기능: 메뉴 클릭시 해당위치로 이동하기
   *****************************************/
- function movePg (seq,obj){ // seq-순번, 🍊obj-요소전체 📢전달변수
+  function movePg(seq, obj) {
+    // seq-순번, 🍊obj-요소전체 📢전달변수
     // 1. 기본기능막기 📢를하고 내가 원하는 기능 구현
     event.preventDefault(); //📢중요객체가 아닌경우 막기허용
 
     // 2. 호출확인
-    console.log("이동",seq);
+    console.log("이동", seq, obj);
 
     // 🥨3. 페이지번호(pgnum)업데이트 하기!
     pgnum = seq;
-    console.log("메뉴클릭 페이지번호:",pgnum);
+    console.log("메뉴클릭 페이지번호:", pgnum);
 
-    // 🥨4. 페이지 이동하기
+    // 🍉4. 업데이트 페이지호출 -> 페이지이동, 메뉴변경
+    updatePg(obj);
+  } //////////// movePg 함수 ///////
+
+
+  /********************************************** 
+    🍉함수명 : updatePg
+    기능 : 페이지 이동시 설정값 업데이트하기
+**********************************************/
+  function updatePg(obj) {
+    // obj - 변경할 메뉴전체 객체 📢obj를 받아서 안에서 처리!
+    // 1. 함수호출확인
+    console.log("업데이트!");
+
+    // 🥨2. 페이지 이동하기
+    // scrllTo(가로,세로)
     window.scrollTo(0, window.innerHeight * pgnum);
+    // 세로 이동위치: 윈도우높이값*페이지번호
 
-    // 5. 메뉴 초기화하기(클래스 on 제거하기)
-    for(let x of obj) x.parentElement.classList.remove("on"); //📢obj-넘어온 요소돌기
+    // 3. 메뉴 초기화하기(클래스 on 제거하기)
+    for (let x of obj) x.parentElement.classList.remove("on"); //📢obj-넘어온 요소돌기
 
-    // 6. 해당메뉴에 클래스 넣기
-    obj[seq].parentElement.classList.add("on");
+    // 4. 해당메뉴에 클래스 넣기
+    obj[pgnum].parentElement.classList.add("on");
 
- } //////////// movePg 함수 ///////
-
+  } ///////////// updatePg 함수 ////////
 
 } //////////// loadFn 함수 ///////////////
