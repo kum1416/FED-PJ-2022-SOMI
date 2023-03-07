@@ -3,18 +3,37 @@
 // 새로고침할때 스크롤위치 캐싱 무시하고 맨위로 이동!
 // scrollTo(가로,세로) -> 위치이동 메서드
 setTimeout(() => {
-    window.scrollTo(0,0);
+  window.scrollTo(0, 0);
 }, 100);
 
+// 이벤트함수연결 셋팅하기 //////////////////////////////////
 // 로딩함수 호출 ////////
-window.addEventListener("DOMContentLoaded",loadFn);
+window.addEventListener("DOMContentLoaded", loadFn); // 📢최초호출
 
-function loadFn(){
+/************************************* 
+    함수명: loadFn
+    기능: 페이지 로딩시 기능수행
+*************************************/
+function loadFn() {
+  // 호출확인
+  console.log("로딩완료!");
 
-    // 호출확인
-    console.log("로딩완료!");
+  // 이벤트 연결 대상선정하기 //////
+  // 🐣GNB메뉴
+  const gnb = document.querySelectorAll(".gnb a");
+  console.log(gnb);
+  
+  // 이벤트 연결 함수등록하기 //////
+  // 🐣🥟GNB메뉴 이벤트연결
+  gnb.forEach((ele,idx)=>{ // ele-요소, idx-순번 📢gnb가 여러개라서 forEach를 써줌
+    ele.addEventListener("click",()=>movePg(idx));  //📢위에있는 idx를 가져와서 (?)
 
-    /************************************************************* 
+  }); ////// forEach /////////
+
+
+
+
+  /************************************************************* 
         [ 휠 이벤트를 이용한 페이지 이동 컨트롤하기! ]
         - 휠 이벤트명 : wheel
         (예전엔 mousewheel 이벤트가 사용됨 - 공식적으로 폐기됨)
@@ -71,56 +90,87 @@ function loadFn(){
 
                 -> 최근 업데이트 된 브라우저는 passive기본값이
                 true 로 셋팅됨으로 window, document, body 이 세가지
-                객체대해 스크롤 막기기능은 비활성화하였다!!!
+                객체대해 스크롤 막기기능은 비활성화 하였다!!!
                 따라서 기본기능을 막고자 하면 passive:false
                 로 기능을 활성화 해야한다!!!
 
 
     *************************************************************/
 
-    // 0. 변수 설정하기
-    // 전체 페이지변수
-    let pgnum = 0; // 현재 페이지번호(첫페이지 0)
+  // 0. 변수 설정하기
+  // (1) 전체 페이지변수
+  let pgnum = 0; // 현재 페이지번호(첫페이지 0)
+  // 🍆(2) 전체 페이지수
+  const pgcnt = document.querySelectorAll(".page").length;
+  console.log("전체페이지수:", pgcnt);
+  // 🌽(3) 광스크롤 금지변수(0-허용,1-불허용)
+  let prot_sc = 0;
+  
 
-    // 1. 전체 휠 이벤트 설정하기 ///////
-    window.addEventListener("wheel",wheelFn,{passive:false});
+  // 1. 전체 휠 이벤트 설정하기 ///////
+  window.addEventListener("wheel", wheelFn, { passive: false });
 
-    // 2. 휠 이벤트 함수 만들기 ////////
-    function wheelFn(e){ // e - 이벤트 전달변수
-        // (0) 기본기능 멈추기
-        // addEventListener 옵션 passive.false 필수!
-        e.preventDefault();
+  // 2. 휠 이벤트 함수 만들기 ////////
+  function wheelFn(e) {
+    // e - 이벤트 전달변수
+    // (0) 기본기능 멈추기
+    // addEventListener 옵션 passive.false 필수!
+    e.preventDefault();
 
-        // (1) 호출확인
-        // console.log("휠~~~~~");
+    // 🌽광스크롤막기! ////
+    if(prot_sc) return;
+    prot_sc = 1; // 신호 1개만 허용 📢연속된 신호중 1개만 받아들임
+    setTimeout(()=>prot_sc=0,800)
+    // 0.8초의 시간후 다시 허용상태전환 //
 
-        // (2)휠 방향 알아내기
-        // 이벤트객체.wheelDelta
-        let dir = e.wheelDelta;
+    // (1) 호출확인
+    // console.log("휠~~~~~");
 
-        console.log("방향:",dir);
-        // 휠내리면 마이너스(올리면 플러스)
-        
-        // (3) 방향에 따른 페이지번호 증감
-        // 스크롤 아랫방향 : 페이지번호 증가
-        if(dir<0){
-            pgnum++;
-             if(pgnum>6) pgnum = 6;
-        }
-        // 스크롤 윗방향 : 페이지번호 감소
-        else{
-            pgnum--;
-           if(pgnum<0) pgnum = 0;
-       }
-        
-        console.log("페이지번호:",pgnum);
+    // (2)휠 방향 알아내기
+    // 이벤트객체.wheelDelta
+    let dir = e.wheelDelta;
 
-        // (4) 페이지 이동하기
-        // scrllTo(가로,세로)
-        window.scrollTo(0,window.innerHeight*pgnum);
-        // 세로 이동위치: 윈도우높이값*페이지번호
+    console.log("방향:", dir);
+    // 휠내리면 마이너스(올리면 플러스)
 
-    } ////////////// wheelFn 함수 /////////
+    // (3) 방향에 따른 페이지번호 증감
+    // 스크롤 아랫방향 : 페이지번호 증가
+    if (dir < 0) {
+      // 페이지번호 1씩증가
+      pgnum++;
+      // 🍆한계수 : 페이지 끝번호(페이지수-1)
+      if (pgnum > pgcnt - 1) pgnum = pgcnt - 1;
+    } //////// if //////
+
+    // 스크롤 윗방향 : 페이지번호 감소
+    else {
+      // 페이지번호 1씩감소
+      pgnum--;
+      // 한계수 : 페이지 첫번호 -> 0
+      if (pgnum < 0) pgnum = 0;
+    } ///// else ///////////
+
+    console.log("페이지번호:", pgnum);
+
+    // (4) 페이지 이동하기
+    // scrllTo(가로,세로)
+    window.scrollTo(0, window.innerHeight * pgnum);
+    // 세로 이동위치: 윈도우높이값*페이지번호
+  } ////////////// wheelFn 함수 /////////
 
 
-}; //////////// loadFn 함수 ///////////////
+  /***************************************** 
+      🥟함수명 : movePg
+      기능: 메뉴 클릭시 해당위치로 이동하기
+  *****************************************/
+ function movePg (seq){ // seq - 순번 📢전달변수
+    // 기본기능막기 📢를하고 내가 원하는 기능 구현
+    event.preventDefault(); //📢중요객체가 아닌경우 막기허용
+    // 호출확인
+    console.log("이동",seq);
+ } //////////// movePg 함수 ///////
+
+
+
+
+} //////////// loadFn 함수 ///////////////
