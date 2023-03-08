@@ -15,10 +15,11 @@
 				// function(){
 				()=>{
 				// 클릭된 li자신 -> this!
-				// 화살표함수 this는
+				// 화살표함수 this는 event.currentTarget사용!
 				console.log(this);
-				
-				$(this).css({
+
+				// $(this).css({
+				$(event.currentTarget).css({
 					background:"lime",
 					"font-size":"52px",
 					transition:"all .6s"
