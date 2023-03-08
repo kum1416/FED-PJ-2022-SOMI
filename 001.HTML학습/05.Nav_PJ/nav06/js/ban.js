@@ -1,5 +1,14 @@
 // 네비유형 6 : 배너셋팅 JS - ban.js //////
-window.addEventListener("DOMContentLoaded",setBan);
+window.addEventListener("DOMContentLoaded",()=>{
+
+    // 1. 최상위 배너박스 대상선정: .banbx
+    const banbx = document.querySelectorAll(".banbx");
+
+    // 2. 배너박스 일괄 셋팅하기
+    banbx.forEach((ele)=>setBan(ele));
+
+
+}); /////////////// 로드구역 /////////////////////
 
 /***************************************************** 
     [ 슬라이드 이동 기능정의 ]
@@ -44,7 +53,7 @@ window.addEventListener("DOMContentLoaded",setBan);
 
 
 // 배너셋팅함수 //////////////
-function setBan(){
+function setBan(obj){ // obj - 최상위요소 객체
     // 1. 호출확인
     // console.log("배너야~!");
 
