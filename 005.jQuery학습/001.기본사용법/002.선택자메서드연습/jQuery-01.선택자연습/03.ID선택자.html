@@ -15,6 +15,12 @@ $(document).ready(function(e) {
     주어가 하나! 나는 밥을 먹고 공부를 했다!
 
     [ 제이쿼리 애니메이션 메서드 : animate() ]
+    -> animate({CSS설정},시간,이징,함수)
+    (1) CSS설정 : CSS요소 변경
+    (2) 시간 : 1/1000초(단위안씀) -> 시간생략시 기본값 400(0.4초)
+    (3) 이징 : 제이쿼리 이징(https://easings.net/ko)
+        -> 이징은 반드시 제이쿼리 UI가 있어야함!
+    (4) 함수 : 콜백함수(애니메이션 후 실행함수)
   
   
   
@@ -50,7 +56,7 @@ $(document).ready(function(e) {
         fontSize:"152px",
         transition:".8s 2s"
       }); ///// css ////// 
-      
+
     }); //// click ///////////
     
     // 위의 세가지 아이디를 1초간격으로 애니메이션 설정하시오(transition) - 기본은 "all .8s 지연시간"
