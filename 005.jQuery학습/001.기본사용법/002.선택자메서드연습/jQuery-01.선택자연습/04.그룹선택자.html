@@ -4,13 +4,34 @@
 <meta charset="utf-8">
 <title> 그룹 선택자  </title>
 <!-- jQuery library -->
-<script src="jquery-1.7.2.min.js"></script>
+<script src="../jquery-3.6.3.min.js"></script>
 <script>
-$(document).ready(function(e) {
+$(()=>{
     // 미션: p태그 또는 #nav li 태그를 클릭하면
 	// 클릭된 것만 글자를 나야나~! 라고 바꾸고
 	// 글자크기를 72px 빨간색 글자로 트랜지션 주시오.
 	// transition: all .4s
+
+    $("p,#nav li")
+    // .click((e)=>{ 📢화살표함수
+    .click(function(){ //📢익명함수
+        // 익명함수: 나자신 ->this
+        // 화살표함수: 나자신 -> e.currentTarget
+        // $(e.currentTarget) 📢화살표함수
+        $(this) //📢"p,#nav li" 똑같은거로 쓰면 전체 한꺼번에 바뀜
+        .text("나야나~!")
+        .css({
+            fontSize : "72px",
+            color : "red",
+            transition: ".4s"
+        }); ///// css ////
+
+    }); ///// click //////
+
+
+
+    // 📢이렇게 함수를 바깥에 만들고 할당하는것도 가능 $().click(aaa)
+    // function aaa(){}
 	
 	
 	
@@ -30,6 +51,12 @@ $(document).ready(function(e) {
 
  <nav>
   <ul id="nav">
+   <li>One</li>
+   <li>Two</li>
+   <li>Three</li>
+   <li>One</li>
+   <li>Two</li>
+   <li>Three</li>
    <li>One</li>
    <li>Two</li>
    <li>Three</li>
