@@ -172,7 +172,31 @@
         
 
         /* 4. 완다 : path */
-        
+        .svg4 svg{
+            background: url(./images/wan.jpg) no-repeat top/cover;
+            /* 클립핑 svg모양대로 보임 */
+            /* clip-path: url(#myClip); */
+        }
+        /* 패스 */
+        .pa1{
+            /* 채우기 */
+            fill:none;
+            /* 선색 */
+            stroke: orangered;
+            /* 선두께 */
+            stroke-width: 20;
+            /* 선끝 */
+            stroke-linecap: round;
+            /* 데쉬: 50% X 6조각 = 300% */
+            stroke-dasharray: 340%;
+            stroke-dashoffset: 340%;
+            /* 트랜지션 */
+            transition: .7s ease-out;
+        }
+        /* 완다에 오버시 선그리기 */
+        .svg4:hover .pa1{
+            stroke-dashoffset: 0;
+        }
 
         /* 미디어쿼리 */
         @media screen and (max-width:1000px) {
@@ -237,7 +261,9 @@
         </section>
         <section>
             <div class="cbx svg4">
-                
+                <svg>
+                    <path class="pa1" d="M27.72,33.29c0,0,45.99,49.6,18.04,101c0,0-36.97,45.99-15.33,82.96c0,0,11.72,18.04,24.35,24.35c0,0,21.64,4.51-7.21,37.87c0,0-23.45,24.35,99.2-7.21c0,0,64.93,3.61,78.46-29.76c0,0,81.16-74.85,18.94-101c0,0-35.17-26.15,7.21-53.21c0,0,54.11-54.11-14.43-46.89c0,0-151.5,27.05-120.84-7.21c0,0,17.13-20.74-41.48-8.12C74.61,26.08-2.94,14.35,27.72,33.29z"></path>
+                </svg>
             </div>
         </section>
     </div>
