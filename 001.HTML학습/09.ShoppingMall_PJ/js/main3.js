@@ -32,6 +32,7 @@ function loadFn() {
     // 슬라이드번호 변수
     let snum = 0;;
 
+    // 1. 대상선정
     // 1-1. 이벤트 대상: .abtn
     const abtn = document.querySelectorAll(".abtn");
     // console.log(abtn);
