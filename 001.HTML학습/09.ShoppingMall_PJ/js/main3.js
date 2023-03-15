@@ -83,16 +83,12 @@ function loadFn() {
         // 3. 이동하기 : 해당순번 슬라이드 li에 클래스"on"넣기
         // 변경대상: slide변수(#slide li)
         // 전체초기화!
-        slide.forEach((ele) => ele.classList.remove("on"));
-        // 해당순번li에 클래스넣기
-        slide[snum].classList.add("on");
+        chgSlide(slide);
 
         // 4. 블릿변경 : 해당순번 블릿 li에 클래스"on"넣기
         // 변경대상: indic변수(.indic li)
         // 전체초기화!
-        indic.forEach((ele) => ele.classList.remove("on"));
-        // 해당순번li에 클래스넣기
-        indic[snum].classList.add("on");
+        chgSlide(indic);
     }; ////////// goSlide함수 ///////////
 
     // 3. 대상에 이벤트 설정하기
@@ -143,6 +139,53 @@ function loadFn() {
     autoT = setTimeout(autoSlide,5000);
 
    } ///////// clearAuto 함수 /////////////
+
+
+
+   /**************************************** 
+        블릿클릭시 슬라이드 이동하기
+   ****************************************/
+  // 이벤트 대상: .indic li -> indic변수
+  // 이벤트 종류: click
+  indic.forEach((ele,idx)=>{
+    ele.onclick = () => {
+        // 1. 전역변수 snum 업데이트하기
+        // 왜? 블릿순번===슬라이드순번 이므로!
+        snum = idx;
+
+        // 2. 블릿변경
+        chgSlide(indic);
+
+        // 4. 슬라이드변경
+        chgSlide(slide);
+
+        // 5. 자동넘김멈춤 함수호출!
+        clearAuto();
+
+    }; /////////// click ///////////
+
+  }); /////////// forEach /////////////////
+
+
+
+  /*********************************** 
+    슬라이드 / 블릿 변경기능 공통함수
+    함수명: chgSlide
+  ***********************************/
+ function chgSlide(obj){ // obj - 병경대상 노드리스트
+    console.log("공통함수!");
+    // 전체리스트 초기화
+    obj.forEach((ele) => ele.classList.remove("on"));
+    // 해당순번li에 클래스넣기
+    obj[snum].classList.add("on");
+
+ } //////////// chgSlide함수 ////////////
+
+
+
+
+
+
    
 
 }
