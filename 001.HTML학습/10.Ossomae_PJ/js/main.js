@@ -1,40 +1,58 @@
 // 옷소매 갤러리 JS - main.js
 
 ///////////////// 로딩구역 ///////////////////////
-window.addEventListener("DOMContentLoaded",()=>{
+window.addEventListener("DOMContentLoaded", () => {
+  console.log("로딩완료!");
 
-    console.log("로딩완료!");
+  // 광클금지변수 : 0 - 허용, 1 - 불허용
+  let prot = 0;
 
-    // 대상: .gbx
-    const gbx = document.querySelector(".gbx");
+  // 광클금지 설정하기 //////
+  if (prot) return;
+  prot = 1; // 잠금!
+  setTimeout(() => {
+    prot = 0; // 해제!
+  }, 400); /// 0.4초후 해제! ///
 
-    document.querySelector(".rb")
-    .onclick = () => {
+  // 대상: .gbx
+  const gbx = document.querySelector(".gbx");
 
-        console.log("오른쪽!");
-        // 이동대상: .gbx>div
-        let tg = gbx.querySelectorAll("div");
+  /********************************************* 
+        🥕함수명: goSlide
+        기능: 이동방향에 따른 요소 이동하기
+  *********************************************/
+  const goSlide = (dir) => {
+    // dir - 버튼 구분(1-오른쪽,0-왼쪽) 📢변수를 받는것(지역변수) 아무이름
+    // 1. 호출확인
+    console.log("나야나!", dir);
+  }; ///////////////////// goSlide 함수 ////////////
 
-        // 첫번째 자식요소 div 맨뒤로이동
-        // appendChild(첫번째요소)
-        gbx.appendChild(tg[0]);
+  // 오른쪽버튼 클릭시 ///////////////
+  document.querySelector(".rb")
+  .onclick = () => {
+    goSlide(1);
 
-    }; ////////// click /////////////
+    console.log("오른쪽!");
+    // 이동대상: .gbx>div
+    let tg = gbx.querySelectorAll("div");
 
-    // 왼쪽버튼
-    document.querySelector(".lb")
-    .onclick = () => {
+    // 첫번째 자식요소 div 맨뒤로이동
+    // appendChild(첫번째요소)
+    gbx.appendChild(tg[0]);
+  }; ////////// click /////////////
 
-        console.log("왼쪽!");
-        // 이동대상: .gbx>div
-        let tg = gbx.querySelectorAll("div");
+  // 왼쪽버튼
+  document.querySelector(".lb")
+  .onclick = () => {
+    goSlide(0);
 
-        // 마지막 자식요소 div 맨앞로이동
-        // insertBefore(마지막요소,첫번째요소)
-        gbx.insertBefore(tg[tg.length-1],tg[0]);
+    console.log("왼쪽!");
+    // 이동대상: .gbx>div
+    let tg = gbx.querySelectorAll("div");
 
-    }; ////////// click /////////////
-
-    
+    // 마지막 자식요소 div 맨앞로이동
+    // insertBefore(마지막요소,첫번째요소)
+    gbx.insertBefore(tg[tg.length - 1], tg[0]);
+  }; ////////// click /////////////
 }); ///////////// 로딩구역 //////////////////////
 /////////////////////////////////////////////////
