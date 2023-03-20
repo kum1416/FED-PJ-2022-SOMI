@@ -35,20 +35,20 @@
 
         /* 테스트할 페이지 */
         .tpg{
-            /* 기존 높이값 100% 해제하기 */
-            height: auto;
+            /* 기존 높이값 100% 해제하기 */ /* 🥚이미지가 차있는 높이값 100%밖에 안나와있어서 자식요소가 바깥으로 나가있음 */
+            height: auto; /* 🥚기존에 있는 높이값을 해제한다? 내용이 있는만큼 늘어나는게 auto! */
         }
         .tpg img{
             width: 100%;
             height: auto;
-            object-fit: contain;
+            object-fit: contain; /* 🥚다보이게 하는 컨테인 */
             margin-bottom: 50px;
         }
         .mm{
             text-align: center;
         }
         .mm img{
-            width: 50%;
+            width: 50%; /* 🥚이미지 작게만들기 */
         }
         /* 스티키할 이미지 */
         #stk{
@@ -57,7 +57,7 @@
             /* 부모박스 범위 안에서
             fixed처럼 상단에 고정했다가
             범위가 끝나면 부모박스와 함께
-            위로 static하게 올라감! */
+            위로 static하게 올라감! */ /* 🥚박스일떄도 가능! 구성요소가 여러개 들어있는 박스도 스티키하면 정지된다! */
         }
     </style>
 </head>
@@ -81,8 +81,8 @@
     </section>
     
     <!-- 테스트할 페이지 -->
-    <section class="tpg"> <!-- 🥚타겟페이지tpg -->
-        <div class="mm">
+    <section class="tpg"> <!-- 🥚타겟페이지tpg 클래스주기 -->
+        <div class="mm"> <!-- 🥚메인이미지mm - 필요한애한태만 이름주기 -->
             <!-- 스티키할 이미지 -->
             <img src="./images/5.jpg" alt="이미지" id="stk">
         </div>
