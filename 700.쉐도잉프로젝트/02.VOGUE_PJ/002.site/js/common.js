@@ -12,7 +12,7 @@ window.addEventListener("DOMContentLoaded",()=>{
     // 이벤트 발생시 Y축 스크롤바 위치를
     // pos 전역변수에 업데이트 한다!
     window.addEventListener("mouseup",()=>{ //🥗addEventListener 이벤트를 등록해주는애임
-        pso = window.scrollY;
+        pos = window.scrollY;
 
     }); ///////////// mouseup /////////////
 
