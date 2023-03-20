@@ -103,6 +103,9 @@ window.addEventListener("DOMContentLoaded", () => {
       // 0으로 변경하여 최상단으로 이동함!
       pos = 0;
 
+      // 위치이동하기
+      window.scrollTo(0,0);
+
   }; //////// click ////////////////
 
 
