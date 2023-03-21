@@ -160,6 +160,19 @@
         
         *************************************/
 
+         /* 미디어쿼리 700px이하 시작 */
+         @media screen and (max-width: 700px) {
+                .grid > div {
+                    grid-column: 1/13;
+                    grid-row: auto; /* 🥝그리드 로우 해제 */
+                }
+                .grid {
+                    grid-template-rows: auto;
+                }
+            }
+
+            /* 미디어쿼리 700px이하 끝 */
+
 
     </style>
 </head>
