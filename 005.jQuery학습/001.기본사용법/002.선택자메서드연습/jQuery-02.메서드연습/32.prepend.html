@@ -20,6 +20,8 @@
                     // 이미지 넣기 : 대상 - #pic
                     $("#pic").prepend(`<img src="${isrc[seq]}" alt="이미지">`);
 
+					// document.querySelector().innerHTML += "<>"
+
                     // 다음번을 위해 배열순번변경
                     seq === 0 ? (seq = 1) : (seq = 0);
 
