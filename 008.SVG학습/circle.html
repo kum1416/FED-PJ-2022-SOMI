@@ -34,8 +34,9 @@
             display: flex;
             /* 플렉스 랩핑박스 */
             flex-wrap: wrap;
+            /* 🥚화면 꽉채우기 */
             width: 100vw;
-            height: 100vh;
+            height: 100vh; 
         }
         .wrap>section {
             /* 렐러티브 부모자격 */
@@ -80,7 +81,7 @@
         /* circle 설정 */
         .c1{
             /* 채우기색 - 기본색 검정 
-                투명(transparent)
+                투명(transparent) - 🥚뒤에 있는거를 못만지게됌
                 없음(none) - 뚫린상태
             */
             fill: none;
@@ -254,9 +255,9 @@
         <!-- 1.아이언맨 : 원 -->
         <section>
             <div class="cbx svg1">
-                <svg viewBox="0 0 300 300">
+                <svg viewBox="0 0 300 300"> <!-- 🥚원본셋팅후 뷰박스셋팅하면 같이 줄어들음 -->
                     <circle class="c1" cx="150" cy="150" r="140" transform=""></circle>
-
+                    <!-- 🥚cx - 중심점(센터엑스) r - 반지름  -->
                     <!-- <circle class="c1" cx="150" cy="150" r="140" transform="rotate(-90,150,150)"></circle> -->
                 </svg>
             </div>
@@ -364,7 +365,7 @@
             적용되지 않기 때문임!
             (svg요소 transform이 적용됨!)
 
-        [ rect 요소 : 사각형 ]
+        [ rect 요소 : 사각형 ] 🥚탱글탱글 랙탱글...!
         - rectangle(사각형) 이라는 말에서 나온 요소명
         - width : 가로크기
         - height : 세로크기
