@@ -16,8 +16,10 @@ $(document).ready(function(e) {
 	// 미션: #main을 클릭할때 각 미션을 수행하라!
 	$("#main").click(function(){
 		// 1. p태그를 찾아 그 중 첫번째 요소의 배경색 red
+		$("p").first().css({backgroundColor:"red"});
 		
 		// 2. p태그를 찾아 그 중 마지막 요소의 배경색을 yellow
+		$("p").last().css({backgroundColor:"yellow"});
 		
 		// 3. p태그 중 2번째 요소를 선택하여 margin-top값을 100px로 transition 0.4초로 설정하시오.
 		
