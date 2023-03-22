@@ -88,16 +88,16 @@ body {
 
     /* 배경넣기 */
     background: url(../images/street.jpg) repeat-x;
-    background-size: auto 100%;
+    background-size: auto 100%; /* 🥚높이값 맞추기 - 가로는 auto, 세로는 100% 박스에다 맞춰라! */
 
     /* 애니메이션: 이시이지반방마 */
-    animation: street 4s linear infinite;
+    animation: street 4s linear infinite; /* 🥚linear일정하게(등속도) infinite계속움직여라 */
 }
 
 /* 스크린배경이동 키프레임 */
 @keyframes street {
     to{
-        background-position: -388px 0;
+        background-position: -388px 0; /* 🥚위치이동 */
     }
 }
 /* 키프레임 */
