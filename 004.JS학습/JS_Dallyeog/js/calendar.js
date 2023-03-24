@@ -76,7 +76,13 @@ function MakeDallyeok(){
             dset.push(i);
         } /////////// for /////////
 
-        cg(thisLast.getDate());
+        // 3. 다음달 나머지 칸 삽입하기
+        // 반복구성: 1부터 2주분량정도 넣는다!
+        for(let i = 1; i < 14; i++){
+            dset.push(i);
+        } ////// for ////////////////
+
+        cg(dset);
 
 
     }; ///////// initDallyeok 함수 //////
