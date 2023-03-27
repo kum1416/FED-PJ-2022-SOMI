@@ -237,7 +237,7 @@ function loadFn() {
     // 3. 각 요소별 초기화하기
 
     // 트랜지션 공통초기화
-    sty.transition = "none";
+    sty.transition = "none"; //🥚첫번째! 페이지를 들어올때 트랜지션을 주기 때문에 none시킴!
 
     // 페이지별 초기화
     if (seq === 0) {
@@ -265,7 +265,7 @@ function loadFn() {
     else if (seq === 3) {
       // 4번페이지
       // 중앙 스케일0
-      sty.transform = "translate(-50%, -50%) scale(0)";
+      sty.transform = "translate(-50%, -50%) scale(0)"; // 🥚트랜스폼을 건들때는 트렌스레이트 조심하기!
     } ///// else if //////////
     else if (seq === 4) {
       // 5번페이지
@@ -295,7 +295,7 @@ function loadFn() {
   function pageAction(seq) {
     // seq-변경순번
     // 1. 호출확인
-    console.log("액숀~!!!", seq);
+    console.log("액숀~!!!", seq);  // 🥚이 액션을 누가 볼러줘? 페이지 이동후~...
 
     // 2. 변경대상 스타일 속성선택
     let sty = minfo[seq].style;
@@ -372,5 +372,5 @@ function loadFn() {
   } //////////// pageAction 함수 /////
 
   // 첫페이지 페이지액션 적용위해 최초호출하기 📢새로고침시 등장액션
-  setTimeout(() => pageAction(0), 1000);
+  setTimeout(() => pageAction(0), 1000); //🥚0번 -> 첫페이지
 } //////////// loadFn 함수 ///////////////
