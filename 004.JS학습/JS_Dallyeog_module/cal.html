@@ -4,11 +4,32 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet">
+  <!-- 캘린더용 CSS -->
+  <link rel="stylesheet" href="./css/cal.css">
+  <!-- 메인페이지 CSS -->
   <link rel="stylesheet" href="./css/main.css">
-  <script src="./js/calendar.js" defer></script> <!-- 🌷defer html읽은다음 호출해! -->
+
+  <!-- 메인페이지 JS -->
+  <script src="./js/main.js" type="module"></script> <!-- 🌷모듈은 서버측에서 열음! -->
   <title>우리달력2023</title>
 </head>
 <body>
+
+  <h1 class="mtit">[달력 날짜 넣기]</h1>
+  <div class="wrap">
+    <div class="mybx">
+      <label for="myinput">시작일:</label>
+      <input type="text" id="myinput" class="myipt">
+      <!-- 달력넣을박스1 -->
+      <div class="calbx"></div>
+    </div>
+    <div class="mybx">
+      <label for="myinput2">종료일</label>
+      <input type="text" id="myinput2" class="myipt">
+      <!-- 달력넣을박스2 -->
+      <div class="calbx2"></div>
+    </div>
+  </div>
   
 </body>
 </html>
