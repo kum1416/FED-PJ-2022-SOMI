@@ -193,7 +193,7 @@ function MakeDallyeok(sel) { // sel - 달력넣을 요소 선택자
         // getMonth() 월가져오기 / setMonth() 월 셋팅하기!
         this.curr_date.setMonth(this.curr_date.getMonth() + 1);
         this.initDallyeok();
-    }; ////////////// prevCal함수 //////////////
+    }; ////////////// nextCal함수 //////////////
 
     // (4) 달력 HTML 코드 넣기 함수 /////////
     // 위쪽에서 최초호출하므로 선언적함수로 만든다!
@@ -242,5 +242,5 @@ function MakeDallyeok(sel) { // sel - 달력넣을 요소 선택자
 } //////////// MakeDallyeok //////////////
 
 // 달력 생성자함수 내보내기 //////
-export default MakeDallyeok; // 🌷디폴트 - 이름도 바꾸지마!
+export default MakeDallyeok;
 // default 는 이름변경없는 단 하나의 모듈을 내보낼때 사용함

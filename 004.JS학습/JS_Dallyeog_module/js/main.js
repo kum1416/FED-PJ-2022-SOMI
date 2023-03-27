@@ -8,7 +8,7 @@ import MakeDallyeok from "./calendar.js";
 // 인스턴스 생성이란 특정메모리 구역에
 // 모듈을 로딩시켜서 개별화 기능이 적용되게 하는것!
 
-// 우리가 만든 달력 생성자함수에서 전달값을 받는 것은?
+// 우리가만든 달력 생성자함수에서 전달값을 받는 것은?
 // 달력을 넣을 요소의 선택자정보임!
 // 달력넣을 요소: .calbx
 let calbx = new MakeDallyeok(".calbx");
@@ -20,4 +20,11 @@ let calbx2 = new MakeDallyeok(".calbx2");
 // 초기화함수 호출
 calbx2.initDallyeok();
 // 다음달 달력호출하기
-// calbx.nextCal();
+// calbx2.nextCal();
+
+
+
+/// 제이쿼리 라이브러리를 html페이지 상단에 호출후 사용!
+$(".myipt").click(function(){
+    console.log(this);
+})
