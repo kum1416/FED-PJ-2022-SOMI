@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./css/main.css">
+  <script src="./js/calendar.js" defer></script> <!-- 🌷defer html읽은다음 호출해! -->
+  <title>우리달력2023</title>
+</head>
+<body>
+  <!-- 달력전체박스 -->
+  <div class="calender">
+    <!-- 달력상단:해당년/월표시 -->
+    <header class="header">      
+      <!-- 달력이동버튼:이전 -->
+      <button class="mbtn btnL">〈</button>
+      <div class="title">
+        <div class="yearTit"></div>
+        <div class="monthTit"></div>
+      </div>
+      <!-- 달력이동버튼:다음 -->
+      <button class="mbtn btnR">〉</button>
+    </header>
+    <!-- 달력날짜표시박스 -->
+    <section class="main">
+      <!-- 주단위 구분박스 -->
+      <div class="week">
+        <div class="day">Sun</div>
+        <div class="day">Mon</div>
+        <div class="day">Tue</div>
+        <div class="day">Wed</div>
+        <div class="day">Thu</div>
+        <div class="day">Fri</div>
+        <div class="day">Sat</div>
+      </div>
+      <!-- 해당월의 달력날짜 구성박스 -->
+      <div class="dates"></div>
+    </section>
+  </div>
+</body>
+</html>
