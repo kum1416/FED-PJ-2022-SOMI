@@ -29,7 +29,7 @@ $(".myipt").click(function(){
     console.log(this);
     // 해당박스 달력보이기
     $(this).next().find(".calender").show();
-}); ////// click //////
+}); /////// click /////////////
 
 $(".calender").click(function(){
     let val = $(this).find(".dinfo").val();

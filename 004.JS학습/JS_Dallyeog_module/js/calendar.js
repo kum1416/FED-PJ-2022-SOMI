@@ -173,7 +173,7 @@ function MakeDallyeok(sel) { // sel - 달력넣을 요소 선택자
                     // 달력의 히든필드에 저장
                     qs(sel+" .dinfo").value = comp;
 
-                }) //////////// click /////////
+                }) ////////// click /////////
         );
     }; ///////// initDallyeok 함수 //////
 
