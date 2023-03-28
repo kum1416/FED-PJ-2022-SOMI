@@ -1,7 +1,7 @@
 // JS로 구현한 자동페이지 휠 JS : js-autoScroll.js
 
 // 새로고침할때 스크롤위치 캐싱 무시하고 맨위로 이동!
-// scrollTo(가로,세로) -> 위치이동 메서드
+// scrollTo(가로,세로) -> 위치이동 메서드 🍍JS내장함수
 setTimeout(() => {
   window.scrollTo(0, 0);
 }, 100);
@@ -109,24 +109,24 @@ function loadFn() {
   // 0. 변수 설정하기
   // 🥨(1) 전체 페이지변수
   let pgnum = 0; // 현재 페이지번호(첫페이지 0)
-  // 🍆(2) 전체 페이지수
+  // 🍆(2) 전체 페이지수 -> 페이지수가 증가할수도 있으니 설정해줌
   const pgcnt = document.querySelectorAll(".page").length;
   console.log("전체페이지수:", pgcnt);
   // 🌽(3) 광스크롤 금지변수(0-허용,1-불허용)
   let prot_sc = 0;
 
   // 1. 전체 휠 이벤트 설정하기 ///////
-  window.addEventListener("wheel", wheelFn, { passive: false });
+  window.addEventListener("wheel", wheelFn, { passive: false }); // 🥚중괄호->속성콜론값 객체
 
   // 2. 휠 이벤트 함수 만들기 ////////
-  function wheelFn(e) {
+  function wheelFn(e) { //🥚e-> 객체의 실제 발생하는 이벤트가내부로 전달, 이벤트가 발생할때마다 하나의 이벤트가 들어옴!
     // e - 이벤트 전달변수
     // (0) 기본기능 멈추기
     // addEventListener 옵션 passive.false 필수!
     e.preventDefault();
 
     // 🌽광스크롤막기! ////
-    if (prot_sc) return;
+    if (prot_sc) return; // 🥚prot_sc 값이 1이면 돌아가라
     prot_sc = 1; // 신호 1개만 허용 📢연속된 신호중 1개만 받아들임
     setTimeout(() => (prot_sc = 0), 800);
     // 0.8초의 시간후 다시 허용상태전환 //
@@ -134,7 +134,7 @@ function loadFn() {
     // (1) 호출확인
     // console.log("휠~~~~~");
 
-    // (2)휠 방향 알아내기
+    // (2) 휠 방향 알아내기
     // 이벤트객체.wheelDelta
     let dir = e.wheelDelta;
 
@@ -143,7 +143,7 @@ function loadFn() {
 
     // (3) 방향에 따른 페이지번호 증감
     // 스크롤 아랫방향 : 페이지번호 증가
-    if (dir < 0) {
+    if (dir < 0) { //🥚만약에 dir이 0보다 작으면 플플 아니면 마마
       // 페이지번호 1씩증가
       pgnum++;
       // 🍆한계수 : 페이지 끝번호(페이지수-1)🥨
@@ -200,7 +200,7 @@ function loadFn() {
 
     // 🥨2. 페이지 이동하기
     // scrllTo(가로,세로)
-    window.scrollTo(0, window.innerHeight * pgnum);
+    window.scrollTo(0, window.innerHeight * pgnum); //🥚세로->윈도우 이동수치
     // 세로 이동위치: 윈도우높이값*페이지번호
 
     // 3. 메뉴 초기화하기(클래스 on 제거하기)
