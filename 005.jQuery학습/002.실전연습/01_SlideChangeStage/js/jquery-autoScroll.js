@@ -57,7 +57,7 @@ function wheelFn(){
 
     console.log(pno);
 
-    // 3. 스크롤 이동하기
+    // 3. 스크롤 이동하기..
     // 대상: html,body -> 두개를 모두 잡아야 공통적으로 적용됨!
     $("html,body").animate({
         scrollTop:($(window).height()*pno)+"px"
