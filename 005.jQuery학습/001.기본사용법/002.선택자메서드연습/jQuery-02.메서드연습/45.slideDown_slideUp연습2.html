@@ -99,7 +99,33 @@
    <!-- jQuery library -->
    <script src="../jquery-3.6.3.min.js"></script>
    <script>
-      $(function () { /// jQB ////////////
+      $(function () { 
+        /// jQB ////////////
+
+        // 1. 서브메뉴 숨기기 -> display:none처리!
+        $(".smenu").hide();
+
+        // 2. slide설정하기
+        // 이벤트 대상 : .gnb>ul>li
+        // 변경 대상 : .smenu
+        // 제이쿼리 메서드 : hover(함수1,함수2)
+        $(".gnb>ul>li").hover(
+          function(){ // over
+              $(this).find(".smenu").slideDown(400);
+              // $(".smenu",this) 나 자신 밑에 있는 자손, 위에거랑 똑같음
+            },
+            function(){ // out
+              $(this).find(".smenu").slideUp(400);
+
+          }); //////// hover //////////
+
+
+
+
+
+
+
+
    }); /// jQB /////////////////////////////////   
    </script>
 
