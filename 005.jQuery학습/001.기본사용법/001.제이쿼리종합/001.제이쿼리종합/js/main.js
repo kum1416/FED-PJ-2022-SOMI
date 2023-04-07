@@ -80,7 +80,8 @@ $(() => {
 
     // 2. 버튼셋팅하기 ////////////////
     // 대상: .btns buttons -> btns변수
-    btns.hide().first().show();
+    // btns.hide().first().show();
+    btns.hide().eq(5).show();
 
     // 3. 공통함수 : actMini() /////////
     // 전달변수 3개
@@ -314,11 +315,16 @@ $(() => {
             // 공통함수 호출! : 2번방으로!
             actMini(this, 2, fn);
         }) ///// "치료주사방으로!" 버튼끝 ///////
+
         /// 10. "3번방으로!" 버튼 클릭시 ///
         .next()
         .click(function () {
             let fn = () => {
                 // 콜백함수
+
+                // 메시지 보이기
+                msg.html(`어서 윗층으로 가자!`).fadeIn(300);
+
                 // 다음버튼 보이기
                 $(this).next().delay(500).slideDown(300);
             }; ///////////// fn함수 /////////
@@ -331,6 +337,10 @@ $(() => {
         .click(function () {
             let fn = () => {
                 // 콜백함수
+
+                // 메시지 보이기
+                msg.html(`이제 곧 탈출이닷!`).fadeIn(300);
+
                 // 다음버튼 보이기
                 $(this).next().delay(500).slideDown(300);
             }; ///////////// fn함수 /////////
@@ -343,8 +353,31 @@ $(() => {
         .click(function () {
             let fn = () => {
                 // 콜백함수
-                // 다음버튼 보이기
-                $(this).next().delay(500).slideDown(300);
+
+                // 메시지 보이기
+                msg.html(`도와줘요!!!`).fadeIn(300);
+
+                // 1번방 단체좀비들 달겨들기!
+                bd.eq(1)
+                .find(".mz")
+                .fadeIn(300)
+                .animate({
+                    right: bd.eq(1).width() + "px"
+                },3000,"easeInExpo");
+
+                // 헬기등장
+                $(".heli")
+                .animate({
+                    left: "20%" // 미니언즈 위치까지 이동
+                },4000,"easeOutBack",
+                function(){ // 헬기이동완료 후 
+                    // 헬기 이미지변경(this->.heli)
+                    $(this).attr("src","images/heli2.png");
+                    // 원본 미니언즈는 사라짐!
+                    mi.hide();
+                })
+
+
             }; ///////////// fn함수 /////////
 
             // 공통함수 호출! : 0번방으로!
