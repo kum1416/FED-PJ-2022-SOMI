@@ -400,7 +400,7 @@ $(() => {
                     let tit = $(".tit");
                     tit.addClass("on");
                     // 2단계 : 맨 아래까지 떨어짐
-                    // -> 3초후 간판에 class "on2" 추가
+                    // -> 3초후 간판에 class "on2"추가
                     setTimeout(() => {
                         tit.addClass("on2");
                     }, 3000);
@@ -412,9 +412,28 @@ $(() => {
                         // parent() -> 부모요소인 .building
                     }, 6000);
 
-                }); ////// animate ///////
 
-                
+                    // 추가구현 : 시간(6초+건물기다리고 무너진시간 8초)+
+                    // 건물 무너진후 좀비 하나 올라와 오른쪽으로 사라지기
+                    setTimeout(() => {
+                        // 건물을 다시 기울기 원복!
+                        bd.parent()
+                        .css({transform:"rotate(0deg) !important"});
+                        // 애니메이션 각도보다 우선순위 강제로 올림!
+
+                        // 9번방 좀비 선택
+                        bd.eq(9).find(".mz")
+                        .animate({
+                            bottom:"586%" // 지표로 올라오기
+                        },5000)
+                        .delay(3000) // 기다리기
+                        .animate({
+                            right:"-244%" // 오른쪽으로 나가기
+                        },5000)
+
+                    }, 20000); // 20초후 타임아웃 ///
+
+                }); ///////// animate //////
             }; ///////////// fn함수 /////////
 
             // 공통함수 호출! : 0번방으로!
@@ -424,17 +443,17 @@ $(() => {
         // 간판에 마우스 오버시/아웃시 색상변경하기
         // hover(함수1,함수2)
         $(".tit").hover(
-            function(){
+            function(){ // over
                 $(this).css({
-                backgroundColor: "blue",
-                color: "tomato"
+                    backgroundColor:"blue",
+                    color:"cyan"
                 }); ///// css /////
             },
-            function(){
+            function(){ // out
                 $(this).css({
-                    backgroundColor: "pink",
-                    color: "yellow"
+                    backgroundColor:"pink",
+                    color:"yellow"
                 }); ///// css /////
-            }); ///// hover /////
+            }); /////////// hover ///////////
 
 }); /////////////// jQB ////////////////////
