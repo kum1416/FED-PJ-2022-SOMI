@@ -41,7 +41,7 @@ $(()=>{
     // cid는 current id 즉, 현재 아이디라는 뜻!
 
     // 2. 블러가 발생한 요소의 입력값은?
-    let cv = cid==="mnm" ? 
+    let cv = cid ==="mnm" ? 
     $(this).val().trim() : groSpace($(this).val());
     // 삼항연산자 (cid가 mnm이냐? 응 : 아니)
     // let cv = $(this).val().trim();
