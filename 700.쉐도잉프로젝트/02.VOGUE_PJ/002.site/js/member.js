@@ -218,6 +218,24 @@ $(()=>{
     let cv = $(this).val();
     console.log("입력아이디:",cid,"\n입력값:",cv);
 
+    // 3. 이메일 뒷주소 셋팅하기
+    let backeml = // backeml에 할당
+    cid === "email1" ? seleml.val() : eml2.val();
+    // 현재 아이디가 "email1"인가? 맞으면 선택박스 : 아니면 
+    // 두번째 이메일뒷주소를 입력하는 중이므로 그것을 선택
+    // 변수 = 조건연산자
+    // 변수 = 조건식 ? 값1 : 값2
+
+    // 4. 만약 선택박스값이 "free"(직접입력)이면
+    // 이메일 뒷주소로 변경함!
+    if(seleml.val() === "free") backeml = eml2.val();
+
+    // 5. 이메일 전체주소 조합하기
+    let comp = eml1.val() + "@" + backeml;
+    
+    // 6. 이메일 유효성 검사함수 호출
+    resEml(comp);
+
  }); /////////// keyup //////////////////////
 
 
