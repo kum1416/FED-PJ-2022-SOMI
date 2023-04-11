@@ -47,8 +47,8 @@
   }
 
   /* 컨텐츠 영역박스 */
-  .cont{
-    min-height: auto;
+  .cont {
+      min-height: auto;
   }
 
   /* 4. 3개짜리 컨텐츠박스 마지막 .cbx삭제 */
