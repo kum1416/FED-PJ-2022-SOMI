@@ -41,8 +41,6 @@
             async function myAFn(){
 
 
-
-
             // 1. 변수 = new Promise((성공함수)=>{코드})
             // 프라미스 코드에 XMLHttpRequest() 객체로 제이슨 로딩함!
             const myProm = new Promise((prFn)=>{// prFn - 성공함수
@@ -98,19 +96,23 @@
                         <li>락식 : ${obj[1]["야웅간식"]}</li>
                     </ol>
                 `;
+
                 return hcode;
-            } /////////////////// makeHtml함수 //////////////
+            } ///////////////// makeHtml함수 //////////
+
+
+                
+                // 화면출력하기!!!!
+                화면뿌려(await makeHtml(myProm));
+                
 
             
-            // 화면출력하기!!!!
-            화면뿌려(await makeHtml(myProm));
+        } ////////////// myAFn 어씽크 함수 /////////////
 
-
-
-        } /////////// myAFn 어씽크 함수 ////////////
 
         // 필수 최초호출 어씽크함수 !!!!!!!!
         myAFn();
+
             
 
 
