@@ -42,6 +42,42 @@
     </style>
     <script src="js/jquery-1.8.1.min.js"></script>
     <script src="js/jquery-ui-1.10.4.min.js"></script>
+    <script>
+        $(()=>{ ///////////////// jQB //////////////////
+
+            // 1. 대상선정
+            // (1) 이미지박스
+            const imbx = $("#imgbox");
+            // (2) 커버박스
+            const cover = $("#cover");
+
+            // 2. 처음에 정중앙 위치하기
+            // (1) 중앙위치 top값 : (윈도화면높이 - 이미지박스높이)/2
+            let cTop = ($(window).height() - imbx.height()) / 2;
+            // (2) 중앙위치 left값 : (윈도화면가로폭 - 이미지박스가로폭)/2
+            let cLeft = ($(window).width() - imbx.width()) / 2;
+
+            // 3. 이미지박스 중앙위치하기
+            imbx.css({
+                top: cTop+"px",
+                left: cLeft+"px"
+            }); ///////// css /////////
+
+            // 4. 이미지박스 움직일 값을 위한 비례식만들기
+            // 마우스최대값 : 마우스이동값 = 이미지이동최대값 : 이미지이동값
+            // 마최 : 마이 = 이최 : 이이
+            // 이이 = 마이 * 이최 / 마최
+
+            // 이미지이동최대값(이최) top,left
+            let  iTopMax = $(window).height() - imbx.height();
+            let  iLeftMax = $(window).width() - imbx.width();
+
+
+
+
+
+        }); ///////////////// jQB //////////////////
+    </script>
     
 </head>
 <body>
