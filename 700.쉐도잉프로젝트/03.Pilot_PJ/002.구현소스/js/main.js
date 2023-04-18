@@ -6,7 +6,7 @@ import autoScroll from "./jquery-autoScroll.js";
 // 자동스크롤 호출
 autoScroll();
 
-// 메인 페이지
+// 메인 페이지 
 
 // 햄버거 버튼 클릭시 전체 메뉴 보이기
 $(".ham").click(function(){
@@ -14,4 +14,5 @@ $(".ham").click(function(){
     $(this).toggleClass("on");
     // 전체메뉴보이기
     $(".mbox").fadeToggle(400);
+
 })
