@@ -15,13 +15,13 @@
         // 3. 새로운 변수선언 : JS2-2
 
         // 4. 배열 메서드 : map()
-        // -> 배열을 자동으로 돌면서 목록을 만든다!
+        // -> 배열을 자동으로 돌면서 목록을 만든다! 🥚for문하고 비슷하다!
         const arr1 = ["수박","사과","단감"];
         console.log(arr1);
 
-        // 배열변수.map(변수=>{코드})
-        const list = arr1.map(val=>`<div>${val}</div>`);
-        console.log(list);
+        // 배열변수.map(변수=>{코드}) 🥚변수값을 코드에 이용
+        const list = arr1.map(val=>`<div>${val}</div>`); // 🥚arr1배열에 있는것을 map문법이 하나씩 들고 들어감
+        console.log(list); // 🥚저 배열에 map을 쓰면 해당되는 값을 여기(?)에다가 넣는데 태그로 싸서 넣으면 다시 리스트라는 변수에다가 새로운 배열을 만든다
         // 언제 주로 사용하나?
         // -> 배열데이터과 특정코드를 결합하여 다시 배열에 담을때
         // 많이 사용한다!
@@ -38,7 +38,7 @@
         fruit1,fruit2,fruit3);
 
         // 배열 구조화 방식사용:
-        let [myFirst,mySecond,myThird] = list;
+        let [myFirst,mySecond,myThird] = list; // 🥚let 대괄호안에 변수 = list
         
         console.log("구조화 방식으로 배열값을 담고 출력:",
         myFirst,mySecond,myThird);
@@ -50,7 +50,7 @@
         // 8. 스프레드 연산자 : 
         // ... (점3개로 표시 -> 배열/객체값 순서표시)
 
-        // 8-1. 배열에서 사용
+        // 8-1. 배열에서 사용 🥚데이터를 합쳐서 한번에 돌릴때 굉장히 유용!
         const arr2 = [30,40,50,60];
         const arr3 = [300,400,500,600];
         const addAll = [...arr2,...arr3];
