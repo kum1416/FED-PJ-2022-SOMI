@@ -45,6 +45,16 @@
                                 name:"vans올레이",
                                 img:"vans_2.jpg"
                             },
+                            {
+                                idx:3,
+                                name:"vans코코넛",
+                                img:"vans_3.jpg"
+                            },
+                            {
+                                idx:4,
+                                name:"vans마크로",
+                                img:"vans_4.jpg"
+                            },
                         ]
 
                     },
@@ -101,6 +111,27 @@
                 width: 80%;
                 border-radius: 20px;
             }
+
+            /* 상품리스트박스 */
+            .gwrap{
+                display: flex;
+                /* 하위 ol박스를 옆으로 흐르게함 */
+                justify-content: center;
+                flex-wrap: wrap;
+
+                gap: 10px 20px;/* 상하 좌우 사이간격 */
+
+            }
+            /* 개별리스트박스 */
+            .glist{
+                margin: 0;
+                padding: 0;
+                list-style: none;
+            }
+            /* 상품이미지 */
+            .glist img{
+                width: 120px;
+            }
         </style>
     </head>
     <body>
@@ -126,7 +157,13 @@
                 <ol class="glist" v-for="(item,idx) in sh_data">
                     <!-- {{item+"/"+idx}} -->
 
+                    <!-- 상품이미지출력 -->
                     <li v-for="(a,b) in item" v-if="b==='img'" v-html="makeImg(a)" ></li>
+
+                    <!-- 상품명출력 -->
+                    <li v-for="(a,b) in item" v-if="b==='name'">
+                        반스명:{{a}}
+                    </li>
 
                 </ol>
             </div>
