@@ -32,7 +32,7 @@ html,body{
 
 /* 2-2. 서브 컨텐츠 박스 */
 .scont{
-    /* 처음에 회원가입 박스안보임
+    /* 처음에 회원가입 박스안보임 
     -> 대신 동의박스가 보임 */
     display: none;
     max-width: 700px;
@@ -197,7 +197,7 @@ select:focus {
     border: 1px solid #737373;
     border-radius: 5px;
     color: #fff;
-    font-size: 1em;
+    font-size: 1.2em;
     font-weight: bold;
     background-image: linear-gradient(to bottom, #ddd, #555);
     margin: 0 20px;
