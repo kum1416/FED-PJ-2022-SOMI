@@ -73,6 +73,10 @@ $(()=>{
 
                 // 뷰 데이터에 반영하기 -> 가상돔의 변경 -> 실제돔반영!
                 vmCont.catName = txt;
+
+                // 탭메뉴 타이틀 변경하기
+                $("title").text(vmCont.catName+
+                    " | 2023 보그 코리아 (Vogue Korea)");
                 
             }
         } ///// methods 구역 ////
