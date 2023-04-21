@@ -88,6 +88,7 @@ function loadFn() {
     }); /////////// mouseup + keyup /////////////////
 
     // 로딩시 맨위로 이동하기
+    // 전체스크롤 이동대상은 html,body 최상위부모 2개다 잡아라!
     $("html,body").animate({
         scrollTop:"0"},200,
     ()=>{
