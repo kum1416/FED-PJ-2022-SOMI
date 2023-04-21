@@ -27,7 +27,8 @@ body{
 .txt{
     position: absolute;
     font-family: 'Poppins', sans-serif;
-    font-size: 5vh;
+    font-size: 4vw;
+    white-space: nowrap;
     color: #fff;
     text-shadow: 0 0 5px #000;
 }
