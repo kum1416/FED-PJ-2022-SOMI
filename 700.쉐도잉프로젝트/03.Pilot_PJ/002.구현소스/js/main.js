@@ -139,7 +139,7 @@ slide.on("dragstop",function(){
     else{
         slide.animate({
             left: -winW + "px"
-        },200,"easeOutQuint",()=>{
+        },200,"easeOutQuint",()=>{            
             // 커버제거하기
             cover.hide();
         });
