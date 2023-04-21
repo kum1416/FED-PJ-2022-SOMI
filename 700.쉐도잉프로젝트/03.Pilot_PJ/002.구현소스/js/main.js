@@ -80,16 +80,16 @@ slide.draggable({
 }); ////// 드래그설정 ////
 
 // 윈도크기리턴함수
-const reWin = () => $(window).width()
+const reWin = () => $(window).width();
+// 리사이즈 업데이트
+$(window).resize(()=>{
+    winW = reWin();
+    console.log("winW:",winW);
+});
 
 // 3. 기준위치 체크후 이동애니메이션
 // 윈도우 가로크기
-
 let winW = reWin();
 console.log("winW:",winW);
-
-// 리사이즈 업데이트
-$(window).resize(()=>{
-    winW=reWin();
-    console.log("winW:",winW);
-});
+console.log("winW:",winW);
+console.log("winW:",winW);
