@@ -101,5 +101,4 @@ slide.on("dragstop",function(){
     // 슬라이드 left위치값
     let sleft = $(this).offset().left;
     console.log("허허",sleft);
-}); ///////////// slide ////////////////
-
+}); //////////// slide ///////////
