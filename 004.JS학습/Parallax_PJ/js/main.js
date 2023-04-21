@@ -68,7 +68,7 @@ function loadFn() {
             moveEl(retVal(ele),ele,setH2));
 
         // 대상2 : 아이콘 패럴렉스호출!
-        tg1.forEach(ele=>
+        tg2.forEach(ele=>
             moveEl(retVal(ele),ele,setH1));
 
         // moveEl(위치값,요소,정한범위)
@@ -78,9 +78,8 @@ function loadFn() {
     setTimeout(() => {
         // 맨위로 이동
         window.scrollTo(0,0);
-        // 부드러운 스크롤 위치값 반영! // 부드러운 스크롤에서 따로쓰는 변수 업데이트
+        // 부드러운 스크롤 위치값 반영!
         pos = 0; // 안하면 튄다!
     }, 400);
-
 
 } ////////////// loadFn ///////////////////////////
