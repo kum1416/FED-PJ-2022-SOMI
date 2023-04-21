@@ -81,6 +81,7 @@ function loadFn() {
         // 이것 안하면 다시 스크롤시 튐!
         pos = window.scrollY;
     }); /////////// mouseup //////////
+    // 키보드로 이동시 부드러운 스크롤 위치값 업데이트
     window.addEventListener("keyup", () => {
         // 이것 안하면 다시 스크롤시 튐!
         pos = window.scrollY;
