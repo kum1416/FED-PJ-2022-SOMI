@@ -89,9 +89,10 @@ function loadFn() {
 
     // 로딩시 맨위로 이동하기
     $("html,body").animate({
-        scrollTop:"0"},200,()=>{
+        scrollTop:"0"},200,
+    ()=>{
         // 이것 안하면 다시 스크롤시 튐!
         pos = $(this).scrollTop();
-    }); //////// animate ////////////
+    }); /////// animate //////////
 
 } ////////////// loadFn ///////////////////////////
