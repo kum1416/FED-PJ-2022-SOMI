@@ -15,15 +15,18 @@ body{
     position: relative;
     height: 100vh;
 }
+/* 이미지박스 */
 .imbx{
     position: absolute;
     width: 45vw;
 }
+/* 아이콘박스 */
 .icon{
     position: absolute;
     width: 150px;
     bottom: -50px;
 }
+/* 글자박스 */
 .txt{
     position: absolute;
     font-family: 'Poppins', sans-serif;
