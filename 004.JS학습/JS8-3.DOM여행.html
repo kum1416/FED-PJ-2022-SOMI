@@ -59,8 +59,8 @@
                         case "맨앞으로":
                             tgs.forEach(
                                 (ele) => {
-                                    if (ele.classList.contains("on")) { // on 있냐
-                                        ele.classList.remove("on"); // 지워
+                                    if (ele.classList.contains("on")) {
+                                        ele.classList.remove("on");
                                     }
                                 }); //// forEach //////
                                 tgs.item(0).classList.add("on");
@@ -72,17 +72,17 @@
                                         // 요소.isSameNode(비교요소)
                                         // 특정요소가 비교요소와 같으면 true
                                         // 같지 않으면 false
-                                        isNow = ele.isSameNode(tgs.item(tgs.length - 1))
+                                        isNow = ele.isSameNode(tgs.item(12))
                                         console.log(isNow);
                                         if (isNow) return;
-                                        // 마지막노드와 같으면 return
+                                        // -> 마지막노드와 같으면 return 
                                         cele = ele;
                                         ele.classList.remove("on");
                                     }
                                 }); //// forEach //////
-                            if (!isNow)
-                                cele.nextElementSibling.classList.add("on");
-                                // nextElementSibling 선택요소의 다음요소 ->Element가 들어가있으면 구체적인 요소를 선택함
+                                if (!isNow)
+                                    cele.nextElementSibling.classList.add("on");
+                                // nextElementSibling 선택요소의 다음요소
                             break;
                         case "앞으로":
                             tgs.forEach(
@@ -91,7 +91,7 @@
                                         isNow = ele.isSameNode(tgs.item(0));
                                         console.log(isNow);
                                         if (isNow) return;
-                                        // -> 첫번째 요소와 같으면 return!
+                                        // -> 첫번째 요소가 같으면 return!
                                         // cele = ele;
                                         ele.classList.remove("on");
                                         ele.previousElementSibling.classList.add("on");
