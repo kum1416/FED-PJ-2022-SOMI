@@ -14,15 +14,16 @@
                 name: "말코랑",
                 codeLine: 300,
                 showMsg: function(){
-                    console.log(this.name+"님, 오늘은 "+this.codeLine + "줄 코딩하셨네요!");
+                    console.log(this.name+"님, 오늘은 "+this.codeLine + "줄 코딩하셨네요!"); // 🥚this객체 안에 있는 애를 지칭
                     // 타이밍함수에 출력
-                    setTimeout(function() {
+                    setTimeout(function() { // 🥚일반 익명함수
                         console.log(this.name+"님, 추가코딩으로 "+this.codeLine + "줄 코딩하셨네요!",this);
                     }, 500);
                     // 타이밍함수 내부의 익명함수안의 this는
                     // 실행구역이 분리되어 본래의 this키워드 의미가
                     // 달라져서 window를 가리키게 됨!
                     // 그래서 this가 본 객체를 읽어올 수 없다!
+                    // 🥚타이밍함수는 윈도우영역관할/setTimeout는 실행되는 영역자체가 다름, 나중에 실행되기 떄문에 메모리 영역이 옮겨짐
                 }
 
             }; ////////// codingObj1 ///////////////////
@@ -41,7 +42,7 @@
                     // 타이밍함수에 출력
                     setTimeout(function() {
                         console.log(this.name+"님, 추가코딩으로 "+this.codeLine + "줄 코딩하셨네요!",this);
-                    }.bind(this), 500);
+                    }.bind(this), 500); // 🥚bind()함수 -> 실행구역이 달라질때 묶어놓는 함수
                     // bind(this) 는 타이밍함수의 실행
                     // 메모리 구역이 달라짐으로 인해
                     // this가 달라지지 않도록
@@ -64,7 +65,7 @@
                     console.log(this.name+"님, 오늘은 "+this.codeLine + "줄 코딩하셨네요!");
 
                     // 타이밍함수에 출력
-                    setTimeout(()=>{
+                    setTimeout(()=>{ // 🥚화살표함수
                         console.log(this.name+"님, 추가코딩으로 "+this.codeLine + "줄 코딩하셨네요!",this);
                     }, 500);
                     // 화살표함수를 타이밍함수 안에 사용하면

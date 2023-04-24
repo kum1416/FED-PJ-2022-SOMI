@@ -59,25 +59,25 @@
                         case "맨앞으로":
                             tgs.forEach(
                                 (ele) => {
-                                    if (ele.classList.contains("on")) {
-                                        ele.classList.remove("on");
+                                    if (ele.classList.contains("on")) { // 🥚on있냐? contains()대상 문자열에 특정 문자열이 포함되어 있는지 확인하는 함수
+                                        ele.classList.remove("on"); // 🥚지워
                                     }
                                 }); //// forEach //////
-                                tgs.item(0).classList.add("on");
+                                tgs.item(0).classList.add("on"); // 🥚 맨앞에다가 on넣어
                             break;
                         case "뒤로":
                             tgs.forEach(
-                                (ele) => {
-                                    if (ele.classList.contains("on")) {
+                                (ele) => { // 🥚forEach 돌면서 ele로 들어가서 순회
+                                    if (ele.classList.contains("on")) { // 🥚on이 있는곳에서 if문으로 들어감
                                         // 요소.isSameNode(비교요소)
                                         // 특정요소가 비교요소와 같으면 true
                                         // 같지 않으면 false
-                                        isNow = ele.isSameNode(tgs.item(12))
+                                        isNow = ele.isSameNode(tgs.item(12)) // 🥚마지막에 있는 item 타겟과 같니?
                                         console.log(isNow);
-                                        if (isNow) return;
+                                        if (isNow) return; // 🥚응, 같으면 하지마!
                                         // -> 마지막노드와 같으면 return 
                                         // cele = ele;
-                                        ele.classList.remove("on");
+                                        ele.classList.remove("on"); // 🥚 ele는 on을 지워
                                         // 바로 다음것을 on변경하면 forEach문에서
                                         // 다음요소를 돌때 다시 on이 걸리게되고
                                         // if문에 들어오게 된다! 그래서 계속걸림!
@@ -87,8 +87,8 @@
                                         ,10);
                                     }
                                 }); //// forEach //////
-                                // if (!isNow)
-                                // nextElementSibling 선택요소의 다음요소
+                                // if (!isNow) 🥚 바깥에서 처리할때는 forEach 돌때 계속 on이 걸려서 문제가 생겼는데 안에서 처리할떄는 setTimeout을 넣어주면 해결
+                                // nextElementSibling 선택요소의 다음요소 🥚Element라는 말이 들어가 있어야 구체적인 요소를 선택함
                             break;
                         case "앞으로":
                             tgs.forEach(

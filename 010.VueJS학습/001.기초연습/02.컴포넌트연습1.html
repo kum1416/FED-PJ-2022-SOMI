@@ -260,33 +260,33 @@
              Vue.component("list-comp",{
                 template:`
                 <div>
-                    <img v-bind:src="gsrc" alt="dress" />
+                    <img v-bind:src="gsrc" alt="dress" /> 
                     <aside>
                         <h2>{{gname}}</h2>
                         <h3>{{gprice}}</h3>
                     </aside>
                 </div>
-                `,
+                `, // 🥚 src속성값은 값을 찍는게 아니라 태그에 붙어있는 속성이기 때문에 바인드 시켜줘야함
                 // 컴포넌트 내부 변수셋팅
                 data:function(){
-                    return{
-                        gsrc:`img_gallery/${this.setNem()}.jpg`,
+                    return{ // 🥚 function이면 데이터가 셋업될때 리턴 안에 있는 객체를 저쪽으로 던짐
+                        gsrc:`img_gallery/${this.setNem()}.jpg`, // 🥚setNem() 이렇게 실행시키면 매번 돌떄마다 데이터를 리턴해서 돌려보낼떄 아래에서 실행해서가는데 1씩 증가된 값을 num에 담아서 간다
                         gname:`상품명1`,
                         gprice:`상품가격1`
                     }
                 },
                 // 컴포넌트 내부 메서드셋팅
                 methods:{
-                    setNem(){
+                    setNem(){ // 🥚변수만들기
                         num+=1;
                         console.log("num:",num);
-                        return num;
+                        return num; // 🥚1을 증가시켜서 리턴해줌!
                     }
                 }
              }); /////////// 뷰JS 컴포넌트 ////////////
 
              // 리스트 뷰 인스턴스 생성하기
-             makeVue(".grid");
+             makeVue(".grid"); // 🥚뷰 인스턴스 메모리상에 가지고 있다가 뷰 인스턴스 객체가 되는 순간 그안에 list-comp라는 애가 있으면 템플릿을 집어넣어주는 역할을함
 
             /* 
             [ 뷰JS 출력 ]
@@ -321,8 +321,8 @@
     
     <!-- 그리드 레이아웃 박스 -->
     <div class="grid">
-        <list-comp v-for="n in 50" v-bind:data-num="n"></list-comp>
-        <!-- 
+        <list-comp v-for="n in 50" v-bind:data-num="n"></list-comp> <!-- 🥚bind -> 속성같은걸 만들어줄때 사용/ 뷰js에서 이 속성하고 값은 여기 for에 돌아가는 n속성을 넣어가지고 바인드시켜주겠다! -->
+        <!--  🥚n은 내가 지은 이름 /  v-bind:내가지은 속성명="값"
             v-for디렉티브의 in뒤에 숫자를 쓰면 개수만큼 돈다!
             개별숫자 데이터는 1부터 개수만큼 하나씩 할당된다! 
         -->
