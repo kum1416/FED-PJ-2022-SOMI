@@ -7,6 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JS8-3. DOM여행</title>
     <style>
+        .tit{
+            text-align: center;
+        }
         .stage {
             border: 3px dotted blue;
             padding: 20px;
@@ -56,8 +59,8 @@
                         case "맨앞으로":
                             tgs.forEach(
                                 (ele) => {
-                                    if (ele.classList.contains("on")) {
-                                        ele.classList.remove("on");
+                                    if (ele.classList.contains("on")) { // on 있냐
+                                        ele.classList.remove("on"); // 지워
                                     }
                                 }); //// forEach //////
                                 tgs.item(0).classList.add("on");
@@ -66,15 +69,20 @@
                             tgs.forEach(
                                 (ele) => {
                                     if (ele.classList.contains("on")) {
+                                        // 요소.isSameNode(비교요소)
+                                        // 특정요소가 비교요소와 같으면 true
+                                        // 같지 않으면 false
                                         isNow = ele.isSameNode(tgs.item(tgs.length - 1))
                                         console.log(isNow);
                                         if (isNow) return;
+                                        // 마지막노드와 같으면 return
                                         cele = ele;
                                         ele.classList.remove("on");
                                     }
                                 }); //// forEach //////
                             if (!isNow)
                                 cele.nextElementSibling.classList.add("on");
+                                // nextElementSibling 선택요소의 다음요소 ->Element가 들어가있으면 구체적인 요소를 선택함
                             break;
                         case "앞으로":
                             tgs.forEach(
@@ -83,9 +91,11 @@
                                         isNow = ele.isSameNode(tgs.item(0));
                                         console.log(isNow);
                                         if (isNow) return;
-                                        cele = ele;
+                                        // -> 첫번째 요소와 같으면 return!
+                                        // cele = ele;
                                         ele.classList.remove("on");
                                         ele.previousElementSibling.classList.add("on");
+                                        // previousElementSibling 이전요소선택
                                     }
                                 }); //// forEach //////
                             break;                            
@@ -104,6 +114,7 @@
                                     if (ele.classList.contains("on")) {
                                         ele.classList.remove("on");
                                         ele.parentElement.classList.add("on");
+                                        // parentElement 부모요소선택
                                     }
                                 }); //// forEach //////
                             break;
@@ -115,6 +126,7 @@
 </head>
 
 <body>
+    <h1 class="tit">JS8-3. DOM여행</h1>
     <div class="stage">
         <ul>
             <li></li>
