@@ -121,7 +121,7 @@ slide.on("dragstop",function(){
             cover.hide();
         });
 
-        // 블릿변경함수 호출!
+        // 블릿변경함수호출!
         addOn(2);
         // 왼쪽이동이므로 2번째 슬라이드
 
@@ -138,8 +138,8 @@ slide.on("dragstop",function(){
             // 커버제거하기
             cover.hide();
         });
-
-        // 블릿변경함수 호출!
+        
+        // 블릿변경함수호출!
         addOn(0);
         // 오른쪽이동이므로 0번째 슬라이드
 
@@ -165,7 +165,7 @@ slide.on("dragstop",function(){
     블릿순번에 반영한다!
 ***************************************************/
 // 사용자 정의 순번속성 대상: .slide li
-// 제이쿼리: for문순회 메서드 each()
+// 제이쿼리: for문 순회 메서드 each()
 // 배너 li
 const blist = slide.find("li");
 // 배너 li개수
@@ -178,9 +178,9 @@ blist.each((idx,ele)=>{
         $(ele).attr("data-seq",bcnt-1);
     else // 두번째 부터 끝까지 0부터(1작음!)
         $(ele).attr("data-seq",idx-1);
-}); /////////// each ////////////
+}); ///////// each ///////////////
 
-/************************************* 
+/************************************ 
     [ 블릿 on 넣기 함수 ]
     1) 오른쪽으로 이동일경우
     -> 0번째 슬라이드의 data-seq값
@@ -188,20 +188,21 @@ blist.each((idx,ele)=>{
     -> 2번째 슬라이드의 data-seq값
     3) 위의 선택값으로 블릿의
     li순번에 on넣고 나머지는 뺀다!
-*************************************/
+************************************/
 // 대상선정: .bindic li
 const bindic = $(".bindic li");
 
 function addOn(seq){ // seq - 읽을 슬라이드 순번
     // 방향을 어떻게 알지?
-    // 0은 오른쪽 이동, 2는 왼쪽이동임!
+    // 0은 오르쪽이동, 2는 왼쪽이동임!
 
     // 1.해당슬라이드 data-seq읽어오기
     let dseq = slide.find("li").eq(seq).attr("data-seq");
     console.log(dseq);
 
     // 2. 해당슬라이드와 동일한 순번블릿에 on넣기
-    blndic.eq(dseq).addClass("on")
+    bindic.eq(dseq).addClass("on")
     .siblings().removeClass("on");
 
-} ////////// addOn 함수 ///////////
+} ///////// addOn 함수 /////////////
+
