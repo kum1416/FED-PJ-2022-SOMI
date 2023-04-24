@@ -189,7 +189,7 @@ blist.each((idx,ele)=>{
     3) 위의 선택값으로 블릿의
     li순번에 on넣고 나머지는 뺀다!
 ************************************/
-// 대상선정: .bindic li
+// 대상선정: .bindic li 
 const bindic = $(".bindic li");
 
 function addOn(seq){ // seq - 읽을 슬라이드 순번
