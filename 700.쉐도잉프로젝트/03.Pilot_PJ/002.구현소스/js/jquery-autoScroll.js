@@ -174,6 +174,25 @@ function autoScroll(){
     function actPage(){ 
         // 이동후 확인
         console.log("액숀~!!",pno);
+
+        // pno가 0 또는 4가 아니면 액션작동!
+        if(pno !== 0 || pno !== 4){
+            // 대상: 해당순번의 .page 아래 .imgc와 tdtㅂ 
+            $(".page:eq(${pno}) .imgc_(pno)(".imgc").css({
+                transform: "rotate(0deg)",
+                opacity: "1",
+            }); /////////// css ///////////
+            
+            // 대상: .txtc a
+            $(".txtc a").css({
+                transform: "rotate(45deg)",
+                transformOrigin: "left top",
+                opacity: "0",
+                transition: "1s .5s",
+                display: "inline-block"
+            }); /////////// css ///////////
+
+        } ///////////////// if ///////////
     
     } ///////////// actPage 함수 ////////////
     
