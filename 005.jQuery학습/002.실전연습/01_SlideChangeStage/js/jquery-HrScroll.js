@@ -50,14 +50,14 @@ $(".indic a").click(chgMenu);
 $(document).keydown((e)=>{
     // 이전페이지이동
     if(e.keyCode===33 || e.keyCode===38){
-        cnt_sc--;
-        if (cnt_sc === -1) cnt_sc = 0;
+        pno--;
+        if (pno === -1) pno = 0;
         movePg();
     }
     // 다음페이지이동
     else if(e.keyCode===34 || e.keyCode===40){
-        cnt_sc++;
-        if (cnt_sc === pgcnt) cnt_sc = pgcnt - 1;
+        pno++;
+        if (pno === pgcnt) pno = pgcnt - 1;
         movePg();
     }
 }); ///////////// keydown ////////////////
@@ -74,8 +74,8 @@ $("html,body").animate({ scrollLeft: "0px" });
 ****************************************/
 function wheelFn() {
     // 광휠금지
-    if (prot[0]) return;
-    chkCrazy(0);
+    // if (prot[0]) return;
+    // chkCrazy(0);
 
     console.log("휠~~~~~~!");
 
@@ -85,7 +85,7 @@ function wheelFn() {
 
     // 2. 방향에 따른 페이지번호 증감
     if (delta < 0) {
-        
+
         // 스크롤횟수*단위이동값 크기가
         // 전체크기보다 작을때만 ++처리함!
         if(cnt_sc*unit_sc < limit_sc){
@@ -94,9 +94,11 @@ function wheelFn() {
         
     } //// if /////
     else {
-        cnt_sc--;
-        if (cnt_sc === -1) cnt_sc = 0;
-        // 첫페이지번호에 고정!
+        // 스크롤횟수*단위이동값 크기가
+        // 0보다 클때만 --처리함!
+        if(cnt_sc*unit_sc > 0){
+            cnt_sc--;
+        }
     } //// else ////
 
     console.log(cnt_sc);
@@ -116,13 +118,13 @@ function chgMenu() {
     if (prot[1]) return;
     chkCrazy(1);
 
-    // 1. 클릭된 a요소의 부모 li 순번을 구함 === cnt_sc
+    // 1. 클릭된 a요소의 부모 li 순번을 구함 === pno
     let idx = $(this).parent().index();
 
     console.log("나,클릭?", this, idx);
 
     // 2. 전역페이지번호에 순번 업데이트
-    cnt_sc = idx;
+    pno = idx;
 
     // 3. 페이지이동 + 메뉴에 클래스"on"넣기
     movePg();
@@ -143,23 +145,25 @@ function chkCrazy(seq) {
     기능: 페이지이동 애니메이션
 ********************************************/
 function movePg() {
+    // 이동할 위치 -> 이동단위*스크롤횟수
+    let mpos = unit_sc * cnt_sc;
+
     // 대상: html,body -> 두개를 모두 잡아야 공통적으로 적용됨!
     $("html,body")
     .stop()
     .animate({ 
         // 가로스크롤이동이므로 scrollLeft로 적용함!
         // 가로스크롤 이동 기준은 윈도우 width 임!
-            scrollLeft: 
-            $(window).width() * cnt_sc + "px",
+            scrollLeft: mpos + "px",
         },
-        700,
-        "easeInOutQuint",
-        showEle // 이동후 콜백함수호출!
+        2000,
+        "easeOutQuint",
+        // showEle // 이동후 콜백함수호출!
     );
 
     // 대상: GNB메뉴 , 인디케이터 메뉴
-    gnb.eq(cnt_sc).addClass("on").siblings().removeClass("on");
-    indic.eq(cnt_sc).addClass("on").siblings().removeClass("on");
+    // gnb.eq(pno).addClass("on").siblings().removeClass("on");
+    // indic.eq(pno).addClass("on").siblings().removeClass("on");
 } ///////////////// movePg ////////////////
 
 // 등장할 요소 초기화 /////
@@ -175,7 +179,7 @@ minfo.css({
 ********************************************/
 function showEle() {
     // .minfo 페이지별 등장하기!
-    pg.eq(cnt_sc).find(".minfo").css({
+    pg.eq(pno).find(".minfo").css({
         opacity: 1,
         transform: "translate(-50%,-50%)",
     }) ///////// css //////
@@ -189,4 +193,4 @@ function showEle() {
 } /////////// showEle 함수 ///////////////////
 
 // 등장액션함수 최초호출 ///
-setTimeout(showEle, 1000);
+// setTimeout(showEle, 1000);
