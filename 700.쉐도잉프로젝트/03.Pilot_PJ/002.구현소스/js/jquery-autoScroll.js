@@ -53,7 +53,7 @@ function autoScroll(){
         if (prot[0]) return;
         chkCrazy(0);
     
-        // console.log("휠~~~~~~!");
+        console.log("휠~~~~~~!");
     
         // 1.휠방향 알아내기
         let delta = event.wheelDelta;
@@ -71,7 +71,7 @@ function autoScroll(){
             // 첫페이지번호에 고정!
         } //// else ////
     
-        // console.log(pno);
+        console.log(pno);
     
         // 3. 스크롤 이동하기 + 메뉴에 클래스"on"넣기
         movePg();
@@ -91,7 +91,7 @@ function autoScroll(){
         // 1. 클릭된 a요소의 부모 li 순번을 구함 === pno
         let idx = $(this).parent().index();
     
-        // console.log("나,클릭?", this, idx);
+        console.log("나,클릭?", this, idx);
     
         // 2. 전역페이지번호에 순번 업데이트
         pno = idx;
@@ -129,6 +129,7 @@ function autoScroll(){
         gnb.eq(pno).addClass("on").siblings().removeClass("on");
         indic.eq(pno).addClass("on").siblings().removeClass("on");
     } ///////////////// movePg ////////////////
+    
     
     
     /******************************************** 
@@ -175,6 +176,10 @@ function autoScroll(){
         console.log("액숀~!!",pno);
     
     } ///////////// actPage 함수 ////////////
+    
+    
+    
+    
     
     
     
