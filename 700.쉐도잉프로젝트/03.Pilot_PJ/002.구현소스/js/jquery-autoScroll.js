@@ -53,7 +53,7 @@ function autoScroll(){
         if (prot[0]) return;
         chkCrazy(0);
     
-        console.log("휠~~~~~~!");
+        // console.log("휠~~~~~~!");
     
         // 1.휠방향 알아내기
         let delta = event.wheelDelta;
@@ -71,7 +71,7 @@ function autoScroll(){
             // 첫페이지번호에 고정!
         } //// else ////
     
-        console.log(pno);
+        // console.log(pno);
     
         // 3. 스크롤 이동하기 + 메뉴에 클래스"on"넣기
         movePg();
@@ -91,7 +91,7 @@ function autoScroll(){
         // 1. 클릭된 a요소의 부모 li 순번을 구함 === pno
         let idx = $(this).parent().index();
     
-        console.log("나,클릭?", this, idx);
+        // console.log("나,클릭?", this, idx);
     
         // 2. 전역페이지번호에 순번 업데이트
         pno = idx;
@@ -122,43 +122,13 @@ function autoScroll(){
             },
             700,
             "easeInOutQuint",
-            showEle // 이동후 콜백함수호출!
+            actPage // 이동후 콜백함수호출!
         );
     
         // 대상: GNB메뉴 , 인디케이터 메뉴
         gnb.eq(pno).addClass("on").siblings().removeClass("on");
         indic.eq(pno).addClass("on").siblings().removeClass("on");
     } ///////////////// movePg ////////////////
-    
-    // 등장할 요소 초기화 /////
-    minfo.css({
-        opacity: 0,
-        transform: "translate(-50%,50%)",
-        transition: ".3s ease-out",
-    }); ///////// css //////
-    
-    /******************************************** 
-        함수명: showEle
-        기능: 페이지이동후 요소 등장하기
-    ********************************************/
-    function showEle() {
-        // .minfo 페이지별 등장하기!
-        pg.eq(pno).find(".minfo").css({
-            opacity: 1,
-            transform: "translate(-50%,-50%)",
-        }) ///////// css //////
-        // 다른페이지 초기화
-        .parents(".page").siblings().find(".minfo")
-        .css({
-            opacity: 0,
-            transform: "translate(-50%,50%)",
-            transition: ".3s ease-out",
-        }); ///////// css //////
-    } /////////// showEle 함수 ///////////////////
-    
-    // 등장액션함수 최초호출 ///
-    // setTimeout(showEle, 1000);
-    
     
     
     /******************************************** 
@@ -205,10 +175,6 @@ function autoScroll(){
         console.log("액숀~!!",pno);
     
     } ///////////// actPage 함수 ////////////
-    
-    
-    
-    
     
     
     
