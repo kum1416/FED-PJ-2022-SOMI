@@ -35,7 +35,7 @@ $(".ham").click(function(){
 
     // 햄버거 버튼에 클래스 on이 있으면 재생/ 없으면 정지
     let isOn = $(this).is(".on");
-    // console.log(isOn);
+    // // console.log(isOn);
 
     // 배경동영상 재생/멈춤
     if(isOn) $(".bgm").get(0).play();
@@ -84,7 +84,7 @@ const reWin = () => $(window).width();
 // 리사이즈 업데이트
 $(window).resize(()=>{
     winW = reWin();
-    // console.log("winW:",winW);
+    // // console.log("winW:",winW);
 });
 
 // 3. 드래그가 끝난후 -> dragstop 이벤트 발생후!
@@ -92,9 +92,9 @@ $(window).resize(()=>{
 
 // 윈도우 가로크기 : left 기준위치 px변환!
 let winW = reWin();
-// console.log("winW*0.9:",winW*0.9);
-// console.log("winW:",winW);
-// console.log("winW*1.1:",winW*1.1);
+// // console.log("winW*0.9:",winW*0.9);
+// // console.log("winW:",winW);
+// // console.log("winW*1.1:",winW*1.1);
 
 // 광드래그 방지위해 커버셋팅(show()/hide())
 const cover = $(".cover");
@@ -107,7 +107,7 @@ slide.on("dragstop",function(){
 
     // 슬라이드 left위치값
     let sleft = $(this).offset().left;
-    // console.log("허허",sleft);
+    // // console.log("허허",sleft);
 
     // 1. 왼쪽으로 이동 : -110% 미만일때
     if(sleft < -winW*1.1){
@@ -119,12 +119,12 @@ slide.on("dragstop",function(){
             .css({left:"-100%"});
 
             // 커버제거하기
-            cover.hide();       
-
+            cover.hide(); 
+            
             // 배너타이틀함수
             showTit();
             
-        }); ///////// animate ////////
+        }); ////////// animate ///////////
 
         // 블릿변경함수호출!
         addOn(2);
@@ -146,7 +146,7 @@ slide.on("dragstop",function(){
             // 배너타이틀함수
             showTit();
 
-        }); ///////// animate ////////
+        }); ////////// animate ///////////
         
         // 블릿변경함수호출!
         addOn(0);
@@ -181,7 +181,7 @@ const blist = slide.find("li");
 const bcnt = blist.length;
 
 blist.each((idx,ele)=>{
-    // console.log(idx,bcnt);
+    // // console.log(idx,bcnt);
     // 처음것을 마지막 순번으로 넣기
     if(idx===0)
         $(ele).attr("data-seq",bcnt-1);
@@ -198,7 +198,7 @@ blist.each((idx,ele)=>{
     3) 위의 선택값으로 블릿의
     li순번에 on넣고 나머지는 뺀다!
 ************************************/
-// 대상선정: .bindic li 
+// 대상선정: .bindic li
 const bindic = $(".bindic li");
 
 function addOn(seq){ // seq - 읽을 슬라이드 순번
@@ -207,7 +207,7 @@ function addOn(seq){ // seq - 읽을 슬라이드 순번
 
     // 1.해당슬라이드 data-seq읽어오기
     let dseq = slide.find("li").eq(seq).attr("data-seq");
-    // console.log(dseq);
+    // // console.log(dseq);
 
     // 2. 해당슬라이드와 동일한 순번블릿에 on넣기
     bindic.eq(dseq).addClass("on")
@@ -227,11 +227,11 @@ let bantxt = {
     "ban6": "Wind Jacket<br>Collection"
 }; ///////////// bantxt객체 //////////////
 
-/****************************************** 
+/*************************************** 
     함수명: showTit
     기능: 각 배너 타이틀 보이기
     호출: 배너이동후 콜백함수에서 호출함!
-******************************************/
+***************************************/
 function showTit(){
     // 요구사항: 배너이동후 호출하여
     // 해당배너의 순번에 맞는 타이틀을
@@ -249,7 +249,7 @@ function showTit(){
     let bantit = bantxt[clsnm];
 
     // 호출확인
-    console.log("배너타이틀!",clsnm,bantit);
+    // console.log("배너타이틀!",clsnm,bantit);
 
     // 모든 추가 타이틀 지우기
     $(".btit").remove();
@@ -257,10 +257,10 @@ function showTit(){
     // 3. 타이틀을 넣을 요소를 배너에 추가한다!
     mainban.append(`<h2 class="btit"></h2>`);
 
-    //  타이틀 left위치 변수처리
+    // 타이틀 left위치 변수처리
     // ban2, ban3만 오른쪽위치
     let lval = "30%";
-    if(clsnm==="ban2"||clsnm==="ban3") lval="70%"; // 값 덮어쓰기
+    if(clsnm==="ban2"||clsnm==="ban3") lval="70%";
 
     // 4. 해당배너 h2태그에 배너 타이틀 넣기
     mainban.find(".btit").html(bantit)
@@ -273,15 +273,15 @@ function showTit(){
         color:"#fff",
         textShadow:"1px 1px 3px #777",
         whiteSpace:"nowrap",
-        opacity: 0 // 처음에 투명
-    }) /////// css ///////
+        opacity: 0 // 처음에 투명        
+    })//////////// css /////////////////
     .animate({ // 등장애니메이션~!!!
         top:"50%",
         opacity: 1
-    },1000,"easeInOutQuart")
+    },1000,"easeInOutQuart");
 
 
-} /////////////// showTit 함수 ///////////////
+} /////////////// showTit 함수 /////////////////
 
 // 첫번째 배너를 위한 타이틀 함수 최초호출!
 setTimeout(showTit,1000);
@@ -295,7 +295,7 @@ const clearAuto = () => {
     clearInterval(banAuto);
     clearTimeout(banAgain);
     banAgain = setTimeout(banAutoSlide,5000);
-    console.log("클리어!!!");
+    // console.log("클리어!!!")
 }; /////////// clearAuto 함수 //////////
 
 // 배너이동시 자동넘김 지우기 셋팅 /////
@@ -335,4 +335,3 @@ const banAutoSlide = () => {
 
 // 자동넘김 최초호출!
 banAutoSlide();
-
