@@ -144,28 +144,37 @@ function autoScroll() {
         display: inline-block; -> a요소만
 ********************************************/
 
-    // 1. 초기화하기 ///////////
-    // 대상: .imgc
-    $(".imgc").css({
-        transform: "rotate(45deg)",
-        transformOrigin: "left top",
-        opacity: "0",
-        transition: "1s",
-    }); /////////// css ///////////
+    /******************************************* 
+    함수명: initSet
+    기능: 등장요소 처음상태 셋팅
+*******************************************/
+    function initSet() {
+        // 1. 초기화하기 ///////////
+        // 대상: .imgc
+        $(".imgc").css({
+            transform: "rotate(45deg)",
+            transformOrigin: "-10% -10%",
+            opacity: "0",
+            transition: "1s ease-in-out",
+        }); /////////// css ///////////
 
-    // 대상: .txtc a
-    $(".txtc a").css({
-        transform: "rotate(45deg)",
-        transformOrigin: "left top",
-        opacity: "0",
-        transition: "1s .5s",
-        display: "inline-block",
-    }); /////////// css ///////////
+        // 대상: .txtc a
+        $(".txtc a").css({
+            transform: "rotate(45deg)",
+            transformOrigin: "-100% -100%",
+            opacity: "0",
+            transition: "1s ease-in-out .5s",
+            display: "inline-block",
+        }); /////////// css ///////////
+    } ////////////// initSet 함수 //////////////
+
+    // 초기화함수 호출
+    initSet();
 
     /**************************************** 
-    함수명: actPage
-    기능 : 페이지 도착후 등장애니메이션
-****************************************/
+        함수명: actPage
+        기능 : 페이지 도착후 등장애니메이션
+    ****************************************/
     function actPage() {
         // 이동후 확인
         console.log("액숀~!!", pno);
@@ -174,14 +183,10 @@ function autoScroll() {
         if (pno !== 0 || pno !== 4) {
             // 대상: 해당순번의 .page 아래 .imgc 와 .txtc a
             $(`.page:eq(${pno}) .imgc,
-            .page:eq(${pno}) .txtc a`)
-            .css({
+            .page:eq(${pno}) .txtc a`).css({
                 transform: "rotate(0deg)",
                 opacity: "1",
             }); /////////// css ///////////
-
-            // 대상: .txtc a
-            
         } ////////// if ///////////////////
     } ///////////// actPage 함수 ////////////
 } //////////// autoScroll /////////////////
