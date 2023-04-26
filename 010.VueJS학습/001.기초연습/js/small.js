@@ -8,8 +8,8 @@ const makeVue = (x) => new Vue({ el: x });
 Vue.component("tit-comp", {
     template: `
                 <strong>
-                    <span>👩‍🦰다이아나 쇼핑몰💕</span><br>
-                    👗Diana Shopping Mall🥻
+                    <span>🧚‍♀️다이아나 쇼핑몰🧚‍♂️</span><br>
+                    👗Diana Shopping Mall🩰
                 </strong>
             `,
 }); ///// 전역 컴포넌트 1 ///////
