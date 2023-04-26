@@ -51,6 +51,7 @@
     animation: magAni 10s linear infinite alternate;
 }
 
+
 /* 계속 확대/축소 애니 키프레임 */
 @keyframes magAni {
     to {
@@ -175,6 +176,7 @@
     text-decoration: line-through;
     color: green;
 }
+
 
 
 
