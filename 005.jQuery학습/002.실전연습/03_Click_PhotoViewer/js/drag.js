@@ -73,7 +73,7 @@ $(() => {
         if (isR) { // 오른쪽버튼
 
             slide.animate({
-                    left: "-100%"
+                    left: "-200%"
                 }, // CSS설정
                 aniT, // 시간
                 aniE, // 이징
@@ -86,7 +86,7 @@ $(() => {
                         // $(요소,this) -> 나자신 하위요소
                         // first() 첫번째 요소
                         .css({
-                            left: "0"
+                            left: "-100%"
                         });
                     // 동시에 left값을 0으로 변경!
                 }); ///////// animate ///////
@@ -103,11 +103,11 @@ $(() => {
 
                 // 동시에 left값 -100%
                 .css({
-                    left: "-100%"
+                    left: "-200%"
                 })
                 // 그후 left값 0으로 애니메이션
                 .animate({
-                        left: "0"
+                        left: "-100%"
                     },
                     aniT, //시간
                     aniE // 이징
@@ -201,13 +201,13 @@ $(() => {
 
             // 슬라이드 넘기기
             slide.animate({
-                    left: "-100%"
+                    left: "-200%"
                 }, aniT, aniE,
                 function () {
                     $(this)
                         .append($("li", this).first())
                         .css({
-                            left: "0"
+                            left: "-100%"
                         });
                 }); ///// animate /////
 
