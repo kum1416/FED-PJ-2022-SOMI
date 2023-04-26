@@ -1,6 +1,7 @@
 // 슬라이드 공통 기능함수 ////
 
-function mySlider(ele){ // ele - 대상요소
+function mySlider(ele){ 
+    // ele - 대상요소
 
     // 호출확인
     console.log("로딩완료!");
@@ -35,7 +36,7 @@ function mySlider(ele){ // ele - 대상요소
     // animate({CSS속성},시간,이징,함수)
 
     // 변경대상: 블릿 - #indic li
-    let indic = $("#indic li");
+    let indic = $(ele).find("#indic li");
 
     // 광클 금지상태변수
     let prot = 0; // 1-불허용, 0-허용
@@ -46,7 +47,12 @@ function mySlider(ele){ // ele - 대상요소
     // 애니메이션 이징 변수
     const aniE = "easeOutCubic";
 
-    $(".abtn").click(function () {
+    $(ele)
+    .find(".abtn")
+    .click(function (e) {
+
+        // 기본기능막기
+        e.preventDefault();
 
         // console.log("진입:",prot);
 
@@ -254,7 +260,9 @@ function mySlider(ele){ // ele - 대상요소
          - 대상: #indic li -> indic변수
          - 이벤트: click -> click() 메서드
     ****************************************/
-         indic.click(function () {
+         indic.click(function (e) {
+            // 기본기능막기
+            e.preventDefault();
 
             /// 광클금지 ////////
             if (prot) return;
@@ -414,13 +422,13 @@ function mySlider(ele){ // ele - 대상요소
     ### 슬라이드 드래그 기능넣기 ###
 *********************************************/
         // 0. 커버
-        const cover = $(".cover");
+        const cover = $(ele).find(".cover");
     
      // 1. 드래그 설정하기 : x축고정
      slide.draggable({axis:"x"});
 
      // 2. 가로크기 기준값 설정하기
-     const sldW = $("#viewer").width();
+     const sldW = $(ele).find("#viewer").width();
      console.log("슬라이드width:",sldW);
 
      // 왼쪽으로 드래그시 튐현상방지 위해 위치보정값 공유하기!
@@ -449,9 +457,9 @@ function mySlider(ele){ // ele - 대상요소
         }, aniT);
 
         // (1) 왼쪽방향일때 -> 오른쪽버튼 클릭시
-        if(spos < -50) $(".rb").trigger("click");
+        if(spos < -50) $(ele).find(".rb").trigger("click");
         // (2) 오른쪽방향일때 -> 왼쪽버튼 클릭시
-        else if(spos > 50) $(".lb").trigger("click");
+        else if(spos > 50) $(ele).find(".lb").trigger("click");
         // (3) 기타 제자리!
         else slide.animate({left:"0"},300);
 
