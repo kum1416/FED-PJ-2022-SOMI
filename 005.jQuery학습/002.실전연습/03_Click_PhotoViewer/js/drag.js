@@ -45,7 +45,7 @@ $(() => {
     const aniT = 600;
 
     // 애니메이션 이징 변수
-    const aniE = "easeOutQuart";
+    const aniE = "easeOutCubic";
 
     $(".abtn").click(function () {
 
@@ -454,7 +454,7 @@ $(() => {
         // (2) 오른쪽방향일때 -> 왼쪽버튼 클릭시
         else if(spos > 50) $(".lb").trigger("click");
         // (3) 기타 제자리!
-        else slide.animate({left:"0"},300)
+        else slide.animate({left:"0"},300);
 
      }); ////////// dragstop //////////////
 
