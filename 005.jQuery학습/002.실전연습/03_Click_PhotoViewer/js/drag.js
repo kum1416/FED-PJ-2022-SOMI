@@ -45,7 +45,7 @@ $(() => {
     const aniT = 600;
 
     // 애니메이션 이징 변수
-    const aniE = "easeOutQuint";
+    const aniE = "easeOutQuart";
 
     $(".abtn").click(function () {
 
@@ -442,12 +442,19 @@ $(() => {
 
         console.log("슬라이드left:",spos);
 
-        // cover.show();
+        // 커버 안전장치 보이기
+        cover.show();
+        // 애니후 숨기기
+        setTimeout(() => {
+            cover.hide();
+        }, aniT);
 
         // (1) 왼쪽방향일때 -> 오른쪽버튼 클릭시
         if(spos < -50) $(".rb").trigger("click");
         // (2) 오른쪽방향일때 -> 왼쪽버튼 클릭시
         else if(spos > 50) $(".lb").trigger("click");
+        // (3) 기타 제자리!
+        else slide.animate({left:"0"},300)
 
      }); ////////// dragstop //////////////
 
