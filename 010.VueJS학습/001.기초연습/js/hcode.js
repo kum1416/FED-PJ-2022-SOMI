@@ -15,10 +15,12 @@ const hcode = {
             <aside>
                 <h2>{{gname}}</h2>
                 <h3>
-                    <span v-bind:class="{del:haha==3}">
+                    <span v-bind:class="{del:haha==3||haha==50}">
                         {{gprice}}
                     </span>
-                    <span v-if="haha==3">{{sale}}</span>
+                    <span v-if="haha==3||haha==50">
+                        {{sale}}
+                    </span>
                 </h3>
             </aside>
         </div>
