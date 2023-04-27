@@ -1,17 +1,15 @@
 // 쇼핑몰 갤러리 JS - small.js
 
+// 템플릿 html코드 객체 JS 가져오기
+import hcode from "./hcode.js";
+
 // 뷰JS 인스턴스 생성용 함수!
 const makeVue = (x) => new Vue({ el: x });
 
 // 1. 제목에 넣을 전역컴포넌트 만들기
 
 Vue.component("tit-comp", {
-    template: `
-                <strong>
-                    <span>🧚‍♀️다이아나 쇼핑몰🧚‍♂️</span><br>
-                    👗Diana Shopping Mall🩰
-                </strong>
-            `,
+    template: hcode.tit,
 }); ///// 전역 컴포넌트 1 ///////
 
 // 뷰인스턴스 생성하기 : 반드시 컴포넌트 아래에서 함!
@@ -31,15 +29,7 @@ let num = 0;
 // 여기가 자식입니다!!!
 Vue.component("list-comp", {
     //  v-on:click="goPapa" 로 부모이벤트 접근시작!
-    template: `
-            <div>
-                <img v-bind:src="gsrc" v-on:click="goPapa" v-on:mouseover="ovNow" alt="dress" />
-                <aside>
-                    <h2>{{gname}}</h2>
-                    <h3>{{gprice}}</h3>
-                </aside>
-            </div>
-            `,
+    template: hcode.list,
     // 부모에서 v-bind:속성명=값 으로 전달한 속성변수를
     // props:[]/{} 로 받음!
     props: ["haha", "myseq", "endlet"],
@@ -89,95 +79,67 @@ new Vue({
     },
 }); //////////// Vue 인스턴스 //////////
 
-
 /////// 큰이미지 보기 배경박스 컴포넌트 /////////////
-Vue.component("win-comp",{
-    template:`
-        <!-- 큰이미지 배경박스 -->
-        <div id="bgbx">
-            <!-- 오른쪽버튼 -->
-            <a href="#" class="abtn rb">
-                <span class="ir">오른쪽버튼</span>
-            </a>
-            <!-- 왼쪽버튼 -->
-            <a href="#" class="abtn lb">
-                <span class="ir">왼쪽버튼</span>
-            </a>
-            <!-- 닫기버튼 -->
-            <a href="#" class="cbtn">
-                <span class="ir">닫기버튼</span>
-            </a>
-            
-            <!-- 큰이미지 박스 -->
-            <div id="imbx">
-                <!-- 큰 이미지 -->
-                <img src="img_gallery/50.jpg" alt="큰 이미지">
-                <!-- 이미지 설명 -->
-                <h4></h4>
-            </div>
-        </div>
-    `
+Vue.component("win-comp", {
+    template: hcode.big,
 }); ///////// win-comp 컴포넌트 ///////////////////
 
 ////////// win-comp 뷰JS 인스턴스 생성하기 //////
 new Vue({
-    el:"#pbg",
+    el: "#pbg",
     // DOM이 모두 로딩된 후 실행구역!
-    mounted:function(){
+    mounted: function () {
         // [ 제이쿼리 기능구현 ]
 
         // 공유번호변수
         let nowNum = 1;
 
         // 1. 갤러리 리스트 클릭시 큰이미지박스 보이기
-        $(".grid>div").click(function(e){
-            
+        $(".grid>div").click(function (e) {
+            console.log(this);
             // 1. 클릭된 이미지 경로 읽어오기
             let isrc = $(this).find("img").attr("src");
-            
+
             // 2. 클릭된 이미지 경로를 큰 이미지에 src로 넣기
-            $("#imbx img").attr("src",isrc);
-            
+            $("#imbx img").attr("src", isrc);
+
             // 3. 큰이미지박스 보이기
             $("#bgbx").show();
-            
+
             // 4. 다음/이전 이미지 변경을 위한 data-num속성읽기
             nowNum = $(this).attr("data-num");
-            console.log("현재이미지번호:",nowNum);
-        });/////////// click ////////
-        
+            console.log("현재이미지번호:", nowNum);
+        }); /////////// click ////////
+
         // 2. 닫기버튼 클릭시 큰이미지박스 숨기기
-        $(".cbtn").click(function(e){
+        $(".cbtn").click(function (e) {
             e.preventDefault();
             // 큰이미지박스 숨기기
             $("#bgbx").hide();
         }); /////////// click /////////
-        
+
         // 3. 이전/다음버튼 클릭시 이미지변경하기
-        $(".abtn").click(function(e){
+        $(".abtn").click(function (e) {
             // 1. 기본이동막기
             e.preventDefault();
             // 2. 오른쪽버튼 여부
             let isB = $(this).is(".rb");
 
             // 3. 분기하기
-            if(isB){ // 오른쪽버튼
+            if (isB) {
+                // 오른쪽버튼
                 nowNum++;
-                if(nowNum===51) nowNum=1;
-            }
-            else{ // 왼쪽버튼
+                if (nowNum === 51) nowNum = 1;
+            } else {
+                // 왼쪽버튼
                 nowNum--;
-                if(nowNum===0) nowNum=50;
+                if (nowNum === 0) nowNum = 50;
             }
 
-            console.log("변경된nowNum:",nowNum);
+            console.log("변경된nowNum:", nowNum);
 
             // 4. 큰 이미지 변경하기
-            $("#imbx img")
-            .attr("src",`img_gallery/${nowNum}.jpg`);
-
+            $("#imbx img").attr("src", `img_gallery/${nowNum}.jpg`);
         }); ////////// click ////////////
-
-    } //////// mounted 함수구역 /////
-
+    }, //////// mounted 함수구역 /////
 }); ///////////// 뷰JS 인스턴스 //////////////////
