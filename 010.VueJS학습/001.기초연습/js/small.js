@@ -101,7 +101,7 @@ new Vue({
             let isrc = $(this).find("img").attr("src");
 
             // 2. 클릭된 이미지 경로를 큰 이미지에 src로 넣기
-            $("#imbx img").attr("src", isrc);
+            $(".gimg img").attr("src", isrc);
 
             // 3. 큰이미지박스 보이기
             $("#bgbx").show();
@@ -109,6 +109,16 @@ new Vue({
             // 4. 다음/이전 이미지 변경을 위한 data-num속성읽기
             nowNum = $(this).attr("data-num");
             console.log("현재이미지번호:", nowNum);
+
+            const tg = $(`.grid>div[data-num${nowNum}]`);
+            // console.log(tg.find("h2").text());
+            // console.log(tg.find("h3").text());
+
+            // 5. 상품명/가격 큰박스에 넣rl
+            $("#gtit,#gcode").text(tg.find("h2").text());
+            $("#gprice,#total").text(tg.find("h3").text());
+            
+
         }); /////////// click ////////
 
         // 2. 닫기버튼 클릭시 큰이미지박스 숨기기
@@ -139,7 +149,7 @@ new Vue({
             console.log("변경된nowNum:", nowNum);
 
             // 4. 큰 이미지 변경하기
-            $("#imbx img").attr("src", `img_gallery/${nowNum}.jpg`);
+            $(".gimg img").attr("src", `img_gallery/${nowNum}.jpg`);
         }); ////////// click ////////////
     }, //////// mounted 함수구역 /////
 }); ///////////// 뷰JS 인스턴스 //////////////////
