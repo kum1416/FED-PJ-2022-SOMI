@@ -141,9 +141,21 @@ new Vue({
       // console.log(tg.find("h2").text());
       // console.log(tg.find("h3").text());
 
-      // 상품명/가격 큰박스에 넣기
+      // 상품명 큰박스에 넣기
       $("#gtit,#gcode").text(tg.find("h2").text());
-      $("#gprice,#total").text(tg.find("h3").text());
+      // 상품가격 큰박스에 넣기
+      // 세일일 경우와 아닌경우 나누기!
+      if(tg.find("h3 span").first(),is(".del")){ // 세일일때
+          $("#gprice,#total").html(
+            "<small>30% 세일가</small> "+tg.find("h3 span").last().text());
+      } //// if ////
+        else{ // 세일아닐때
+          $("#gprice,#total").text(
+            tg.find("h3 span").first().text()); 
+      } //// else ////
+
+
+
     } ////////// setVal함수 //////////////////
 
     // 2. 닫기버튼 클릭시 큰이미지박스 숨기기
