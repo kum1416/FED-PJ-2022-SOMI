@@ -174,13 +174,9 @@ new Vue({
 
             // 5. 상품가격 큰박스에 넣기
             // (1) 원가격에 표시
-            $("#gprice").html(
-                insComma(orgprice) + "원"
-            );
+            $("#gprice").html(insComma(orgprice) + "원");
             // (2) 토탈가격에 표시 : 원가 * 개수
-            $("#total").html(
-                insComma(orgprice * tot) + "원"
-            );
+            $("#total").html(insComma(orgprice * tot) + "원");
 
             // 6. 세일일 경우 추가문구넣기
             if (isSale) {
@@ -202,7 +198,6 @@ new Vue({
 
         // 3. 이전/다음버튼 클릭시 이미지변경하기
         $(".abtn").click(function (e) {
-
             // 0. 전체수량초기화
             initTot();
 
@@ -271,15 +266,42 @@ new Vue({
 
         /********************************** 
             수량직접 입력 기능구현
-            1. 숫자만 입력
+            1. 숫자만 입력(0이상)
             2. 입력즉시 합계출력
+            3. 빈값금지
         **********************************/
-       // 대상: #sum
-       // 이벤트 : keyup (입력즉시반응)
-       $("#sum").keyup(function(){
-        console.log("직접입력:");
-       })
+        // 대상: #sum
+        // 이벤트 : keyup (입력즉시반응)
+        $("#sum").keyup(function () {
+            // 0. 요소자신
+            let ele = $(this);
+            // 1. 입력된 값 : input요소는 val() 메서드로!
+            let txt = ele.val();
+            // 2. 숫자가 아닌경우 : isNaN() - 숫자가 아니면 treu
+            // - 조건: 숫자가 아니거나 1미만 이거나 빈값이면!
+            // -> 소수점방지 : txt.indexOf(".")!==-1 
+            // 문자열.indexOf(".") -> 점문자가 없으면 -1임
+            if (isNaN(txt) || 
+            txt < 1 || 
+            txt === "" ||
+            txt.indexOf(".")!==-1) {
+                initTot(); // 초기화!
+            } /// if ///
+            // 3. 숫자인경우 tot업뎃 + setVal()호출!
+            else {
+                tot = txt;
+                if(txt>=100){
+                    alert("100개이상인 경우 \n쇼핑몰에 직접전화주세요~!\nTel:02-333-3333");
+                }
+                // 숫자앞에 0을 넣으면 없애기!
+                // 문자형숫자를 숫자형으로 변환하면 된다!
+                ele.val(Number(txt));
+            } /// else ///
+            
+            // 4. 계산수행
+            setVal();
 
-
+            console.log("직접입력:", txt);
+        });
     }, //////// mounted 함수구역 /////
 }); ///////////// 뷰JS 인스턴스 //////////////////
