@@ -145,16 +145,15 @@ new Vue({
             // console.log(tg.find("h2").text());
             // console.log(tg.find("h3").text());
 
-            
-            // 1. [가격 계산을 위한 원가격셋팅]
-            orgprice = tg.find("h3>span:first").attr("data-price");
+             // 1. [가격 계산을 위한 원가격셋팅]
+             orgprice = tg.find("h3>span:first").attr("data-price");
 
-            // 세일 적용일 경우 세일 가격으로 업뎃!
-            if(tg.find("h3>span:first").is(".del")){
-                orgprice = Math.round(orgprice * 0.7);
-            } /////// if //////////////
-
-            console.log("원가격:",orgprice);
+             // 세일 적용일 경우 세일 가격으로 업뎃!
+             if(tg.find("h3>span:first").is(".del")){
+                 orgprice = Math.round(orgprice * 0.7);
+             } ///////// if //////////////
+ 
+             console.log("원가격:",orgprice);
 
             // 상품명 큰박스에 넣기
             $("#gtit,#gcode").text(tg.find("h2").text());
@@ -165,7 +164,7 @@ new Vue({
                     "<small>30% 세일가</small> "+ insComma(orgprice) +"원"
                     // tg.find("h3 span").last().text()
                     
-                    );
+                );
             } //// if ////
             else{ // 세일아닐때
                 $("#gprice,#total").text(insComma(orgprice) + "원"
@@ -176,6 +175,7 @@ new Vue({
             
         } ////////// setVal함수 //////////////////
 
+        //정규식함수(숫자 세자리마다 콤마해주는 기능)
         function insComma(x) {
             return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
         }
@@ -236,17 +236,16 @@ new Vue({
                 // sum.val(isV++);
                 // isV++ 이면 현재값이 변경안됨!
                 // 왜? 1증가전에 반영하기 때문!
-            } ///// if ////////
+            } ///////// if ////////
 
             // (2) 감소일때 : 한계값 1
             else{ 
                 isV = --isV;
                 if(isV===0) isV = 1;
                 sum.val(isV);
-            } ///////// else /////////
+            } /////// else ///////
 
             // 4. 가격표시하기
-
 
         }); ///////////// click //////////////
 
