@@ -43,7 +43,7 @@ const hcode = {
 
         참고) 조건이 많을 경우 또는 여러군데 사용될 경우
         조건식의 결과를 리턴하는 메서드를 만들어 사용한다!
-        예) <span v-bind:class="{del:condiRet()}"></span>
+        예) <span v-bind:class="{del:constiRet()}"></span>
 
         ->>> 해당 컴포넌트 methods:{} 처리구역에 리턴메서드 생성
         methods:{
@@ -118,7 +118,7 @@ const hcode = {
                             <li>
                                 <span>구매수량</span>
                                 <span>
-                                    <input type="text" id="sum" value="1" readonly />
+                                    <input type="text" id="sum" value="1">
                                     <!--
                                     readonly 속성은 직접입력을 막음
                                     disable 속성은 입력창의 비활성화
