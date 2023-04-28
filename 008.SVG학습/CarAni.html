@@ -163,18 +163,43 @@
         /*********** 애니메이션 실행 셋팅 ***************/
         /* body.on 상태면 애니메이션 적용실행! */
         /* 1. 자동차박스 */
-        body.on #mycar{
-
+        body.on #myCar{
+            animation: 
+                brrCar .03s linear 12s infinite alternate,
+                /* 위아래 방향떨기 0.03초 영원히 12초후 반대방향도 */
+                goCar 4s ease-in-out 15s forwards;
+                /* 15초후 4초간 왼쪽방향으로 나감 */
         }
         /* 2. 자동차밑그림 svg */
         body.on .spath path{
-            animation: carAni 10s linear forwards;
+            animation: 
+            carAni 10s linear forwards,
+            /* 10초간 선을 등속도로 그림 끝상태유지 */
+            hideLine 2s ease-in-out 10s forwards;
+            /* 10초후 2초간 서서히 사라짐 끝상태유지 */
+            
         }
         
         /* 3. 자동차이미지 */
         body.on #car{
             animation: showCar 2s 10s forwards;
+            /* 10초후 2초간 서서히 나타남 끝상태유지 */
+        }
 
+        /* 4. 바퀴박스 */
+        body.on .ba{
+            animation: 
+                showCar 2s 10s forwards,
+                /* 10초후 2초간 서서히 나타남 끝상태유지 */
+                rotBa 1s linear 15s infinite;
+                /* 1초간 반시계방향 회전 15초후 영원히 */
+        }
+        
+        /* 5. 로고박스 */
+        body.on #logo{
+            animation: 
+                comeLogo 4s ease-on-out 15s forwards,
+                /* 15초후 4초간 들어옴 끝상태유지 */
         }
         
 
