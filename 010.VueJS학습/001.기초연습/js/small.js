@@ -308,7 +308,7 @@ new Vue({
             console.log("직접입력:", txt);
         }).blur(function(){
             // 블러시 만약 비어있으면 1로 초기화!
-            if($(this).val().trim() === ""){
+            if($(this).val().trim() === ""){ // 문자가 들어갔을때 공백을 지운다
                 initTot();
                 setVal();
             }
