@@ -21,14 +21,20 @@ function autoScroll() {
 
   // 배너초기화 적용함수
   const callInit = () => {
-    if (!mob)  // 모바일아니면 초기화
-        initSet();
-    else // 모바일이면 초기화 셋팅지우기
-        $(".imgc,.txtc a").attr("style",""); // 스타일시트를 비워!
+    if (!mob) {
+      // 모바일아니면 초기화
+      initSet();
+      // 중간페이지일 경우 초기화 제외(지우기)
+      $(".page").eq(pno)
+      .find(".imgc,.txtc a").attr("style", ""); // 😀이거 왜하더라
+
+    } // 모바일이면 초기화 셋팅지우기
+    else $(".imgc,.txtc a").attr("style", ""); // 스타일시트를 비워!
   }; //////// callInit 함수 ///////
 
   // window 리사이즈 이벤트등록 😀이거 왜하더라
-  $(window).resize(() => { // 여러개 호출할때
+  $(window).resize(() => {
+    // 여러개 호출할때
     upDateW(); // mob코드 업데이트함수
     callInit(); // 배너초기화 적용함수
   });
