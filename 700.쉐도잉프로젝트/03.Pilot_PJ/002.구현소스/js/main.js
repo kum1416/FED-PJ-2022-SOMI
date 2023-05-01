@@ -2,6 +2,11 @@
 
 // 자동스크롤 기능 함수 가져오기
 import autoScroll from "./jquery-autoScroll.js";
+// 메뉴기능함수 가져오기
+import menuFn from "./mainjs/menu.js";
+// 배너기능함수 가져오기
+import banFn from "./mainjs/ban.js";
+
 
 // 자동스크롤 호출
 autoScroll();
