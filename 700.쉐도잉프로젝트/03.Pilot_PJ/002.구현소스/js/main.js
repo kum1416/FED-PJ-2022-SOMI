@@ -101,28 +101,22 @@ Vue.component("top-comp",{
 new Vue({
     el:"#top",
     data:{},
-    // created 실행구역 : DOM연결정(처음 생성돼서 들어갈때 만들어지는 구역)
-    created:function(){
-        // DOM연결전 데이터 가공작업
-        console.log("created구역");
-    },
     // mounted 함수영역 실행구역: DOM연결후(가상돔 실제돔 연결해서 나온상태)
     mounted:function(){
         // 제이쿼리코드함수 호출!
         console.log("mounted구역");
 
-    }
+        // 자동스크롤 호출
+        autoScroll();
+        // 메뉴기능 호출
+        menuFn();
+        // 배너기능 호출
+        banFn();
+        
+    },
+    // created 실행구역 : DOM연결정(처음 생성돼서 들어갈때 만들어지는 구역)
+    created:function(){
+        // DOM연결전 데이터 가공작업
+        console.log("created구역");
+    },
 })
-
-
-
-
-
-
-
-
-// 자동스크롤 호출
-autoScroll();
-menuFn();
-banFn();
-
