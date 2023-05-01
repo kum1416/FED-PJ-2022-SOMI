@@ -25,6 +25,12 @@ autoScroll();
 
 *************************************************/
 
+// 공통전역변수
+// [1] 애니시간/광클금지시간
+const ani_time = 600;
+// [2] 이징
+const ani_easing = "easeOutQuint";
+
 // 햄버거 버튼 클릭시 전체 메뉴 보이기
 $(".ham").click(function () {
   // 햄버거 버튼 클래스변경(토글)
@@ -96,7 +102,10 @@ let winW = reWin();
 // 광드래그 방지위해 커버셋팅(show()/hide())
 const cover = $(".cover");
 
-// 드래그끝난후 이벤트 함수 만들기
+///////////////////////////////////////
+// 드래그끝난후 이벤트 함수 만들기 ////
+///////////////////////////////////////
+
 slide.on("dragstop", function () {
   // 광드래그 방지위해 커버 보이기
   cover.show();
@@ -107,51 +116,14 @@ slide.on("dragstop", function () {
 
   // 1. 왼쪽으로 이동 : -110% 미만일때
   if (sleft < -winW * 1.1) {
-    slide.animate(
-      {
-        left: -winW * 2 + "px",
-      },
-      600,
-      "easeOutQuint",
-      () => {
-        // 이동후 맨앞li 맨뒤이동
-        slide.append(slide.find("li").first()).css({ left: "-100%" });
-
-        // 커버제거하기
-        cover.hide();
-
-        // 배너타이틀함수
-        showTit();
-      }
-    ); ////////// animate ///////////
-
-    // 블릿변경함수호출!
-    addOn(2);
-    // 왼쪽이동이므로 2번째 슬라이드
+      // 배너이동함수 호출
+      goSlide(0);
   } ///// if : 왼쪽이동 /////////
 
   // 2. 오른쪽으로 이동 : -90% 초과일때
   else if (sleft > -winW * 0.9) {
-    slide.animate(
-      {
-        left: "0px",
-      },
-      600,
-      "easeOutQuint",
-      () => {
-        // 이동후 맨뒤li 맨앞으로 이동하기
-        slide.prepend(slide.find("li").last()).css({ left: "-100%" });
-        // 커버제거하기
-        cover.hide();
-
-        // 배너타이틀함수
-        showTit();
-      }
-    ); ////////// animate ///////////
-
-    // 블릿변경함수호출!
-    addOn(0);
-    // 오른쪽이동이므로 0번째 슬라이드
+        // 배너이동함수 호출
+        goSlide(1);
   } ///// else if : 오른쪽이동 /////////
 
   // 3. 제자리로 이동 : -110% ~ -90%
@@ -161,7 +133,7 @@ slide.on("dragstop", function () {
         left: -winW + "px",
       },
       200,
-      "easeOutQuint",
+      ani_easing,
       () => {
         // 커버제거하기
         cover.hide();
@@ -169,6 +141,70 @@ slide.on("dragstop", function () {
     );
   } ///// else if : 오른쪽이동 /////////
 }); //////////// slide ///////////
+
+/********************************************* 
+    함수명: goSlide
+    기능: 왼쪽, 오른쪽 배너 이동하기
+    구분: 0-왼쪽, 1-오른쪽 (dir 파라미터변수)
+*********************************************/
+function goSlide(dir){ // dir - 전달변수😀
+    console.log("방향:",dir);
+
+    // 분기하기
+    // 오른쪽이동 //////////
+    if(dir){ 
+        slide.animate(
+            {
+              left: "0px",
+            },
+            ani_time,
+            ani_easing,
+            () => {
+              // 이동후 맨뒤li 맨앞으로 이동하기
+              slide.prepend(slide.find("li").last()).css({ left: "-100%" });
+              // 커버제거하기
+              cover.hide();
+      
+              // 배너타이틀함수
+              showTit();
+            }
+          ); ////////// animate ///////////
+      
+          // 블릿변경함수호출!
+          addOn(0);
+          // 오른쪽이동이므로 0번째 슬라이드
+
+    } ///////////// if ////////////
+    // 왼쪽이동 ///////////
+    else{
+        slide.animate(
+            {
+              left: -winW * 2 + "px",
+            },
+            ani_time,
+            ani_easing,
+            () => {
+              // 이동후 맨앞li 맨뒤이동
+              slide.append(slide.find("li").first()).css({ left: "-100%" });
+      
+              // 커버제거하기
+              cover.hide();
+      
+              // 배너타이틀함수
+              showTit();
+            }
+          ); ////////// animate ///////////
+      
+          // 블릿변경함수호출!
+          addOn(2);
+          // 왼쪽이동이므로 2번째 슬라이드
+    } //////////// else ///////////
+
+
+
+} //////////////// goSlide ////////////////
+
+
 
 /*************************************************** 
     [ 터치배너 이동시 블릿변경하기 ]
@@ -313,27 +349,8 @@ let banAuto;
 
 const banAutoSlide = () => {
   banAuto = setInterval(() => {
-    slide.animate(
-      {
-        left: -winW * 2 + "px",
-      },
-      600,
-      "easeOutQuint",
-      () => {
-        // 이동후 맨앞li 맨뒤이동
-        slide.append(slide.find("li").first()).css({ left: "-100%" });
-
-        // 커버제거하기
-        cover.hide();
-
-        // 배너타이틀함수
-        showTit();
-      }
-    ); ////////// animate ///////////
-
-    // 블릿변경함수호출!
-    addOn(2);
-    // 왼쪽이동이므로 2번째 슬라이드
+    // 배너이동함수 호출
+    goSlide(0);
   }, 3000);
 }; /////////// banAutoSlide 함수 ///////
 
@@ -383,11 +400,18 @@ $(".btna").hover(
   }
 ); ///// hover ///////////
 
+// 광클금지변수
+let prot = 0;
 /***************************************** 
     배너이동 버튼 클릭시 배너이동하기
 *****************************************/
 // 대상: .btntit
 $(".btntit").click(function(){
+
+    // 0. 광클금지 ////////
+    if(prot) return;
+    prot = 1; // 들어오자마자 1로 만들어버렷
+    setTimeout(()=>prot=0,600); // 6초있다가 풀려
 
     // 1. 자동넘김 지우기 함수 호출! -> 중복실행방지😇
     clearAuto();
@@ -395,6 +419,18 @@ $(".btntit").click(function(){
     // 2. 버튼 구분하기
     let isB = $(this).parent().is(".ar1"); // 왼쪽이냐?
     console.log("왼쪽버튼?",isB);
+
+    // 3. 분기하기
+    // 왼쪽으로 이동
+    if(isB){
+        // 배너이동함수 호출
+        goSlide(1);
+    } //////// if ////////
+    // 오른쪽으로 이동 ///////
+    else{
+        // 배너이동함수 호출
+        goSlide(0);
+    } //////// if ////////
 
 
 
