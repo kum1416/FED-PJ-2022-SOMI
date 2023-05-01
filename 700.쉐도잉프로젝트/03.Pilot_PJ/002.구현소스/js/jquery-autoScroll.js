@@ -21,7 +21,10 @@ function autoScroll() {
 
   // 배너초기화 적용함수
   const callInit = () => {
-    if (!mob) initSet();
+    if (!mob)  // 모바일아니면 초기화
+        initSet();
+    else // 모바일이면 초기화 셋팅지우기
+        $(".imgc,.txtc a").attr("style",""); // 스타일시트를 비워!
   }; //////// callInit 함수 ///////
 
   // window 리사이즈 이벤트등록 😀이거 왜하더라
