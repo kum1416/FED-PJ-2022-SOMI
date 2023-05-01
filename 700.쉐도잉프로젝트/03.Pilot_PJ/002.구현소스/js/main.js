@@ -1,20 +1,5 @@
 // 파일럿 PJ 메인페이지 JS - main.js
 
-// 자동스크롤 기능 함수 가져오기
-import autoScroll from "./jquery-autoScroll.js";
-// 메뉴기능함수 가져오기
-import menuFn from "./mainjs/menu.js";
-// 배너기능함수 가져오기
-import banFn from "./mainjs/ban.js";
-
-
-// 자동스크롤 호출
-autoScroll();
-
-// 메인 페이지
-
-// 파일럿 PJ 메인 페이지 JS - main.js
-
 /************************************************* 
     [ 메인 페이지 주요 기능 ]
 
@@ -29,3 +14,17 @@ autoScroll();
     + 양쪽 이동버튼 플러그인 적용하기
 
 *************************************************/
+
+// 자동스크롤 기능 함수 가져오기
+import autoScroll from "./jquery-autoScroll.js";
+// 메뉴기능함수 가져오기
+import menuFn from "./mainjs/menu.js";
+// 배너기능함수 가져오기
+import banFn from "./mainjs/ban.js";
+
+
+// 자동스크롤 호출
+autoScroll();
+menuFn();
+banFn();
+
