@@ -1,6 +1,5 @@
 // 카테고리 서브페이지 JS - sub.js
 
-
 // 메뉴기능함수 가져오기
 import menuFn from "./mainjs/menu.js";
 // 공통 데이터 가져오기
@@ -29,7 +28,7 @@ new Vue({
         console.log("mounted구역");
         
         // 메뉴기능 호출
-        menuFn();   
+        menuFn();
     },    
     // created 실행구역 : DOM연결전
     created:function(){
@@ -42,5 +41,6 @@ new Vue({
 new Vue({
     el:"#info",
 }) //////// 하단영역 뷰 인스턴스 ////////  
+
 
 
