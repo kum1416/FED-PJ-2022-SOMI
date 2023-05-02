@@ -26,7 +26,7 @@ new Vue({
     mounted:function(){
         // 제이쿼리코드함수 호출!
         console.log("mounted구역");
-        
+
         // 메뉴기능 호출
         menuFn();
 
@@ -52,15 +52,15 @@ new Vue({
 // 스와이퍼 생성함수
 function makeSwiper(){
 
-var swiper = new Swiper(".mySwiper", { // 변수에다 담는이유😀
+var swiper = new Swiper(".mySwiper", {
     slidesPerView: 1,
     spaceBetween: 0,
     loop: true,
     autoplay: {
         delay: 3000,
-        disableOnInteraction: false, 
+        disableOnInteraction: false,
         // 인터렉션 비활성화 false 
-        // -> 인터렉션 활성화! (가만히두면 다시자동넘김)😀
+        // -> 인터렉션 활성화! (가만히두면 다시자동넘김)
       },
     pagination: {
       el: ".swiper-pagination",
@@ -71,8 +71,4 @@ var swiper = new Swiper(".mySwiper", { // 변수에다 담는이유😀
       prevEl: ".swiper-button-prev",
     },
   });
-
-} //////// makeSwiper 함수 ///////
-
-
-
+} /////////// makeSwiper 함수 ///////////
