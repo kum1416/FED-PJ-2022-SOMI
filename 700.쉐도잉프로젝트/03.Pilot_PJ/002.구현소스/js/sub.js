@@ -3,7 +3,6 @@
 
 // 메뉴기능함수 가져오기
 import menuFn from "./mainjs/menu.js";
-
 // 공통 데이터 가져오기
 import comData from "./tempData/data-common.js";
 
