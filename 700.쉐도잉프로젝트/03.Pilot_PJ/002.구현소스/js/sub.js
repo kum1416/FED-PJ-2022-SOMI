@@ -23,7 +23,7 @@ new Vue({
     el:"#top",
     data:{},
     // mounted 실행구역: DOM연결후
-    mounted:function(){
+    mounted:function(){ // 😀마운티드 설명
         // 제이쿼리코드함수 호출!
         console.log("mounted구역");
 
@@ -32,6 +32,9 @@ new Vue({
 
         // 스와이퍼 생성함수 호출
         makeSwiper();
+
+        // 부드러운 스크롤 실행
+        startSS();
     },    
     // created 실행구역 : DOM연결전
     created:function(){
