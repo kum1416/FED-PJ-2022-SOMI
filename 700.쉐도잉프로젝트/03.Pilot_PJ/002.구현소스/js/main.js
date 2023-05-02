@@ -25,23 +25,23 @@ import banFn from "./mainjs/ban.js";
 import comData from "./tempData/data-common.js";
 
 
-// ####### 하단영역 메뉴 뷰 템플릿 셋팅하기 ####### 😀컴포넌트 필요한 이유
-Vue.component("foot-comp",{
-    template:comData.barea,
-}) ///////////// 하단영역 Vue component ////////////
-
-// ####### 상단영역 메뉴 뷰 템플릿 셋팅하기 ####### 😀컴포넌트 필요한 이유
+//###### 상단영역 메뉴 뷰 템플릿 셋팅하기 #######
 // Vue.component(내가지은요소명,{옵션})
 Vue.component("top-comp",{
     template:comData.tarea,
-}) ///////////// 상단영역 Vue component ////////////
+}); ////////// 상단영역 Vue component //////////
 
-// ####### 상단영역 뷰 인스턴스 생성하기 #######
-// new Vue({옵션}) 😀크리에이티드 설명
+//###### 하단영역 메뉴 뷰 템플릿 셋팅하기 #######
+Vue.component("foot-comp",{
+    template:comData.barea,
+}); ////////// 하단영역 Vue component //////////
+
+//###### 상단영역 뷰 인스턴스 생성하기 ##########
+// new Vue({옵션})
 new Vue({
     el:"#top",
     data:{},
-    // mounted 함수영역 실행구역: DOM연결후(가상돔 실제돔 연결해서 나온상태)
+    // mounted 실행구역: DOM연결후
     mounted:function(){
         // 제이쿼리코드함수 호출!
         console.log("mounted구역");
@@ -53,15 +53,19 @@ new Vue({
         // 배너기능 호출
         banFn();
         
-    },
-    // created 실행구역 : DOM연결정(처음 생성돼서 들어갈때 만들어지는 구역)
+    },    
+    // created 실행구역 : DOM연결전
     created:function(){
         // DOM연결전 데이터 가공작업
         console.log("created구역");
-    },
-}); /////////// 상단영역 뷰 인스턴스 //////////
+    },    
+}); //////// 상단영역 뷰 인스턴스 ////////  
 
-// ####### 하단영역 뷰 인스턴스 생성하기 #######
+//###### 하단영역 뷰 인스턴스 생성하기 ##########
 new Vue({
     el:"#info",
-}); /////////// 하단영역 뷰 인스턴스 //////////
+}) //////// 하단영역 뷰 인스턴스 ////////  
+
+
+
+
