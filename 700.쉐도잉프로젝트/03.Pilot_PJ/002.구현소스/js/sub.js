@@ -9,7 +9,7 @@ import comData from "./tempData/data-common.js";
 //###### 상단영역 메뉴 뷰 템플릿 셋팅하기 #######
 // Vue.component(내가지은요소명,{옵션})
 Vue.component("top-comp",{
-    template:comData.tarea,
+    template:comData.tareaSub,
 }); ////////// 상단영역 Vue component //////////
 
 //###### 하단영역 메뉴 뷰 템플릿 셋팅하기 #######
