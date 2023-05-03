@@ -37,6 +37,9 @@ new Vue({
 
         // 부드러운 스크롤 실행
         startSS();
+
+        // 신상품 기능함수 호출
+        sinsangFn();
     },    
     // created 실행구역 : DOM연결전
     created:function(){
@@ -78,6 +81,10 @@ var swiper = new Swiper(".mySwiper", {
   });
 } /////////// makeSwiper 함수 ///////////
 
+
+///// 신상품 기능구현 함수 /////😀
+function sinsangFn(){
+
 /********************************************** 
     함수명 : moveList
     기능 : 신상품 리스트박스를 연속하여
@@ -112,10 +119,25 @@ function moveList(){
   })
 
   // 재귀호출하기(비동기호출-setTimeout)
-  setTimeout(moveList, 40); /* 😀자기자신을 불러서 자기가 대답 */
+  // 조건: call_sts 상태값이 1일때만 호출함!😀
+  if(call_sts) setTimeout(moveList, 40); /* 😀자기자신을 불러서 자기가 대답 */
 
 
 } /////////// moveList 함수 //////////
 
 // 신상품 이동함수 최초호출
 moveList();
+
+// 신상품 리스트에 마우스 오버시 멈춤
+// 신상품 리스트에 마우스 아웃시 이동
+// hover(함수1,함수2)
+flist.hover(
+  function(){ // over
+    call_sts = 0; // 콜백중단!
+  },
+  function(){ // out
+    call_sts = 1; // 콜백허용!
+    moveList(); // 함수재호출!
+  }); ////////// hover //////////
+
+} ///////////// sinsangFn 함수 //////////
