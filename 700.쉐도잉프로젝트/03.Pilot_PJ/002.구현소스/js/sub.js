@@ -89,6 +89,10 @@ function sinsangFn() {
   let lpos = 0;
   // 재귀호출 상태값변수(1-호출가능/0-호출불가)
   let call_sts = 0;
+  // 스크롤시 상태값변수(1-호출가능/0-호출불가)
+  let sc_sts = 0;
+  // 재귀호출 타임아웃용변수
+  let callT;
 
   function moveList() {
     // 1. 이동위치값(left값) 감소하기
@@ -110,9 +114,12 @@ function sinsangFn() {
       left: lpos + "px",
     });
 
+    // 타임아웃비우기
+    clearTimeout(callT)
+
     // 재귀호출하기(비동기호출-setTimeout)
     // 조건: call_sts 상태값이 1일때만 호출함!
-    if (call_sts) setTimeout(moveList, 40);
+    if (call_sts) callT = setTimeout(moveList, 40);
   } ////////// moveList 함수 //////////////
 
   // 신상품 이동함수 최초호출
@@ -157,7 +164,7 @@ function sinsangFn() {
       // .ibox에 상품정보 넣기  😀fadeTo opacity만 바꿔주는 애니메이션하는애
       // ^는 특수문자이므로 정규식에 넣을때 역슬래쉬와 함께씀
       // -> /\^/
-      $(".ibox").html(gd_info.replace(/\^/g, "<br>")).animate(
+      $(".ibox",this).html(gd_info.replace(/\^/g, "<br>")).animate(
         {
           top: "110%",
           opacity: 1,
@@ -169,7 +176,7 @@ function sinsangFn() {
     function () {
       // out
       // ibox 나갈때 지우기
-      $(".ibox").remove();
+      $(".ibox",this).remove();
     }
   ); //////////// hover /////////////
 
@@ -187,6 +194,7 @@ function sinsangFn() {
 
   // 3. 화면높이값
   let winH = $(window).height();
+  console.log("화면높이값:",winH);
 
   // 4. 스크롤 이벤트함수 //////////
   $(window).scroll(function () {
@@ -196,18 +204,23 @@ function sinsangFn() {
     // 2. gBCR 값 구하기
     let gBCR = tgpos - scTop;
 
-    console.log("gBCR", gBCR);
+    // console.log("gBCR", gBCR);
     // console.log(scTop,tgpos);
 
     // 3. 신상품 리스트 이동/멈춤 분기하기
     // (1) 이동기준 gBCR이 화면높이보다 작고 0보다클때 이동
-    if (gBCR < winH && gBCR > 0 && call_sts===0) {
+    if (gBCR < winH && gBCR > -300 && sc_sts===0) {
+      sc_sts = 1; // 한번만실행
       call_sts = 1; // 콜백허용! (한번만실행)😀
       moveList(); // 함수재호출!
+      console.log("범위1");
     } //////// if ///////
     // (2) 기타경우 멈춤
-    else {
+    // (조건: 윈도우높이보다 크거나 0보다 작고 call_sts===1일때)
+    else if ((gBCR > winH || gBCR < -300) && sc_sts===1) {
+      sc_sts = 0; // 한번만실행
       call_sts = 0; // 콜백중단!
+      console.log("범위2");
     } /////// else ///////
   }); //////////// scroll ////////////
 } ///////////// sinsangFn 함수 ////////////////
