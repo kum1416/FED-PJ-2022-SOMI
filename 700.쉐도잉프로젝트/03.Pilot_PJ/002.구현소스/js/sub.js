@@ -79,5 +79,43 @@ var swiper = new Swiper(".mySwiper", {
 } /////////// makeSwiper 함수 ///////////
 
 /********************************************** 
-
+    함수명 : moveList
+    기능 : 신상품 리스트박스를 연속하여
+            왼쪽방향으로 흘러가게 함!
 **********************************************/
+// 대상: .flist
+const flist = $(".flist");
+// 위치값변수
+let lpos = 0;
+// 재귀호출 상태값변수(1-호출가능/0-호출불가)😀
+let call_sts = 1;
+
+function moveList(){
+
+  // 1. 이동위치값(left값) 감소하기
+  lpos--;
+
+  console.log("위치값:",lpos);
+
+  // 2. 한계값 초기화하기 + 첫번째 요소 맨뒤로 이동하기!
+  if(lpos < -300){ 
+    // 위치값 초기화
+    lpos = 0;
+
+    // 첫번째 li 맨뒤로 이동!
+    flist.append(flist.find("li").first())
+  }
+
+  // 3. 이동하기
+  flist.css({
+    left: lpos + "px"
+  })
+
+  // 재귀호출하기(비동기호출-setTimeout)
+  setTimeout(moveList, 40); /* 😀자기자신을 불러서 자기가 대답 */
+
+
+} /////////// moveList 함수 //////////
+
+// 신상품 이동함수 최초호출
+moveList();
