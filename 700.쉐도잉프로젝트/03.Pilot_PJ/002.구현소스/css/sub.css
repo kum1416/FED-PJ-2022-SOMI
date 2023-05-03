@@ -41,3 +41,27 @@ html,body{
     margin-left: auto;
     margin-right: auto;
 }
+
+/* 1. 신상품 컨텐츠 박스 */
+.c1{
+    background: url(../images/newarrival_bg.png) no-repeat top/auto 134%; /* 세로부분확장해서 위치맞춤 */
+    overflow: hidden; 
+    /* 넘치는 자식요소 숨기기 + 자식마진포함😀스티키만들때 유념사항 체크 */
+}
+/* 신상품 타이틀 */
+.c1tit{
+    padding: 6% 15%; /* 위아래 양쪽 - %로줘서 상대적으로 반응 */
+    font-size: 4rem; /* em의 4배 */
+    color: #fff;
+    text-shadow: 3px 3px 3px #000;
+}
+/* 신상품 박스 */
+.flowbx{
+    margin-bottom: 300px;
+}
+/* 움직일 리스트박스 */
+.flist{
+    position: relative;
+    left: 0; /* 움직일 기준값 */
+    display: flex;
+}
