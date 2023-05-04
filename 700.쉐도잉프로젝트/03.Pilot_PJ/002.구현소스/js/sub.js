@@ -48,6 +48,9 @@ new Vue({
         // setParallax(적용할요소,속도);
         // 속도는 0.1~0.9
          
+        // 스트롤리빌 플러그인 적용호출!
+        $.fn.scrollReveal();
+
     },
     // created 실행구역 : DOM연결전
     created: function () {
