@@ -115,6 +115,22 @@ new Vue({
             $(this).addClass("on")
             .parent().siblings()
             .find("a").removeClass("on")
+
+            // 박스 애니
+            showBx();
         }); //////// click ///////
-    }
+
+        function showBx(){
+
+            // 이미지와 설명박스 순서대로 나타나기
+            $("main img")
+            .css({opacity:0})
+            .delay(500).fadeTo(500,1);
+
+            $("main p")
+            .css({opacity:0})
+            .delay(1000).fadeTo(500,1);
+
+        } //// showBx ////
+    } //////// mounted /////////
 }); //////// Vue 인스턴스 /////////
