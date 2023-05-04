@@ -44,20 +44,21 @@ html,body{
 
 /* 1. 신상품 컨텐츠 박스 */
 .c1{
-    background: url(../images/newarrival_bg.png) no-repeat top/auto 134%; /* 세로부분확장해서 위치맞춤 */
-    overflow: hidden; 
-    /* 넘치는 자식요소 숨기기 + 자식마진포함😀스티키만들때 유념사항 체크 */
-
-    /* 비율설정😀 */
+    background: url(../images/newarrival_bg.png) no-repeat top/auto 134%;
+    overflow: hidden;
+    /* 넘치는 자식요소 숨기기 + 자식마진포함 */
+    
+    /* 비율설정 */
     aspect-ratio: 5/2.2;
 }
 /* 신상품 타이틀 */
 .c1tit{
-    padding: 6% 15%; /* 위아래 양쪽 - %로줘서 상대적으로 반응 */
-    font-size: 4rem; /* em의 4배 */
+    padding: 6% 15%;
+    font-size: 4rem;
     color: #fff;
     text-shadow: 3px 3px 3px #000;
 }
+
 /* 신상품 박스 */
 /* .flowbx{
     margin-bottom: 300px;
@@ -65,10 +66,9 @@ html,body{
 /* 움직일 리스트박스 */
 .flist{
     position: relative;
-    left: 0; /* 움직일 기준값 */
+    left: 0;/* 움직일 기준값 */
     display: flex;
 }
-
 /* 리스트 하위 li */
 .flist li{
     position: relative;
@@ -85,12 +85,12 @@ html,body{
     /* 부모는? 싸고있는 li */
     top: 60%;
     /* 105%로 내려올 것임 */
-    width: 100%; /* li를 꽉채움 */
+    width: 100%;
     text-align: center;
     font: 14px/24px UB;
     background-color: #101629;
     color: #fff;
-    padding: 20px 0; /* 위아래 */
+    padding: 20px 0;
     opacity: 0;
     /* 1로 투명도 변경될 것임 */
     /* 처음에 투명 */
@@ -128,4 +128,11 @@ html,body{
     /* 삼각형 */
     /* border-top: 20px solid #101629;역삼각형 */
   
+  }
+
+  /* 컨텐츠영역2 - 스페셜영역 */
+  .c2{
+    height: 50vh;
+    background: url(../images/gong.jpg) no-repeat fixed center top/cover;
+    text-align: center;
   }
