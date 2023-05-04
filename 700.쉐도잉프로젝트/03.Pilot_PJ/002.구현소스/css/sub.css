@@ -147,7 +147,6 @@ body{
     text-shadow: 3px 3px 3px #000;
   }
 
- 
   /* 컨텐츠영역 3,4번 공통 */
   .c3,.c4{
     height: 100vh;
@@ -186,3 +185,4 @@ body{
     left: 5%;
     transform: none;
 }
+
