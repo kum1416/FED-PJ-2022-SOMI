@@ -4,9 +4,9 @@
 import store from "./store.js";
 
 
-/****************************************************** 
+/************************************************ 
 
-    [ 뷰 라우터란? : Vue Router ]
+    [  뷰 라우터란? : Vue Router ]
 
     1. 단일페이지 어플리케이션을 구축하기 위한 
         뷰JS 확장 라이브러리다!
@@ -18,34 +18,35 @@ import store from "./store.js";
     구현구조를 만들어서 렌더링 속도가 매우 빠르도록 설계된 
     어플리케이션이다!
 
-    3. 설치 : 
+    3. 설치 :
         (1) CDN방식 : 상단호출
         <!-- 뷰JS 라우터 CDN -->
-            <script src="https://unpkg.com/vue-router@3.0.1/dist/vue-router.js"></script>
+        <script src="https://unpkg.com/vue-router@3.0.1/dist/vue-router.js"></script>
 
         (2) Vue CLI 방식 : npm 설치
             npm install --save vue-router@3
 
-            -> 설치후 import 로 사용할 페이지에 패키지를 포함시킨다!
+            -> 설치후 import 로 사용할 페이지에 팩키지를 포함시킨다!
 
             import Vue from 'vue'
             import VueRouter from 'vue-router'
             Vue.use(VueRouter) -> 뷰JS에서 라우터사용 등록필수!
 
         (3) 뷰 인스턴스 객체 내부에 옵션으로
-        반드시!!!!! 등록해 줘야 사용할 수 있다!!!
-        예)     new Vue({
+        반드시!!!!!! 등록해 줘야 사용할 수 있다!!!
+        예)   new Vue({
             el:"#app",
-            router, -> 등록필수!!!
+            router, ->  등록필수!!!
         })
 
         참고) router 변수와 옵션 routes 변수는
-        변경불가하다! 이미 라이브러리 에서 변수명을
-        제한하고 있다!
+         변경불가하다! 이미 라이브러리 에서 변수명을
+         제한하고 있다!
+
 
     4. 버전 : Vue 2.x 버전일 경우 Vue Router 3.x 버전을 사용함!
 
-    5. 내장 컴포넌트
+    5. 내장 컴포넌트 
         (1) <router-view> : 라우트와 일치하는 컴포넌트를 랜더링함
         (2) <router-link> : 라우트 링크를 생성함
 
@@ -87,36 +88,37 @@ import store from "./store.js";
                     }
                 ]
             })
+        
 
 
-******************************************************/
+************************************************/
 
 // 라우터 템플릿 만들기
 let Trip = {
-    template: `<div class="trip router">World Trip</div>`
+     template: `<div class="trip router">World Trip</div>`
 };
 let Foods = {
-    template: `<div class="foods router">World foods</div>`
+     template: `<div class="foods router">World Foods</div>`
 };
 
 // 라우터 옵션값 넣기
 // let routes = [{},{}]
 let routes = [
-    // 첫번째 루트
-    {
-        path: '/trip',
-        component: Trip
-    },
-    // 두번째 루트
-    {
-        path:'/foods',
-        component: Foods
-}]
+        // 첫번째 루트
+        {
+            path: '/trip',
+            component: Trip
+        },
+        // 두번째 루트
+        {
+            path: '/foods',
+            component: Foods
+        }
+    ];
 
-const router = new VueRouter({
-    routes // 위의 라우트 셋팅 배열변수!
-})
-
+    const router = new VueRouter({
+        routes // 위의 라우트 셋팅 배열변수!
+    });
 
 
 
