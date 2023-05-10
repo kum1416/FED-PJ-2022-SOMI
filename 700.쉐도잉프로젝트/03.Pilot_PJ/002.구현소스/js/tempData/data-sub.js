@@ -34,4 +34,5 @@ const subData = {
 
 }; ///////////// subData ////////////
 
+// 내보내기!
 export default subData;
