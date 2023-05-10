@@ -32,6 +32,17 @@ import store from "./store.js";
             import VueRouter from 'vue-router'
             Vue.use(VueRouter) -> 뷰JS에서 라우터사용 등록필수!
 
+        (3) 뷰 인스턴스 객체 내부에 옵션으로
+        반드시!!!!! 등록해 줘야 사용할 수 있다!!!
+        예)     new Vue({
+            el:"#app",
+            router, -> 등록필수!!!
+        })
+
+        참고) router 변수와 옵션 routes 변수는
+        변경불가하다! 이미 라이브러리 에서 변수명을
+        제한하고 있다!
+
     4. 버전 : Vue 2.x 버전일 경우 Vue Router 3.x 버전을 사용함!
 
     5. 내장 컴포넌트
@@ -82,21 +93,29 @@ import store from "./store.js";
 
 // 라우터 템플릿 만들기
 let Trip = {
-    template: `<div class="trip router"World Tdic`(/)
+    template: `<div class="trip router">World Trip</div>`
 };
 let Foods = {
-    template: `<div class="foods router"World Foods`(/div)
+    template: `<div class="foods router">World foods</div>`
 };
 
-// 라루어 옵션값 넣기
-let routers= [{
-    fiap:
+// 라우터 옵션값 넣기
+// let routes = [{},{}]
+let routes = [
     // 첫번째 루트
-    path: '/foods';,
-    compo
-},{}]
+    {
+        path: '/trip',
+        component: Trip
+    },
+    // 두번째 루트
+    {
+        path:'/foods',
+        component: Foods
+}]
 
-const router = nwe VueRoi
+const router = new VueRouter({
+    routes // 위의 라우트 셋팅 배열변수!
+})
 
 
 
@@ -190,6 +209,7 @@ Vue.component("info-area",{
 new Vue({
     el:"#app",
     store, // 중요!!! 뷰엑스 스토어 등록!
+    router, // 중요!!! 라우터 등록!
     data:{
         // 변수:값
     },
