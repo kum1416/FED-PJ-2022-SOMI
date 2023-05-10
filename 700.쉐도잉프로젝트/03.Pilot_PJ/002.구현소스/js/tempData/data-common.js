@@ -82,23 +82,13 @@ const comData = {
         <nav class="gnb">
             <ul>
                 <li class="bld">배너순번 li 숨기기</li>
-                <li>
-                    <a href="#men">NEW ARRIVAL</a>
-                </li>
-                <li>
-                    <a href="#women">WINDBREAKER</a>
-                </li>
-                <li>
-                    <a href="#style">BEACH STYLE</a>
-                </li>
-                <li>
-                    <a href="#style">SPORT STYLE</a>
-                </li>
-                
 
-
-
-
+                <li 
+                v-for="
+                    (v,i) in $store.state.menu
+                ">
+                    <a v-bind:href="'#c'+(i+1)">{{v}}</a>
+                </li>
             </ul>
         </nav>
 
