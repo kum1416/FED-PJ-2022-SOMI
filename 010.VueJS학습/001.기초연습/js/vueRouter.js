@@ -29,6 +29,7 @@ const linkData2 = {
             "똠양꿍": { 
                 name: "umsik", 
                 params: { item: "똠양꿍", cls: "ddom" } },
+
         }
     },
 };
@@ -45,7 +46,7 @@ new Vue({
     // 마운트 구역
     mounted(){
         this.$router.push('/trip');
-        // $router 라우터 전체객체
+        // $router 라우터 전체객체 
         // push(경로) -> 강제로 경로이동하기!
     },
 })
