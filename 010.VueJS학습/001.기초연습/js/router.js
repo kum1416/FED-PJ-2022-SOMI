@@ -84,20 +84,20 @@
                     }
                 ]
             })
-        
+
 ************************************************/
 
 // 라우터 템플릿 만들기
 let Trip = {
-  template: `<div class="trip router">World Trip</div>`,
+    template: `<div class="trip router">World Trip</div>`,
 };
 let Foods = {
-  template: `
-  <div v-bind:class="
+    template: `
+    <div v-bind:class="
         'foods router '+this.$route.params.cls
     ">
         World Foods {{ this.$route.params.item }}
-  </div>`,
+    </div>`,
 };
 // this.$route.params.cls
 // (해석:)
@@ -108,27 +108,27 @@ let Foods = {
 
 // 뷰라우터 인스턴스 생성하기
 const router = new VueRouter({
-  routes: [
-    // 첫번째 루트
-    {
-      path: "/trip",
-      component: Trip,
-    },
-    // 두번째 루트
-    {
-      path: "/foods",
-      component: Foods,
-    },
-    // 두번째 루트의 파라미터 버전 루트추가!
-    {
-      // 파라미터를 받는 같은 path의 루트는
-      // 호출과 구분을 위해 반드시 name속성을 설정해야한다!
-      name: "umsik",
-      path: "/foods:item", 
-      // 경로 뒤에 콜론(:)을 쓰고 뒤에 파라미터 변수는 써준다!
-      component: Foods,
-    },
-  ],
+    routes: [
+        // 첫번째 루트
+        {
+            path: "/trip",
+            component: Trip,
+        },
+        // 두번째 루트
+        {
+            path: "/foods",
+            component: Foods,
+        },
+        // 두번째 루트의 파라미터 버전 루트추가!
+        {
+            // 파라미터를 받는 같은 path의 루트는
+            // 호출과 구분을 위해 반드시 name속성을 설정해야한다!
+            name: "umsik",
+            path: "/foods:item", 
+            // 경로뒤에 콜론(:)을쓰고 뒤에 파라미터 변수를 써준다!
+            component: Foods,
+        },
+    ],
 });
 
 // 내보내기
