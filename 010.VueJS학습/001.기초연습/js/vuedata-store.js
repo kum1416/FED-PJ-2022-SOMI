@@ -36,7 +36,7 @@ const store = new Vuex.Store({
         // 제이슨 데이터 속성변수 업데이트 하기
         setData(st,pm){ // st - state변수, pm - 전달변수
             // state구역의 items변수에 제이슨 데이터 담기!
-            st.items - pm;
+            st.items = pm;
             console.log("뮤테:",pm);
         }, /////////// setData //////////
 
