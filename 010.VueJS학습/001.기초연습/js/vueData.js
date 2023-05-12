@@ -14,11 +14,11 @@ Vue.component("my-comp",{
                     './img_gallery/' +
                     v.idx +
                     '.jpg'
-                "
+                " 
                 alt="dress" />
                 <aside>
                     <h2>{{v.gname}}</h2>
-                    <h3>{{v.gpric}}</h3>
+                    <h3>{{v.gprice}}</h3>
                 </aside>
             </div>
         </div>
@@ -29,7 +29,7 @@ Vue.component("my-comp",{
         }
     }
 
-}); /////// component ////////
+}); ////////// component //////////////
 
 // 뷰인스턴스 생성하기
 new Vue({
@@ -48,5 +48,5 @@ new Vue({
         // 스토어의 items 전역변수에 셋팅함!
         console.log(store.state.items);
 
-    }, ////////// created ////////////////
+    }, //////// created /////////////
 })
