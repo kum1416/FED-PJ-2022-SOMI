@@ -34,15 +34,15 @@ const subData = {
         " id="c1"
         :data-cat="$store.state.cat">
 
-    <!--
-        class = "cont c1 카테고리명"
-        -> 해당 배경이미지가 나오도록 카테고리명 클래스넣기
+        <!-- 
+            class = "cont c1 카테고리명"
+            -> 해당 배경이미지가 나오도록 카테고리명 클래스넣기
 
-        data-cat 속성 : data-로 시작하는 사용자정의속성
-        -> 제이쿼리에서 DOM셋팅 속성을 읽어서
-        sinsang 객체의 하위 속성 카테고리명을
-        사용하기 위해 셋팅함!
-    --!>
+            data-cat 속성 : data-로 시작하는 사용자정의속성
+            -> 제이쿼리에서 DOM셋팅 속성을 읽어서
+            sinsang 객체의 하위 속성 카테고리명을
+            사용하기 위해 셋팅함!
+        -->
 
             <!-- 2-1-1.신상품 타이틀 -->
             <h2 class="c1tit js-reveal">
@@ -72,9 +72,9 @@ const subData = {
         :class="
             'cont c2 '+ $store.state.cat
         " id="c2">
-                <h2 class="c2tit js-reveal">
-                    2023 {{$store.state.menu[1]}}
-                </h2>
+            <h2 class="c2tit js-reveal">
+                2023 {{$store.state.menu[1]}}
+            </h2>
         </section>
     `,
     // 컨텐츠영역3 : 일반소개1
@@ -88,20 +88,21 @@ const subData = {
                         {{$store.state.menu[2]}} </a>
                     </h2>
                 </li>
-                <li class="imgc">
+                <li class="imgc jr1 js-reveal">
                     <img 
                     :src="
-                        './images/sub'+
+                        './images/sub/'+
                         $store.state.cat+'/03.disc.png'
                     " alt="해변공유" />
                 </li>
             </ul>
-        </section>`,
+        </section>
+    `,
     // 컨텐츠영역4 : 일반소개2
     cont4:`
         <section class="cont c4" id="c4">
             <ul class="pgc">
-                <li class="imgc js-reveal">
+                <li class="imgc jr2 js-reveal">
                     <img :src="
                         './images/sub/'+
                         $store.state.cat+'/04.disc.png'
@@ -119,11 +120,10 @@ const subData = {
                         LIFE STYLE </a>
                     </h2>
                 </li>
-                <li class="imgc">
+                <li class="imgc jr2 js-reveal">
                     <img :src="
                     './images/sub/'+
-                    $store.state.cat+'/05.disc.png' 
-                    alt="의자공유" class="js-reveal" />
+                    $store.state.cat+'/05.disc.png' alt="의자공유" class="js-reveal" />
                 </li>
             </ul>
         </section>
