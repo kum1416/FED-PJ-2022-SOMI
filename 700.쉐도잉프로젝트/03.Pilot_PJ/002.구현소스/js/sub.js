@@ -208,7 +208,12 @@ function sinsangFn() {
             let clsnm = $(this).attr("class");
 
             // 2. 클래스 이름으로 셋팅된 신상정보 객체 데이터 가져오기
-            let gd_info = sinsang[clsnm];
+            // 중간 객체속성명 상위부모박스 #c1의 data-cat속성값
+            // 읽어와서 sinsang[요기][] -> 요기에 넣기!
+            let cat = $(this).parents("#c1").attr("data-cat");
+            let gd_info = sinsang[cat][clsnm];
+
+            console.log("data-cat:",cat);
 
             // console.log(clsnm,gd_info);
 
