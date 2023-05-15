@@ -136,6 +136,10 @@ new Vue({
 
     }); ///////////// click /////////////
 
+    // 로고 클릭시 첫페이지로 이동!!!
+    $("#logo").click(()=>location.href="index.html");
+
+
 
 
   },
@@ -143,6 +147,28 @@ new Vue({
   created: function () {
     // DOM연결전 데이터 가공작업
     console.log("created구역");
+
+    // 파라미터 변수
+    let pm;
+
+    // GET 방식으로 넘어온 데이터 처리하여
+    // 분류별 서브 페이지 구성하기!
+    // location.href -> 상단 url읽어옴!
+    // indexOf("?")!==-1 -> 물음표가 있으면!
+    if(location.href.indexOf("?")!==-1)
+        pm = location.href.split("?")[1].split("=")[1];
+        // 물음표(?)로 잘라서 뒤엣것,이퀄()=로 잘라서 뒤엣것
+        // 파라미터 값만 추출함!
+    // pm에 할당이 되었다면 undefined가 아니므로 true
+    if(pm)
+        store.commit("chgData",decodeURI(pm));
+
+    // 메뉴를 선택해서 파라미터로 들어오지 않으면 "남성"셋팅
+    else
+        store.commit("chgData","남성");
+
+    // decodeURI() - 변경할 문자열만 있어야 변환됨
+    // decodeURIComponent() -> url전체에 섞여 있어도 모두 변환
   },
 }); //////// 상단영역 뷰 인스턴스 ////////
 
