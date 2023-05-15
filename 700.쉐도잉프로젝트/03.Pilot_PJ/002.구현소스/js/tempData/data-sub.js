@@ -84,12 +84,16 @@ const subData = {
                 <li class="txtc">
                     <h2 class="js-reveal">
                         <a href="#"> 
-                        {{$store.state.cat}}'S <br />
+                        {{$store.state.cat.toUpperCase()}}'S <br />
                         {{$store.state.menu[2]}} </a>
                     </h2>
                 </li>
                 <li class="imgc">
-                    <img src="./images/sub/men/03.disc.png" alt="해변공유" class=" js-reveal" />
+                    <img 
+                    :src="
+                        './images/sub'+
+                        $store.state.cat+'/03.disc.png'
+                    " alt="해변공유" />
                 </li>
             </ul>
         </section>`,
