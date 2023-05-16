@@ -28,7 +28,7 @@ const hcode = {
     `,
     /* 
         [뷰JS에서 클래스 바인드하기]
-
+        
         1. 일반적인 클래스 바인드
         <요소 v-bind:class=클래스명>
         예) <span v-bind:class="'del'"></span>
