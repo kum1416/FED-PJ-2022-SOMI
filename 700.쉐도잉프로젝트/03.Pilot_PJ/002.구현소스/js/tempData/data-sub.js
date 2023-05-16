@@ -151,6 +151,7 @@ const subData = {
                             $store.state.cls+
                             '.png'
                         " alt="큰 이미지">
+                        
                     </section>
                     <!-- 이미지 설명 -->
                     <section class="gdesc scbar">
@@ -158,7 +159,7 @@ const subData = {
                         <!--상품 정보 영역-->
                         <h1>
                             HOME &gt; 
-                        {{$store.state.cat.toUpperCase()}}
+                        {{$store.state.cat.toUpperCase()}} 
                         </h1>
                         <div>
                             <ol>
@@ -166,7 +167,7 @@ const subData = {
                                     <img src="images/dx_ico_new-28143800.gif" alt="new버튼">
                                 </li>
                                 <li id="gtit">
-                                상품명
+                                상품명:
                                 {{$store.state.gname}}
                                 </li>
                                 <li>
@@ -176,7 +177,9 @@ const subData = {
                                 </li>
                                 <li>
                                     <span>판매가</span>
-                                    <span id="gprice">99,000</span>
+                                    <span id="gprice">
+                                    {{$store.state.gprice}}
+                                    </span>
                                 </li>
                                 <li>
                                     <span>적립금</span>
@@ -188,7 +191,9 @@ const subData = {
                                 </li>
                                 <li>
                                     <span>상품코드</span>
-                                    <span id="gcode">{{$store.state.gcode}}</span>
+                                    <span id="gcode">
+                                    {{$store.state.gcode}}
+                                    </span>
                                 </li>
                                 <li>
                                     <span>사이즈</span>
