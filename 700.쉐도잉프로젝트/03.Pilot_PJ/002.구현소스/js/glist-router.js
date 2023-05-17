@@ -23,10 +23,11 @@ let Glist = {
                 v-model="$store.state.chkarr[2]"
                 @change="$store.commit('resCheck')">
             </div>
-        
+
             <!-- 상품리스트박스 -->
             <div class="grid">
-                <div v-for="
+                <div 
+                v-for="
                     (v,i) in $store.state.gdata
                 "
                 v-if="
@@ -38,7 +39,7 @@ let Glist = {
                         v-bind:src="
                         './images/goods/'+
                         v.cat +
-                        '/'+v.ginfo[0]+'.png'
+                        '/'+v.ginfo[0]+'.png'  
                         " alt="dress" />
                     <aside>
                         <h2>{{v.ginfo[1]}}</h2>
@@ -49,6 +50,7 @@ let Glist = {
         </section>
     `,
 };
+
 
 // v-model 디렉티브 속성은 요소 자신의 값이
 // 타겟 값으로 반영되게해준다!
@@ -58,89 +60,93 @@ let Glist = {
 // 조건: 인덱스번호가 1이상 10이하 -> 여기에 일정수를 더함
 // 10씩 더하면 다음 범위가 리스트로 정해짐!!
 // v.idx >= 1 + $store.state.pnum && 
-// v.idx <= 10 + $store.state.pnum
+//  v.idx <= 10 + $store.state.pnum
 let Paging = {
     template: `
-        <section>
-            <!-- 상품리스트박스 -->
-            <div class="grid">
-                <div v-for="
-                    (v,i) in $store.state.gdata
-                "
-                v-if="
-                    v.idx >= 1 + $store.state.pnum && 
-                    v.idx <= 10 + $store.state.pnum
-                ">
-                    [{{v.idx}}]<img 
-                        v-bind:src="
-                        './images/goods/'+
-                        v.cat +
-                        '/'+v.ginfo[0]+'.png'
-                        " alt="dress" />
-                    <aside>
-                        <h2>{{v.ginfo[1]}}</h2>
-                        <h3>{{v.ginfo[3]}}</h3>
-                    </aside>
-                </div>
+    <section>
+        <!-- 상품리스트박스 -->
+        <div class="grid">
+            <div 
+            v-for="
+                (v,i) in $store.state.gdata
+            "
+            v-if="
+                v.idx >= 1 + $store.state.pnum && 
+                v.idx <= 10 + $store.state.pnum
+            ">
+                [{{v.idx}}]<img 
+                    v-bind:src="
+                    './images/goods/'+
+                    v.cat +
+                    '/'+v.ginfo[0]+'.png'  
+                    " alt="dress" />
+                <aside>
+                    <h2>{{v.ginfo[1]}}</h2>
+                    <h3>{{v.ginfo[3]}}</h3>
+                </aside>
             </div>
-            
-            <!-- 페이징 표시구역 -->
-            <div id="paging">
-                <a href="#" @click.prevent="
-                $store.commit('updatePaging',0)">
-                    1
-                </a>
-                 | 
-                <a href="#" @click.prevent="
-                $store.commit('updatePaging',10)">
-                    2
-                </a>
-                 | 
-                <a href="#" @click.prevent="
-                $store.commit('updatePaging',20)">
-                    3
-                </a>
-            </div>
-        </section>
-    `,
+        </div>
+
+        <!-- 페이징 표시구역 -->
+        <div id="paging">
+            <a href="#" 
+            @click.prevent="
+            $store.commit('updatePaging',0)">
+                1
+            </a>
+             | 
+            <a href="#" 
+            @click.prevent="
+            $store.commit('updatePaging',10)">
+                2
+            </a>
+             | 
+            <a href="#" 
+            @click.prevent="
+            $store.commit('updatePaging',20)">
+                3
+            </a>
+        </div>
+    </section>
+`,
 };
 let More = {
     template: `
     <section>
-            <!-- 상품리스트박스 -->
-            <div class="grid">
-                <div v-for="
-                    (v,i) in $store.state.gdata
-                "
-                v-if="
-                    v.idx >= 1 && 
-                    v.idx <= 10 + $store.state.mnum
-                ">
-                    [{{v.idx}}]<img 
-                        v-bind:src="
-                        './images/goods/'+
-                        v.cat +
-                        '/'+v.ginfo[0]+'.png'
-                        " alt="dress" />
-                    <aside>
-                        <h2>{{v.ginfo[1]}}</h2>
-                        <h3>{{v.ginfo[3]}}</h3>
-                    </aside>
-                </div>
+        <!-- 상품리스트박스 -->
+        <div class="grid">
+            <div 
+            v-for="
+                (v,i) in $store.state.gdata
+            "
+            v-if="
+                v.idx >= 1 && 
+                v.idx <= 10 + $store.state.mnum
+            ">
+                [{{v.idx}}]<img 
+                    v-bind:src="
+                    './images/goods/'+
+                    v.cat +
+                    '/'+v.ginfo[0]+'.png'  
+                    " alt="dress" />
+                <aside>
+                    <h2>{{v.ginfo[1]}}</h2>
+                    <h3>{{v.ginfo[3]}}</h3>
+                </aside>
             </div>
+        </div>
 
-            <!-- 모어버튼 표시구역 -->
-            <div id="more">
-                <button class="more" 
-                @click.prevent="
-                $store.commit('updateMore',30)"
-                v-if="$store.state.mbtn">
-                    MORE
-                </button>
-            </div>
-
-        </section>
-    `,
+        <!-- 모어버튼 표시구역 -->
+        <div id="more">
+            <button class="more" 
+            @click.prevent="
+            $store.commit('updateMore',30)"
+            v-if="$store.state.mbtn">
+                MORE
+            </button>
+        </div>
+    </section>
+`,
 };
 
 
@@ -149,7 +155,7 @@ const router = new VueRouter({
     routes: [
         // 1. 필터 리스트
         {
-            path: "/glist", // 이름규칙
+            path: "/glist",
             component: Glist,
         },
         // 2. 페이징 리스트
