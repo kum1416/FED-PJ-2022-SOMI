@@ -22,9 +22,9 @@ let Glist = {
                 <div v-for="(v,i) in $store.state.gdata">
                     <img 
                         v-bind:src="
-                            './images/goods'+
-                            v.cat +
-                            '/'+v,ginfo[0]+'.png'
+                        './images/goods'+
+                        v.cat +
+                        '/'+v.ginfo[0]+'.png'
                         " alt="dress" />
                     <aside>
                         <h2>{{v.ginfo[1]}}</h2>
