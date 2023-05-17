@@ -26,9 +26,9 @@ const store = new Vuex.Store({
 
             // v는 배열값인 true/false값이 들어옴!
             dt.chkarr.forEach((v,i)=>{
-                if(v){ // 체크박스 체크시
+                if(v){// 체크박스 체크시
                     dt.selnm[i] = 
-                    i==0?"men":i==1?"wonmen":"style";
+                    i==0?"men":i==1?"women":"style";
                     // 조건1?값1:((조건2?값2):최종값);
                     // 중첩3항연산자 사용!
                 }
