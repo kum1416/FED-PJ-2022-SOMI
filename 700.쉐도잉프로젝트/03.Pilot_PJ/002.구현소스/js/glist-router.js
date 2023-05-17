@@ -6,7 +6,7 @@
 let Glist = {
     template: `
         <section>
-            <!-- 필터옵션 체크박스구역 --!>
+            <!-- 필터옵션 체크박스구역 -->
             <div id="optbx">
                 <label for="men">남성</label>
                 <input type="checkbox" id="men">
