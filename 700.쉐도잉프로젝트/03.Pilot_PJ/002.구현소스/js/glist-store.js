@@ -49,7 +49,7 @@ const store = new Vuex.Store({
         updatePaging(dt,pm){ // pm - 업데이트할 전달숫자
             // pnum은 리스트 범위수
             dt.pnum = pm;
-        }, ////////////// updatePaging /////////////
+        }, ///////// updatePaging /////////
 
         // 모어 변수 업데이트 메서드
         updateMore(dt,pm){ // pm - 업데이트할 전달숫자
