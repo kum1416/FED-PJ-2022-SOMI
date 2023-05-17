@@ -9,16 +9,31 @@ let Glist = {
             <!-- 필터옵션 체크박스구역 -->
             <div id="optbx">
                 <label for="men">남성</label>
-                <input type="checkbox" id="men">
+                <input type="checkbox" id="men"
+                v-model="$store.state.chkarr[0]"
+                @change="$store.commit('resCheck')">
+
                 <label for="women">여성</label>
-                <input type="checkbox" id="women">
+                <input type="checkbox" id="women"
+                v-model="$store.state.chkarr[1]"
+                @change="$store.commit('resCheck')">
+
                 <label for="style">스타일</label>
-                <input type="checkbox" id="style">
+                <input type="checkbox" id="style"
+                v-model="$store.state.chkarr[2]"
+                @change="$store.commit('resCheck')">
             </div>
         
             <!-- 상품리스트박스 -->
             <div class="grid">
-                <div v-for="(v,i) in $store.state.gdata">
+                <div v-for="
+                    (v,i) in $store.state.gdata
+                "
+                v-if="
+                v.cat==$store.state.selnm[0] ||
+                v.cat==$store.state.selnm[1] ||
+                v.cat==$store.state.selnm[2]
+                ">
                     <img 
                         v-bind:src="
                         './images/goods/'+
@@ -34,6 +49,11 @@ let Glist = {
         </section>
     `,
 };
+
+// v-model 디렉티브 속성은 요소 자신의 값이
+// 타겟 값으로 반영되게해준다!
+// 변경 데이터의 뷰JS의 동기화기능을 확인!
+
 let Paging = {
     template: `<div class="trip router">페이징</div>`,
 };
