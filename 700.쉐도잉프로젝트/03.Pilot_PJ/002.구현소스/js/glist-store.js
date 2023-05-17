@@ -12,6 +12,8 @@ const store = new Vuex.Store({
         chkarr:[true,true,true],
         // 필터데이터용 배열입력값 변수
         selnm:["","",""],
+        // 페이징용 변수
+        pnum:0,
     },
         
     // state 데이터 변경 메서드구역!
@@ -38,6 +40,12 @@ const store = new Vuex.Store({
             });
 
         }, ////////// resCheck ////////
+
+        // 페이징 변수 업데이트 메서드
+        updatePaging(dt,pm){ // pm - 업데이트할 전달숫자
+            // pnum은 리스트 범위수
+            dt.pnum = pm;
+        }, ////////////// updatePaging /////////////
     },
 });
 

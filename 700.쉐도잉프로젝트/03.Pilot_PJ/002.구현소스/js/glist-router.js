@@ -54,6 +54,11 @@ let Glist = {
 // 타겟 값으로 반영되게해준다!
 // 변경 데이터의 뷰JS의 동기화기능을 확인!
 
+// v-for에 기술된 v-if조건에 사이범위를 넣고 스토어변수로 컨트롤한다!
+// 조건: 인덱스번호가 1이상 10이하 -> 여기에 일정수를 더함
+// 10씩 더하면 다음 범위가 리스트로 정해짐!!
+// v.idx >= 1 + $store.state.pnum && 
+// v.idx <= 10 + $store.state.pnum
 let Paging = {
     template: `
         <section>
@@ -65,9 +70,10 @@ let Paging = {
                     (v,i) in $store.state.gdata
                 "
                 v-if="
-                    v.idx>=1 && v.idx<=10
+                    v.idx >= 1 + $store.state.pnum && 
+                    v.idx <= 10 + $store.state.pnum
                 ">
-                    <img 
+                    [{{v.idx}}]<img 
                         v-bind:src="
                         './images/goods/'+
                         v.cat +
@@ -82,7 +88,20 @@ let Paging = {
             
             <!-- 페이징 표시구역 -->
             <div id="paging">
-                1 | 2 | 3
+                <a href="#" @click.prevent="
+                $store.commit('updatePaging',0)">
+                    1
+                </a>
+                 | 
+                <a href="#" @click.prevent="
+                $store.commit('updatePaging',10)">
+                    2
+                </a>
+                 | 
+                <a href="#" @click.prevent="
+                $store.commit('updatePaging',20)">
+                    3
+                </a>
             </div>
         </section>
     `,
