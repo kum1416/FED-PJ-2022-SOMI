@@ -113,8 +113,8 @@ let More = {
                     (v,i) in $store.state.gdata
                 "
                 v-if="
-                    v.idx >= 1 + $store.state.pnum && 
-                    v.idx <= 10 + $store.state.pnum
+                    v.idx >= 1 && 
+                    v.idx <= 10 + $store.state.mnum
                 ">
                     [{{v.idx}}]<img 
                         v-bind:src="
@@ -128,24 +128,17 @@ let More = {
                     </aside>
                 </div>
             </div>
-            
-            <!-- 페이징 표시구역 -->
-            <div id="paging">
-                <a href="#" @click.prevent="
-                $store.commit('updatePaging',0)">
-                    1
-                </a>
-                 | 
-                <a href="#" @click.prevent="
-                $store.commit('updatePaging',10)">
-                    2
-                </a>
-                 | 
-                <a href="#" @click.prevent="
-                $store.commit('updatePaging',20)">
-                    3
-                </a>
+
+            <!-- 모어버튼 표시구역 -->
+            <div id="more">
+                <button class="more" 
+                @click.prevent="
+                $store.commit('updateMore',30)"
+                v-if="$store.state.mbtn">
+                    MORE
+                </button>
             </div>
+
         </section>
     `,
 };
