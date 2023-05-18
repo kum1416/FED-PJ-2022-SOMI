@@ -39,7 +39,11 @@ let Glist = {
                 
                 <!-- 파라미터가 있는 뷰라우터는 이름으로 호출! -->
                 <router-link 
-                    v-bind:to="{name:'det',params:{id:v.idx}}">
+                    v-bind:to="
+                    {
+                        name:'det',
+                        params:{id : v.idx, list : 'glist'}
+                    }">
                 [{{v.idx}}]
                     <img 
                         v-bind:src="
@@ -89,8 +93,11 @@ let Paging = {
                
             <!-- 파라미터가 있는 뷰라우터는 이름으로 호출! -->
             <router-link 
-                v-bind:to="{name:'det',params:{id:v.idx}}">
-                [{{v.idx}}]
+            v-bind:to="
+            {
+                name:'det',
+                params:{id : v.idx, list : 'paging'}
+            }">
                 
                 <img 
                     v-bind:src="
@@ -148,9 +155,11 @@ let More = {
                
             <!-- 파라미터가 있는 뷰라우터는 이름으로 호출! -->
             <router-link 
-                v-bind:to="{name:'det',params:{id:v.idx}}">
-                
-                [{{v.idx}}]
+            v-bind:to="
+            {
+                name:'det',
+                params:{id : v.idx, list : $route.path}
+            }">
                 
                 <img 
                     v-bind:src="
@@ -188,7 +197,7 @@ const Detail = {
     <div id="bgbx">
         <!-- 닫기버튼 -->
         <a href="#" class="cbtn" 
-        @click="$router.push('/glist')">
+        @click="$router.push($route.params.list)">
             <span class="ir">닫기버튼</span>
         </a>
         
