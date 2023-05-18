@@ -54,9 +54,10 @@ let Glist = {
                         <h3>{{v.ginfo[3]}}</h3>
                     </aside>
 
+
                 </router-link>
 
-
+                    
                 </div>
             </div>
         </section>
@@ -86,8 +87,9 @@ let Paging = {
                 v.idx >= 1 + $store.state.pnum && 
                 v.idx <= 10 + $store.state.pnum
             ">
-                [{{v.idx}}]<img 
-
+                [{{v.idx}}]
+                
+                <img 
                     v-bind:src="
                     './images/goods/'+
                     v.cat +
@@ -150,11 +152,11 @@ let More = {
         </div>
 
         <!-- 모어버튼 표시구역 -->
-        <div id="more">
+        <div id="more" v-if="$store.state.mbtn">
             <button class="more" 
             @click.prevent="
             $store.commit('updateMore',5)"
-            v-if="$store.state.mbtn">
+            >
                 MORE
             </button>
         </div>
@@ -162,6 +164,7 @@ let More = {
 `,
 };
 
+// 상세보기 구성 템플릿
 const Detail = {
     template: `
             
@@ -264,7 +267,8 @@ const Detail = {
                 </section>
             </div>
         </div>
-    </div    fJ(c8t m `,
+    </div>
+`,
 };
 
 
@@ -290,7 +294,7 @@ const router = new VueRouter({
         {
             // 파라미터를 쓰려면 뷰라우터 이름이 필수
             name : "det",
-            path: "/detail",
+            path:"/detail",
             component: Detail,
         },
     ],
