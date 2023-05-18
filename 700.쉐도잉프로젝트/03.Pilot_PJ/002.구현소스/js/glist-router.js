@@ -27,17 +27,22 @@ let Glist = {
             <!-- 상품리스트박스 -->
             <div class="grid">
                 <div 
-                v-for="
-                    (v,i) in $store.state.gdata
-                "
-                v-if="
-                v.cat==$store.state.selnm[0] ||
-                v.cat==$store.state.selnm[1] ||
-                v.cat==$store.state.selnm[2]
+                    v-for="
+                        (v,i) in $store.state.gdata
+                    "
+                    v-if="
+                        v.cat==$store.state.selnm[0] ||
+                        v.cat==$store.state.selnm[1] ||
+                        v.cat==$store.state.selnm[2]
                 ">
 
+                <!-- 파라미터가 있는 뷰라우터는 이름으로 호출! -->
+                <router-link 
+                    v-bind:to="
+                        {name:'det',param:{id:v.idx}}
+                    ">
 
-                
+                [{{v.idx}}]
                     <img 
                         v-bind:src="
                         './images/goods/'+
@@ -49,8 +54,9 @@ let Glist = {
                         <h3>{{v.ginfo[3]}}</h3>
                     </aside>
 
+                </router-link>
 
-                    
+
                 </div>
             </div>
         </section>
@@ -81,6 +87,7 @@ let Paging = {
                 v.idx <= 10 + $store.state.pnum
             ">
                 [{{v.idx}}]<img 
+
                     v-bind:src="
                     './images/goods/'+
                     v.cat +
