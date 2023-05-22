@@ -273,7 +273,7 @@ $(function () { //// jQB2 //////////////////////////
             // 이미지 경로 변경하기 : ".png" -> "-1.png"
             // JS메서드 replace(바꿀값,바뀔값)
             csrc = csrc.replace(".png","-1.png");
-            console.log("현재경로:",csrc);
+            // console.log("현재경로:",csrc);
             // 실제 이미지 변경하기
             $(this).attr("src",csrc);
 
@@ -283,7 +283,7 @@ $(function () { //// jQB2 //////////////////////////
             let csrc = $(this).attr("src");
             // JS메서드 replace(바꿀값,바뀔값)
             csrc = csrc.replace("-1.png",".png");
-            console.log("현재경로:",csrc);
+            // console.log("현재경로:",csrc);
             // 실제 이미지 변경하기
             $(this).attr("src",csrc);
 
@@ -300,8 +300,24 @@ $(function () { //// jQB2 //////////////////////////
         let paused_sts = mv.get(0).paused;
         console.log("비디오가 멈췄니?",paused_sts);
 
+        // 1. 멈춤아니면(false) 동영상 멈추기
+        if(!paused_sts){ // false일때 들어오려면 NOT(!)연산자사용
+            // 비디오 멈추기는 pause() 메서드!
+            mv.get(0).pause();
+            // 멈춤상태일 경우 진한재생버튼으로 변경!
+            $(this).attr("src","images/vbt2-1.png")
+        } //////// if ////////
+        else{ 
+            // 멈춤상태(true)일경우
+            // 비디오 멈추기는 play() 메서드!
+            mv.get(0).play();
+            // 멈춤상태일 경우 진한멈춤버튼으로 변경!
+            $(this).attr("src","images/vbt1-1.png")
+        } /////// else ////////////////
 
-    }); //////// click //////////
+
+    }); //////////// click //////////////
+
 
     
 
