@@ -169,7 +169,7 @@
             } /////////// makeObj ///////////////////////
 
 
-            // 화면 데이터 바인딩 함수 ////////
+            // 화면 데이터 바인딩 함수 //////////
             function bindData(){
                 let hcode = `
                     <table>
@@ -180,7 +180,7 @@
                         </tr>
                     `;
                 // 로컬스토리지 객체데이터 가져오기
-                // 입력된 데이터는 문자형 객체이므로
+                // 입력된 데이터는 문자형 객체이므로 
                 // 다시 파싱하여 원래 객체로 복원한다!
                 let org = localStorage.getItem("minfo");
                 org = JSON.parse(org);
@@ -195,14 +195,16 @@
                         <td>${val.cont}</td>
                     `;
                 });
-
+                
                 hcode += "</tr></table>";
 
                 // html에 넣기
                 document.querySelector(".board")
                 .innerHTML=hcode;
+                
 
-            } ////////// bindData ///////////
+
+            } /////////// bindData ////////////////
         </script>
     </head>
     <body>
