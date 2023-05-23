@@ -100,6 +100,39 @@ ReactDOM.render(myele4,
     document.querySelectorAll("#root>div")[3]);
 
 
+// 5번에는 내가 원하는 태그를 출력해본다!!!
+
+const mydata = [
+    {idx:1,name:"김수현"},
+    {idx:2,name:"장우혁"},
+    {idx:3,name:"김혜수"},
+]
+
+// map()을 사용한 태그생성하기
+const mylist = mydata.map(val=>
+    <li>{val.name}:{val.movie}</li>
+)
+
+const myele5 = 
+<React.Fragment>
+    <h1>배우리스트</h1>
+    <ul>
+        {mylist}
+    </ul>
+
+
+</React.Fragment>;
+
+// 다섯번째 div요소에 출력하기
+ReactDOM.render(myele,
+    document.querySelectorAll("#root>div")[4]);
+
+
+/************************************************************** 
+
+**************************************************************/
+
+
 /************************************************************** 
 
 **************************************************************/
