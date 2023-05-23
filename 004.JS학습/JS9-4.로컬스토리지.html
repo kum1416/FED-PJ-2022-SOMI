@@ -169,7 +169,7 @@
             function makeObj() {
                 // 게시판 형식의 객체를 생성함!
                 let obj = [{ 
-                    idx: "1", 
+                    idx: 1, 
                     tit: "내가 왕이될 상인가?",
                     cont: "이정재형은 진정 왕이십니다!"
                  }];
@@ -222,6 +222,45 @@
 
 
             } /////////// bindData ////////////////
+
+            // 로컬스토리지 데이터에 업데이트 하는 함수
+            function insData(){
+                // 1. 입력항목 읽어오기: #tit 제목, #cont 내용
+                let tit = document.querySelector('#tit').value;
+                let cont = document.querySelector('#cont').value;
+                
+                // 2. 만약 하나라도 비었다면 돌아가!
+                if(tit.trim()=="" || cont.trim()==""){
+                    alert("입력데이터가 없습니다~!!");
+                    return;
+                }
+
+                console.log("입력처리!!!");
+
+                // 3. 로컬스토리지 데이터 가져오기 : minfo
+                // 가져온 후 객체형으로 사용하도록 파싱한다!!!
+                let org = localStorage.getItem("minfo");
+                org = JSON.parse(org);
+                console.log("입력전객체:",org);
+
+                // 4. 입력데이터를 객체형식으로 구성하기
+                // 단, idx 항목은 자동증가할 것임! 마지막 배열idx+1
+                // 배열의 마지막번호는 [배열개수-1]
+                let last_dix = org[org.length-1].idx;
+                console.log("마지막배열idx",last_idx)
+
+                // 배열뒤에 밀어넣기 메서드 : push(값)
+                org.push({
+                    idx:Number(last_dix)+1,
+                    tit:tit,
+                    cont:,cont
+                });
+
+                cosnole.log("추가후객체",ㅐㄱㅎ);
+
+            } ////////// insData //////////
+
+
         </script>
     </head>
     <body>
@@ -251,21 +290,21 @@
                 </div>
 
                 <div class="inbx">
-                    <form action="" method="post">
+                    <!-- <form action="" method="post"> -->
                         <ul>
                             <li>
-                                <label for="idx">일련번호</label>
-                                <input type="text" id="idx" />
+                                <label for="tit">제목</label>
+                                <input type="text" id="tit" />
                             </li>
                             <li>
                                 <label for="cont">내용</label>
                                 <input type="text" id="cont" />
                             </li>
                             <li>
-                                <input type="submit" value="처리" id="sbtn" />
+                                <input type="submit" value="입력" id="sbtn" onclick="insData()" />
                             </li>
                         </ul>
-                    </form>
+                    <!-- </form> -->
                 </div>
             </div>
             <div class="session">
