@@ -253,11 +253,16 @@
                 org.push({
                     idx:Number(last_dix)+1,
                     tit:tit,
-                    cont:,cont
+                    cont:cont
                 });
 
-                cosnole.log("추가후객체",ㅐㄱㅎ);
+                cosnole.log("추가후객체",org);
 
+                // 5. 객체를 문자형으로 변환후 로컬스토리지에 반영
+                localStorage
+                 .setItem("minfo",JSON.stringify(obj));
+                 console.log("반영후 로칼쓰:",lStorage.getItem("minfo"));
+                 
             } ////////// insData //////////
 
 
