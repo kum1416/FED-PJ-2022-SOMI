@@ -94,14 +94,14 @@ const store = new Vuex.Store({
 
         }, /////////// setData 메서드 ///////////////////
 
-        ////////// 장바구니 애니메이션 버튼 생성하기 //////////
+        ////////////// 장바구니 애니메이션 버튼 생성하기 /////////
         cartAni(dt,pm){
             console.log("카트애니!",pm);
 
             // 0. 생성될 카트이미지 지우고시작!(하나만 생성!)
             $("#mycart").remove();
 
-            // 1.gif애니메이션 이미지를 사용하여
+            // 1. gif애니메이션 이미지를 사용하여
             // 화면중앙에 등장하여 장바구니 담김을 알림!
             $("body").append(`
                 <img id="mycart" 
@@ -136,11 +136,11 @@ const store = new Vuex.Store({
                     <a href="#" class="cbtn cbtn2">×</a>
                     <table>
                         <caption>
-                            <h1> 카트 리스트</h1>
+                            <h1> 카트 리스트</h1> 
                         </caption>
                         <tr>
                             <th>번호</th>
-                            <th>상품명/th>
+                            <th>상품명</th>
                             <th>상품코드</th>
                             <th>단가</th>
                             <th>수량</th>
@@ -152,7 +152,7 @@ const store = new Vuex.Store({
                 `)
             })
 
-        }, /////////////////// cartAni 메서드 /////////////
+        }, //////////////// carAni 메서드 //////////////////
 
 
     },
