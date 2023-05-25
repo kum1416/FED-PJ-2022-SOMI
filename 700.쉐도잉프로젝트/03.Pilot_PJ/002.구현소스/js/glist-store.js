@@ -162,7 +162,7 @@ const store = new Vuex.Store({
                 } ////////// if ///////////////
 
                 // 2. 로컬스 데이터로 테이블 레코드 태그 구성하기
-                // 카트가 보이는 상태임!(right:"0")
+                // 카트가 보이지 않는 상태임!(right:"-60vw")
                 store.commit('bindData',"-60vw");
                 
 
