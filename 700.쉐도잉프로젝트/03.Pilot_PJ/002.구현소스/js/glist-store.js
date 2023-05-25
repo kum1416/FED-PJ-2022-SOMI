@@ -78,17 +78,34 @@ const store = new Vuex.Store({
             org = JSON.parse(org);
             console.log("변환객체:", org);
             
-            // 3. 배열뒤에 밀어넣기 메서드 : push(값)
-            org.push(dt.gdata[pm]);
-            console.log("넣은후:", org);
+            // 이미선택한 상품일 경우 분기하기 /////
+            // 저장상태변수
+            let save = true;
 
-            // 4. 객체를 문자형으로 변환후 로컬스토리지에 반영
-            localStorage.setItem("cart", JSON.stringify(org));
-            console.log("반영후 로칼쓰:", localStorage.getItem("cart"));
+            org.forEach(v=>{
+                // 같은 데이터인가?(idx값으로 비교)
+                if(v.idx == pm.idx){
+                    alert("이미 선택하신 상품입니다!^^");
+                    save = false;
+                } //////// if //////////
+                
+            }); //////////// forEach //////////
 
-            // 5. 카트 애니메이션 버튼을 등장시켜 카트리스트까지 연동한다!
-            this.commit('cartAni',org.length);
-            // org.length는 배열 데이터 개수를 넘김
+            // save == true 일때만 배열넣고 처리함!
+            if(save){
+                // 3. 배열뒤에 밀어넣기 메서드 : push(값)
+                org.push(dt.gdata[pm]);
+                console.log("넣은후:", org);
+    
+                // 4. 객체를 문자형으로 변환후 로컬스토리지에 반영
+                localStorage.setItem("cart", JSON.stringify(org));
+                console.log("반영후 로칼쓰:", localStorage.getItem("cart"));
+    
+                // 5. 카트 애니메이션 버튼을 등장시켜 카트리스트까지 연동한다!
+                this.commit('cartAni',org.length);
+                // org.length는 배열 데이터 개수를 넘김
+
+            } ///////////// if /////////////
 
             // localStorage.clear();
 
