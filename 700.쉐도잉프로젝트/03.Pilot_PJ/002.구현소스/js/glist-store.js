@@ -165,11 +165,11 @@ const store = new Vuex.Store({
                 store.commit('bindData');
                 
 
-            }); //////////// 카트버튼 click //////////////
+            }); /////////// 카트버튼 click /////////////////
 
         }, //////////////// carAni 메서드 //////////////////
 
-        //////////// 카트 아이템 삭제 메서드 ////////////
+        /////////// 카트 아이템 삭제 메서드 //////////
         delRec(dt,pm){
             console.log("아이템 삭제!",pm);
             // 1. 로컬스 데이터 읽기
@@ -177,7 +177,6 @@ const store = new Vuex.Store({
             let org = localStorage.getItem("cart");
                 org = JSON.parse(org);
                 console.log("삭제구성 객체:", org);
-
             // 3. 삭제아이템 찾아 지우기 : splice(순번,1)
             org.forEach((v,i)=>{
                 // 지울 아이템과 같으면
@@ -191,13 +190,13 @@ const store = new Vuex.Store({
             // 4. 로컬스 문자화하여 넣기
             localStorage.setItem("cart", JSON.stringify(org));
             console.log("삭제후 로칼쓰:", localStorage.getItem("cart"));
-
+    
             // 5. 리스트 갱신하기
             store.commit('bindData');
 
-        }, ////////////////////// delRec 메서드 //////////////
+        }, //////////////// delRec 메서드 ///////////////
 
-        ////////// 리스트 바인딩 메서드 ////////////
+        /////////// 리스트 바인딩 메서드 ////////////////
         bindData(dt,pm){
             // (1) 로컬스 데이터 읽어와서 객체화하기
             let org = localStorage.getItem("cart");
@@ -336,25 +335,26 @@ const store = new Vuex.Store({
                 fontSize:"30px",
             })
 
-            // 닫기버튼 셋팅
+            // (8) 닫기버튼 셋팅
             $(".cbtn2").click(()=>{
                 $("#cartlist")
                 .animate({
                     right:"-60vw"
                 },600,"easeOutQuint")
-            }); /////// click ///////
+            }); /////// click //////
 
             // (9) 삭제버튼 처리연결하기
             $(".cfn").click(function(){
-                // 아이템 삭제 메서드
+                // 아이템 삭제 메서드 호출
                 store.commit('delRec',
                 $(this).attr("data-idx"));
                 // 삭제할 idx정보를 넘겨준다!
-            }); /////////// click /////////
+            }); ///////// click ///////
 
-        }, //////////////// bindData() 메서드 ////////////////
 
-    }, //////////////////////
+        }, /////////////// bindData 메서드 ///////////////
+
+    }, /////////////////// 
 });
 
 // 내보내기
