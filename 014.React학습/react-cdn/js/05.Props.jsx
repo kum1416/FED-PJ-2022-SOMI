@@ -73,7 +73,7 @@ function Brand2(props){
         {
             color:"녹차그린",
             model:"2024년형",
-            opt:{filter:'hue-rotate(207deg)'},
+            opt:{filter:'hue-rotate(207deg)',transform:"rotateY(180deg)"},
         },
     ];
 
