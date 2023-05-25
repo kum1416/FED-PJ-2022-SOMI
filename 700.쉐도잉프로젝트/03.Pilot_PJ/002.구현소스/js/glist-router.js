@@ -323,8 +323,8 @@ const Detail = {
                         @click="$store.commit('setData',$route.params.id-1)"
                         >SHOPPING CART</button>
                         <button class="btn"
-                        @click="$store.commit('setData',$route.params.id-1)"
-                        <button class="btn">CLEAT CART</button>
+                        @click="$store.commit('clearData')"
+                        >CLEAR CART</button>
 
                     </div>
                 </section>
