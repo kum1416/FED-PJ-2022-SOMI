@@ -250,11 +250,11 @@ const store = new Vuex.Store({
                         ${rec}
                     </table>
                 `) ///// html ////////
-                // (2) 카트박스 CSS넣기
+                // (2)카트박스 CSS넣기
                 .css({
                     position: "fixed",
                     top:"0",
-                    right:"-60vw",
+                    right: "-60vw",
                     width:"60vw",
                     height:"100vh",
                     backgroundColor:"rgba(255,255,255,.8)",
@@ -290,9 +290,10 @@ const store = new Vuex.Store({
                     fontSize:"16px",
                 })
                 // (7) caption css 넣기
+                
                 .parents("table")
                 .find("caption")
-                .css({
+                .css({                    
                     padding:"20px 0",
                     textDecoration:"underline",
                     textDecorationStyle:"wavy",
@@ -304,7 +305,9 @@ const store = new Vuex.Store({
                     $("#cartlist")
                     .animate({
                         right:"-60vw"
-                },600,"easeOutQuint")
+                    },600,"easeOutQuint")
+                })
+
             })
 
         }, //////////////// carAni 메서드 //////////////////
