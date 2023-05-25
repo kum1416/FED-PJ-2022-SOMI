@@ -23,7 +23,6 @@ function Car(props){
 } /////////// Car 컴포넌트 //////////////
 
 
-
 // 자기차를 소개하는 컴포넌트 2 ////////
 function Car2(props){
     return(
@@ -33,7 +32,7 @@ function Car2(props){
                 차색은 {props.brand.color}입니다!
             </h2>
             <img src="./images/ray.png" alt="레이" 
-            style={props.brand.opt}/>
+            style={props.brand.opt} />
             {/* 
                 인라인 스타일시트 넣기형식:
                 <태그 style={{객체형식CSS}}>
@@ -64,7 +63,7 @@ function Brand(){
 function Brand2(props){
     // 코드를 여러가지로 return 전에 만들어준다!
     // 속성을 객체로 여러개 셋팅한다!
-    const carInfo = [
+    const carInfo =[ 
         {
             color:"라잇블루",
             model:"2023년형",
@@ -82,8 +81,9 @@ function Brand2(props){
             <h1>더 자세히 말씀해주세요?</h1>
             <Car2 brand={carInfo[props.num]} />
         </React.Fragment>
-        )
-} /////////////////// Brand2 컴포넌트 //////////////
+    )
+
+} ///////////// Brand2 컴포넌트 ///////////////
 
 
 
