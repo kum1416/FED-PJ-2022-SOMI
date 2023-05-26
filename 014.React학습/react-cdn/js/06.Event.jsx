@@ -16,7 +16,7 @@ function EventShow(){
 
 
     // 컴포넌트에서 사용하는 내부용 함수는 할당형 함수로 작성함!
-    const aladin = (lamp) => { // lamp - 알라딘 주인공 이미지경로
+    const aladin = (lamp) => { // lamp - 알라딘 주인공 이미지경로!
         console.log("aladin함수:",lamp);
         // 1. #tbox 인 요소의 내부에 h1요소 넣기
         document.querySelector("#tbox").innerHTML +=
@@ -33,7 +33,7 @@ function EventShow(){
             opacity: 0;
         `;
 
-        setTimeout(() => {
+        setTimeout(()=>{
             tit.style.cssText = `
             width: 50%;
             padding: 50px 0;
@@ -47,13 +47,14 @@ function EventShow(){
             font-size: 40px;
             color: white;
             background-color: rgba(0,0,0,.5);
-        `; 
+        `;
 
-        },500); ////////// setTimeout //////////
+
+        },500); ///////// setTimeout ////////
 
         // 3. 램프 가져오기 버튼 3초뒤에 보이기
         setTimeout(()=>{
-            document.querySelectoraAll("button")[0]
+            document.querySelectorAll("button")[0]
             .style.display="inline-block";
         },3000);
 
@@ -75,7 +76,7 @@ function EventShow(){
                 }}
                 />
             </div>
-            {/* 램프가 들어갈 요소 */}
+            {/* 램프가 들어갈요소 */}
             <div className="lamp"></div>
             {/* 버튼들 */}
             <button>램프가져오기~!</button> <br />
