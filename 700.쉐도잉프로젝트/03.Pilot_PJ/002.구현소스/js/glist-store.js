@@ -344,27 +344,28 @@ const store = new Vuex.Store({
             // 구분자를 생략하면 콤마(,)가 사이에 들어감
 
             // 총합계 구하기
-            let total = 0;
+           
             // 단가 숫자만 남기기
             const pnum = x => 
-            x.trim().replaceAll(",","");
+            x.trim().replaceAll(",","").replace("원","");
 
-            // map() 메서드는 ???
-            org.map(v=>
+            // map() 메서드는 리턴값을 배열에 담는다!
+             let total = org.map(v=>
                 pnum(v.ginfo[3]) * v.num
                 // console.log(`
-                //     단가:${pnum(v.ginfo[3])}
-                //     수량:${v.num}
+                //     단가 : ${pnum(v.ginfo[3])}
+                //     수량 : ${v.num}
                 // `);
-            ); ////////////////// forEach /////////////////
+            ); /////////// forEach ////////////
 
             // 순회하며 더하기
             let temp=0;
             total.forEach(v=>temp+=v);
 
             // 원래변수에 다시 할당함
-            total = temp
-            console.log("총합계:",temp);
+            total = temp;
+
+            console.log("총합계:",total);
 
 
             // 3. 생성된 카트리스트에 테이블 넣기
@@ -392,7 +393,7 @@ const store = new Vuex.Store({
                     <!-- 총합계 표시하기 -->
                     <tr>
                         <td colspan="6">
-                            총합계 :
+                            총합계 : 
                         </td>
                         <td>
                             ${chx(total)}원
