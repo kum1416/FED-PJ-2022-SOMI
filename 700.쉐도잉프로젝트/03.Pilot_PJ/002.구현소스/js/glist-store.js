@@ -293,6 +293,7 @@ const store = new Vuex.Store({
                 let rec = org.map((v,i)=> `<li>${v}</li>`)
 
             */
+            const chx = x => x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 
             let rec = org.map((v,i)=> 
                 `
@@ -317,7 +318,13 @@ const store = new Vuex.Store({
                         <!--수량-->
                         <td>${v.num}</td>
                         <!--합계-->
-                        <td>${v.ginfo[3]}</td>
+                        <td>${
+                            chx(
+                                v.ginfo[3].trim()
+                                .replaceAll(",","")
+                                .replace("원","") * v.num
+                            ) + "원"
+                        }</td>
                         <!--삭제-->
                         <td>
                             <button class="cfn" 
