@@ -11,48 +11,47 @@
 *************************************************************/
 
 
-///////// 전체 이벤트를 적용할 컴포넌트 구성하기 //////////
+////////// 전체 이벤트를 적용할 컴포넌트 구성하기 //////////
 function EventShow(){
 
 
     // 컴포넌트에서 사용하는 내부용 함수는 할당형 함수로 작성함!
     const aladin = (lamp) => {
-        console.log("aladin함수:",laml);
-        // 1. #wrap 인 요소의 내부에 h1요소 넣가
-        document.querySelector(".tvox").innerHTML =P
-    }; / /////////// aladin함수 /////////////
+        console.log("aladin함수:",lamp);
+        // 1. #tbox 인 요소의 내부에 h1요소 넣기
+        document.querySelector("#tbox").innerHTML +=
+        `<h1 class="tit">소원이 무엇이냐?</h1>`;
+    }; //////////// aladin함수 /////////////
 
 
-
-    
-    // 컴포넌트의 return은
+    // 컴포넌트의 return은 가장 아랫쪽에 위치함!
     return(
         <React.Fragment>
-            <div id="tbox"> style={{texA}}
-                {/* 소원을 말해봐 이미지 출력 : onmouseover 이벤트적용} */}
-                <img src="https://images.chosun.com/resizer/SFIqPKffr3HQHoHFOxKvnN-L2YU=/464x0/smart/cloudfront-ap-northeast-1.images.arcpublishing.com/chosun/NVMCI5M33KHBCY4JVHDPWRCBYY.jpg" alt="지니" 
+            <div id="tbox" style={{textAlign:"center"}}>
+                {/* 소원을 말해봐 이미지 출력 : onmouseover 이벤트적용 */}
+                <img src="https://images.chosun.com/resizer/SFIqPKffr3HQHoHFOxKvnN-L2YU=/464x0/smart/cloudfront-ap-northeast-1.images.arcpublishing.com/chosun/NVMCI5M33KHBCY4JVHDPWRCBYY.jpg" alt="지니"
                 onMouseOver={()=>{
-                    aladin("./images/ala4.hpg");
+                    aladin("./images/ala4.jpg");
                 }}
                 />
             </div>
         </React.Fragment>
     );
 
-} /////////////////// EventShow //////////////////
+} /////////////// EventShow ////////////////////////
 
 
-////////// 알라딘 램프 이미지 출력 컴포넌트 //////////
+////////// 알라딘 램프 이미지 출력 컴포넌트 //////////////
 function AlaLamp(){
 
-} ////////////////// AlaLamp ////////////////////
+} ////////////// AlaLamp //////////////////////
 
 
-////////// 페라리 이미지 출력 컴포넌트 //////////
+////////// 페라리 이미지 출력 컴포넌트 //////////////
 function Ferrari(){
 
-} ////////////////// Ferrari ////////////////////
+} ////////////// Ferrari //////////////////////
 
-//////// 최초 컴포넌트 출력하기 ////////////
+////// 최초 컴포넌트 출력하기 /////////////////
 ReactDOM.render(<EventShow />,
 document.querySelector("#root"));
