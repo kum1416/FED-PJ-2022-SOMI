@@ -121,7 +121,6 @@ const store = new Vuex.Store({
 
         ////////////// 장바구니 애니메이션 버튼 생성하기 /////////
         cartAni(dt,pm){ // pm.cnt / pm.opt
-            // 애니메서드 파라미터
             // cnt - 카트아이템 개수
             // opt - 셋팅옵션번호 (초기CSS값 선택옵션)
             // opt값 - 0 (오른쪽위 작은것) / 1 (정중앙 큰것)
@@ -156,13 +155,14 @@ const store = new Vuex.Store({
             console.log(`
                 top: ${icss[pm.opt].tv}
                 left: ${icss[pm.opt].lv}
-                width: ${icss[pm.opt].wd}     
+                width: ${icss[pm.opt].wd}
             `);
-            
+
             // 추가한 이미지 화면중앙에 위치하기
             $("#mycart")
             .css({
                 position:"fixed",
+                
                 // 변경셋(top,left,width)
                 top : icss[pm.opt].tv,
                 left : icss[pm.opt].lv,
@@ -306,7 +306,7 @@ const store = new Vuex.Store({
                 `
             ); ////////// map //////////////
 
-            // console.log("생성코드:",rec.join("★"));
+            // console.log("생성코드:",rec.join(""));
             // 배열.join(구분자) 
             // -> 배열을 구분자로 한문자열로 만들어준다!
             // 구분자를 빈문자열로 넣으면 사이구분자 없이합쳐진다!
