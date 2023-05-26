@@ -16,7 +16,7 @@ function EventShow(){
 
 
     // 컴포넌트에서 사용하는 내부용 함수는 할당형 함수로 작성함!
-    const aladin = (lamp) => {
+    const aladin = (lamp) => { // lamp - 알라딘 주인공 이미지경로
         console.log("aladin함수:",lamp);
         // 1. #tbox 인 요소의 내부에 h1요소 넣기
         document.querySelector("#tbox").innerHTML +=
@@ -56,6 +56,10 @@ function EventShow(){
             document.querySelectoraAll("button")[0]
             .style.display="inline-block";
         },3000);
+
+        // 4. 별도의 요소인 #ala에 이미지생성 컴포넌트 출력하기!
+        ReactDOM.render(<AlaLamp isrc={lamp} />, 
+        document.querySelector("#ala"));
 
     }; //////////// aladin함수 /////////////
 
