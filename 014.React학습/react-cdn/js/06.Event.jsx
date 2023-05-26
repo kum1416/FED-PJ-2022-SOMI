@@ -108,7 +108,6 @@ function EventShow(){
 
     }; ////////////////// getIt /////////////////
 
-    
     // 3. 소원빌어 페라리 얻기 함수 ///////////////////
     const getIt2 = (ss) => { // ss - 페라리 이미지 경로
         const ferrari = 
@@ -116,7 +115,8 @@ function EventShow(){
         .createRoot(document.getElementById("ferrari"));
         // Ferrari컴포넌트 호출함!
         ferrari.render(<Ferrari isrc={ss} />);
-    }; //////////// getIt2 /////////////
+    }; ///////////// getIt2 ////////////////////////
+
 
     // 컴포넌트의 return은 가장 아랫쪽에 위치함!
     return(
@@ -170,7 +170,6 @@ function move() {console.log(one);
 
     one?one=0:one=1;
 } ///////////// move함수 ///////////////////
-
 
 
 
