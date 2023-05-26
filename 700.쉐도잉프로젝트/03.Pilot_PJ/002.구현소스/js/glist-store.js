@@ -97,23 +97,23 @@ const store = new Vuex.Store({
             if(save){
                 /* 
                     [ 기존 데이터 구조에 컬럼 추가하기 ]
+                    dt.gdata의 데이터 구조는
                     {
                         idx: "1",
                         cat: "men",
-                        ginfo: [],
+                        ginfo:[],
                     }
                     -> 여기에 num항목을 추가하여 개수데이터를 입력함!
                     {
                         idx: "1",
                         cat: "men",
-                        ginfo: [],
+                        ginfo:[],
                         num: 4
                     }
                     -> 기존객체에 속성추가는 간단하다!
                     객체변수.새항목 = 값
                     여기서는
-                    dt.gdata[pm].["num"] = 값
-
+                    dt.gdata[pm]["num"] = 값
                 */
 
                 // 3. 배열뒤에 밀어넣기 메서드 : push(값)
@@ -442,13 +442,11 @@ const store = new Vuex.Store({
             /// DOM모두 로딩보장후 셋팅하기
             // 제이쿼리 로딩구역에 넣자!
             $(()=>{
-                
+
                 // 세자리마다 콤마함수
                 const chx = x => x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 
-                
-                // console.
-                log($(".chg_num"))
+                // console.log($(".chg_num"))
                 $(".chg_num img").click(function(){
 
                     // 0. 수량표시요소
@@ -482,7 +480,7 @@ const store = new Vuex.Store({
                     console.log("계산된값:",cnum);
 
                     // 4. 출력하기
-                    $("#total").text(cnum+"원");
+                    $("#total").text(chx(cnum)+"원");
 
                 }); ///////// click ////////////
 
