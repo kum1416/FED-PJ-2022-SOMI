@@ -87,7 +87,8 @@
                     // 4개의 이미지를 200번 반복해서 800개 이미지넣기
                     for(let i=0; i<200; i++){
                         isrc.forEach(v=>{
-                            document.querySelector(".mybx").innerHTML +=
+                            document.querySelector(".mybx")
+                            .innerHTML +=
                             `<img class="timg" src="${v}" alt="test">`;
                         });
                     } ////////// for /////////////
@@ -144,11 +145,6 @@
                 // 나타날 수 있다!
 
 
-
-
-
-
-
                 console.log("DOM로드");
             }); /////////// DOMContentLoaded /////////////
 
@@ -158,5 +154,6 @@
     <body>
         <!-- 개별박스 -->
         <div class="mybx"></div>
+
     </body>
 </html>
