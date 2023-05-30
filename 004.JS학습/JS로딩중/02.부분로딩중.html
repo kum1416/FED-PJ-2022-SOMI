@@ -80,13 +80,12 @@
                     v.innerHTML += 
                     `<img class="loading" 
                     src="images/loading_img.gif" alt="로딩중">`;
-                }) //////////// 로딩중이미지 모두넣기 /////////////
+                }) ////////// 로딩중이미지 모두 넣기 ///////////
 
 
                 // 페이지에 많은 양의 이미지 넣기 함수
                 const addImg = (num,seq) => { 
-                    // num - 반복개수, seq = 해당요소순번
-                    // 4개의 이미지를 200번 반복해서 800개 이미지넣기
+                    // num - 반복개수, seq - 해당요소순번
                     // num개수 만큼 반복하여 이미지 넣기
                     for(let i=0; i<num; i++){
                         isrc.forEach(v=>{
