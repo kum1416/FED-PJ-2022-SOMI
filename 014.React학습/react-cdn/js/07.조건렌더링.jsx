@@ -246,8 +246,8 @@ function MakeWork(props){
 // 3-2. 전체 출력 컴포넌트 //////////////
 // 구성: 전체타이틀(Title컴포넌트) + 변경버튼 
 //      + 작가와 그림출력(MakeWork컴포넌트)
-// 특이사항 : 변경버튼 클릭시 MakeWork 컴포넌트의 데이터를
-//           변경하여 다시 출력하도록 한다!
+// 특이사항 : 변경버튼 클릭시 MakeWork 컴포넌트의 데이터를 
+//          변경하여 다시 출력하도록 한다!
 function ExpComp(props){ // isChg 는 true/false값 받는 속성
     let result = props.isChg;
     // isChg속성은 true/false 데이터를 전달하여
@@ -257,21 +257,22 @@ function ExpComp(props){ // isChg 는 true/false값 받는 속성
     const again = () => {
         result = !result;
         console.log(result);
-    }; ////////// again 함수 //////////
+    }; ////////// again 함수 /////////
 
     return(
         <React.Fragment>
             {/* 1.큰제목 */}
             <Title tit="명화" />
             {/* 2.변경버튼 : 클릭시 again함수를 호출함 */}
-            <button onclick={again}>작가변경!!!</button>
+            <button onClick={again}>작가변경!!!</button>
             {/* 3.작품출력 */}
             <MakeWork painter="피카소" wname="우는여인" />
         </React.Fragment>
     );
 
-} //////////// ExpComp /////////////////
+} ///////////// ExpComp /////////////////////
+
 
 // 컴포넌트 출력하기
-ReactDOM.render(<ExpComp isChg={true}/>,
+ReactDOM.render(<ExpComp isChg={true} />,
 document.querySelector("#root5"));
