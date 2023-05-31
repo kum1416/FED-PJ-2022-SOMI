@@ -23,9 +23,10 @@ function LostDev(){
 // 3번 컴포넌트
 function MakeImg(props){
     return <img 
-    src={props.isrc} 
-    alt={props.ialt}
-    title={props.ialt} />;
+        src={props.isrc} 
+        alt={props.ialt} 
+        title={props.ialt} 
+    />;
 }
 
 // 출력 메인 컴포넌트 //////
@@ -142,27 +143,27 @@ ReactDOM.render(<WishList wlist={foods} />,
 document.querySelector("#root3"));
 
 
-////////// 좀 더 복잡한 리스트를 출력하는 컴포넌트 //////////
+///////// 좀 더 복잡한 리스트를 출력하는 컴포넌트 /////////
 
-// 전달할 배열변수 ////
+// 전달할 배열변수 ///
 const movs = [
-    {year:"2021",mtit:"영화1"},
-    {year:"2022",mtit:"영화2"},
-    {year:"2023",mtit:"영화3"},
+    {year:"2021",mtit:"인어공주1"},
+    {year:"2022",mtit:"범죄도시2"},
+    {year:"2023",mtit:"아바타3"},
 ];
-
-/* 
-    [ 출력형태 ]
-    👨‍🔧개발자👩‍🔧가 좋아하는 영화는
-    개발자가 좋아하는 영화는 최근3년간 아래와 같습니다!
-    2021년 영화1
-    2022년 영화2
-    2023년 영화3
-*/
-
 
 // 개발자가 좋아하는 영화 - 찍기!
 // 컴포넌트 구성하여 찍기
+
+/* 
+    [ 출력형태 ]
+    👨‍🔧개발자👩‍🔧가 좋아하는 영화
+    개발자가 좋아하는 영화는 최근 3년간 아래와 같습니다!
+    2021년도 영화1
+    2022년도 영화2
+    2023년도 영화3
+*/
+
 // 2-2. 반복리스트를 위한 컴포넌트 /////
 function MovieList(props){// year - 영화개봉년도 / mname - 영화명
     return <li>{props.year}년도 {props.mname}</li>
@@ -181,8 +182,8 @@ function WishList2(props){ // wlist속성에 담아 보내준다!
                 mymv.length > 0 &&
                 <div>
                     <h2>
-                        개발자가 좋아하는 영화는
-                        최근 {mymv.length}년간 아래와 같습니다! 
+                        개발자가 좋아하는 영화는 
+                        최근 {mymv.length}년간 아래와 같습니다!
                     </h2>
                     <ul>
                         {
@@ -192,7 +193,8 @@ function WishList2(props){ // wlist속성에 담아 보내준다!
                             // 배열값으로 객체가 들어가 있으므로
                             // 각 배열값은 객체의 속성으로 지정함!
                             // x.year / x.mtit
-                            mymv.map(x=> <MovieList year={x.year} mname={x.mtit} /> )
+                            mymv.map(x=> 
+                            <MovieList year={x.year} mname={x.mtit} /> )
                         }
                     </ul>
                 </div>
@@ -209,4 +211,3 @@ function WishList2(props){ // wlist속성에 담아 보내준다!
 // 컴포넌트 출력하기
 ReactDOM.render(<WishList2 wlist={movs} />,
 document.querySelector("#root4"));
-
