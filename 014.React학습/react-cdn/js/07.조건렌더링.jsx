@@ -147,9 +147,9 @@ document.querySelector("#root3"));
 
 // 전달할 배열변수 ///
 const movs = [
-    {year:"2021",mtit:"인어공주1"},
+    {year:"2021",mtit:"모가디슈"},
     {year:"2022",mtit:"범죄도시2"},
-    {year:"2023",mtit:"아바타3"},
+    {year:"2023",mtit:"가디언즈 오브 갤럭시3"},
 ];
 
 // 개발자가 좋아하는 영화 - 찍기!
@@ -212,9 +212,9 @@ function WishList2(props){ // wlist속성에 담아 보내준다!
 ReactDOM.render(<WishList2 wlist={movs} />,
 document.querySelector("#root4"));
 
-/********************************************************* 
-    3. 조건 연산자(삼항연산자)를 사용하여 조건부 랜더링하기
-*********************************************************/
+/********************************************************** 
+    3. 조건 연산자(삼항연산자)를 사용하여 조건부 랜더링하기 
+**********************************************************/
 
 // 명화 데이터
 const worksrc = {
@@ -224,10 +224,9 @@ const worksrc = {
 
 // 개발자가 좋아하는 그림(명화) 찍기
 
-
 // 3-1. 타이틀과 그림찍기 컴포넌트
 // 구성: 작가이름 + 작품이미지
-// 데이터: 작가이름(painter), 이미지경로(작가이름의 객체worksrc이용)
+// 데이터: 작가이름(painter), 이미지경로(작가이름의 객체worsrc이용)
 //          작품명(wname)
 function MakeWork(props){
     return(
@@ -241,6 +240,38 @@ function MakeWork(props){
             />
         </div>
     );
-    
 
-} ////////////// MakeWork /////////////////////////
+} ///////////// MakeWork ///////////////////////
+
+// 3-2. 전체 출력 컴포넌트 //////////////
+// 구성: 전체타이틀(Title컴포넌트) + 변경버튼 
+//      + 작가와 그림출력(MakeWork컴포넌트)
+// 특이사항 : 변경버튼 클릭시 MakeWork 컴포넌트의 데이터를
+//           변경하여 다시 출력하도록 한다!
+function ExpComp(props){ // isChg 는 true/false값 받는 속성
+    let result = props.isChg;
+    // isChg속성은 true/false 데이터를 전달하여
+    // MakeWork 컴포넌트의 변경여부를 결정함!
+
+    // result 에 담긴 true/false값을 반대로 전환함!
+    const again = () => {
+        result = !result;
+        console.log(result);
+    }; ////////// again 함수 //////////
+
+    return(
+        <React.Fragment>
+            {/* 1.큰제목 */}
+            <Title tit="명화" />
+            {/* 2.변경버튼 : 클릭시 again함수를 호출함 */}
+            <button onclick={again}>작가변경!!!</button>
+            {/* 3.작품출력 */}
+            <MakeWork painter="피카소" wname="우는여인" />
+        </React.Fragment>
+    );
+
+} //////////// ExpComp /////////////////
+
+// 컴포넌트 출력하기
+ReactDOM.render(<ExpComp isChg={true}/>,
+document.querySelector("#root5"));
