@@ -226,6 +226,21 @@ const worksrc = {
 
 
 // 3-1. 타이틀과 그림찍기 컴포넌트
+// 구성: 작가이름 + 작품이미지
+// 데이터: 작가이름(painter), 이미지경로(작가이름의 객체worksrc이용)
+//          작품명(wname)
 function MakeWork(props){
+    return(
+        <div>
+            <h2>{props.painter}</h2>
+            <img 
+                src={worksrc[props.painter]}
+                alt={props.wname}
+                style={{width:"400px"}}
+                title={props.wname}
+            />
+        </div>
+    );
+    
 
 } ////////////// MakeWork /////////////////////////
