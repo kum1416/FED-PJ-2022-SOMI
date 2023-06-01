@@ -15,11 +15,9 @@ let bdata = JSON.parse(localStorage.getItem("bdata"));
 // console.log("로컬스파싱:",bdata,
 // "/개수:",bdata.length);
 
-// 3-2. 게시판 리스트 생성하기
-let blist = "";
 
 // 페이지번호 : 페이지단위별 순서번호
-let pgnum = 1;
+// let pgnum = 1; -> 함수내 전달변수로 처리!
 // 페이지단위수 : 한 페이지당 레코드수
 const pgblock = 9;
 
@@ -32,8 +30,10 @@ const pgblock = 9;
     함수명: bindList
     기능: 페이지별 리스트를 생성하여 바인딩함
 *******************************************/
-function bindList(num){
-    pgnum = num;
+function bindList(pgnum){ // pgnum - 페이지번호
+    // 0. 게시판 리스트 생성하기
+    let blist = "";
+
     // 1.일반형 for문으로 특정대상 배열 데이터 가져오기
     // 데이터 순서: 번호,글제목,글쓴이,등록일자,조회수
     for (let i = (pgnum - 1) * pgblock; i < pgnum * pgblock; i++) {
