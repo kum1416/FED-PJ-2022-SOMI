@@ -5,11 +5,9 @@ import "./css/ban.css";
 import ban_data from "./data/banner";
 
 
-function Ban(props) { // props.cat 은 배너데이터 구분속성명
+function Ban(props) {// props.cat 은 배너데이터 구분속성명
     const sel_data = ban_data[props.cat];
-
-
-
+    
     return (
         <div className="banner">
             <ul className="slider">
