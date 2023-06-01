@@ -5,9 +5,8 @@ import "./css/ban.css";
 import ban_data from "./data/banner";
 
 // 반복리스트 코드 생성용 컴포넌트 ///////
-function MakeList(props){ // rec - 개별레코드값(객체형식)
-
-    return(
+function MakeList(props) { // rec - 개별레코드값(객체형식)
+    return (
         <li>
             <img className="banimg" src={props.rec["src"]} alt="배너" />
             <section className="bantit">
@@ -18,19 +17,16 @@ function MakeList(props){ // rec - 개별레코드값(객체형식)
             </section>
         </li>
     );
+} //////////// MakeList //////////////////
 
-} ////////////// MakeList ////////////
-
-
-// 배너출력용 컴포넌트 //////////
-function Ban(props) {// props.cat 은 배너데이터 구분속성명
+// 배너출력용 컴포넌트 /////////
+function Ban(props) {
+    // props.cat 은 배너데이터 구분속성명
     const sel_data = ban_data[props.cat];
-    
+
     return (
         <div className="banner">
-            <ul className="slider">
-               
-            </ul>
+            <ul className="slider"></ul>
         </div>
     );
 } /////////// Ban 컴포넌트 /////////////
