@@ -1,5 +1,6 @@
 // 리스트 페이지 JS - list.js
 
+
 let temp = "";
 
 for(let i = 0; i<50; i++){
