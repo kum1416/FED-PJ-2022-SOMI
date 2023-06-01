@@ -18,6 +18,7 @@ let bdata = JSON.parse(localStorage.getItem("bdata"));
 
 // 페이지번호 : 페이지단위별 순서번호
 // let pgnum = 1; -> 함수내 전달변수로 처리!
+
 // 페이지단위수 : 한 페이지당 레코드수
 const pgblock = 9;
 
@@ -33,7 +34,7 @@ const pgblock = 9;
 function bindList(pgnum){ // pgnum - 페이지번호
     // 0. 게시판 리스트 생성하기
     let blist = "";
-
+    
     // 1.일반형 for문으로 특정대상 배열 데이터 가져오기
     // 데이터 순서: 번호,글제목,글쓴이,등록일자,조회수
     for (let i = (pgnum - 1) * pgblock; i < pgnum * pgblock; i++) {
@@ -64,7 +65,7 @@ function bindList(pgnum){ // pgnum - 페이지번호
 
     // 페이징코드변수
     let pgcode = "";
-    
+
     // 3-2. 페이징코드 만들기
     // 나머지가 있으면 1을 더함
     if(pgadd!=0) pgtotal = pgtotal+1;
@@ -78,9 +79,9 @@ function bindList(pgnum){ // pgnum - 페이지번호
 
         // 사이구분자(마지막번호 뒤는 제외)
         if(i!=pgtotal) pgcode += " | ";
-       
+        
 
-    } /////////// for문 //////////////
+    } /////////// for문 ///////////////
 
     // 3-3. 페이징코드 넣기
     $(".paging").html(pgcode);
@@ -91,8 +92,9 @@ function bindList(pgnum){ // pgnum - 페이지번호
         e.preventDefault();
         // 바인딩함수 호출!(페이지번호 보냄)
         bindList($(this).text());
-        
-    }); /////////// click ///////////
+
+    }); /////////// click /////////////
+
 
 
 } /////////////// bindList함수 ///////////////
