@@ -35,21 +35,20 @@ function bindList(pgnum){ // pgnum - 페이지번호
     // 0. 게시판 리스트 생성하기
     let blist = "";
     // 전체 레코드 개수
-    let totnum = totnum;
+    let totnum = bdata.length;
     
     // 1.일반형 for문으로 특정대상 배열 데이터 가져오기
     // 데이터 순서: 번호,글제목,글쓴이,등록일자,조회수
     for (let i = (pgnum - 1) * pgblock; i < pgnum * pgblock; i++) {
-        // 마지막 번호한계값 조건으로 마지막페이지 데이터
-        // 존재하는 데이터까지만 바인딩하가
+        // 마지막 번호한계값 조건으로 마지막페이지 데이터 
+        // 존재하는 데이터까지만 바인딩하기
         if(i < totnum){
-            
+
             blist += `
                 <tr>
                     <td>${bdata[i]["idx"]}</td>
                     <td>
-                        <a href="view.html?idx=
-                        ${bdata[i]["idx"]}">
+                        <a href="view.html?idx=${bdata[i]["idx"]}">
                             ${bdata[i]["tit"]}
                         </a>
                     </td>
@@ -58,8 +57,7 @@ function bindList(pgnum){ // pgnum - 페이지번호
                     <td>${bdata[i]["cnt"]}</td>
                 </tr>
             `;
-        } ///////// if /////////////
-        
+        } //////////// if ////////////
     } /////////// for 문 ///////////////
     
     console.log("코드:", blist);
