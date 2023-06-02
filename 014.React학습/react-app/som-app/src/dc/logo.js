@@ -1,5 +1,5 @@
 // DC로고 컴포넌트
-import React from "react";
+import React from "react"; 
 import isrc from "./ImgSrc";
 
 const Logo = () => {
@@ -19,6 +19,6 @@ const Logo = () => {
         </h1>
     );
 
-}; //////////// Logo //////////////
+}; //////////// Logo ////////////////
 
 export default Logo;
