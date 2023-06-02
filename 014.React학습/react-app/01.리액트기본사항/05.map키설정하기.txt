@@ -12,20 +12,6 @@ return (
         <ul className="slider">
             {
                 sel_data.map((x,i)=> 
-                <MakeList rec={x} key={i} />)
-            }
-        </ul>
-    </div>
-);
-
-
-[2] map에서 외부 컴포넌트를 호출할 경우
-
-return (
-    <div className="banner">
-        <ul className="slider">
-            {
-                sel_data.map((x,i)=> 
                 (
                     <li key={i}>
                         <img className="banimg" src={x["src"]} alt="배너" />
@@ -42,15 +28,32 @@ return (
     </div>
 );
 
-[3] Children.toArray() 를 사용하여 고유 키값을 만들어줄 경우
+
+[2] map에서 외부 컴포넌트를 호출할 경우
+
+return (
+    <div className="banner">
+        <ul className="slider">
+            {
+                sel_data.map((x,i)=> 
+                <MakeList rec={x} key={i} />)
+            }
+        </ul>
+    </div>
+);
+
+
+[3] Children.toArray() 를 사용하여 고유 키값을 만들어줄 경우 😀배열 데이터화
+-> Children은 리액트의 하위 자식 컴포넌트에 접근하는 리액트 API
 
 return (
     <div className="banner">
         <ul className="slider">
             {
                 Children.toArray(
-                    sel_data.map((x,i)=> 
-                    <MakeList rec={x} />))
+                    sel_data.map((x)=> 
+                    <MakeList rec={x} />)
+                )
             }
         </ul>
     </div>

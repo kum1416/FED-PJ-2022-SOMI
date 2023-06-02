@@ -15,10 +15,13 @@
 .slider{
     position: relative;
     left: 0;
+    display: flex;
 }
 .slider li{
     position: relative;
     /* 부모자격 */
+    flex-shrink: 0; /* 😀강제로 줄어들래? 아니 */
+    /* 강제축소옵션 해제 */
 }
 /* 배너 컨텐츠버튼 */
 .banner button{
