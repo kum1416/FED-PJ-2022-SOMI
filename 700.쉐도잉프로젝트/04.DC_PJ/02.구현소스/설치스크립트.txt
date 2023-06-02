@@ -13,3 +13,9 @@
 3. 설치확인
 - 파일명: package.json
 - 항목명: "dependencies"
+
+4. 개발서버구동
+- 서버구동위치: 04.DC_PJ\02.구현소스\dc-app
+- 스크립트:
+    (1) 시작: npm start
+    (2) 멈춤: ctrl+c 후 질문에 답: y
