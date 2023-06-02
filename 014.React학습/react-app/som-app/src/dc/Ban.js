@@ -45,6 +45,13 @@ $(()=>{ /////////// jQB ///////////
 
         } ///////// else ////////////
 
+        // 3. 배너와 일치하는 블릿에 "on"넣기(나머지는 "on"제거)
+        // 대상: .indic li
+        // eq(순번) -> 오른쪽이동시 1, 왼쪽이동시 0
+        // isB값으로 오른쪽은 true->1, 왼쪽은 false->0
+        // 순서가 바뀌는 슬라이드에 고유 순번속성 data-seq값을 읽어옴!
+        $(".indic li").eq(tg.find("li").eq(isB).attr("data-seq")) // 😀누굴 선택할지
+        .addClass("on").siblings().removeClass("on");
 
     }); ////////// click ///////////
 
@@ -55,7 +62,7 @@ $(()=>{ /////////// jQB ///////////
 function MakeList(props) { 
     // rec - 개별레코드값(객체형식)
     return (
-        <li>
+        <li data-seq={props.idx}>
             <img className="banimg" src={props.rec["src"]} alt="배너" />
             <section className="bantit">
                 <h3>{props.rec["tit1"]}</h3>
@@ -79,7 +86,7 @@ function Ban(props) {
             <ul className="slider">
                 {
                     sel_data.map((x,i)=> 
-                    <MakeList rec={x} key={i} />)
+                    <MakeList rec={x} key={i} idx={i} />)
                 }
             </ul>
             {/* 이동버튼 + 슬라이드 블릿 : 슬라이드가 2개이상 */}
