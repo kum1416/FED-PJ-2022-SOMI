@@ -12,20 +12,22 @@ function jqFn(){
 function MenuBtn(){
     return(
         <>
-        <section className="menubtn">
-            <div className="imbx">
-                <img src="" alt="" />
-            </div>
-            <div className="titbx">
-                <h3></h3>
-                <h2></h2>
-            </div>
-            <div className="btnbx">
-                <button></button>
-            </div>  
-        </section>
-        {/* 빈루트를 만들고 JS로드함수포함 */}
-        {jqFn()}
+            <section className="menubtn">
+                <div>
+                    <div className="imbx">
+                        <img src="./images/menubtn1.jpg" alt="메뉴버튼" />
+                    </div>
+                    <div className="titbx">
+                        <h3>WORLDS COLLIDE</h3>
+                        <h2>THE FLASH IS ONLY IN THEATERS JUNE 16</h2>
+                    </div>
+                    <div className="btnbx">
+                        <button>TICKETS ON SALE NOW</button>
+                    </div>
+                </div>
+            </section>
+            {/* 빈루트를 만들고 JS로드함수포함 */}
+            {jqFn()}
         </>
     )
 }
