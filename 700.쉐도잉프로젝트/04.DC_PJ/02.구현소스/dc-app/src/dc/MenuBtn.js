@@ -1,4 +1,4 @@
-/// 메뉴버튼 모듈 - MenuBtn.js
+///  메뉴버튼 모듈 - MenuBtn.js
 import $ from 'jquery';
 import "./css/menubtn.css";
 
@@ -6,8 +6,8 @@ import "./css/menubtn.css";
 function jqFn(){
     $(()=>{
 
-    }); /////// jQB ////////
-} ///////////// jqFn /////////////
+    }); //////// jQB ///////////
+} ////////////// jQFn ///////////
 
 function MenuBtn(){
     return(
@@ -22,7 +22,7 @@ function MenuBtn(){
             </div>
             <div className="btnbx">
                 <button></button>
-            </div>
+            </div>  
         </section>
         {/* 빈루트를 만들고 JS로드함수포함 */}
         {jqFn()}
