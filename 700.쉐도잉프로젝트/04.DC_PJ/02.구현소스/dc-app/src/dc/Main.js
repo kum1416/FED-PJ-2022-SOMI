@@ -2,12 +2,16 @@
 import React from "react"; // 리액트 문법을 쓰고있으니까😀
 import Ban from "./Ban";
 import MenuBtn from "./MenuBtn";
+import menubtn_data from "./data/menubtn";
 
 const Main = () => {
     return(
         <>
             <Ban cat="main" />
-            <MenuBtn />
+            
+            {
+                menubtn_data.map((x,i) =><MenuBtn num={i} key={i} />)
+            }
         </>
     );
 }; ////////// Main ///////////
