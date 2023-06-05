@@ -1,16 +1,14 @@
 ///  메뉴버튼 모듈 - MenuBtn.js
-import $ from 'jquery';
+import $ from "jquery";
 import "./css/menubtn.css";
 
 // 제이쿼리 로드구역 함수 /////////
-function jqFn(){
-    $(()=>{
-
-    }); //////// jQB ///////////
+function jqFn() {
+    $(() => {}); //////// jQB ///////////
 } ////////////// jQFn ///////////
 
-function MenuBtn(){
-    return(
+function MenuBtn() {
+    return (
         <>
             <section className="menubtn">
                 <div>
@@ -19,7 +17,7 @@ function MenuBtn(){
                     </div>
                     <div className="titbx">
                         <h3>WORLDS COLLIDE</h3>
-                        <h2>THE FLASH IS ONLY IN THEATERS JUNE 16</h2>
+                        <h2>The Flash is Only in Theaters June 16</h2>
                     </div>
                     <div className="btnbx">
                         <button>TICKETS ON SALE NOW</button>
@@ -29,7 +27,7 @@ function MenuBtn(){
             {/* 빈루트를 만들고 JS로드함수포함 */}
             {jqFn()}
         </>
-    )
+    );
 }
 
 export default MenuBtn;
