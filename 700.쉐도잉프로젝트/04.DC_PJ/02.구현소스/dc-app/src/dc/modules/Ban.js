@@ -2,7 +2,7 @@
 // 배너CSS
 import "../css/ban.css";
 // 배너 데이터
-import ban_data from "../src/dc/data/banner";
+import ban_data from "../data/banner";
 // 제이쿼리
 import $ from "jquery";
 
