@@ -18,6 +18,19 @@ function VidIntro(props){
     // 데이터 선택하기
     const sdt = vidintro_data[props.pg];
 
+    // 링크코드 생성 함수 : desc 데이터 / sum 데이터에서 처리 😀컴포넌트안의 메서드만든거
+    const lcode = (data) => { // data는 desc/sum 둘중에 전달됨
+        return(
+            <>
+            {data.split('*')[0]}
+            <a href={sdt.link[1]} target='_blank'>
+                {sdt.link[0]}
+            </a>
+            {data.split('*')[1]}
+            </>
+        )
+    }
+
     return(
         <>
         {/* 모듈코드 */}
@@ -30,13 +43,22 @@ function VidIntro(props){
             <div className='vb2'>
                 <h3>{sdt.stit}</h3>
                 <h2>{sdt.btit}</h2>
-                <p>{sdt.sum}</p>
+                <p>
+                    {/* 특수문자(*)여부에 따라 처리
+                    indexOf(문자열) -> 없으면 -1리턴 */}
+                    {
+                        sdt.sum.indexOf('*') == -1 ?
+                        sdt.sum : lcode(sdt.sum)
+                    }
+                </p>
                 <p className='desc'>
-                    {sdt.desc.split('*')[0]}
-                    <a href={sdt.link[1]} target='_blank'>
-                        {sdt.link[0]}
-                    </a>
-                    {sdt.desc.split('*')[1]}
+                    {/* 특수문자(*)여부에 따라 처리
+                    indexOf(문자열) -> 없으면 -1리턴 */}
+                    {
+                        sdt.desc.indexOf('*') == -1 ?
+                        sdt.desc : lcode(sdt.desc)
+                    }
+
                 </p>
                 {/* 링크있을경우 표시 */}
             </div>
