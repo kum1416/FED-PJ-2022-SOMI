@@ -1,0 +1,60 @@
+// VidIntro 컴포너트용 데이터
+
+const vidintro_data = {
+  main: {
+    vsrc: "유튜브동영상경로",
+    stit: "FEATURED VIDEO",
+    btit: "큰타이틀",
+    sum: "요약소개",
+    desc: "설명",
+    link: "",
+  },
+  CHARACTERS: {
+    vsrc: "유튜브동영상경로",
+    stit: "작은타이틀",
+    btit: "큰타이틀",
+    sum: "요약소개",
+    desc: "설명",
+    link: "관련링크",
+  },
+  COMICS: {
+    vsrc: "유튜브동영상경로",
+    stit: "작은타이틀",
+    btit: "큰타이틀",
+    sum: "요약소개",
+    desc: "설명",
+    link: "관련링크",
+  },
+  MOVIES: {
+    vsrc: "유튜브동영상경로",
+    stit: "작은타이틀",
+    btit: "큰타이틀",
+    sum: "요약소개",
+    desc: "설명",
+    link: "관련링크",
+  },
+  GAMES: {
+    vsrc: "유튜브동영상경로",
+    stit: "작은타이틀",
+    btit: "큰타이틀",
+    sum: "요약소개",
+    desc: "설명",
+    link: "관련링크",
+  },
+  NEWS: {
+    vsrc: "유튜브동영상경로",
+    stit: "작은타이틀",
+    btit: "큰타이틀",
+    sum: "요약소개",
+    desc: "설명",
+    link: "관련링크",
+  },
+  VIDEO: {
+    vsrc: "유튜브동영상경로",
+    stit: "작은타이틀",
+    btit: "큰타이틀",
+    sum: "요약소개",
+    desc: "설명",
+    link: "관련링크",
+  },
+};
