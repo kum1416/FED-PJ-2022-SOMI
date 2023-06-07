@@ -1,13 +1,15 @@
 // DC MOVIES 페이지 컴포넌트
-import React from "react"; // 리액트 문법을 쓰고있으니까😀
+import React from "react";
 import Ban from "./modules/Ban";
+import VidIntro from "./modules/VidIntro";
 
 const Movies = () => {
     return(
         <>
             <Ban cat="MOVIES" />
+            <VidIntro pg="MOVIES" mm="on" />
         </>
     );
-}; ////////// Movies ///////////
+}; /////////// Movies //////////////
 
 export default Movies;
