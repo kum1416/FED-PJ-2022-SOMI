@@ -1,30 +1,43 @@
-// VidIntro 컴포넌트 JS
+// VidIntro 컴포넌트 JS - VidIntro.js
 
 import $ from 'jquery';
-import "./css/vidintro.css";
+import "../css/vidintro.css";
+import vidintro_data from '../data/vidintro';
+
 
 // 제이쿼리 로드구역 함수 /////////
 function jqFn(){
     $(()=>{
 
-    }); /////// jQB ////////
-} ///////////// jqFn /////////////
+    }); //////// jQB ///////////
+} ////////////// jQFn ///////////
 
-function VidIntro(){
+function VidIntro(props){ 
+    // props.pg - 해당페이지 데이터속성명
+
+    // 데이터 선택하기
+    const sdt = vidintro_data[props.pg];
+
     return(
         <>
         {/* 모듈코드 */}
-        <section>
+        <section className='vidbox'>
             {/* 비디오파트 */}
-            <div>
-            <iframe src="{}" title="{}"></iframe>
+            <div className='vb1'>
+            <iframe src={sdt.vsrc} title={sdt.btit}></iframe>
             </div>
             {/* 타이틀파트 */}
-            <div>
-                <h3></h3>
-                <h2></h2>
-                <p></p>
-                <p></p>
+            <div className='vb2'>
+                <h3>{sdt.stit}</h3>
+                <h2>{sdt.btit}</h2>
+                <p>{sdt.sum}</p>
+                <p className='desc'>
+                    {sdt.desc.split('*')[0]}
+                    <a href={sdt.link[1]} target='_blank'>
+                        {sdt.link[0]}
+                    </a>
+                    {sdt.desc.split('*')[1]}
+                </p>
                 {/* 링크있을경우 표시 */}
             </div>
         </section>
