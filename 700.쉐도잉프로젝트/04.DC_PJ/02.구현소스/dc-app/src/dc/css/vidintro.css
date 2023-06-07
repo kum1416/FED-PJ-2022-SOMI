@@ -16,6 +16,10 @@
     background-color: #0074E8;
     color: #fff;
 }
+.vidbox.on a{
+    color: #fff;
+}
+
 
 .vb1{
     width: 55%;
