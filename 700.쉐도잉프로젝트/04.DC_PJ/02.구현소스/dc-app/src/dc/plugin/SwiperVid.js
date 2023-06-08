@@ -4,7 +4,6 @@ import { Swiper, SwiperSlide } from "swiper/react";
 
 // Import Swiper styles
 import "swiper/css";
-import "swiper/css/pagination";
 import "swiper/css/navigation";
 
 import "./swipervid.css";
@@ -26,7 +25,7 @@ export default function SwiperVid(props) {
         className="mySwiper"
       >
         {
-            data.map((v,i)=>
+            data.map((v,i)=>            
             <SwiperSlide key={i}>{props.name} {v}</SwiperSlide>
             )
         }

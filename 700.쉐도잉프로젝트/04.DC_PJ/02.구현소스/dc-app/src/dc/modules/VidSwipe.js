@@ -1,20 +1,22 @@
-/// VidSwipe 모듈 - VidSwipe.js
+///  VidSwipe 모듈 - VidSwipe.js
 import $ from 'jquery';
-import "../css/VidSwipe.css";
-import VidSwipe from "./modules/VidSwipe";
+import "../css/vidswipe.css";
+import SwiperVid from '../plugin/SwiperVid';
 
 // 제이쿼리 로드구역 함수 /////////
 function jqFn(){
     $(()=>{
 
-    }); /////// jQB ////////
-} ///////////// jqFn /////////////
+    }); //////// jQB ///////////
+} ////////////// jQFn ///////////
 
-function MenuBtn(props){
+function VidSwipe(props){
     // props.pg - 페이지별 데이터구분
     return(
         <>
         {/* 모듈코드 */}
+
+        {/* 1. 스와이퍼 컴포넌트 */}
         <SwiperVid name="나는" />
 
         {/* 2. 비디오 재생창 */}
@@ -29,4 +31,4 @@ function MenuBtn(props){
     )
 }
 
-export default Temp;
+export default VidSwipe;
