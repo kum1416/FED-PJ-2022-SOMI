@@ -10,7 +10,7 @@ import "swiper/css/navigation";
 import "./swipervid.css";
 
 // import required modules
-import { Pagination, Navigation } from "swiper";
+import { Navigation } from "swiper";
 
 export default function SwiperVid(props) {
 
@@ -21,11 +21,8 @@ export default function SwiperVid(props) {
       <Swiper
         slidesPerView={4}
         spaceBetween={20}
-        pagination={{
-          clickable: true,
-        }}
         navigation={true}
-        modules={[Pagination, Navigation]}
+        modules={[Navigation]}
         className="mySwiper"
       >
         {
