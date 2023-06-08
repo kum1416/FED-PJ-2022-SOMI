@@ -1,7 +1,8 @@
 import React, { useRef, useState } from "react";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
-import $ feistf
+/* 제이쿼리넣기 */
+import $ from 'jquery';
 
 // Import Swiper styles
 import "swiper/css";
@@ -22,15 +23,22 @@ export default function SwiperVid(props) {
     const showVid = (src,tit) => { 
         // src-비디오경로, tit-비디오제목
         console.log(src,tit);
-        // 1. 아이프레임 src넣기
-        document.querySelector('playvid iframe')
-        .setAttribute("src","src+autopllay=1");
-        // 2. 비디오 타이틀 넣기
-        $("ifetit").text(tit);
 
-        let 
-        // 4.   
-    }; ////////////// showVid ////////////////
+        let ifr = $(".playvid iframe");
+        // 1. 아이프레임 src넣기
+        ifr.attr("src",src+"?autoplay=1");
+        // 2. 비디오 타이틀 넣기
+        $(".ifrtit").text(tit); 
+
+        let vbx = $(".vidbx");
+        // 3. 비디오 전체박스 보이기
+        vbx.fadeIn(300);
+        // 4. 닫기버튼 셋팅
+        $(".cbtn").click(()=>{
+            vbx.fadeOut(300);
+            ifr.attr("src","");
+        });
+    }; //////////// showVid ///////////////////
 
     return (
         <>
