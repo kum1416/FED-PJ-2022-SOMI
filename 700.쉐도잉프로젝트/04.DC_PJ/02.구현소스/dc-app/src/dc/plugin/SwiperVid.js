@@ -14,23 +14,33 @@ import { Navigation } from "swiper";
 import swipervid_data from "../data/swipervid";
 
 export default function SwiperVid(props) {
-  // 데이터 셋팅
-  const sdt = swipervid_data;
+    // 데이터 셋팅
+    const sdt = swipervid_data;
 
-  return (
-    <>
-      <Swiper 
-      slidesPerView={4} 
-      spaceBetween={20} 
-      navigation={true} 
-      modules={[Navigation]} 
-      className="mySwiper">
-        {sdt.map((v, i) => (
-          <SwiperSlide key={i}>
-            {props.name} {v.tit}
-          </SwiperSlide>
-        ))}
-      </Swiper>
-    </>
-  );
+    return (
+        <>
+            <Swiper
+                slidesPerView={4}
+                spaceBetween={20}
+                navigation={true}
+                modules={[Navigation]}
+                className="mySwiper">
+                {sdt.map((v, i) => (
+                    <SwiperSlide key={i}>
+                        <section className="swinbx">
+                            {/* 동영상이미지영역 */}
+                            <div className="vidimg">
+                                <img src={v.isrc} alt={v.tit}></img>
+                            </div>
+                            {/* 동영상타이틀영역 */}
+                            <div className="vidtit">
+                                <h4>{v.cat}</h4>
+                                <h3>{v.tit}</h3>
+                            </div>
+                        </section>
+                    </SwiperSlide>
+                ))}
+            </Swiper>
+        </>
+    );
 }
