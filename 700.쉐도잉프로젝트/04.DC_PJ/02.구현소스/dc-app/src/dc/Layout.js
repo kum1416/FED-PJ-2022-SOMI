@@ -19,10 +19,10 @@ const Layout = () => {
 
    /* GNB메뉴 데이터구성하기 */
    const gnb_data = [
-       {
-           txt:"Home",
-           link:"/",
-        },
+    //    {
+    //        txt:"Home",
+    //        link:"/",
+    //     },
         {
             txt:"CHARACTERS",
             link:"/ct",
@@ -77,6 +77,29 @@ const Layout = () => {
         },
     ];
 
+    const bmenu = [
+        {
+            txt:"Privacy Policy",
+            link:"https://www.warnermediaprivacy.com/policycenter/b2c/WM/",
+        },
+        {
+            txt:"Terms",
+            link:"https://www.dcuniverseinfinite.com/terms?_gl=1*373oiu*_gcl_au*MTMzOTM1NDA1Ny4xNjg0OTc1ODg0",
+        },
+        {
+            txt:"Ad Choices",
+            link:"https://www.warnermediaprivacy.com/policycenter/b2c/wm/",
+        },
+        {
+            txt:"Accessibility",
+            link:"https://policies.warnerbros.com/terms/en-us/#accessibility",
+        },
+        {
+            txt:"Cookie Settings",
+            link:"https://www.dc.com/#compliance-link",
+        },
+    ]
+
     return (
         <>
             {/* 1.상단영역 */}
@@ -85,7 +108,9 @@ const Layout = () => {
                 <nav className="gnb">
                     <ul>
                         <li>
-                            <Logo />
+                            <Link to="/">
+                                <Logo />
+                            </Link>
                         </li>
                         {
                             gnb_data.map((v,i)=>
@@ -143,7 +168,8 @@ const Layout = () => {
             </main>
             {/* 3.하단영역 */}
             <footer className="info">
-                All Site Content © &amp; TM DC, unless otherwise noted here.
+                All Site Content © &amp; T
+                M DC, unless otherwise noted here.
                 <br />
                 All rights reserved.
             </footer>
