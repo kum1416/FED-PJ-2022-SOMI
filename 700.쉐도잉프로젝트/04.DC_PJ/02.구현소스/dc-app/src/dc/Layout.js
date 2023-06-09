@@ -14,14 +14,6 @@ import { Link, Outlet } from "react-router-dom";
 
 const Layout = () => {
 
-    /* 
-    sub:[{
-        txt:"",
-        link:"",
-    }]
-    
-    */
-   
    /* GNB메뉴 데이터구성하기 */
    const gnb_data = [
        {
@@ -105,7 +97,7 @@ const Layout = () => {
                                         // null - 빈값
                                         // 위의 두가지는 데이터가 없다는 값임!
                                         v.sub != undefined &&
-                                        <div className="smenu"> {/* 싸고있는박스😀 */}
+                                        <div className="smenu">
                                             <ol>
                                                 {
                                                     v.sub.map((v,i)=>
@@ -118,6 +110,7 @@ const Layout = () => {
                                                 }
                                             </ol>
                                         </div>
+
                                     }
                                 </li>
                             )
