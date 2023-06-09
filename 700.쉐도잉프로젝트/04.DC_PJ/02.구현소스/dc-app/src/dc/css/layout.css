@@ -35,15 +35,12 @@
     text-decoration-style: wavy;
     text-shadow: 2px 2px 2px #555;
 }
-h1{
-    text-align: center;
-}
 
 /* 서브메뉴 */
 .smenu{
     position: absolute;
     left: 50%;
-    transform: translateX(-50%) translateY(15px);
+    transform: translateX(-50%);
     background-color: #fff;
     padding: 20px; /* 원래는 주면안되는데..?😀 */
     border-radius: 10px;
@@ -53,7 +50,7 @@ h1{
     /* 처음에 안보임 */
     display: none;
 }
-/* 오버시 보임 */
+/* 오버시보임 */
 .gnb>ul>li:hover .smenu{
     display: block;
 }
@@ -65,9 +62,10 @@ h1{
     transform: translateX(-50%);
     width: 0;
     height: 0;
-    border-bottom: 15px solid rgba(0, 0, 0, 0.291);
-    border-left: 15px solid transparent;
-    border-right: 15px solid transparent;
+    border-bottom: 16px solid rgba(0, 0, 0, 0.291);
+    border-left: 16px solid transparent;
+    border-right: 16px solid transparent;
+
 
 }
 .smenu::after{
@@ -81,7 +79,14 @@ h1{
     border-bottom: 15px solid #fff;
     border-left: 15px solid transparent;
     border-right: 15px solid transparent;
+
+
 }
+
+h1{
+    text-align: center;
+}
+
 
 
 /* 메인영역 */
