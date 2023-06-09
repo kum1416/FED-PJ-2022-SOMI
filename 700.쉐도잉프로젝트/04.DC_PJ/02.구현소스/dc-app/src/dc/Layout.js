@@ -21,12 +21,12 @@ const Layout = () => {
     }]
     
     */
-
-    /* GNB메뉴 데이터구성하기 */
-    const gnb_data = [
-        {
-            txt:"Home",
-            link:"/",
+   
+   /* GNB메뉴 데이터구성하기 */
+   const gnb_data = [
+       {
+           txt:"Home",
+           link:"/",
         },
         {
             txt:"CHARACTERS",
@@ -35,6 +35,20 @@ const Layout = () => {
         {
             txt:"COMICS",
             link:"/co",
+            sub:[
+                {
+                    txt:"LATEST COMICS",
+                    link:"",
+                },
+                {
+                    txt:"DC UNIVERSE INFINITE",
+                    link:"",
+                },
+                {
+                    txt:"ALL COMICS SERIES",
+                    link:"",
+                },
+            ],
         },
         {
             txt:"MOVIES & TV",
