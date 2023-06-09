@@ -12,11 +12,15 @@ import { Link, Outlet } from "react-router-dom";
     -> 라우터 연결 컴포넌트 출력자리 컴포넌트
 *******************************************************/
 
-/* sub:[{
-    txt:"",
-    link:""
-}] */
 const Layout = () => {
+
+    /* 
+    sub:[{
+        txt:"",
+        link:"",
+    }]
+    
+    */
 
     /* GNB메뉴 데이터구성하기 */
     const gnb_data = [
