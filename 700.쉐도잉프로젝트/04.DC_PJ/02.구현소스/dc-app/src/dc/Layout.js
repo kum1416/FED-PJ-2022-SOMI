@@ -2,6 +2,9 @@
 import Logo from "./Logo";
 import "./css/layout.css";
 import { Link, Outlet } from "react-router-dom";
+/* 폰트어썸 임포트 */
+import { faCamera,faSearch } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 /******************************************************* 
     [ 리액트 라우터와 연결하여 사용되는 라우터 컴포넌트 ]
@@ -115,6 +118,20 @@ const Layout = () => {
                                 </li>
                             )
                         }
+
+                        <li style={{marginLeft:"auto"}}>
+                            <FontAwesomeIcon icon={faSearch} />
+                        </li>
+                        <li>
+                            <Link to="/signup">
+                                SIGN UP
+                            </Link>
+                        </li>
+                        <li>
+                            <Link to="/login">
+                                LOG IN
+                            </Link>
+                        </li>
 
                     </ul>
                 </nav>
