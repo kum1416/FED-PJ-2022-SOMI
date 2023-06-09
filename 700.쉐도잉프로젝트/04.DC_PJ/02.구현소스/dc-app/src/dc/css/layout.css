@@ -48,6 +48,13 @@ h1{
     border-radius: 10px;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.555);
     white-space: nowrap; /* 줄바꿈노노 */
+    line-height: 2.5;
+    /* 처음에 안보임 */
+    display: none;
+}
+/* 오버시 보임 */
+.gnb>ul>li:hover .smenu{
+    display: block;
 }
 .smenu::before{
     content: '';
@@ -57,14 +64,15 @@ h1{
     transform: translateX(-50%);
     width: 0;
     height: 0;
-    border-bottom: 15px solid rgba(0, 0, 0, 0.217);
+    border-bottom: 15px solid rgba(0, 0, 0, 0.291);
     border-left: 15px solid transparent;
     border-right: 15px solid transparent;
+
 }
 .smenu::after{
     content: '';
     position: absolute;
-    top: -17px;
+    top: -15px;
     left: 50%;
     transform: translateX(-50%);
     width: 0;
