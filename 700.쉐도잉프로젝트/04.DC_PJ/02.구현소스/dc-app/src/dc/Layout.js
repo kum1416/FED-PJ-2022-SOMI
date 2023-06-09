@@ -2,10 +2,10 @@
 import Logo from "./Logo";
 import "./css/layout.css";
 import { Link, Outlet } from "react-router-dom";
+
 /* 폰트어썸 임포트 */
 import { faCamera,faSearch } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-
 /******************************************************* 
     [ 리액트 라우터와 연결하여 사용되는 라우터 컴포넌트 ]
     1. <Link to="/경로명"></Link>
@@ -77,14 +77,15 @@ const Layout = () => {
         },
     ];
 
-    const bmenu = [
+
+    const bmenu= [
         {
             txt:"Privacy Policy",
             link:"https://www.warnermediaprivacy.com/policycenter/b2c/WM/",
         },
         {
             txt:"Terms",
-            link:"https://www.dcuniverseinfinite.com/terms?_gl=1*373oiu*_gcl_au*MTMzOTM1NDA1Ny4xNjg0OTc1ODg0",
+            link:"https://www.dcuniverseinfinite.com/terms?_gl=1*5nxhg2*_gcl_au*MTk3OTgxNzUwMi4xNjgzMTc3NDg3",
         },
         {
             txt:"Ad Choices",
@@ -145,7 +146,7 @@ const Layout = () => {
                         }
 
                         <li style={{marginLeft:"auto"}}>
-                            <FontAwesomeIcon icon={faSearch} />
+                        <FontAwesomeIcon icon={faSearch} />
                         </li>
                         <li>
                             <Link to="/signup">
@@ -157,7 +158,6 @@ const Layout = () => {
                                 LOG IN
                             </Link>
                         </li>
-
                     </ul>
                 </nav>
             </header>
@@ -168,8 +168,43 @@ const Layout = () => {
             </main>
             {/* 3.하단영역 */}
             <footer className="info">
-                All Site Content © &amp; T
-                M DC, unless otherwise noted here.
+                <ul>
+                    <li>
+                <Logo />
+
+                    </li>
+                    <li>
+                        <ol className="bmenu">
+                            <li>
+                                <a href="">
+                                Privacy Policy
+                                </a>
+                            </li>
+                            <li>
+                                <a href="">
+                                Privacy Policy
+                                </a>
+                            </li>
+                            <li>
+                                <a href="">
+                                Privacy Policy
+                                </a>
+                            </li>
+                            <li>
+                                <a href="">
+                                Privacy Policy
+                                </a>
+                            </li>
+                        </ol>
+                    </li>
+                    <li>
+                    © & ™ DC. ALL RIGHTS RESERVED
+                    </li>
+                    </ul>
+
+
+            CHARACTERS
+                All Site Content © &amp; TM DC, unless otherwise noted here.
                 <br />
                 All rights reserved.
             </footer>
