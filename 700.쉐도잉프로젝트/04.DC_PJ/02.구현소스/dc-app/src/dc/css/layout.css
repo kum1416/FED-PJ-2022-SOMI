@@ -7,6 +7,7 @@
     height: 56px;
     z-index: 9999;
     background-color: #fff;
+    font-family: 'Roboto Condensed', sans-serif;
 }
 .gnb{
     max-width: 1320px;
@@ -19,10 +20,12 @@
     gap: 0 20px
 }
 .gnb>ul> li{
-    /* margin: 0 10px; */
+    /* 상위메뉴 부모자격 */
+    position: relative;
 }
 .gnb a{
     color: #111;
+    font-weight: bold;
     text-decoration: none;
 }
 .gnb a:hover{
@@ -38,6 +41,37 @@ h1{
 /* 서브메뉴 */
 .smenu{
     position: absolute;
+    left: 50%;
+    transform: translateX(-50%) translateY(15px);
+    background-color: #fff;
+    padding: 20px; /* 원래는 주면안되는데..?😀 */
+    border-radius: 10px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.555);
+    white-space: nowrap; /* 줄바꿈노노 */
+}
+.smenu::before{
+    content: '';
+    position: absolute;
+    top: -17px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-bottom: 15px solid rgba(0, 0, 0, 0.217);
+    border-left: 15px solid transparent;
+    border-right: 15px solid transparent;
+}
+.smenu::after{
+    content: '';
+    position: absolute;
+    top: -17px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-bottom: 15px solid #fff;
+    border-left: 15px solid transparent;
+    border-right: 15px solid transparent;
 }
 
 
