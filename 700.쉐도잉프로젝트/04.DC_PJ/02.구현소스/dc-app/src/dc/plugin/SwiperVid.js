@@ -8,6 +8,7 @@ import $ from 'jquery';
 import "swiper/css";
 import "swiper/css/navigation";
 
+
 /* 폰트어썸 임포트 */
 import { faPlayCircle } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
