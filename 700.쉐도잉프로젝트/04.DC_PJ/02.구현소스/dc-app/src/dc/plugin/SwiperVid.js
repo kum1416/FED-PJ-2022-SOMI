@@ -55,17 +55,25 @@ export default function SwiperVid(props) {
     const evtFn = () => {
         $(()=>{//////// jQB //////////
 
-            // 윈도우 리사이즈 이벤트
-            $(window).on("resize",function(){
-                // 윈도우사이즈체크
-                let nowW = $(this).width();
-                console.log(nowW);
-                // 화면사이즈별 슬라이드수 변경하기
-                if(nowW <= 1000 && nowW > 700) setPerSld(3);
-                else if(nowW <= 700) setPerSld(2);
-                else setPerSld(4); // 1000초과
+            // 화면크기별 슬라이드수 변경함수
+            const chgSwp = () => {
+                    // 윈도우사이즈체크
+                    let nowW = $(this).width();
+                    // console.log(nowW);
+                    // 화면사이즈별 슬라이드수 변경하기
+                    if(nowW <= 1000 && nowW > 700) setPerSld(3);
+                    else if(nowW <= 700) setPerSld(2);
+                    else setPerSld(4); // 1000초과
+                    
+                }; /////////// chgSwp ///////////
+                
+                
+                // 윈도우 리사이즈 이벤트
+                $(window).on("resize",chgSwp)
 
-            }); ///////// resize ///////////
+                // 로딩시 최초호출
+                chgSwp();
+
 
 
 
