@@ -1,4 +1,4 @@
-/// 어떤 모듈 - 어떤.js
+///  어떤 모듈 - 어떤.js
 import $ from 'jquery';
 import "./css/member.css";
 
@@ -6,8 +6,8 @@ import "./css/member.css";
 function jqFn(){
     $(()=>{
 
-    }); /////// jQB ////////
-} ///////////// jqFn /////////////
+    }); //////// jQB ///////////
+} ////////////// jQFn ///////////
 
 function Member(){
     return(
