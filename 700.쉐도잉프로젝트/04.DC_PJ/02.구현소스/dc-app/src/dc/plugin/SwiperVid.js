@@ -26,7 +26,7 @@ export default function SwiperVid(props) {
 
     // 하나당 슬라이드수 : Hook 변수
     // const [변수,set변수] = useState(초기값)
-    const [perSld,setPerSld] = useState(4); // 😀처음에 4개 보여줄거얌
+    const [perSld,setPerSld] = useState(4);
     // 값의 사용은 Hook 변수를 쓰고
     // 값의 변경은 set변수(값) 형식으로 사용함!
 
@@ -51,29 +51,29 @@ export default function SwiperVid(props) {
         });
     }; //////////// showVid ///////////////////
 
-    // 이벤트 함수 ////////////////////
-    const evtFn = () => { // 😀할당형
-        $(()=>{ //////////// jQB /////////////
+    // 이벤트 함수 ///////////////////////////
+    const evtFn = () => {
+        $(()=>{//////// jQB //////////
 
             // 윈도우 리사이즈 이벤트
             $(window).on("resize",function(){
                 // 윈도우사이즈체크
-                let nowW = $(this).width(); // this는 윈도우
+                let nowW = $(this).width();
                 console.log(nowW);
                 // 화면사이즈별 슬라이드수 변경하기
-                if(nowW <= 1000 && nowW > 700) setPerSld(3); // 😀밑에 또 있으면 사이범위로 지정해야함
+                if(nowW <= 1000 && nowW > 700) setPerSld(3);
                 else if(nowW <= 700) setPerSld(2);
                 else setPerSld(4); // 1000초과
 
-            }); /////////// resize ////////////
+            }); ///////// resize ///////////
 
 
 
-        }); //////////// jQB /////////////
+        }); /////////// jQB //////////
 
-    }; ///////////////// evtFn 함수 /////////////
+    }; //////////////// evtFn 함수 //////////////
 
-
+    
     return (
         <>
             <Swiper
