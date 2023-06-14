@@ -77,7 +77,7 @@ function Member() {
         // 조건: 유효성 검사결과가 true인가? 에러상태! false(에러아님)
         // 정규식.test() -> 정규식 검사결과 리턴 메서드
         // 결과: true이면 에러상태값 false / false이면 에러상태값 true
-        if (valid.test(e.target.value)){
+        if (valid.test(e.target.value)){ 
             // 아이디 형식에는 맞지만 사용중인 아이디인지 검사하기
             let memData = localStorage.getItem("mem-data");
             // 로컬쓰 null아닌경우
@@ -90,7 +90,7 @@ function Member() {
 
             setUserIdError(false); // 에러아님상태!
 
-        } ///////// if /////////
+        } ////// if ///////////
         else setUserIdError(true); // 에러상태임!
 
         // 4. 실제 useerId 후크변수값이 업데이트 되어야 화면에 출력됨!
@@ -163,11 +163,11 @@ function Member() {
         if(!userName) setUserNameError(true);
         if(!email) setEmailError(true);
 
-        // 통과조건:
+        // 통과조건: 
         // 1. 빈값이 아님
         // 2. 에러 후크 변수가 모두 false
-        // 위의 2가지만족시 true값 리턴
-        if(userId && pwd && chkPwd && userName && email &&
+        // 위의 2가지 만족시 treu값 리턴
+        if(userId && pwd && chkPwd && userName && email && 
             !userIdError && !pwdError && 
             !chkPwdError && !userNameError && !emailError) return true;
         else return false; // 하나라도 에러면  false값 리턴!
@@ -192,22 +192,21 @@ function Member() {
                 localStorage.setItem("mem-data",`
                     [
                         {
-                            idx: 1,
-                            uid:"tomtom",
-                            pwd:"1111"
-                            unm:"Tom",
-                            eml:"tom@gmail.                    
+                            "idx": "1",
+                            "uid":"tomtom",
+                            "pwd":"1111",
+                            "unm":"Tom",
+                            "eml":"tom@gmail.com"
                         }
-                    ]  
+                    ]
                 `)
             }
-            
+    
             // 로컬스 변수할당
-            let  memData = localStorage.getItem("mem-data");
+            let memData = localStorage.getItem("mem-data");
 
             console.log(memData);
-            
-            
+
             // 로컬스 객체로 변환하기
             memData = JSON.parse(memData);
 
@@ -220,11 +219,11 @@ function Member() {
                 "pwd": pwd,
                 "unm": userName,
                 "eml": email
-            }
+            };
 
-            // 데이터 추가하기 : 배열에 데이터 추가임 => pus
+            // 데이터 추가하기 : 배열에 데이터 추가임 -> push()
             memData.push(newObj);
-            
+
             // 추가후 확인
             console.log(memData);
 
@@ -232,13 +231,14 @@ function Member() {
             localStorage.setItem("mem-data",JSON.stringify(memData))
 
             // 로컬쓰 확인
-            console.log(localStorage.getItem("mam-data"));
+            console.log(localStorage.getItem("mem-data"));
 
         } /// if ////
         // 불통과시 ////////////////
         else{
             // alert("입력을 수정하세요!");
         } /// else /////
+
 
 
     }; ///////////// onSubmit ////////////////
