@@ -225,7 +225,7 @@ function Member() {
     const onSubmit = (e) => {
         // 기본 서브밋기능 막기!
         e.preventDefault();
-
+        // localStorage.clear();
         console.log("서브밋!");
 
         // 유효성검사 전체 통과시 ////
