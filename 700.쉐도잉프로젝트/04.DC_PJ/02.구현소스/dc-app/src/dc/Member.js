@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import $ from "jquery";
 import "./css/member.css";
+import { Link } from "react-router-dom";
 
 /* 
     [ 후크 : Hook - 왜 필요한가? ]
@@ -149,8 +150,13 @@ function Member() {
         if(!userName) setUserNameError(true);
         if(!email) setEmailError(true);
 
-        // 모두 true일 경우 treu값 리턴
-        if(userId && pwd && chkPwd && userName && email) return true;
+        // 통과조건:
+        // 1. 빈값이 아님
+        // 2. 에러 후크 변수가 모두 false
+        // 위의 2가지만족시 true값 리턴
+        if(userId && pwd && chkPwd && userName && email &&
+            !userIdError && !pwdError && 
+            !chkPwdError && !userNameError && !emailError) return true;
         else return false; // 하나라도 에러면  false값 리턴!
 
     }; ////////////// totalValid ////////////////
@@ -164,11 +170,61 @@ function Member() {
 
         // 유효성검사 전체 통과시 ////
         if(totalValid()) {
-            alert("처리페이지로 이동!");
+            // alert("처리페이지로 이동!");
+
+            // localStorage.clear();
+
+            // 만약 로컬스 "mem-data"가 null이면 만들어준다!
+            if(localStorage.getItem("mem-data")===null){
+                localStorage.setItem("mem-data",`
+                    [
+                        {
+                            idx: 1,
+                            uid:"tomtom",
+                            pwd:"1111"
+                            unm:"Tom",
+                            eml:"tom@gmail.                    
+                        }
+                    ]  
+                `)
+            }
+            
+            // 로컬스 변수할당
+            let  memData = localStorage.getItem("mem-data");
+
+            console.log(memData);
+            
+            
+            // 로컬스 객체로 변환하기
+            memData = JSON.parse(memData);
+
+            console.log(memData);
+
+            // 새로운 데이터구성
+            let newObj = {
+                "idx": memData.length+1,
+                "uid": userId,
+                "pwd": pwd,
+                "unm": userName,
+                "eml": email
+            }
+
+            // 데이터 추가하기 : 배열에 데이터 추가임 => pus
+            memData.push(newObj);
+            
+            // 추가후 확인
+            console.log(memData);
+
+            // 로컬쓰에 반영하기
+            localStorage.setItem("mem-data",JSON.stringify(memData))
+
+            // 로컬쓰 확인
+            console.log(localStorage.getItem("mam-data"));
+
         } /// if ////
         // 불통과시 ////////////////
         else{
-            alert("입력을 수정하세요!");
+            // alert("입력을 수정하세요!");
         } /// else /////
 
 
@@ -311,7 +367,8 @@ function Member() {
                         </li>
                         <li>
                             {/* 7.로그인페이지링크 */}
-
+                            Are you already a member? 
+                            <Link to="/login"> Log In </Link>
                         </li>
                     </ul>
                 </form>
