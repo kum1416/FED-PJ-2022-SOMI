@@ -63,6 +63,16 @@ function Member() {
     // 5. 이메일에러변수
     const [emailError, setEmailError] = useState(false);
 
+
+    // [ 아이디관련 메시지 프리셋 ]
+    const msgId = [
+        "User ID must contain a minimum of 5 characters",
+        "This ID is already in use!",
+        "That's a great ID!"
+    ];
+    // 후크변수 메시지
+    const [idMsg,setIdMsg] = useState(msgId[0]); // 😀msgId[0]->기본데이타 들어가게함
+
     // [ 3. 유효성 검사 메서드 ]
     // 1. 아이디 유효성 검사
     const changeUserId = (e) => {
@@ -266,7 +276,7 @@ function Member() {
                                 userIdError && (
                                     <div className="msg">
                                         <small style={{ color: "red", fontSize: "10px" }}>
-                                        User ID must contain a minimum of 5 characters
+                                        {idMsg}
                                         </small>
                                     </div>
                                 )
