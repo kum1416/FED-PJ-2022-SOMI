@@ -77,7 +77,20 @@ function Member() {
         // 조건: 유효성 검사결과가 true인가? 에러상태! false(에러아님)
         // 정규식.test() -> 정규식 검사결과 리턴 메서드
         // 결과: true이면 에러상태값 false / false이면 에러상태값 true
-        if (valid.test(e.target.value)) setUserIdError(false); // 에러아님상태!
+        if (valid.test(e.target.value)){
+            // 아이디 형식에는 맞지만 사용중인 아이디인지 검사하기
+            let memData = localStorage.getItem("mem-data");
+            // 로컬쓰 null아닌경우
+            if(memData){
+                
+            }
+            else{
+                console.log("DB가 없어욧!!!");
+            }
+
+            setUserIdError(false); // 에러아님상태!
+
+        } ///////// if /////////
         else setUserIdError(true); // 에러상태임!
 
         // 4. 실제 useerId 후크변수값이 업데이트 되어야 화면에 출력됨!
