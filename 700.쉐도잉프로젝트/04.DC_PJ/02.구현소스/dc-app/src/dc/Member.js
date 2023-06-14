@@ -104,8 +104,14 @@ function Member() {
                         // 메시지변경
                         setIdMsg(msgId[1]);
                         // 아이디에러상태값 업데이트
-                        userIdError(true);
+                        setUserIdError(true);
                     } ////// if /////
+                    else{
+                        // 메시지변경(처음메시지로변경)
+                        setIdMsg(msgId[0]);
+                        // 아이디에러상태값 업데이트
+                        setUserIdError(false);
+                    }
                 })
 
             } ///////// if ////////////////////
@@ -288,10 +294,25 @@ function Member() {
                             {
                                 // 에러일 경우 메시지 보여주기
                                 // 조건문 && 요소 -> 조건이 true이면 요소출력
+                                // 훅크 데이터 idMsg로 변경출력!
                                 userIdError && (
                                     <div className="msg">
                                         <small style={{ color: "red", fontSize: "10px" }}>
                                         {idMsg}
+                                        </small>
+                                    </div>
+                                )
+                                }
+
+                                {
+
+                                // "훌륭한 아이디네요"일 경우!
+                                // 아이디에러가 false일때 출력!
+                                // 고정데이터 배열 msgId 세번째값 출력
+                                !userIdError && (
+                                    <div className="msg">
+                                        <small style={{ color: "green", fontSize: "10px" }}>
+                                        {msgId[2]}
                                         </small>
                                     </div>
                                 )
