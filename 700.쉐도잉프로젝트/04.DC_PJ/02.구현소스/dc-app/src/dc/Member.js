@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import $ from "jquery";
 import "./css/member.css";
-import { json, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 /* 
     [ 후크 : Hook - 왜 필요한가? ]
@@ -71,7 +71,7 @@ function Member() {
         "That's a great ID!"
     ];
     // 후크변수 메시지
-    const [idMsg,setIdMsg] = useState(msgId[0]); // 😀msgId[0]->기본데이타 들어가게함
+    const [idMsg,setIdMsg] = useState(msgId[0]);
 
     // [ 3. 유효성 검사 메서드 ]
     // 1. 아이디 유효성 검사
@@ -105,13 +105,13 @@ function Member() {
                         setIdMsg(msgId[1]);
                         // 아이디에러상태값 업데이트
                         userIdError(true);
-                    } /////// if //////
+                    } ////// if /////
                 })
-                
-            } //////// if //////////
+
+            } ///////// if ////////////////////
             else{
                 console.log("DB가 없어욧!!!");
-            } //////// else //////////
+            } ////////// else /////////////////
 
             // setUserIdError(false); // 에러아님상태!
 
