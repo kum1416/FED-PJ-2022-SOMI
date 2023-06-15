@@ -288,6 +288,9 @@ function Member() {
             // 로컬쓰에 반영하기
             localStorage.setItem("mem-data", JSON.stringify(memData));
 
+            // 로그인 페이지로 이동(라우터이동하기!)
+            // useNavigate 사용!
+
             // 로컬쓰 확인
             console.log(localStorage.getItem("mem-data"));
         } /// if ////
