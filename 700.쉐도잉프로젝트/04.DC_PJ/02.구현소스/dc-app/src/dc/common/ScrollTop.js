@@ -15,8 +15,11 @@ export default function ScrollTop(){
     // 사용하는 리액트 모듈은? useEffect!
     // useEffect(함수,[사용할라우터페이지]) -> 함수가 실행됨!
     useEffect(()=>{
-        // 윈도우 객체 스크롤 최상위이덩
+        // 윈도우 객체 스크롤 최상위이동 코드
         window.scrollTo(0,0);
+        // 로그인 상태를 확인! : "minfo"
+        console.log("useEfect:",
+        localStorage.getItem("minfo"));
     }, [pathname]);
 
     // 이 컴포넌트 실행은 다른 부가적인 코드는
