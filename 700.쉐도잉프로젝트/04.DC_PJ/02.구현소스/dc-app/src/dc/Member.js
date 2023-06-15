@@ -72,20 +72,20 @@ function Member() {
     // 후크변수 메시지
     const [idMsg, setIdMsg] = useState(msgId[0]);
 
-    // [ 로컬쓰 클리어 ] //////////
+    // [ 로컬쓰 클리어 ] /////////
     const clearData = () => {
         localStorage.clear();
         console.log("로컬쓰 클리어!");
-    }; /////////// clearData /////////////
+    }; /////////// clearData //////////////
 
-    // [ 로컬쓰 초기체크셋팅! ] 😀없으면 만들어! ///////
+    // [ 로컬쓰 초기체크셋팅! ] ////////////
     const initData = () => {
 
-            // 만약 로컬스 "mem-data"가 null이면 만들어준다!
-            if (localStorage.getItem("mem-data") === null) {
-                localStorage.setItem(
-                    "mem-data",
-                    `
+        // 만약 로컬스 "mem-data"가 null이면 만들어준다!
+        if (localStorage.getItem("mem-data") === null) {
+            localStorage.setItem(
+                "mem-data",
+                `
                     [
                         {
                             "idx": "1",
@@ -96,9 +96,9 @@ function Member() {
                         }
                     ]
                 `
-                );
-            }
-    }; //////////// initData ////////////
+            );
+        }
+    }; ///////////// initData /////////////////
 
     // [ 3. 유효성 검사 메서드 ]
     // 1. 아이디 유효성 검사
@@ -144,18 +144,15 @@ function Member() {
                         isOK = false;
                     } ////// if /////
                 }); ///////// forEach //////////////
-                
+
                 // 기존아이디가 없으면 들어감!
-                if(isOK){
+                if (isOK) {
                     console.log("바깥");
                     // 메시지변경(처음메시지로 변경)
-                    setIdMsg(msgId[0]);              
+                    setIdMsg(msgId[0]);
                     // 아이디에러상태값 업데이트
                     setUserIdError(false);
-
                 } /////////// if : isOK /////////
-
-
             } ///////// if ////////////////////
             else {
                 console.log("DB가 없어욧!!!");
@@ -256,14 +253,12 @@ function Member() {
     const onSubmit = (e) => {
         // 기본 서브밋기능 막기!
         e.preventDefault();
-        // localStorage.clear();
+
         console.log("서브밋!");
 
         // 유효성검사 전체 통과시 ////
         if (totalValid()) {
             // alert("처리페이지로 이동!");
-
-            
 
             // 로컬스 변수할당
             let memData = localStorage.getItem("mem-data");
