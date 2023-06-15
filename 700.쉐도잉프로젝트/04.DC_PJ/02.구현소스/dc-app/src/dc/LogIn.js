@@ -4,6 +4,7 @@
 import { useState } from "react";
 import "./css/member.css";
 import { clearData, initData } from "./fns/fnMem"; 
+import $ from 'jquery';
 
 export default function LogIn() {
     // [ 후크 useState 메서드 셋팅하기 ]
@@ -36,8 +37,10 @@ export default function LogIn() {
     const changeUserId = (e) => {
         // 1. 빈값 체크
         if (e.target.value !== "") setUserIdError(false);
-        else setUserIdError(true);
-
+        else {
+            setIdMsg(msgTxt[0]);
+            setUserIdError(true);
+        }
         // 2. 입력값 반영하기
         setUserId(e.target.value);
     }; /////////////// changeUserId ////////////////
@@ -46,7 +49,10 @@ export default function LogIn() {
     const changePwd = (e) => {
         // 1. 빈값 체크
         if (e.target.value !== "") setPwdError(false);
-        else setPwdError(true);
+        else {
+            setPwdMsg(msgTxt[0]);
+            setPwdError(true);
+        }
 
         // 2. 입력값 반영하기
         setPwd(e.target.value);
@@ -101,15 +107,25 @@ export default function LogIn() {
                 // 같은 아이디가 있는가?
                 if(v["uid"]===userId){
                     console.log("아이디 같아요~~!");
+                    // 아이디에러 상태 업데이트
+                    setUserIdError(false); // if문안에 들어왔을떄
+
                     // 같은 아이디 검사 상태변수 변경
                     isOK = false;
 
                     // 비밀번호가 일치하는가?
                     if(v["pwd"]===pwd){
                         console.log("비번 같아요~~!^^")
+                        // 비번에러 상태 업데이트
+                        setPwdError(false); //😀안보이게
+                        $(".sbtn").text("로그인된거야~!");
                     }
                     else{
                         console.log("비번달라요!ㅜ.ㅜ");
+                        // 비번가 다를때 메시지 변경
+                        setPwdMsg(msgTxt[2]);
+                        // 비번에러 상태 업데이트
+                        setPwdError(true); //😀메시지나오게
                     }
                 } ////////// if ///////
             }); //////////// forEach //////////
@@ -117,12 +133,18 @@ export default function LogIn() {
             // 아이디가 불일치할 경우
             if(isOK){
                 console.log("아이디가 달라요!ㅜ.ㅜ");
+                // 아이디가 다를때 메시지 변경
+                setIdMsg(msgTxt[1]);
+                // 아이디에러 상태 업데이트
+                setUserIdError(true);
             }
 
         } /// if ////
         // 불통과시 ////////////////
         else {
             console.log("실패!");
+            setIdMsg(msgTxt[0]);
+            setPwdMsg(msgTxt[0]);
         } /// else /////
     }; ///////////// onSubmit ////////////////
 
