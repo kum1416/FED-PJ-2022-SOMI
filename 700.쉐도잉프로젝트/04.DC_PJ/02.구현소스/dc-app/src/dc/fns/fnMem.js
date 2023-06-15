@@ -1,21 +1,18 @@
 // 회원관련 기능 함수 - fnMem.js
 
-// 라우터 이동 네비게이트 생성하기
-const goRoute = useNavigate();
-
 // [ 로컬쓰 클리어 ] /////////
 const clearData = () => {
-  localStorage.clear();
-  console.log("로컬쓰 클리어!");
+    localStorage.clear();
+    console.log("로컬쓰 클리어!");
 }; /////////// clearData //////////////
 
 // [ 로컬쓰 초기체크셋팅! ] ////////////
 const initData = () => {
-  // 만약 로컬스 "mem-data"가 null이면 만들어준다!
-  if (localStorage.getItem("mem-data") === null) {
-    localStorage.setItem(
-      "mem-data",
-      `
+    // 만약 로컬스 "mem-data"가 null이면 만들어준다!
+    if (localStorage.getItem("mem-data") === null) {
+        localStorage.setItem(
+            "mem-data",
+            `
                     [
                         {
                             "idx": "1",
@@ -26,8 +23,8 @@ const initData = () => {
                         }
                     ]
                 `
-    );
-  }
+        );
+    }
 }; ///////////// initData /////////////////
 
 export { clearData, initData };
