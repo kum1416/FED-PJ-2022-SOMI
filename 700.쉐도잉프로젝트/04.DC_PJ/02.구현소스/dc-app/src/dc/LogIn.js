@@ -19,13 +19,16 @@ export default function LogIn() {
     // 2. 비밀번호에러변수
     const [pwdError, setPwdError] = useState(false);
     // [ 아이디관련 메시지 프리셋 ]
-    const msgId = [
-        "User ID must contain a minimum of 5 characters",
-        "This ID is already in use!",
-        "That's a great ID!",
+    const msgTxt = [
+        "This is a required entry", // 필수입력
+        "ID does not exist", // 아이디가 존재하지 않습니다
+        "Password doesn't match", // 비밀번호가 일치하지 않습니다
     ];
     // 후크변수 메시지
-    const [idMsg, setIdMsg] = useState(msgId[0]);
+    // 아이디메시지
+    const [idMsg, setIdMsg] = useState(msgTxt[0]);
+    // 비번메시지
+    const [pwdMsg, setPwdIdMsg] = useState(msgTxt[0]);
 
     // [ 3. 유효성 검사 메서드 ]
     // 1. 아이디 유효성 검사 
@@ -48,11 +51,48 @@ export default function LogIn() {
         setPwd(e.target.value);
     }; ///////////// changePwd ///////////////////
 
+    // 3. 전체 유효성 검사 함수 /////////////
+    const totalValid = () => {
+        // 모든 입력창 검사(빈값일 경우 모두 에러를 후크변수에 전달!)
+        if (!userId) setUserIdError(true);
+        if (!pwd) setPwdError(true);
+
+        // 통과조건:
+        // 1. 빈값이 아님
+        // 2. 에러 후크 변수가 모두 false
+        // 위의 2가지 만족시 treu값 리턴
+        if (
+            userId &&
+            pwd &&
+            !userIdError &&
+            !pwdError 
+        )
+            return true;
+        else return false; // 하나라도 에러면  false값 리턴!
+    }; ////////////// totalValid ////////////////
+
+    // 7. 서브밋 기능함수 ///////////////
+    const onSubmit = (e) => {
+        // 기본 서브밋기능 막기!
+        e.preventDefault();
+
+        console.log("서브밋!");
+
+        // 유효성검사 전체 통과시 ////
+        if (totalValid()) {
+            console.log("성공!");
+        } /// if ////
+        // 불통과시 ////////////////
+        else {
+            console.log("실패!");
+        } /// else /////
+    }; ///////////// onSubmit ////////////////
+
     return (
         <div className="outbx">
             {/* 모듈코드 */}
-            <section className="membx">
-                <h2>Join Us</h2>
+            <section className="membx" style={{minHeight:"300px"}}>
+                <h2>LOG IN</h2>
                 <form method="post" action="process.php">
                     <ul>
                         <li>
@@ -96,8 +136,7 @@ export default function LogIn() {
                                 pwdError && (
                                     <div className="msg">
                                         <small style={{ color: "red", fontSize: "10px" }}>
-                                            Password must be at least 8 characters long and must
-                                            contain at least one letter and one number each.
+                                           {pwdMsg}
                                         </small>
                                     </div>
                                 )
@@ -110,11 +149,6 @@ export default function LogIn() {
                             </button>
                             {/* input submit버튼이 아니어도 form요소
                             내부의 button은 submit기능이 있다! */}
-                        </li>
-                        <li>
-                            {/* 7.로그인페이지링크 */}
-                            Are you already a member?
-                            <Link to="/login"> Log In </Link>
                         </li>
                     </ul>
                 </form>
