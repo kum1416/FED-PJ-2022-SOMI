@@ -80,27 +80,27 @@ export default function LogIn() {
         console.log("서브밋!");
 
         // 유효성검사 전체 통과시 ////
-        if (totalValid()) {
+        if (totalValid()) {            
             console.log("성공!");
             // 데이터 체크 초기화
             initData();
 
             // 로컬쓰 "mem-data" 데이터 확인하기
             let memData = localStorage.getItem("mem-data");
-            console.log(memData);
+            console.log(memData); 
             
             // 로컬쓰 데이터 객체화하기
             memData = JSON.parse(memData);
-            console.log(memData);
+            console.log(memData); 
 
             // 입력데이터중 아이디 비교하기
             memData.forEach(v=>{
                 // 같은 아이디가 있는가?
                 if(v["uid"]===userId){
-                    console.log("같아요~~!");
+                    console.log("아이디 같아요~~!");
                     // 비밀번호가 일치하는가?
                     if(v["pwd"]===pwd){
-                        console.log("비번 같아요~~!^^");
+                        console.log("비번 같아요~~!^^")
                     }
                     else{
                         console.log("비번달라요!ㅜ.ㅜ");
