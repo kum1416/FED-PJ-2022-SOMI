@@ -1,7 +1,6 @@
 // 로그인 페이지 컴포넌트 - LogIn.js
 
 // 회원가입과 디자인동일
-import { faD } from "@fortawesome/free-solid-svg-icons";
 import { useState } from "react";
 import "./css/member.css";
 import { clearData, initData } from "./fns/fnMem"; 
@@ -102,9 +101,8 @@ export default function LogIn() {
                 // 같은 아이디가 있는가?
                 if(v["uid"]===userId){
                     console.log("아이디 같아요~~!");
-                    // 같은 아이디 검사 상채변수 변경
-                    isOK - false;
-
+                    // 같은 아이디 검사 상태변수 변경
+                    isOK = false;
 
                     // 비밀번호가 일치하는가?
                     if(v["pwd"]===pwd){
@@ -113,8 +111,8 @@ export default function LogIn() {
                     else{
                         console.log("비번달라요!ㅜ.ㅜ");
                     }
-                } ////// if ////////////
-            }); /////////// forEach //////////
+                } ////////// if ///////
+            }); //////////// forEach //////////
 
             // 아이디가 불일치할 경우
             if(isOK){
