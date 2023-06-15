@@ -20,15 +20,15 @@ export default function LogIn() {
     const [pwdError, setPwdError] = useState(false);
     // [ 아이디관련 메시지 프리셋 ]
     const msgTxt = [
-        "This is a required entry", // 필수입력
-        "ID does not exist", // 아이디가 존재하지 않습니다
-        "Password doesn't match", // 비밀번호가 일치하지 않습니다
+        "This is a required entry",//필수입력
+        "ID does not exist",//아이디가 존재하지 않습니다
+        "Password doesn't match",//비밀번호가 일치하지 않습니다
     ];
     // 후크변수 메시지
     // 아이디메시지
     const [idMsg, setIdMsg] = useState(msgTxt[0]);
     // 비번메시지
-    const [pwdMsg, setPwdIdMsg] = useState(msgTxt[0]);
+    const [pwdMsg, setPwdMsg] = useState(msgTxt[0]);
 
     // [ 3. 유효성 검사 메서드 ]
     // 1. 아이디 유효성 검사 
@@ -136,7 +136,7 @@ export default function LogIn() {
                                 pwdError && (
                                     <div className="msg">
                                         <small style={{ color: "red", fontSize: "10px" }}>
-                                           {pwdMsg}
+                                            {pwdMsg}
                                         </small>
                                     </div>
                                 )
