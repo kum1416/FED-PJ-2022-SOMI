@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 
 // 스크롤 상단이동 컴포넌트 모듈은
-// 라우터가 셋팅괸<BrowserRoter> 안에
+// 라우터가 셋팅된 <BrowserRouter> 안에
 // <ScrollTop /> 형태로 호출해야 한다!(import는 당연히함!)
 // 현재 PJ에서는 index.js에 위치함!
 
@@ -18,16 +18,13 @@ export default function ScrollTop(){
         // 윈도우 객체 스크롤 최상위이동 코드
         window.scrollTo(0,0);
         // 로그인 상태를 확인! : "minfo"
-        console.log("useEfect:",
+        console.log("useEffect:",
         localStorage.getItem("minfo"));
     }, [pathname]);
 
+    // console.log(pathname);
+
     // 이 컴포넌트 실행은 다른 부가적인 코드는
-    // 실행시키지 않는다는 의미의 null값 리턴함
+    // 실행시키지 않는다는 의미의 null값을 리턴함
     return null;
-
-
-
-
-
-}
+} 
