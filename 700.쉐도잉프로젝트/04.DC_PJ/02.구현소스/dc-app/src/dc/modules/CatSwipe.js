@@ -11,7 +11,6 @@ function jqFn(){
 } ////////////// jQFn ///////////
 
 function CatSwipe(props){
-    // props.pg - 페이지별 데이터구분
     // props.tit - 모듈타이틀
     return(
         <>
