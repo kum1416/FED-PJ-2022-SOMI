@@ -7,13 +7,13 @@ import { useLocation } from "react-router-dom";
 
 function Detail(props){
     // 라우터 전달값을 받기위한 useLocation 생성하기!
-    const loc = useLocation();
+    const loc = useLocation(); //😀
     // 보내 속성명을 변수에 할당하기
     // state.속성명 : 내가 라우터를 통해 보낸 속성값 받기
     // 1. 캐릭터이름
     const cname = loc.state.cname;
     // 2. 캐릭터설명 - '^'문자로 잘라 배열로 데이터로 변경!
-    let cdesc = loc.state.cdesc;
+    let cdesc = loc.state.cdesc; // 😀재할당 해야되서 let
     cdesc = cdesc.split('^');
     // 3. 캐릭터명세
     const facts = loc.state.facts;
