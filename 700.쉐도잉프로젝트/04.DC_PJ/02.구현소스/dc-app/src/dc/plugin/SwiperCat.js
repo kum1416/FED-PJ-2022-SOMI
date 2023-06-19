@@ -8,6 +8,7 @@ import $ from "jquery";
 import "swiper/css";
 import "swiper/css/navigation";
 
+
 import "./swipercat.css";
 
 // import required modules
@@ -17,8 +18,8 @@ import cat_data from "../data/cat";
 
 export default function SwiperCat(props) {
     // 데이터 셋팅
-    const sdt = cat_data;
-    console.log(sdt);
+    const sdt = cat_data;  
+    console.log(sdt);  
 
     return (
         <>
@@ -30,10 +31,10 @@ export default function SwiperCat(props) {
                 // 스와이퍼 사이즈별 슬라이드수 변경!
                 breakpoints={{
                     200: {
-                        slidesPerView: 2,
+                        slidesPerView: 3,
                     },
                     700: {
-                        slidesPerView: 3,
+                        slidesPerView: 4,
                     },
                     1000: {
                         slidesPerView: 5,
