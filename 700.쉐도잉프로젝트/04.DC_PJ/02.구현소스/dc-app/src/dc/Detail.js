@@ -2,6 +2,7 @@
 
 import { useLocation } from "react-router-dom";
 import "./css/detail.css";
+import Ban from "./modules/Ban";
 
 // 라우터 파라미터값 받아서 데이터 처리!
 
@@ -20,6 +21,9 @@ function Detail(props) {
 
     return (
         <>
+            {/* 1.배너 컴포넌트 */}
+            <Ban cat={cname} />
+            {/* 2.상세정보 박스 */}
             <div className="detail">
                 <div className="descbx">
                     <h2>{cname}</h2>
