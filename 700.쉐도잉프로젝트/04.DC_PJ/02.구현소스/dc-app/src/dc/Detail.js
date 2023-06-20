@@ -1,7 +1,7 @@
 // 상세페이지 컴포넌트 - Detail.js
 
 import { useLocation } from "react-router-dom";
-import "../../src/dc/css/detail.css";
+import "./css/detail.css";
 
 // 라우터 파라미터값 받아서 데이터 처리!
 

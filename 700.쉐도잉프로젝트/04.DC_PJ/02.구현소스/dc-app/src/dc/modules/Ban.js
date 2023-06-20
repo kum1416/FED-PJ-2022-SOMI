@@ -41,7 +41,7 @@ function MakeList(props) {
                 <h3>{props.rec["tit1"]}</h3>
                 <h2>{props.rec["tit2"]}</h2>
                 <p>{props.rec["cont"]}</p>
-                <button>{props.rec["btn"]}</button>
+                <button>{props.rec["btn"].toUpperCase()}</button>
             </section>
         </li>
     );
@@ -57,12 +57,11 @@ function Ban(props) {
     let prot = 0;
 
     // 이동슬라이드 함수 ////////
-    const goSlide = e => { // 😀이벤트가 발생한것에대한 e
+    const goSlide = (e) => {
         // 1. 이벤트가 발생한 버튼 요소
         let ele = e.target;
-        // console.log(ele); // 😀이벤트를 이용한 타겟 읽기
+        // console.log(ele);
 
-        
         // 0.광클금지
         if (prot) return;
         prot = 1;
@@ -101,10 +100,7 @@ function Ban(props) {
             .addClass("on")
             .siblings()
             .removeClass("on");
-        
-        
-
-    }; /////////////// goSlide 함수 //////////////
+    }; //////////// goSlide 함수 /////////////////
 
     return (
         <div className="banner">
@@ -120,8 +116,12 @@ function Ban(props) {
                 sel_data.length > 1 && (
                     <>
                         {/* 양쪽이동버튼 */}
-                        <button className="abtn lb" onClick={goSlide}>＜</button>
-                        <button className="abtn rb" onClick={goSlide}>＞</button>
+                        <button className="abtn lb" onClick={goSlide}>
+                            ＜
+                        </button>
+                        <button className="abtn rb" onClick={goSlide}>
+                            ＞
+                        </button>
                         {/* 블릿 인디케이터 */}
                         <ol className="indic">
                             {sel_data.map((x, i) => (
