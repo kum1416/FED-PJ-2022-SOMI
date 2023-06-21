@@ -58,8 +58,8 @@
             배열변수.sort((x,y)=>{
                 let a = x.toUpperCase(),
                     b = y.toUpperCase();
-
-                return x == y ? 0 : x > y ? 1 : -1;
+                
+                return a == b ? 0 : x > y ? 1 : -1;
             })
 
 
@@ -101,7 +101,7 @@
 
                 if(opt==1){
                     org_num.sort(function(x,y){
-                        console.log(x-y);
+                        // console.log(x-y);
                         // return x - y;
                         // 앞에서 뒤를 빼면 오름차순!
                         return x == y ? 0 : x > y ? 1 : -1;
@@ -132,11 +132,11 @@
             // 최초호출
             newArray2(org_num2);
 
-            // 첫번째 선택박스 정렬변경 이벤트함수 만들기
+            // 두번째 선택박스 정렬변경 이벤트함수 만들기
             document.querySelector(".sel2").onchange = e=>{
                 //  선택값확인
                 let opt = e.target.value;
-                // console.log(opt);
+                console.log(opt);
 
                 if(opt==1){
                     org_num2.sort(function(x,y){
