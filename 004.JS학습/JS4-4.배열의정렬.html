@@ -51,6 +51,17 @@
 
             -> 내림차순은 양수/음수만 반대로 써주면 된다!
 
+            [ 정렬시 데이터 유의사항 ]
+            1. 문자형일 경우 대소문자가 섞여있으면 대문자나 소문자중
+            하나로 통일하여 비교해야함(toUpperCase()/toLowerCase())
+            예)
+            배열변수.sort((x,y)=>{
+                let a = x.toUpperCase(),
+                    b = y.toUpperCase();
+
+                return x == y ? 0 : x > y ? 1 : -1;
+            })
+
 
 
 
@@ -125,27 +136,31 @@
             document.querySelector(".sel2").onchange = e=>{
                 //  선택값확인
                 let opt = e.target.value;
-                console.log(opt);
+                // console.log(opt);
 
                 if(opt==1){
-                    org_num.sort(function(x,y){
-                        console.log(x-y);
+                    org_num2.sort(function(x,y){
+                        // console.log(x-y);
                         // return x - y;
                         // 앞에서 뒤를 빼면 오름차순!
+
+                        // 문자는 빼기 연산으로 정렬못함!
                         return x == y ? 0 : x > y ? 1 : -1;
                     })
                 }
                 else if(opt==2){
-                    org_num.sort(function(x,y){
+                    org_num2.sort(function(x,y){
                         // return y - x;
                         // 뒤에서 앞을 빼면 내림차순
+
+                        // 문자는 빼기 연산으로 정렬못함!
                         return x == y ? 0 : x > y ? -1 : 1;
                     })
                     
                 }
                 
                 // 화면에 반영하기(sort후엔 배열자체가 바뀜!)
-                newArray(org_num);
+                newArray2(org_num2);
 
             }; ///////////// change ///////////////
 
