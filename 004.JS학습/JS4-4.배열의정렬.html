@@ -260,19 +260,19 @@
                     // 배열값이 비었는지 확인후 할당분기
                     if(obj.length!=0){
                         htc = obj.map(
-                        (v) => `
-                        <tr>
-                            <td>${v.idx}</td>
-                            <td>${v.tit}</td>
-                            <td>${v.cont}</td>
-                        </tr>
+                            (v) => `
+                            <tr>
+                                <td>${v.idx}</td>
+                                <td>${v.tit}</td>
+                                <td>${v.cont}</td>
+                            </tr>
                         `
                         );
 
                         // 값만추출!
                         htc.join('');
 
-                    } /////////// if ///////////
+                    } ////////// if /////////
                     // 데이터가 없는 경우
                     else{
                         htc = `
@@ -282,8 +282,7 @@
                                 </td>
                             </tr>
                         `;
-                    } /////////// else ////////
-
+                    } ///////// else /////////////
     
                     // (2) 요소에 데이터 코드 넣기
                     document.querySelector(ele).innerHTML = `
