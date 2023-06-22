@@ -487,20 +487,20 @@
                         // 오름차순 (x>y?1바꿔)
                         // x,y는 배열의값 즉, 객체가 들어옴!
                         // 비교시 객체의 속성명을 사용하여 값을 비교!
-                        newList.sort((x, y) => {
+                        myVal.sort((x, y) => {
                             return x[cta] == y[cta] ? 0 : x[cta] > y[cta] ? 1 : -1;
                         });
                     } ///////// if ////////
                     else if (opt == 2) { // 내림차순(x>y?-1안바꿈)
-                        newList.sort((x, y) => {
+                        myVal.sort((x, y) => {
                             return x[cta] == y[cta] ? 0 : x[cta] > y[cta] ? -1 : 1;
                         });
                     }
 
-                    console.log("정렬결과:",newList);
+                    console.log("정렬결과:",myVal);
 
                     // 4. html반영하기
-                    upCode(newList,".showList4");
+                    upCode(myVal,".showList4");
 
                 }; /////////////// change : .sel4 ////////////
 
@@ -529,6 +529,20 @@
                         cont: "나라 갈라콘 서포트에 많은 참여 부탁드립니다!",
                     },
                 }; /////////////// list3 /////////////
+
+                // 2. 키배열 만들기 : Object.keys(객체)
+                let mykey = Object.keys(list3);
+                // console.log(myLey);
+                // console.log(myLey.reverse());
+
+                // 3. 키배열을 값배열로 변환하기
+                let myVal = mykey.map(v=>list3[v]);
+                console.log(myVal);
+
+                // 4. 리스트 화면출력
+                upCode(myVal,".showList5");
+
+
 
 
 
