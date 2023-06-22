@@ -1,4 +1,4 @@
-/// 검색 모듈 - Search.js
+///  검색 모듈 - Search.js
 import $ from 'jquery';
 import { useState } from 'react';
 import cat_data from '../data/cat';
@@ -8,14 +8,13 @@ import "./css/search.css";
 function jqFn(){
     $(()=>{
 
-    }); /////// jQB ////////
-} ///////////// jqFn /////////////
+    }); //////// jQB ///////////
+} ////////////// jQFn ///////////
 
 function Search(){
 
     // 데이터 선택하기 : Hook 데이터 구성하기
     let [sdt,setSdt] = useState(cat_data);
-
 
 
     return(
@@ -32,7 +31,7 @@ function Search(){
                 <h2 className='restit'>
                     BROWSE CHARACTERS
                 </h2>
-                {/*정렬선택박스 */}
+                {/* 정렬선택박스 */}
                 <aside className='sortbx'>
 
                 </aside>
@@ -41,7 +40,6 @@ function Search(){
                 <CatList dt={sdt} />
             </div>
         </section>
-
         {/* 빈루트를 만들고 JS로드함수포함 */}
         {jqFn()}
         </>
