@@ -76,7 +76,7 @@ function Search() {
         return x.cname == y.cname ? 0 : x.cname > y.cname ? 1 : -1;
       } /////// else ////////
     });
-    
+
     console.log("정렬후:",temp);
 
     // 3. 데이터 정렬변경 반영하기
