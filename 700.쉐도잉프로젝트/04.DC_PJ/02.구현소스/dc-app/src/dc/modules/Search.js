@@ -66,16 +66,16 @@ function Search() {
     console.log("정렬전:",temp);
 
     // 2. 옵션에 따른 정렬반영하기
-    temp.sort((x, y) => {
-      if (opt) {
+    if (opt) {
         //// 내림차순(1) ///
-        return x.cname == y.cname ? 0 : x.cname > y.cname ? -1 : 1;
-      } /////// if ///////
-      else {
+        temp.sort((x, y) =>
+        x.cname == y.cname ? 0 : x.cname > y.cname ? -1 : 1);
+    } /////// if ///////
+    else {
         /////// 오름차순(0) ////
-        return x.cname == y.cname ? 0 : x.cname > y.cname ? 1 : -1;
-      } /////// else ////////
-    });
+        temp.sort((x, y) =>
+        x.cname == y.cname ? 0 : x.cname > y.cname ? 1 : -1);
+    } /////// else ////////
 
     console.log("정렬후:",temp);
 
