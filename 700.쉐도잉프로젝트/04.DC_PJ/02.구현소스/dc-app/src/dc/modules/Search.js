@@ -31,9 +31,39 @@ function Search(){
         let inp = document.querySelector("#schin"); // 😀밑에서 또쓸거라 변수에 담아둠
         // 1. 검색어 읽기
         let keyword = inp.value;
+        // 2. 검색어 입력확인분기
+        if(keyword.trim()==""){
+            // 입력창으로 다시 보내기
+            inp.focus();
+            return;
+        }
+        console.log("검색어:",keyword);
+
+        // 3. 데이터 검색하기
+        // 배열값 다중검색 메서드 -> filter()
+        // 검색대상: 전체원본데이터 (cat_data)
+        let newList = cat_data.filter(v=>{ // 😀이 데이타가 맞으면 newList에 담아줌
+            if(v.cname.toLocaleLowerCase().indexOf(keyword) !== -1) 
+            return true;
+        }); //////// filter ////////////
+
+        console.log("검색결과:",newList);
+
+        // 4. 검색결과 리스트 업데이트하기
+        // Hook변수인 데이터변수와 데이터건수 변수를 업데이트함!
+        setSdt(newList);
+        setTot(newList.length);
+        
+
+        } //////////// if //////////////
         
 
     }; ////////////// schList 함수 //////////////
+
+    // 입력창에서 엔터키를 누르면 검색함수 호출!
+    const enterKey = (e) => {
+        if(e.key === 'Enter') schList(); // 😀엔터가 맞는순간 함수호출해
+    }; ///////////// enterKey 함수 ////////////
 
 
     return(
@@ -52,7 +82,8 @@ function Search(){
                     onClick={schList} />
                     {/* 입력창 */}
                     <input id='schin' type='text' 
-                    placeholder='Filter by keyword' />
+                    placeholder='Filter by Keyword'
+                    onKeyUp={enterKey} />
                 </div>
             </div>
             {/* 2. 결과리스트박스 */}
