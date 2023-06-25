@@ -67,7 +67,7 @@
 .afig small{
 
     /* 글자체 : ff */
-    font-family: 'Gamja Flower'
+    font-family: 'Gamja Flower';
     /* 글자크기 : fz 
     글자크게 최저 한계는 10px임*/
     font-size: 12px;
