@@ -114,6 +114,34 @@ function Search() {
                             onKeyUp={enterKey}
                         />
                     </div>
+                    {/* 체크박스구역 */}
+                    <div className="chkbx">
+                        <ul>
+                            <li>
+                                <h2>
+                                    ALIGNMENT
+                                    <span className="spbtn">
+                                        ＋
+                                    </span>
+                                    {/* 체크박스리스트 */}
+                                    <ol>
+                                        <li>
+                                            Heroes
+                                            <input 
+                                            type="checkbox" 
+                                            id="hero"
+                                            className="chkhdn"
+                                            onChange={chkSearch}
+                                            />
+                                            <label
+                                            htmlFor="hero"
+                                            className="chklb"></label>
+                                        </li>
+                                    </ol>
+                                </h2>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
                 {/* 2. 결과리스트박스 */}
                 <div className="listbx">
