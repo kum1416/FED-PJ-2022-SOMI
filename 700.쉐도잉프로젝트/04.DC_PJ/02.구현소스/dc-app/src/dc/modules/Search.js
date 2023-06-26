@@ -14,7 +14,19 @@ function jqFn() {
     $(() => {}); //////// jQB ///////////
 } ////////////// jQFn ///////////
 
+// 최초 원본데이터 정렬변경하기(오름차순)
+// 주의사항: 컴포넌트에 포함시키지 말것!
+// 왜? 배열의 정렬정보가 컴포넌트에 포함될 경우
+// 정렬변경이 되지 않는다! 따라서 컴포넌트 바깥위에서
+// 데이터 정렬이 변경된 원본배열을 만들어준것을
+// 컴포넌트 내부에서 사용하도록 하면 기존 정렬변경이 반영됨!
+cat_data.sort((x,y)=>{
+    return x.cname===y.cname?0:x.cname>y.cname?1:-1;
+})
+
 function Search() {
+
+
     // 데이터 선택하기 : Hook 데이터 구성하기
     // -> 데이터 정렬을 반영하기 위해 정렬상태값을 같이설정함!
     // 데이터구성 : [배열데이터,정렬상태값]
@@ -93,6 +105,8 @@ function Search() {
 
     }; //////////// sortList 함수 //////////////
 
+    // 체크박스 요소
+    let chkele = document.querySelectorAll(".chkhdn");
 
     /////// 체크박스 검색함수 ////////////
     const chkSearch = (e) => {
@@ -101,6 +115,45 @@ function Search() {
         // 2. 체크박스 체크여부 : checked (true/false)
         let chked = e.target.checked;
         console.log("아이디:",cid,chked);
+
+        // 임시변수 : 기존입력된 데이터 가져옴
+        let temp = sdt[0];
+        console.log("기존저장데이터:",temp);
+        // 결과집합변수
+        let newList = [];
+
+        // 3. 체크박스 체크개수세기 : 1개초과시 배열합치기할것임!
+        let num = 0; //😀처음엔 아무것도 없으니까 0
+        chkele.forEach(v=>{if(v.checked)num++});
+        console.log("체크개수:",num); // 😀if문에서 활용하려고 위에서 체크
+
+        // 4. 체크박스 체크여부에 따른 분기
+        // (1) 체크여부가 true일때 해당 검색어로 검색하기
+        if(chked){
+            // 현재데이터 변수에 담기
+            let nowdt = cat_data.filter(v=>{
+                if(v.alignment === cid) return true; // 😀트루인것만 수집해서 nowdt에 담아줌
+            }); ///////////// filter /////////////
+
+            // 체크개수가 1초과일때 배열합치기
+            if(num > 1){ // 스프레드 연산자(...)사용!
+                // 기존데이터(temp)+새데이터(nowdt)
+                newList = [...temp,...nowdt];
+
+            } //////// if ////////
+            // 체크개수 1일때 ////
+            else{
+                newList = nowdt;
+            } //////// else //////
+
+
+        } //////////// if : 체크박스 true ////////////
+
+        // 5. 검색결과 리스트 업데이트 하기
+        // Hook 데이터변수+데이터건수
+        setSdt([newList],2);
+        setTot(newList.length);
+
 
     }; //////////// chkSearch 함수 ////////////
 
