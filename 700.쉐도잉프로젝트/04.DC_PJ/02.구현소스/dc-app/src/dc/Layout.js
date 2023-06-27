@@ -120,9 +120,27 @@ const Layout = () => {
                         ))}
 
                         <li style={{ marginLeft: "auto" }}>
-                            <Link to="/sch">
+                            {/* 검색입력박스 */}
+                            <div className="searching">
+                                {/* 검색버튼 돋보기아이콘 */}
+                                <FontAwesomeIcon
+                                    icon={faSearch}
+                                    className="schbtn"
+                                    title="Open search"
+                                    onClick={schList}
+                                />
+                                {/* 입력창 */}
+                                <input
+                                    id="schin"
+                                    type="text"
+                                    placeholder="Filter by Keyword"
+                                    onKeyUp={enterKey}
+                                />
+                            </div>
+                            {/* 검색기능링크 */}
+                            <a href="#" onClick={searchFn}>
                                 <FontAwesomeIcon icon={faSearch} />
-                            </Link>
+                            </a>
                         </li>
                         {
                             /* 회원가입,로그인은 로그인아닌 상태일때만 */
