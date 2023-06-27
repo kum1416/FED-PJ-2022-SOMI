@@ -24,7 +24,7 @@ cat_data.sort((x,y)=>{
     return x.cname===y.cname?0:x.cname>y.cname?1:-1;
 })
 
-function Search() {
+function Search(props) {
 
     // 데이터 선택하기 : Hook 데이터 구성하기
     // -> 데이터 정렬을 반영하기 위해 정렬상태값을 같이설정함!
