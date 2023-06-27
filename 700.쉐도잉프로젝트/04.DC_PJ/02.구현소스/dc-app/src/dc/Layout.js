@@ -93,7 +93,7 @@ const Layout = () => {
         let kw = document.querySelector(".searchingGnb input").value;
         console.log("검색어:",kw);
         // 라우터 이동하기 : 전달값 가져가기(검색어)
-        // goNav('/res',{state:{keyword:}})
+        goNav('/res',{state:{keyword:kw}})
     }; ////////////// goSearch ///////////////
 
 
