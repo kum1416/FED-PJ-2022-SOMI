@@ -1,15 +1,14 @@
-/// 캐릭터리스트 모듈 - CatList.js
+///  캐릭터리스트 모듈 - CatList.js
 import $ from 'jquery';
 import { Link } from 'react-router-dom';
 import "../css/catlist.css";
-
 
 // 제이쿼리 로드구역 함수 /////////
 function jqFn(){
     $(()=>{
 
-    }); /////// jQB ////////
-} ///////////// jqFn /////////////
+    }); //////// jQB ///////////
+} ////////////// jQFn ///////////
 
 function CatList(props){
 
