@@ -1,4 +1,4 @@
-/// 검색결과페이지 모듈 - Result.js
+///  검색결과페이지 모듈 - Result.js
 import $ from 'jquery';
 import "./css/result.css";
 import Search from './modules/Search';
@@ -7,8 +7,8 @@ import Search from './modules/Search';
 function jqFn(){
     $(()=>{
 
-    }); /////// jQB ////////
-} ///////////// jqFn /////////////
+    }); //////// jQB ///////////
+} ////////////// jQFn ///////////
 
 function Result(){
     return(
