@@ -1,4 +1,4 @@
-/// 게시판 모듈 - .boardjs
+///  게시판 모듈 - Board.js
 import $ from 'jquery';
 import "./css/board.css";
 
@@ -6,8 +6,8 @@ import "./css/board.css";
 function jqFn(){
     $(()=>{
 
-    }); /////// jQB ////////
-} ///////////// jqFn /////////////
+    }); //////// jQB ///////////
+} ////////////// jQFn ///////////
 
 function Board(){
     return(
@@ -59,7 +59,6 @@ function Board(){
                 </td>
             </tr>
         </table>
-        
         {/* 빈루트를 만들고 JS로드함수포함 */}
         {jqFn()}
         </>
