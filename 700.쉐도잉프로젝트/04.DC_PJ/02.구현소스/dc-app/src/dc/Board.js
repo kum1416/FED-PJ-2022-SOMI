@@ -12,7 +12,7 @@ import orgdata from "./data/data.json";
 let org;
 if(localStorage.getItem('bdata')) 
     org = JSON.parse(localStorage.getItem('bdata'));
-else
+else 
     org = orgdata;
 
 // 제이슨 데이터 배열정렬하기(내림차순:최신등록순번이 1번)
@@ -228,10 +228,10 @@ function Board() {
                     "tit" : tit,
                     "cont" : cont,
                     "att" : "",
-                    "date" :`${yy}-${mm}-${dd}`,
+                    "date" : `${yy}-${mm}-${dd}`,
                     "writer" : nowmem.uid,
                     "pwd" : nowmem.pwd,
-                    "cnt" : "1",
+                    "cnt" : "1"
                 };
                 // 3. 원본임시변수에 데이터 push하기
                 orgtemp.push(temp);
@@ -243,7 +243,7 @@ function Board() {
                 localStorage.setItem('bdata',JSON.stringify(jsn));
 
                 console.log(localStorage.getItem('bdata'));
-                
+
                 // 6. 게시판 모드 업데이트('L')
                 setBdmode('L');
 
