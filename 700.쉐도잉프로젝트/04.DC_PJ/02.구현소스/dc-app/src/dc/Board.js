@@ -24,7 +24,7 @@ function Board(){
 
 // 2. 로컬스토리지 변수를 설정하여 할당하기
 localStorage.setItem("bdata", JSON.stringify(jsn)); //😀원본데이터jsn 문자화
-console.log("로컬스:", localStorage.getItem("bdata"));
+// console.log("로컬스:", localStorage.getItem("bdata"));
 
 // 3. 로컬스토리지 데이터를 파싱하여 게시판 리스트에 넣기
 // 3-1. 로컬 스토리지 데이터 파싱하기
@@ -131,8 +131,10 @@ function bindList(pgnum){ // pgnum - 페이지번호
     const chkLogin = () => {
         // 로컬쓰에 'minfo가 있는지 체크
         let chk = localStorage.getItem('minfo')
-        if(chk) = setLog(true);
-        else srtLog(fal);
+        if(chk) setLog(true);
+        else setLog(false);
+
+        console.log('로그인상태:',log);
     }; ////////////// chkLogin ///////////////
 
     // 게시판 모드별 상태구분 Hook 변수만들기 ////
@@ -148,14 +150,16 @@ function bindList(pgnum){ // pgnum - 페이지번호
 
 const callFn = () => {
     // 리스트 상태일때만 호출!
-    if(bdmode == 'L') bindList(1)}{ //😀1페이지로 나오게 값보내기
+    if(bdmode == 'L') bindList(1) //😀1페이지로 나오게 값보내기
     // 로그인상태 체크함수 호출!
     chkLogin();
+    
+    console.log('로그인:',log);
 }; ////////////// callFn //////////////
-    // 로딩체크함수 호출!
-    useEffect(callFn,[]);
 
-
+// 로딩체크함수 호출!
+useEffect(callFn,[]);
+    
     return(
         <>
         {/* 모듈코드 */}
@@ -199,7 +203,7 @@ const callFn = () => {
                 <td>
                     {
                         // 리스트모드(L)
-                        bdmode == 'L' &&
+                        bdmode == 'L' && log &&
                         <>
                             <button>
                                 <a href="#">Write</a>
