@@ -11,8 +11,7 @@ let jsn = orgdata;
 
 // 제이슨 데이터 배열정렬하기(내림차순:최신등록순번이 1번)
 jsn.sort((x,y)=>{
-    return Number(x.idx) == Number(y.idx) ? 0 : Number(x.idx) >
-    Number(y.idx) ? -1 : 1;
+    return Number(x.idx) == Number(y.idx) ? 0 : Number(x.idx) > Number(y.idx) ? -1 : 1;
 })
 
 // 제이쿼리 로드구역 함수 /////////
@@ -34,6 +33,7 @@ function Board() {
     let bdata = JSON.parse(localStorage.getItem("bdata"));
     // console.log("로컬스파싱:",bdata,
     // "/개수:",bdata.length);
+
 
     // 페이지번호 : 페이지단위별 순서번호
     // let pgnum = 1; -> 함수내 전달변수로 처리!
@@ -111,6 +111,8 @@ function Board() {
             if (i != pgtotal) pgcode += " | ";
         } /////////// for문 ///////////////
 
+        // console.log(pgcode);
+
         // 3-3. 페이징코드 넣기
         $(".paging").html(pgcode);
 
@@ -163,56 +165,45 @@ function Board() {
         let txt = $(e.target).text();
         // console.log("버튼:",txt);
 
-        // (1) 글쓰기 버튼 클릭
+        // (1)글쓰기 버튼 클릭
         if(txt=="Write"){
             // 모드 상태값 업데이트
             setBdmode('C');
-            
+
             // console.log(nowmem.unm);
 
             // 읽기전용 입력창에 기본정보 셋팅
             $(()=>{
                 $(".dtblview .name").val(nowmem.unm);
                 $(".dtblview .email").val(nowmem.eml);
-
             });
 
         } 
-        // (2) 리스트 버튼 클릭
-        else if(txt=="List") setBdmode('L');
-        // (3) 글쓰기 모드(C)일때 실행(Submit)버튼클릭
+        // (2)리스트 버튼 클릭
+        else if(txt=="List")setBdmode('L');
+        // (3)글쓰기 모드(C)일때 실행(Submit)버튼클릭
         else if(txt=="Submit" && bdmode=="C"){
 
             // 타이틀
-            let tit = $(".dtblview .subject").value();
+            let tit = $(".dtblview .subject").val();
             // 내용
-            let cont = $(".dtblview .content").value();
+            let cont = $(".dtblview .content").val();
 
 
             // 제목/내용 빈값 체크
             if(tit.trim()==''||cont.trim()==''){
                 alert("Title and content are required");
             }
-            /* 
-                {
-                    "idx" : "3",
-                    "tit" : "This is a Title3",
-                    "cont" : "I wanna talk to you now3",
-                    "att" : "",
-                    "date" : "2023-06-01",
-                    "writer" : "admin",
-                    "pwd" : "1111",
-                    "cnt" : "1"
-                },
-            */
 
 
+        } ////////////// 새로입력 ///////////
 
-        } //////////////// 새로입력 //////////////
 
         // 리스트 태그로딩구역에서 일괄호출!
         // 리스트 태그가 출력되었을때 적용됨!
         $(()=>bindList(1))
+
+
 
 
     }; ////////////// chgMode함수 ///////////////
