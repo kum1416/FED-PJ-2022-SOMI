@@ -95,14 +95,10 @@ const Layout = () => {
 
     ///////// 상단메뉴 변경 함수 ///////////////
     // .top.on 이면 메뉴가 나타남!
-    const rmCls = () => $(".top").toggleClass('on');
-        // let topA = $(".top");
-        // let isOn = topA.is(".on");
-        // if(isOn) topA.removeClass('on');
-        // else topA.addClass('on')
+    const chgMenu = () => $(".top").toggleClass('on');
 
-        // 메뉴클릭시 닫기 부가기능 함수!
-        const  rmCls = () =>  $(".top").removeClass('on');
+    // 메뉴클릭시 닫기 부가기능 함수!
+    const rmCls = () => $(".top").removeClass('on');
 
 
     return (
@@ -202,7 +198,7 @@ const Layout = () => {
                         }
                     </ul>
                     {/* 햄버거버튼 */}
-                    <button className="hambtn" onClick={rmCls}></button>
+                    <button className="hambtn" onClick={chgMenu}></button>
                 </nav>
             </header>
             {/* 2. 메인영역 */}

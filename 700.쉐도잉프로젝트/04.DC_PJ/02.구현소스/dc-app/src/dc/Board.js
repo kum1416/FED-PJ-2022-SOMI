@@ -147,6 +147,20 @@ function bindList(pgnum){ // pgnum - 페이지번호
     // 상태값 : false - 로그아웃상태 / true - 로그인상태
     const [log,setLog] = useState(false);
 
+    // 모드전환함수 ////////////////////
+    const chgMode = e => {
+        // 기본이동막기(하위a)
+        e.preventDefault();
+
+        // 하위 글자읽기
+        let txt = $(e.target).text();
+        console.log("버튼:",txt);
+        
+        if(txt=="Write") setBdmode('C');
+        else if(txt=="List") setBdbode('L');
+
+    }; //////////////// chgMode함수 ////////////////
+
 
 const callFn = () => {
     // 리스트 상태일때만 호출!
@@ -163,94 +177,107 @@ useEffect(callFn,[]);
     return(
         <>
         {/* 모듈코드 */}
-        {/* 게시판 리스트 */}
-        {/* 버튼 그룹박스 */}
-        <table className="dtbl" id="board">
-            <caption>
-                OPINION
-            </caption>
-            {/* 상단 컬럼명 표시영역 */}
-            <thead>
-                <tr>
-                    <th>Number</th>
-                    <th>Title</th>
-                    <th>Writer</th>
-                    <th>Date</th>
-                    <th>Hits</th>
-                </tr>
-            </thead>
+        {/* 1. 게시판 리스트 : 게시판 모드 'L'일때 출력 */}
+        {
+            bdmode == 'L' &&
 
-            {/* 중앙 레코드 표시부분 */}
-            <tbody>
-                <tr>
-                    <td colspan="5">There is no data.</td>
-                </tr>
-            </tbody>
+            <table className="dtbl" id="board">
+                <caption>
+                    OPINION
+                </caption>
+                {/* 상단 컬럼명 표시영역 */}
+                <thead>
+                    <tr>
+                        <th>Number</th>
+                        <th>Title</th>
+                        <th>Writer</th>
+                        <th>Date</th>
+                        <th>Hits</th>
+                    </tr>
+                </thead>
 
-            {/* 하단 페이징 표시부분 */}
-            <tfoot>
-                <tr>
-                    <td colspan="5" className="paging">
-                         {/* 페이징번호 위치  */}
-                    </td>
-                </tr>
-            </tfoot>
-        </table>
+                {/* 중앙 레코드 표시부분 */}
+                <tbody>
+                    <tr>
+                        <td colSpan="5">There is no data.</td>
+                    </tr>
+                </tbody>
+
+                {/* 하단 페이징 표시부분 */}
+                <tfoot>
+                    <tr>
+                        <td colSpan="5" className="paging">
+                            {/* 페이징번호 위치  */}
+                        </td>
+                    </tr>
+                </tfoot>
+            </table>
+        }
+
+        {/* 2. 글쓰기 테이블 : 게시판 모드 'C'일때만 출력 */}
+        {
+            bdmode == 'C' && 
+            <h1>글쓰기양~~~!</h1>
+        }
 
         <br />
+        {/* 버튼 그룹박스 */}
         <table className="dtbl btngrp">
-            <tr>
-                <td>
-                    {
-                        // 리스트모드(L)
-                        bdmode == 'L' && log &&
-                        <>
-                            <button>
-                                <a href="#">Write</a>
-                            </button>
-                        </>
-                    }
-                    {
-                        // 글쓰기모드(C) : 서브밋 + 리스트버튼
-                        bdmode == 'C' &&
-                        <>
-                            <button>
-                                <a href="#">Submit</a>
-                            </button>
-                            <button>
-                                <a href="#">List</a>
-                            </button>
-                        </>
-                    }
-                    {
-                        // 수정모드(U) : 서브밋 + 삭제 + 리스트버튼
-                        bdmode == 'U' &&
-                        <>
-                            <button>
-                                <a href="#">Submit</a>
-                            </button>
-                            <button>
-                                <a href="#">Delete</a>
-                            </button>
-                            <button>
-                                <a href="#">List</a>
-                            </button>
-                        </>
-                    }
-                    {
-                        // 읽기모드(R) : 리스트 + 수정모드버튼
-                        bdmode == 'R' &&
-                        <>
-                            <button>
-                                <a href="#">List</a>
-                            </button>
-                            <button>
-                                <a href="#">Modify</a>
-                            </button>
-                        </>
-                    }
-                </td>
-            </tr>
+            
+            <tbody>
+                <tr>
+                    <td>
+                        {
+                            // 리스트모드(L)
+                            bdmode == 'L' && log &&
+                            <>
+                                <button onClick={chgMode}>
+                                    <a href="#">Write</a>
+                                </button>
+                            </>
+                        }
+                        {
+                            // 글쓰기모드(C) : 서브밋 + 리스트버튼
+                            bdmode == 'C' &&
+                            <>
+                                <button onClick={chgMode}>
+                                    <a href="#">Submit</a>
+                                </button>
+                                <button onClick={chgMode}>
+                                    <a href="#">List</a>
+                                </button>
+                            </>
+                        }
+                        {
+                            // 수정모드(U) : 서브밋 + 삭제 + 리스트버튼
+                            bdmode == 'U' &&
+                            <>
+                                <button onClick={chgMode}>
+                                    <a href="#">Submit</a>
+                                </button>
+                                <button onClick={chgMode}>
+                                    <a href="#">Delete</a>
+                                </button>
+                                <button onClick={chgMode}>
+                                    <a href="#">List</a>
+                                </button>
+                            </>
+                        }
+                        {
+                            // 읽기모드(R) : 리스트 + 수정모드버튼
+                            bdmode == 'R' &&
+                            <>
+                                <button onClick={chgMode}>
+                                    <a href="#">List</a>
+                                </button>
+                                <button onClick={chgMode}>
+                                    <a href="#">Modify</a>
+                                </button>
+                            </>
+                        }
+                    </td>
+                </tr>
+            </tbody>
         </table>
         {/* 빈루트를 만들고 JS로드함수포함 */}
         {jqFn()}
