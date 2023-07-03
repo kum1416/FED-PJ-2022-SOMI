@@ -293,6 +293,7 @@ input:focus{
         display: block;
     }
 
+    /* 서브메뉴 */
     .smenu {
         left: 5%;
         transform: none;
