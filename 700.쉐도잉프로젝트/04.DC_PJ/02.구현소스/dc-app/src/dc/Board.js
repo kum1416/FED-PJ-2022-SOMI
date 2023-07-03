@@ -7,7 +7,13 @@ import orgdata from "./data/data.json";
 
 // 컴포넌트에서 제이슨 데이터를 담지말고
 // 반드시 바깥에서 담을것!
-let org = orgdata;
+// 초기데이터 처리는 로컬스 'bdata'가 있으면 로컬스를 가져오고
+// 없으면 제이슨 데이터를 사용하여 초기화한다!
+let org;
+if(localStorage.getItem('bdata')) 
+    org = JSON.parse(localStorage.getItem('bdata'));
+else
+    org = orgdata;
 
 // 제이슨 데이터 배열정렬하기(내림차순:최신등록순번이 1번)
 org.sort((x,y)=>{
@@ -32,7 +38,9 @@ function Board() {
 
     // 3. 로컬스토리지 데이터를 파싱하여 게시판 리스트에 넣기
     // 3-1. 로컬 스토리지 데이터 파싱하기
-    let bdata = JSON.parse(localStorage.getItem("bdata"));
+    // let bdata = JSON.parse(localStorage.getItem("bdata"));
+    // jsn변수에 Hook 상태처리했으므로 중간 파싱에 불필요함!
+
     // console.log("로컬스파싱:",bdata,
     // "/개수:",bdata.length);
 
@@ -133,7 +141,7 @@ function Board() {
     } /////////////// bindList함수 ///////////////
 
     // 현재로그인 사용자 정보
-    let [nowmem,setNowmem]=useState('');
+    let [nowmem,setNowmem] = useState('');
 
     /// 로그인 상태 체크 함수 //////////
     const chkLogin = () => {
@@ -203,6 +211,44 @@ function Board() {
             }
             // 통과시 실제 데이터 입력하기
             else{
+                // 날짜데이터처리
+                let today = new Date();
+                let yy = today.getFullYear();
+                let mm = today.getMonth();
+                mm = mm<10?"0"+mm:mm
+                let dd = today.getDate();
+                dd = dd<10?"0"+dd:dd
+
+                // 1. 원본데이터 변수할당
+                let orgtemp = jsn;
+
+                // 2. 임시변수에 입력할 객체 데이터 생성하기
+                let temp = {
+                    "idx" : jsn.length+1, // 현재개수+1
+                    "tit" : tit,
+                    "cont" : cont,
+                    "att" : "",
+                    "date" :`${yy}-${mm}-${dd}`,
+                    "writer" : nowmem.uid,
+                    "pwd" : nowmem.pwd,
+                    "cnt" : "1",
+                };
+                // 3. 원본임시변수에 데이터 push하기
+                orgtemp.push(temp);
+
+                // 4. Hook 관리변수에 최종 업데이트
+                setJsn(orgtemp);
+
+                // 5. 로컬스 변수에 반영하기
+                localStorage.setItem('bdata',JSON.stringify(jsn));
+
+                console.log(localStorage.getItem('bdata'));
+                
+                // 6. 게시판 모드 업데이트('L')
+                setBdmode('L');
+
+                // 7. 리스트 바인딩호출
+                bindList(1);
 
             }
 
