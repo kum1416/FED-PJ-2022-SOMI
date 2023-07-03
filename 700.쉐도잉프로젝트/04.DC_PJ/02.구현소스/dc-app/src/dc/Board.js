@@ -7,10 +7,10 @@ import orgdata from "./data/data.json";
 
 // 컴포넌트에서 제이슨 데이터를 담지말고
 // 반드시 바깥에서 담을것!
-let jsn = orgdata;
+let org = orgdata;
 
 // 제이슨 데이터 배열정렬하기(내림차순:최신등록순번이 1번)
-jsn.sort((x,y)=>{
+org.sort((x,y)=>{
     return Number(x.idx) == Number(y.idx) ? 0 : Number(x.idx) > Number(y.idx) ? -1 : 1;
 })
 
@@ -23,6 +23,8 @@ function Board() {
     // [ 제이슨 파일 데이터 로컬스토리지에 넣기 ]
     // 1. 변수에 제이슨 파일 문자화 하여 불러오기
     // 상단에서 불러옴!
+    // 실시간 데이터 변경 관리를 Hook변수화 하여 처리함!
+    const [jsn,setJsn] = useState(org); // 초기데이터 셋팅
 
     // 2. 로컬스토리지 변수를 설정하여 할당하기
     localStorage.setItem("bdata", JSON.stringify(jsn));
@@ -55,7 +57,12 @@ function Board() {
         // 0. 게시판 리스트 생성하기
         let blist = "";
         // 전체 레코드 개수
-        let totnum = bdata.length;
+        let totnum = jsn.length;
+
+        // 내림차순 정렬
+        jsn.sort((x,y)=>{
+            return Number(x.idx) == Number(y.idx) ? 0 : Number(x.idx) > Number(y.idx) ? -1 : 1;
+        })
 
         // 1.일반형 for문으로 특정대상 배열 데이터 가져오기
         // 데이터 순서: 번호,글제목,글쓴이,등록일자,조회수
@@ -68,13 +75,13 @@ function Board() {
                 <tr>
                     <td>${i+1}</td>
                     <td>
-                        <a href="view.html?idx=${bdata[i]["idx"]}">
-                            ${bdata[i]["tit"]}
+                        <a href="view.html?idx=${jsn[i]["idx"]}">
+                            ${jsn[i]["tit"]}
                         </a>
                     </td>
-                    <td>${bdata[i]["writer"]}</td>
-                    <td>${bdata[i]["date"]}</td>
-                    <td>${bdata[i]["cnt"]}</td>
+                    <td>${jsn[i]["writer"]}</td>
+                    <td>${jsn[i]["date"]}</td>
+                    <td>${jsn[i]["cnt"]}</td>
                 </tr>
             `;
             } //////////// if ////////////
@@ -194,7 +201,10 @@ function Board() {
             if(tit.trim()==''||cont.trim()==''){
                 alert("Title and content are required");
             }
+            // 통과시 실제 데이터 입력하기
+            else{
 
+            }
 
         } ////////////// 새로입력 ///////////
 
