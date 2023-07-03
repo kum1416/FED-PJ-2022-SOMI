@@ -149,7 +149,12 @@ function Board() {
         console.log("버튼:",txt);
 
         if(txt=="Write") setBdmode('C');
-        else if(txt=="List") {setBdmode('L');}
+        else if(txt=="List") setBdmode('L');
+
+        // 리스트 태그로딩구역에서 일괄호출!
+        // 리스트 태그가 출력되었을때 적용됨!
+        $(()=>bindList(1))
+
 
     }; ////////////// chgMode함수 ///////////////
 
@@ -208,7 +213,43 @@ function Board() {
             {/* 2. 글쓰기 테이블 : 게시판 모드 'C'일때만 출력 */}
             {
                 bdmode == 'C' &&
-                <h1>글쓰기양~~~!</h1>
+                <table class="dtblview">
+                    <caption>OPINION</caption>
+                    <tbody>
+                        <tr>
+                            <td width="100">
+                                Name
+                            </td>
+                            <td width="650">
+                                <input type="text" name="name" size="20">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Emial
+                            </td>
+                            <td>
+                                <input type="text" name="email" size="40">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Title
+                            </td>
+                            <td>
+                                <input type="text" name="subject" size="60">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Content
+                            </td>
+                            <td>
+                                <textarea name="content" cols="60" rows="10"></textarea>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
             }
 
             <br />
