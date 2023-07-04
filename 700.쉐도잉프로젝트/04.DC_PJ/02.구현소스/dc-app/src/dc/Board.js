@@ -32,8 +32,10 @@ function Board() {
     const [jsn, setJsn] = useState(org); // 초기데이터 셋팅
 
     // 현재로그인 사용자 정보 : 처음에 현재로그인 정보로 셋팅함!
+    // 삼항연산자로 셋팅된 경우에만 할당함!
     const [nowmem, setNowmem] = 
-    useState(JSON.parse(localStorage.getItem("minfo")));
+    useState(localStorage.getItem("minfo")?
+    JSON.parse(localStorage.getItem("minfo")):'');
 
     // 게시판 모드별 상태구분 Hook 변수만들기 ////
     // 모드구분값 : CRUD (Create/Read/Update/Delete)
@@ -48,7 +50,7 @@ function Board() {
     // 쓰기버튼 출력여부상태 : 로그인사용자와 글작성자 일치시 true
     const [wtmode,setWtmode] = useState(false);
 
-    // 수정모드에서 현재글 정보 셋팅하기 : [idx,uid,tit,cont]
+    // 수정모드에서 사용할 현재글 정보 셋팅하기 : [idx,uid,tit,cont]
     const [currItem,setCurrItem] = useState([]);
 
     // Hook /////////////////////////////////////
@@ -249,7 +251,7 @@ function Board() {
                 // 날짜데이터처리
                 let today = new Date();
                 let yy = today.getFullYear();
-                let mm = today.getMonth();
+                let mm = today.getMonth()+1; // 숫자월은 +1
                 mm = mm < 10 ? "0" + mm : mm;
                 let dd = today.getDate();
                 dd = dd < 10 ? "0" + dd : dd;
@@ -289,7 +291,7 @@ function Board() {
         // (4) 수정모드(U) 일때 //////////////
         else if(txt=="Modify"){ 
             // 게시판 모드 상태값 업데이트
-            setBdmode('U'); // 😀U에 해당되는애가 화면에 뿌려짐
+            setBdmode('U');
 
             // currItem 변수에 읽기모드에서 셋팅한 값을 읽어온다!
             $(()=>{
@@ -298,8 +300,8 @@ function Board() {
                 $(".updateone .content").val(currItem[3]);
             });
         
-        } //////// else if ////////
-        // (5) 수정모드에서 Submit버튼 클릭시 ///
+        } //////// else if ///////
+        // (5) 수정모드(U)에서 Submit버튼 클릭시 ////
         else if(txt=="Submit" && bdmode=='U'){
             // 1. 제목과 내용을 읽어옴!(고친내용읽기)
             let tit = $(".updateone .subject").val();
@@ -308,27 +310,27 @@ function Board() {
             // 2. 빈값 체크하기
             if(tit.trim()==''||cont.trim()==''){
                 alert("Title and content are required");
-            } //// if //////
+            } ///// if //////
             // 3. 빈값이 아니면 해당데이터 찾아서 값을 변경하기
             else{
-                // 원본데이터에서 idx값이 일치하는 레코드의 값 변경
+                // 원본데이터에서 idx값이 읽치하는 레코드의 값 변경
                 jsn.find(v=>{
                     if(v.idx==currItem[0]){
                         v.tit = tit;
                         v.cont = cont;
-                        return true; // 필수! 😀찾은 즉시 끝냄
+                        return true;// 필수!
                     } /// if ///
-                }); //// find ////
+                }); //// find //////
 
                  // 4. 게시판 모드 업데이트('L')
                  setBdmode('L');
 
                  // 5. 리스트 바인딩호출
                  bindList(1);
-            } ////// else //////
+            } ////// else //////////
             
-        } //////// else if /////////////
-        /// (6) 수정모드(U)에서 Delete버튼 클릭시 //
+        } /////////// else if ////////////
+        /// (6) 수정모드(U)에서 Delete버튼 클릭시 ///
         else if(txt=="Delete" && bdmode=='U'){
             // 확인 대화창을 띄워 OK클릭시 true처리
             if(window.confirm('Are you sure you want to delete it?')){
@@ -338,15 +340,17 @@ function Board() {
                         console.log(v.idx,currItem[0]);
                         jsn.splice(i,1);
                         return true; // 필수!
-                    } ///// if /////
-                }); //////// find ////////
+                    } ///// if //////
+                }); //////// find /////
+
                  // 2. 게시판 모드 업데이트('L')
                  setBdmode('L');
 
                  // 3. 리스트 바인딩호출
                  bindList(1);
-            } /////// if ///////
-        } //////// else if /////////////
+            } /////////// if //////////
+        } ///////////// else if //////////////
+
 
         // 리스트 태그로딩구역에서 일괄호출!
         // 리스트 태그가 출력되었을때 적용됨!
