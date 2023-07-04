@@ -27,7 +27,7 @@ function jqFn() {
 
 function Board() {
 
-    // Hook 변수 구역 ///////////////////
+    // Hook 변수 구역 ///////////////////////
     // [ 제이슨 파일 데이터 로컬스토리지에 넣기 ]
     // 1. 변수에 제이슨 파일 문자화 하여 불러오기
     // 상단에서 불러옴!
@@ -35,7 +35,7 @@ function Board() {
     const [jsn,setJsn] = useState(org); // 초기데이터 셋팅
 
     // 현재로그인 사용자 정보
-    const [nowmem,setNowmem] = useState(''); //😀처음할당이 되서 형식이 변화를 주지 않기 위해 콘스트
+    const [nowmem,setNowmem] = useState('');
 
     // 게시판 모드별 상태구분 Hook 변수만들기 ////
     // 모드구분값 : CRUD (Create/Read/Update/Delete)
@@ -48,7 +48,7 @@ function Board() {
     const [log,setLog] = useState(false);
 
 
-    // Hook ////////////////////////////////////////
+    // Hook /////////////////////////////////////
 
     // 2. 로컬스토리지 변수를 설정하여 할당하기
     localStorage.setItem("bdata", JSON.stringify(jsn));
@@ -159,7 +159,6 @@ function Board() {
     } /////////////// bindList함수 ///////////////
 
 
-
     /// 로그인 상태 체크 함수 //////////
     const chkLogin = () => {
         // 로컬스에 'minfo'가 있는지 체크
@@ -179,7 +178,6 @@ function Board() {
 
 
     
-
     // 모드전환함수 //////////////////////
     const chgMode = e => {
         // 기본이동막기(하위a)
@@ -433,6 +431,8 @@ function Board() {
                     </tbody>
                 </table>
             }
+
+
 
             <br />
             {/* 버튼 그룹박스 */}
