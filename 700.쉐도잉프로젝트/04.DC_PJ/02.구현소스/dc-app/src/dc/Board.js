@@ -198,8 +198,8 @@ function Board() {
 
             // 읽기전용 입력창에 기본정보 셋팅
             $(()=>{
-                $(".dtblview .name").val(nowmem.unm);
-                $(".dtblview .email").val(nowmem.eml);
+                $(".writeone .name").val(nowmem.unm);
+                $(".writeone .email").val(nowmem.eml);
             });
 
         } 
@@ -209,9 +209,9 @@ function Board() {
         else if(txt=="Submit" && bdmode=="C"){
 
             // 타이틀
-            let tit = $(".dtblview .subject").val();
+            let tit = $(".writeone .subject").val();
             // 내용
-            let cont = $(".dtblview .content").val();
+            let cont = $(".writeone .content").val();
 
 
             // 제목/내용 빈값 체크
@@ -328,8 +328,8 @@ function Board() {
             {/* 2. 글쓰기 테이블 : 게시판 모드 'C'일때만 출력 */}
             {
                 bdmode == 'C' &&
-                <table className="dtblview">
-                    <caption>OPINION</caption>
+                <table className="dtblview writeone">
+                    <caption>OPINION : Write</caption>
                     <tbody>
                         <tr>
                             <td width="100">
@@ -345,6 +345,73 @@ function Board() {
                             </td>
                             <td>
                                 <input type="text" className="email" size="40" readOnly />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Title
+                            </td>
+                            <td>
+                                <input type="text" className="subject" size="60" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Content
+                            </td>
+                            <td>
+                                <textarea className="content" cols="60" rows="10"></textarea>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            }
+
+            {/* 3. 읽기 테이블 : 게시판 모드 'R'일때만 출력 */}
+            {
+                bdmode == 'R' &&
+                <table className="dtblview readone">
+                    <caption>OPINION : Read</caption>
+                    <tbody>
+                        <tr>
+                            <td width="100">
+                                Name
+                            </td>
+                            <td width="650">
+                                <input type="text" className="name" size="20" readOnly />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Title
+                            </td>
+                            <td>
+                                <input type="text" className="subject" size="60" readOnly />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Content
+                            </td>
+                            <td>
+                                <textarea className="content" cols="60" rows="10" readOnly></textarea>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            }
+            {/* 4. 수정(삭제) 테이블 : 게시판 모드 'U'일때만 출력 */}
+            {
+                bdmode == 'U' &&
+                <table className="dtblview updateone">
+                    <caption>OPINION : Modify</caption>
+                    <tbody>
+                        <tr>
+                            <td width="100">
+                                Name
+                            </td>
+                            <td width="650">
+                                <input type="text" className="name" size="20" readOnly />
                             </td>
                         </tr>
                         <tr>
