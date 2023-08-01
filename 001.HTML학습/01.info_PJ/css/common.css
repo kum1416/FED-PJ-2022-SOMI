@@ -65,7 +65,7 @@ https://www.w3schools.com/css/css_boxmodel.asp
 예) div a {} -> div 하위의 모든 a요소들
 
 7. 직계자식 선택자 : > (왼쪽꺾쇠)
-예) header>a{} -> header 바로아래 a요소
+예) header>a{} -> header 바로아래 a요소 😀사이간격은 상관없음!
 
 8. 형제선택자 : +
 예) div+div{} -> 앞에 형제div가 있는 div선택
@@ -176,17 +176,18 @@ a{
   font-weight: normal;
   /* font-weight: bold; */
 
-  /* 3. 글자크기 :
+  /* 3. 글자크기 fz :
     font-size
     - 글자단위: pt, px, em, rem, vw, vh */
   font-size: 50px;
 
-  /* 4. 글자줄간격 : 
+  /* 4. 글자줄간격 lh : 
     line-height 
     (글이 여러줄일때 사이간격용
     또는 글자 박스에서 세로중앙정렬시)
+    😀 버튼 만들때 이 박스에 중간에 위치하고 싶다? 높이값만큼 주면됨!
     - 단위없으면 배수*/
-  /* line-height: 1.7; */
+  /* line-height: 1.7; 😀 보통 1.7, 1.8 많이씀! */
 
   /* 5. 글자체 : ff
     font-family 
@@ -253,7 +254,7 @@ a{
   /* 글자체 */
   font-family: "Chakra Petch", sans-serif;
   /* address는 기본 이탤릭 이므로 해제하기 */
-  font-style: normal;
+  font-style: normal; /* 😀fsn */
   /* 글자색 */
   color: #444;
   /* 글자크기 */
